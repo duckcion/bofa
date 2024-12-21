@@ -11053,6 +11053,11 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->nextInstr;
             return;
         }
+    case VARIOUS_EERIE_SPELL_PP_REDUCE:
+    {
+        break;
+    }
+        
     } // End of switch (cmd->id)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
