@@ -205,4 +205,6 @@ A Discord-based ROM hacking community that has many members who hack using the d
 [Click here to join the RHH Discord Server!](https://discord.gg/6CzjAG6GZk)
 
 
-I hate git 
+I hate git borger 
+wow this is annoying
+garett borger lets get kolaches
