@@ -4430,6 +4430,16 @@
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/StarterRoom/border.bin",
       "blockdata_filepath": "data/layouts/StarterRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_LOST_CAVE",
+      "name": "LostCave_Layout",
+      "width": 15,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/LostCave/border.bin",
+      "blockdata_filepath": "data/layouts/LostCave/map.bin"
     }
   ]
 }
