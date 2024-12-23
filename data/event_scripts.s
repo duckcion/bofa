@@ -1155,3 +1155,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/TrainerGrove/scripts.inc"
 
 	.include "data/maps/StarterRoom/scripts.inc"
+
+	.include "data/maps/LostCave/scripts.inc"
