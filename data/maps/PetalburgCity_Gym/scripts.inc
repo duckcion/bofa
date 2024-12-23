@@ -63,7 +63,7 @@ PetalburgCity_Gym_EventScript_CheckNormanForRematch::
 	return
 
 PetalburgCity_Gym_EventScript_DontMoveNormanToFront::
-	setvar VAR_PETALBURG_GYM_STATE, 8
+	//setvar VAR_PETALBURG_GYM_STATE, 8
 	end
 
 PetalburgCity_Gym_OnWarp:
@@ -107,6 +107,7 @@ PetalburgCity_Gym_EventScript_TurnPlayerNorth::
 PetalburgCity_Gym_EventScript_Norman::
 	lock
 	faceplayer
+	setvar VAR_PETALBURG_GYM_STATE, 6
 	switch VAR_PETALBURG_GYM_STATE
 	// case 2, PetalburgCity_Gym_EventScript_NormanNoBadges
 	// case 3, PetalburgCity_Gym_EventScript_NormanOneBadge
@@ -144,7 +145,7 @@ PetalburgCity_Gym_EventScript_Norman::
 // 	goto PetalburgCity_Gym_EventScript_BeginWallyTutorial
 // 	end
 
-// PetalburgCity_Gym_EventScript_BeginWallyTutorial::
+PetalburgCity_Gym_EventScript_BeginWallyTutorial::
 // 	addobject LOCALID_WALLY
 // 	playse SE_DOOR
 // 	call_if_eq VAR_0x8008, 0, PetalburgCity_Gym_EventScript_WallyArriveSouth
@@ -186,7 +187,7 @@ PetalburgCity_Gym_EventScript_Norman::
 // 	removeobject LOCALID_WALLY
 // 	setflag FLAG_HIDE_PETALBURG_CITY_WALLYS_MOM
 // 	setvar VAR_PETALBURG_GYM_STATE, 1
-// 	setvar VAR_PETALBURG_CITY_STATE, 2
+	setvar VAR_PETALBURG_CITY_STATE, 2
 // 	clearflag FLAG_HIDE_PETALBURG_CITY_WALLY
 // 	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
 // 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL
