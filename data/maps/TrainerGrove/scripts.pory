@@ -1,37 +1,35 @@
 mapscripts TrainerGrove_MapScripts {
-    ...
+    MAP_SCRIPT_ON_TRANSITION: TrainerGrove_OnTransition
 }
 
-script MyScript {
-    ...
+script TrainerGrove_OnTransition {
+    end
 }
-
-
-raw`
-TrainerGrove_MapScripts::
-	.byte 0
-`
 
 script TrainerGrove_EventScript_TrainerOne{
     lockall
     trainerbattle_single(TRAINER_TRAINERGROVET1, TrainerGrove_Text_Trainer1Intro, TrainerGrove_Text_Trainer1Outro)
+    releaseall
     end
 }
 
 script TrainerGrove_EventScript_TrainerTwo{
     lockall
     trainerbattle_single(TRAINER_TRAINERGROVET2, TrainerGrove_Text_Trainer2Intro, TrainerGrove_Text_Trainer2Outro)
+    releaseall
     end
 }
 
 script TrainerGrove_EventScript_TrainerThree{
     lockall
     trainerbattle_single(TRAINER_TRAINERGROVET3, TrainerGrove_Text_Trainer3Intro, TrainerGrove_Text_Trainer3Outro)
+    releaseall
     end
 }
 
 script TrainerGrove_EventScript_TrainerFour{
     lockall
     trainerbattle_single(TRAINER_TRAINERGROVET4, TrainerGrove_Text_Trainer4Intro, TrainerGrove_Text_Trainer4Outro)
+    releaseall
     end
 }
