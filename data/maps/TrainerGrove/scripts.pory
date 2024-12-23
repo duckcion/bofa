@@ -3,23 +3,30 @@ mapscripts TrainerGrove_MapScripts {
 }
 
 script TrainerGrove_EventScript_TrainerOne{
-    foijdsaofijd
     trainerbattle_single(TRAINER_TRAINERGROVET1, TrainerGrove_Text_Trainer1Intro, TrainerGrove_Text_Trainer1Outro)
+    msgbox(TrainerGrove_Text_Trainer1PostBattle, MSGBOX_DEFAULT)
+    release
     end
 }
 
 script TrainerGrove_EventScript_TrainerTwo{
     trainerbattle_single(TRAINER_TRAINERGROVET2, TrainerGrove_Text_Trainer2Intro, TrainerGrove_Text_Trainer2Outro)
+    msgbox(TrainerGrove_Text_Trainer2PostBattle, MSGBOX_DEFAULT)
+    release
     end
 }
 
 script TrainerGrove_EventScript_TrainerThree{
     trainerbattle_single(TRAINER_TRAINERGROVET3, TrainerGrove_Text_Trainer3Intro, TrainerGrove_Text_Trainer3Outro)
+    msgbox(TrainerGrove_Text_Trainer3PostBattle, MSGBOX_DEFAULT)
+    release
     end
 }
 
 script TrainerGrove_EventScript_TrainerFour{
     trainerbattle_single(TRAINER_TRAINERGROVET4, TrainerGrove_Text_Trainer4Intro, TrainerGrove_Text_Trainer4Outro)
+    msgbox(TrainerGrove_Text_Trainer4PostBattle, MSGBOX_DEFAULT)
+    release
     end
 }
 
@@ -31,6 +38,10 @@ text TrainerGrove_Text_Trainer1Outro{
     "Your gyatt was too much for me to handle."
 }
 
+text TrainerGrove_Text_Trainer1PostBattle{
+    "Damn, you're the goat."
+}
+
 text TrainerGrove_Text_Trainer2Intro{
     "Uhh I think I'm in the wrong place."
 }
@@ -39,11 +50,19 @@ text TrainerGrove_Text_Trainer2Outro{
     "Damn, could you at least get me unstuck stepbro?"
 }
 
+text TrainerGrove_Text_Trainer2PostBattle{
+    "Arrgghhhh! I'm STUCK!"
+}
+
 text TrainerGrove_Text_Trainer3Intro{
     "IMA BOUNCE ON YOU!"
 }
 
 text TrainerGrove_Text_Trainer3Outro{
+    "IM BOUNCING, IM BOUNCING"
+}
+
+text TrainerGrove_Text_Trainer3PostBattle{
     "This champ sucks, I'ma play Nunu instead."
 }
 
@@ -53,4 +72,8 @@ text TrainerGrove_Text_Trainer4Intro{
 
 text TrainerGrove_Text_Trainer4Outro{
     "After this loss, I'm going to Ohio."
+}
+
+text TrainerGrove_Text_Trainer4PostBattle{
+    "OHIO OHIO OHIO."
 }
