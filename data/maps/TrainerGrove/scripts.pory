@@ -1,35 +1,56 @@
 mapscripts TrainerGrove_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION: TrainerGrove_OnTransition
-}
-
-script TrainerGrove_OnTransition {
-    end
+    // MAP_SCRIPT_ON_TRANSITION: TrainerGrove_OnTransition
 }
 
 script TrainerGrove_EventScript_TrainerOne{
-    lockall
+    foijdsaofijd
     trainerbattle_single(TRAINER_TRAINERGROVET1, TrainerGrove_Text_Trainer1Intro, TrainerGrove_Text_Trainer1Outro)
-    releaseall
     end
 }
 
 script TrainerGrove_EventScript_TrainerTwo{
-    lockall
     trainerbattle_single(TRAINER_TRAINERGROVET2, TrainerGrove_Text_Trainer2Intro, TrainerGrove_Text_Trainer2Outro)
-    releaseall
     end
 }
 
 script TrainerGrove_EventScript_TrainerThree{
-    lockall
     trainerbattle_single(TRAINER_TRAINERGROVET3, TrainerGrove_Text_Trainer3Intro, TrainerGrove_Text_Trainer3Outro)
-    releaseall
     end
 }
 
 script TrainerGrove_EventScript_TrainerFour{
-    lockall
     trainerbattle_single(TRAINER_TRAINERGROVET4, TrainerGrove_Text_Trainer4Intro, TrainerGrove_Text_Trainer4Outro)
-    releaseall
     end
+}
+
+text TrainerGrove_Text_Trainer1Intro{
+    "Bring that ass here boy!"
+}
+
+text TrainerGrove_Text_Trainer1Outro{
+    "Your gyatt was too much for me to handle."
+}
+
+text TrainerGrove_Text_Trainer2Intro{
+    "Uhh I think I'm in the wrong place."
+}
+
+text TrainerGrove_Text_Trainer2Outro{
+    "Damn, could you at least get me unstuck stepbro?"
+}
+
+text TrainerGrove_Text_Trainer3Intro{
+    "IMA BOUNCE ON YOU!"
+}
+
+text TrainerGrove_Text_Trainer3Outro{
+    "This champ sucks, I'ma play Nunu instead."
+}
+
+text TrainerGrove_Text_Trainer4Intro{
+    "Your gyat is gonna get rizzled."
+}
+
+text TrainerGrove_Text_Trainer4Outro{
+    "After this loss, I'm going to Ohio."
 }

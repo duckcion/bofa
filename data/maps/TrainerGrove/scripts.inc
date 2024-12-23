@@ -1,49 +1,59 @@
 TrainerGrove_MapScripts::
-# 2 "data/maps/TrainerGrove/scripts.pory"
-	map_script MAP_SCRIPT_ON_TRANSITION, TrainerGrove_OnTransition
 	.byte 0
 
 
-TrainerGrove_OnTransition::
-	end
-
-
 TrainerGrove_EventScript_TrainerOne::
-# 10 "data/maps/TrainerGrove/scripts.pory"
-	lockall
-# 11 "data/maps/TrainerGrove/scripts.pory"
+# 6 "data/maps/TrainerGrove/scripts.pory"
 	trainerbattle_single TRAINER_TRAINERGROVET1, TrainerGrove_Text_Trainer1Intro, TrainerGrove_Text_Trainer1Outro
-# 12 "data/maps/TrainerGrove/scripts.pory"
-	releaseall
 	end
 
 
 TrainerGrove_EventScript_TrainerTwo::
-# 17 "data/maps/TrainerGrove/scripts.pory"
-	lockall
-# 18 "data/maps/TrainerGrove/scripts.pory"
+# 11 "data/maps/TrainerGrove/scripts.pory"
 	trainerbattle_single TRAINER_TRAINERGROVET2, TrainerGrove_Text_Trainer2Intro, TrainerGrove_Text_Trainer2Outro
-# 19 "data/maps/TrainerGrove/scripts.pory"
-	releaseall
 	end
 
 
 TrainerGrove_EventScript_TrainerThree::
-# 24 "data/maps/TrainerGrove/scripts.pory"
-	lockall
-# 25 "data/maps/TrainerGrove/scripts.pory"
+# 16 "data/maps/TrainerGrove/scripts.pory"
 	trainerbattle_single TRAINER_TRAINERGROVET3, TrainerGrove_Text_Trainer3Intro, TrainerGrove_Text_Trainer3Outro
-# 26 "data/maps/TrainerGrove/scripts.pory"
-	releaseall
 	end
 
 
 TrainerGrove_EventScript_TrainerFour::
-# 31 "data/maps/TrainerGrove/scripts.pory"
-	lockall
-# 32 "data/maps/TrainerGrove/scripts.pory"
+# 21 "data/maps/TrainerGrove/scripts.pory"
 	trainerbattle_single TRAINER_TRAINERGROVET4, TrainerGrove_Text_Trainer4Intro, TrainerGrove_Text_Trainer4Outro
-# 33 "data/maps/TrainerGrove/scripts.pory"
-	releaseall
 	end
 
+
+TrainerGrove_Text_Trainer1Intro::
+# 25 "data/maps/TrainerGrove/scripts.pory"
+	.string "Bring that ass here boy!$"
+
+TrainerGrove_Text_Trainer1Outro::
+# 29 "data/maps/TrainerGrove/scripts.pory"
+	.string "Your gyatt was too much for me to handle.$"
+
+TrainerGrove_Text_Trainer2Intro::
+# 33 "data/maps/TrainerGrove/scripts.pory"
+	.string "Uhh I think I'm in the wrong place.$"
+
+TrainerGrove_Text_Trainer2Outro::
+# 37 "data/maps/TrainerGrove/scripts.pory"
+	.string "Damn, could you at least get me unstuck stepbro?$"
+
+TrainerGrove_Text_Trainer3Intro::
+# 41 "data/maps/TrainerGrove/scripts.pory"
+	.string "IMA BOUNCE ON YOU!$"
+
+TrainerGrove_Text_Trainer3Outro::
+# 45 "data/maps/TrainerGrove/scripts.pory"
+	.string "This champ sucks, I'ma play Nunu instead.$"
+
+TrainerGrove_Text_Trainer4Intro::
+# 49 "data/maps/TrainerGrove/scripts.pory"
+	.string "Your gyat is gonna get rizzled.$"
+
+TrainerGrove_Text_Trainer4Outro::
+# 53 "data/maps/TrainerGrove/scripts.pory"
+	.string "After this loss, I'm going to Ohio.$"
