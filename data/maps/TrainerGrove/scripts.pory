@@ -1,7 +1,17 @@
+mapscripts TrainerGrove_MapScripts {
+    ...
+}
+
+script MyScript {
+    ...
+}
+
+
 raw`
 TrainerGrove_MapScripts::
 	.byte 0
 `
+
 script TrainerGrove_EventScript_TrainerOne{
     lockall
     trainerbattle_single(TRAINER_TRAINERGROVET1, TrainerGrove_Text_Trainer1Intro, TrainerGrove_Text_Trainer1Outro)
