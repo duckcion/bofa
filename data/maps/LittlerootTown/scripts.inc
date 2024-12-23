@@ -2051,6 +2051,20 @@ LittlerootTown_EventScript_NewSign::
 	return
 
 
+LittlerootTown_EventScript_Garett_Borger::
+# 1032 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1033 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_EventScript_Garett_Borger_Text_0
+# 1034 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
 LittlerootTown_EventScript_NewSign_Text_0:
 # 1027 "data/maps/LittlerootTown/scripts.pory"
 	.string "Nick Fat$"
+
+LittlerootTown_EventScript_Garett_Borger_Text_0:
+# 1033 "data/maps/LittlerootTown/scripts.pory"
+	.string "Garett likes Borger -Mack$"

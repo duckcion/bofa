@@ -1027,3 +1027,9 @@ script LittlerootTown_EventScript_NewSign {
     msgbox("Nick Fat")
     releaseall
 }
+
+script LittlerootTown_EventScript_Garett_Borger {
+    lockall
+    msgbox("Garett likes Borger -Mack")
+    releaseall
+}
