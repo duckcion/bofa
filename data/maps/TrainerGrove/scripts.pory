@@ -3,7 +3,6 @@ mapscripts TrainerGrove_MapScripts {
 }
 
 script TrainerGrove_EventScript_TrainerOne{
-    foijdsaofijd
     trainerbattle_single(TRAINER_TRAINERGROVET1, TrainerGrove_Text_Trainer1Intro, TrainerGrove_Text_Trainer1Outro)
     end
 }

@@ -293,6 +293,20 @@
       "elevation": 0,
       "dest_map": "MAP_ALTERING_CAVE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_FOREST",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
