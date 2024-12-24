@@ -41,6 +41,7 @@ TrainerGrove_EventScript_TrainerFour::
 	release
 	end
 
+<<<<<<< HEAD
 
 TrainerGrove_Text_Trainer1Intro::
 # 33 "data/maps/TrainerGrove/scripts.pory"
@@ -89,3 +90,5 @@ TrainerGrove_Text_Trainer4Outro::
 TrainerGrove_Text_Trainer4PostBattle::
 # 77 "data/maps/TrainerGrove/scripts.pory"
 	.string "OHIO OHIO OHIO.$"
+=======
+>>>>>>> garett2

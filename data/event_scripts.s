@@ -1157,3 +1157,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/StarterRoom/scripts.inc"
 
 	.include "data/maps/LostCave/scripts.inc"
+
+	.include "data/maps/ViridianForest/scripts.inc"

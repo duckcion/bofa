@@ -432,7 +432,8 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "LostCave"
+    "LostCave",
+    "ViridianForest"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

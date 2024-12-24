@@ -9592,3 +9592,35 @@ VSSeeker_Text_TrainersNotReady::
 	.string "to be ready for battle.\p"
 # 4797 "data/text/trainers.pory"
 	.string "Let's wait till later.{PAUSE_UNTIL_PRESS}$"
+
+TrainerGrove_Text_Trainer1Intro::
+# 4801 "data/text/trainers.pory"
+	.string "Bring that ass here boy!$"
+
+TrainerGrove_Text_Trainer1Outro::
+# 4805 "data/text/trainers.pory"
+	.string "Your gyatt was too much for me to handle.$"
+
+TrainerGrove_Text_Trainer2Intro::
+# 4809 "data/text/trainers.pory"
+	.string "Uhh I think I'm in the wrong place.$"
+
+TrainerGrove_Text_Trainer2Outro::
+# 4813 "data/text/trainers.pory"
+	.string "Damn, could you at least get me unstuck stepbro?$"
+
+TrainerGrove_Text_Trainer3Intro::
+# 4817 "data/text/trainers.pory"
+	.string "IMA BOUNCE ON YOU!$"
+
+TrainerGrove_Text_Trainer3Outro::
+# 4821 "data/text/trainers.pory"
+	.string "This champ sucks, I'ma play Nunu instead.$"
+
+TrainerGrove_Text_Trainer4Intro::
+# 4825 "data/text/trainers.pory"
+	.string "Your gyat is gonna get rizzled.$"
+
+TrainerGrove_Text_Trainer4Outro::
+# 4829 "data/text/trainers.pory"
+	.string "After this loss, I'm going to Ohio.$"
