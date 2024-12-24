@@ -22,34 +22,3 @@ script TrainerGrove_EventScript_TrainerFour{
     end
 }
 
-text TrainerGrove_Text_Trainer1Intro{
-    "Bring that ass here boy!"
-}
-
-text TrainerGrove_Text_Trainer1Outro{
-    "Your gyatt was too much for me to handle."
-}
-
-text TrainerGrove_Text_Trainer2Intro{
-    "Uhh I think I'm in the wrong place."
-}
-
-text TrainerGrove_Text_Trainer2Outro{
-    "Damn, could you at least get me unstuck stepbro?"
-}
-
-text TrainerGrove_Text_Trainer3Intro{
-    "IMA BOUNCE ON YOU!"
-}
-
-text TrainerGrove_Text_Trainer3Outro{
-    "This champ sucks, I'ma play Nunu instead."
-}
-
-text TrainerGrove_Text_Trainer4Intro{
-    "Your gyat is gonna get rizzled."
-}
-
-text TrainerGrove_Text_Trainer4Outro{
-    "After this loss, I'm going to Ohio."
-}
