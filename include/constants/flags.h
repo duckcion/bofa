@@ -43,8 +43,8 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
+#define FLAG_GAVE_NORMAN_OVAL_STONE    0x20 // Set when the player hands Norman the Oval Stone from Petalburg Coast
+#define FLAG_ITEM_PETALBURG_COAST_OVAL_STONE    0x21 // Item ball flag for the Oval Stone on Petalburg Coast
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag

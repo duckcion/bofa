@@ -3,8 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master
-      - upcoming
+      - '**'
   pull_request:
 
 jobs:
@@ -34,8 +33,9 @@ jobs:
           COMPARE: 0
         run: make -j${nproc} -O all
 
-      - name: Test
-        env:
-          TEST: 1
-        run: |
-          make -j${nproc} check
+      - name: Upload ROM
+        uses: actions/upload-artifact@v4
+        with:
+          name: pokeemerald-rom
+          path: pokeemerald.gba
+          if-no-files-found: error

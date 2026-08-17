@@ -4422,6 +4422,16 @@
       "blockdata_filepath": "data/layouts/TrainerGrove/map.bin"
     },
     {
+      "id": "LAYOUT_PETALBURG_COAST",
+      "name": "PetalburgCoast_Layout",
+      "width": 40,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/PetalburgCoast/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgCoast/map.bin"
+    },
+    {
       "id": "LAYOUT_STARTER_ROOM",
       "name": "StarterRoom_Layout",
       "width": 9,

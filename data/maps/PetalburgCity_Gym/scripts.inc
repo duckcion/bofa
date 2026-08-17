@@ -107,6 +107,23 @@ PetalburgCity_Gym_EventScript_TurnPlayerNorth::
 PetalburgCity_Gym_EventScript_Norman::
 	lock
 	faceplayer
+	goto_if_set FLAG_GAVE_NORMAN_OVAL_STONE, PetalburgCity_Gym_EventScript_NormanReadyToBattle
+	checkitem ITEM_OVAL_STONE, 1
+	goto_if_eq VAR_RESULT, TRUE, PetalburgCity_Gym_EventScript_NormanReceiveOvalStone
+	msgbox PetalburgCity_Gym_Text_NormanSendToPetalburgCoast, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PetalburgCity_Gym_EventScript_NormanReceiveOvalStone::
+	msgbox PetalburgCity_Gym_Text_NormanTakesOvalStone, MSGBOX_DEFAULT
+	removeitem ITEM_OVAL_STONE, 1
+	setflag FLAG_GAVE_NORMAN_OVAL_STONE
+	closemessage
+	goto PetalburgCity_Gym_EventScript_NormanReadyToBattle
+	end
+
+PetalburgCity_Gym_EventScript_NormanReadyToBattle::
 	setvar VAR_PETALBURG_GYM_STATE, 6
 	switch VAR_PETALBURG_GYM_STATE
 	// case 2, PetalburgCity_Gym_EventScript_NormanNoBadges
@@ -1156,6 +1173,24 @@ PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon:
 	.string "become a TRAINER like me, {PLAYER}.\p"
 	.string "That's great news!\n"
 	.string "I'll be looking forward to it!$"
+
+PetalburgCity_Gym_Text_NormanSendToPetalburgCoast:
+	.string "DAD: Hold on now, {PLAYER}.\p"
+	.string "I'm not about to battle just any\n"
+	.string "TRAINER who wanders through that\l"
+	.string "door.\p"
+	.string "There's an OVAL STONE that washed up\n"
+	.string "somewhere along PETALBURG COAST,\l"
+	.string "past the grove behind town.\p"
+	.string "Find it and bring it back to me.\n"
+	.string "Then I'll know you're serious.$"
+
+PetalburgCity_Gym_Text_NormanTakesOvalStone:
+	.string "DAD: Heh, you actually found it.\n"
+	.string "Not bad, {PLAYER}.\p"
+	.string "Alright, that's enough waiting around.\n"
+	.string "Let's see what you and your\l"
+	.string "POKéMON can really do!$"
 
 PetalburgCity_Gym_Text_WallyIdLikeAPokemon:
 	.string "Um… I…\n"

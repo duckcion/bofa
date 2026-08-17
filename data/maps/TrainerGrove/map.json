@@ -17,6 +17,11 @@
       "map": "MAP_PETALBURG_CITY",
       "offset": -4,
       "direction": "up"
+    },
+    {
+      "map": "MAP_PETALBURG_COAST",
+      "offset": -10,
+      "direction": "down"
     }
   ],
   "object_events": [
