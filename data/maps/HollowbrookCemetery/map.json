@@ -2,7 +2,7 @@
   "id": "MAP_HOLLOWBROOK_CEMETERY",
   "name": "HollowbrookCemetery",
   "layout": "LAYOUT_HOLLOWBROOK_CEMETERY",
-  "music": "MUS_MTPYRE",
+  "music": "MUS_MT_PYRE_EXTERIOR",
   "region_map_section": "MAPSEC_HOLLOWBROOK_CEMETERY",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",

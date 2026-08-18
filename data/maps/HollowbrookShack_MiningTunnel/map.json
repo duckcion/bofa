@@ -2,7 +2,7 @@
   "id": "MAP_HOLLOWBROOK_SHACK_MINING_TUNNEL",
   "name": "HollowbrookShack_MiningTunnel",
   "layout": "LAYOUT_HOLLOWBROOK_SHACK_MINING_TUNNEL",
-  "music": "MUS_RUSTURF_TUNNEL",
+  "music": "MUS_PETALBURG_WOODS",
   "region_map_section": "MAPSEC_HOLLOWBROOK_SHACK",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

@@ -2,7 +2,7 @@
   "id": "MAP_HOLLOWBROOK",
   "name": "Hollowbrook",
   "layout": "LAYOUT_HOLLOWBROOK",
-  "music": "MUS_LAVARIDGE_TOWN",
+  "music": "MUS_OLDALE",
   "region_map_section": "MAPSEC_HOLLOWBROOK",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",

@@ -2,7 +2,7 @@
   "id": "MAP_WRAITHWOOD_FOREST",
   "name": "WraithwoodForest",
   "layout": "LAYOUT_WRAITHWOOD_FOREST",
-  "music": "MUS_MTPYRE",
+  "music": "MUS_MT_PYRE_EXTERIOR",
   "region_map_section": "MAPSEC_WRAITHWOOD_FOREST",
   "requires_flash": false,
   "weather": "WEATHER_FOG_HORIZONTAL",
