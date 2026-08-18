@@ -4442,6 +4442,56 @@
       "blockdata_filepath": "data/layouts/GraniteShore/map.bin"
     },
     {
+      "id": "LAYOUT_WRAITHWOOD_FOREST",
+      "name": "WraithwoodForest_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/WraithwoodForest/border.bin",
+      "blockdata_filepath": "data/layouts/WraithwoodForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOLLOWBROOK",
+      "name": "Hollowbrook_Layout",
+      "width": 24,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/Hollowbrook/border.bin",
+      "blockdata_filepath": "data/layouts/Hollowbrook/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOLLOWBROOK_CEMETERY",
+      "name": "HollowbrookCemetery_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MtPyre",
+      "border_filepath": "data/layouts/HollowbrookCemetery/border.bin",
+      "blockdata_filepath": "data/layouts/HollowbrookCemetery/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOLLOWBROOK_SHACK",
+      "name": "HollowbrookShack_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/HollowbrookShack/border.bin",
+      "blockdata_filepath": "data/layouts/HollowbrookShack/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOLLOWBROOK_SHACK_MINING_TUNNEL",
+      "name": "HollowbrookShack_MiningTunnel_Layout",
+      "width": 20,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/HollowbrookShack_MiningTunnel/border.bin",
+      "blockdata_filepath": "data/layouts/HollowbrookShack_MiningTunnel/map.bin"
+    },
+    {
       "id": "LAYOUT_STARTER_ROOM",
       "name": "StarterRoom_Layout",
       "width": 9,

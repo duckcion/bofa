@@ -1,0 +1,35 @@
+{
+  "id": "MAP_HOLLOWBROOK_SHACK_MINING_TUNNEL",
+  "name": "HollowbrookShack_MiningTunnel",
+  "layout": "LAYOUT_HOLLOWBROOK_SHACK_MINING_TUNNEL",
+  "music": "MUS_RUSTURF_TUNNEL",
+  "region_map_section": "MAPSEC_HOLLOWBROOK_SHACK",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 2,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_HOLLOWBROOK_SHACK",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 18,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_RUSTBORO_CITY",
+      "dest_warp_id": "12"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

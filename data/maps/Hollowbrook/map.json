@@ -1,0 +1,39 @@
+{
+  "id": "MAP_HOLLOWBROOK",
+  "name": "Hollowbrook",
+  "layout": "LAYOUT_HOLLOWBROOK",
+  "music": "MUS_LAVARIDGE_TOWN",
+  "region_map_section": "MAPSEC_HOLLOWBROOK",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_WRAITHWOOD_FOREST",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_HOLLOWBROOK_CEMETERY",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 12,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_HOLLOWBROOK_SHACK",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

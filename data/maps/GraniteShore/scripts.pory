@@ -1,2 +1,35 @@
 mapscripts GraniteShore_MapScripts {
 }
+
+// NOTE: This is a reference copy only — this project does not auto-compile
+// .pory to .inc, so the real, authoritative script lives in scripts.inc.
+// Keep both in sync by hand when editing.
+
+script GraniteShore_EventScript_RancherAndy {
+	lock
+	faceplayer
+	if (flag(FLAG_RECEIVED_RANCHER_ANDY_GIFT) == true) {
+		msgbox(GraniteShore_Text_RancherAndyAlreadyGiven)
+		release
+		return
+	}
+	msgbox(GraniteShore_Text_RancherAndyIntro)
+	msgbox(GraniteShore_Text_RancherAndyOffer, MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO) {
+		msgbox(GraniteShore_Text_RancherAndyDecline)
+		release
+		return
+	}
+	getpartysize
+	copyvar(VAR_0x8008, VAR_RESULT)
+	random(3)
+	switch (var(VAR_RESULT)) {
+		case 0: goto GraniteShore_EventScript_RancherAndyTauros
+		case 1: goto GraniteShore_EventScript_RancherAndyMiltank
+		case 2: goto GraniteShore_EventScript_RancherAndyBouffalant
+	}
+}
+
+// Each branch below gives a level 20, all-31-IV mon, then (if it made it into
+// the party) tags its met location as MAPSEC_RANCHER_ANDY instead of Granite
+// Shore, so the summary screen reads "met at Rancher Andy" specifically.

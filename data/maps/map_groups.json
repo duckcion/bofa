@@ -95,7 +95,12 @@
     "Underwater_Route125",
     "TrainerGrove",
     "PetalburgCoast",
-    "GraniteShore"
+    "GraniteShore",
+    "WraithwoodForest",
+    "Hollowbrook",
+    "HollowbrookCemetery",
+    "HollowbrookShack",
+    "HollowbrookShack_MiningTunnel"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

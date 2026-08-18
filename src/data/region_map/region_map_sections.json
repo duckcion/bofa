@@ -1734,6 +1734,46 @@
       "y": 0,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_RANCHER_ANDY",
+      "name": "RANCHER ANDY",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_WRAITHWOOD_FOREST",
+      "name": "WRAITHWOOD FOREST",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_HOLLOWBROOK",
+      "name": "HOLLOWBROOK",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_HOLLOWBROOK_CEMETERY",
+      "name": "HOLLOWBROOK CEMETERY",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_HOLLOWBROOK_SHACK",
+      "name": "HOLLOWBROOK SHACK",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
     }
   ]
 }

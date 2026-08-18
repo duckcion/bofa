@@ -217,7 +217,12 @@
 #define MAPSEC_TRAINER_GROVE                0xD5
 #define MAPSEC_PETALBURG_COAST              0xD6
 #define MAPSEC_GRANITE_SHORE                0xD7
-#define MAPSEC_NONE                         0xD8
+#define MAPSEC_RANCHER_ANDY                 0xD8
+#define MAPSEC_WRAITHWOOD_FOREST            0xD9
+#define MAPSEC_HOLLOWBROOK                  0xDA
+#define MAPSEC_HOLLOWBROOK_CEMETERY         0xDB
+#define MAPSEC_HOLLOWBROOK_SHACK            0xDC
+#define MAPSEC_NONE                         0xDD
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE
