@@ -28,6 +28,10 @@ jobs:
         # gcc-arm-none-eabi is only needed for the modern build
         # as an alternative to dkP
 
+      - name: Patch broken nullptr_t typedef in devkitARM stddef.h
+        run: |
+          find /opt/devkitpro/devkitARM/lib/gcc/arm-none-eabi -name stddef.h -print -exec sed -i '/typedef __typeof__[[:space:]]*(nullptr) nullptr_t;/d' {} \;
+
       - name: ROM
         env:
           COMPARE: 0
