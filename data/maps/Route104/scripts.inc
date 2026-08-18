@@ -1170,3 +1170,16 @@ Route104_Text_BrendanPostBattle:
 	.string "making POKéMON battle.\p"
 	.string "Like MR. BRINEY, it's important to\n"
 	.string "become friends with your POKéMON.$"
+
+Route104_EventScript_PetalburgWoodsBlocked::
+	lock
+	faceplayer
+	msgbox Route104_Text_PetalburgWoodsBlocked, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_Text_PetalburgWoodsBlocked:
+	.string "HIKER: Whoa, hold up!\n"
+	.string "PETALBURG WOODS is closed off for now.\p"
+	.string "Something's not right in there…\n"
+	.string "best steer clear till it's sorted out.$"

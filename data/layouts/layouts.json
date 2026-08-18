@@ -4432,6 +4432,16 @@
       "blockdata_filepath": "data/layouts/PetalburgCoast/map.bin"
     },
     {
+      "id": "LAYOUT_GRANITE_SHORE",
+      "name": "GraniteShore_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/GraniteShore/border.bin",
+      "blockdata_filepath": "data/layouts/GraniteShore/map.bin"
+    },
+    {
       "id": "LAYOUT_STARTER_ROOM",
       "name": "StarterRoom_Layout",
       "width": 9,

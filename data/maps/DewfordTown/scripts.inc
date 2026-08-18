@@ -801,3 +801,77 @@ DewfordTown_Text_YeahDefinitionOfInRightNow:
 	.string "Yeah, absolutely right!\p"
 	.string "“{STR_VAR_1}” is the\n"
 	.string "definition of “in” right now.$"
+
+DewfordTown_EventScript_RanchGift::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_DEWFORD_GIFT_MON, DewfordTown_EventScript_RanchGiftAlreadyGiven
+	msgbox DewfordTown_Text_RanchGiftIntro, MSGBOX_DEFAULT
+	msgbox DewfordTown_Text_RanchGiftOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, DewfordTown_EventScript_RanchGiftDecline
+	random 3
+	switch VAR_RESULT
+	case 0, DewfordTown_EventScript_RanchGiftTauros
+	case 1, DewfordTown_EventScript_RanchGiftMiltank
+	case 2, DewfordTown_EventScript_RanchGiftBouffalant
+	end
+
+DewfordTown_EventScript_RanchGiftTauros::
+	givemon SPECIES_TAUROS, 15
+	msgbox DewfordTown_Text_RanchGiftTauros, MSGBOX_DEFAULT
+	goto DewfordTown_EventScript_RanchGiftFinish
+
+DewfordTown_EventScript_RanchGiftMiltank::
+	givemon SPECIES_MILTANK, 15
+	msgbox DewfordTown_Text_RanchGiftMiltank, MSGBOX_DEFAULT
+	goto DewfordTown_EventScript_RanchGiftFinish
+
+DewfordTown_EventScript_RanchGiftBouffalant::
+	givemon SPECIES_BOUFFALANT, 15
+	msgbox DewfordTown_Text_RanchGiftBouffalant, MSGBOX_DEFAULT
+	goto DewfordTown_EventScript_RanchGiftFinish
+
+DewfordTown_EventScript_RanchGiftFinish::
+	setflag FLAG_RECEIVED_DEWFORD_GIFT_MON
+	release
+	end
+
+DewfordTown_EventScript_RanchGiftDecline::
+	msgbox DewfordTown_Text_RanchGiftDeclineText, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_EventScript_RanchGiftAlreadyGiven::
+	msgbox DewfordTown_Text_RanchGiftAlreadyGivenText, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_Text_RanchGiftIntro:
+	.string "RANCHER: Yo! I keep a little pasture\n"
+	.string "just outside of town.\p"
+	.string "Got some extra POKéMON that need\n"
+	.string "a good TRAINER to look after 'em.$"
+
+DewfordTown_Text_RanchGiftOffer:
+	.string "RANCHER: Want me to pick one out\n"
+	.string "for you? It'll be a surprise!$"
+
+DewfordTown_Text_RanchGiftTauros:
+	.string "RANCHER: Here you go!\n"
+	.string "Say hello to your new TAUROS!$"
+
+DewfordTown_Text_RanchGiftMiltank:
+	.string "RANCHER: Here you go!\n"
+	.string "Say hello to your new MILTANK!$"
+
+DewfordTown_Text_RanchGiftBouffalant:
+	.string "RANCHER: Here you go!\n"
+	.string "Say hello to your new BOUFFALANT!$"
+
+DewfordTown_Text_RanchGiftDeclineText:
+	.string "RANCHER: No worries!\n"
+	.string "Come find me if you change your mind.$"
+
+DewfordTown_Text_RanchGiftAlreadyGivenText:
+	.string "RANCHER: Take good care of that\n"
+	.string "POKéMON I gave you, now!$"

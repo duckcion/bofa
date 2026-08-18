@@ -3,7 +3,7 @@
   "name": "PetalburgCoast",
   "layout": "LAYOUT_PETALBURG_COAST",
   "music": "MUS_ROUTE101",
-  "region_map_section": "MAPSEC_PETALBURG_CITY",
+  "region_map_section": "MAPSEC_PETALBURG_COAST",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_TRAINER_GROVE",
-      "offset": 10,
+      "offset": 5,
       "direction": "up"
     }
   ],

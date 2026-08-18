@@ -217,6 +217,7 @@ gStdScripts_End::
 	.include "data/maps/PetalburgCity_PokemonCenter_2F/scripts.inc"
 	.include "data/maps/PetalburgCity_Mart/scripts.inc"
 	.include "data/maps/PetalburgCoast/scripts.inc"
+	.include "data/maps/GraniteShore/scripts.inc"
 	.include "data/maps/SlateportCity_SternsShipyard_1F/scripts.inc"
 	.include "data/maps/SlateportCity_SternsShipyard_2F/scripts.inc"
 	.include "data/maps/SlateportCity_BattleTentLobby/scripts.inc"

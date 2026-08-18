@@ -45,8 +45,8 @@
 
 #define FLAG_GAVE_NORMAN_OVAL_STONE    0x20 // Set when the player hands Norman the Oval Stone from Petalburg Coast
 #define FLAG_ITEM_PETALBURG_COAST_OVAL_STONE    0x21 // Item ball flag for the Oval Stone on Petalburg Coast
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
+#define FLAG_PETALBURG_WOODS_UNLOCKED    0x22 // Set once the path through Petalburg Woods is reopened (post-Wraithwood)
+#define FLAG_RECEIVED_DEWFORD_GIFT_MON    0x23 // Set once the player takes the Tauros/Miltank/Bouffalant gift in Dewford
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag

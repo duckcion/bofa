@@ -1013,7 +1013,7 @@
     },
     {
       "map_section": "MAPSEC_VIRIDIAN_FOREST",
-      "name": "VIRIDIAN FOREST",
+      "name": "ISOLATE FOREST",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1708,6 +1708,30 @@
       "name": "TRAINER HILL",
       "x": 8,
       "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_TRAINER_GROVE",
+      "name": "TRAINER GROVE",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_PETALBURG_COAST",
+      "name": "PETALBURG COAST",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_GRANITE_SHORE",
+      "name": "GRANITE SHORE",
+      "x": 0,
+      "y": 0,
       "width": 1,
       "height": 1
     }
