@@ -862,14 +862,23 @@
 #define TRAINER_TRAINERGROVET2              856
 #define TRAINER_TRAINERGROVET3              857
 #define TRAINER_TRAINERGROVET4              858
+#define TRAINER_ROUTE105_1                  859
+#define TRAINER_ROUTE106_1                  860
+#define TRAINER_GRANITESHORE_1              861
+#define TRAINER_GRANITESHORE_2              862
+#define TRAINER_PETALBURGCOAST_1            863
 
 
-// NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
-//       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
-//       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
+// NOTE: Because each Trainer uses a flag to determine when they are defeated, trainer ID space is capped by MAX_TRAINERS_COUNT
+//       More space can be made by increasing MAX_TRAINERS_COUNT -- every flag after TRAINER_FLAGS_END (see constants/flags.h)
+//       is defined relative to it, so they all shift automatically; NUM_FLAG_BYTES / the SaveBlock1 flags[] array size
+//       (include/global.h) is likewise computed from FLAGS_COUNT, so it also grows automatically. No manual renumbering needed.
+//       NOTE (added by Claude): expanded 864 -> 1200 on 2026-08-20 to make room for a lot more trainers across future splits
+//       (336 new free slots: 864-1199). This DOES shift every flag number after TRAINER_FLAGS_END and grows the save block by
+//       ~42 bytes, so any existing save files / savestates from before this change are no longer compatible -- start a fresh save.
 
-#define TRAINERS_COUNT                      859
-#define MAX_TRAINERS_COUNT                  864
+#define TRAINERS_COUNT                      864
+#define MAX_TRAINERS_COUNT                  1200
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

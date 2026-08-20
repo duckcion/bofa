@@ -4,8 +4,8 @@
   "layout": "LAYOUT_WRAITHWOOD_FOREST",
   "music": "MUS_MT_PYRE_EXTERIOR",
   "region_map_section": "MAPSEC_WRAITHWOOD_FOREST",
-  "requires_flash": false,
-  "weather": "WEATHER_FOG_HORIZONTAL",
+  "requires_flash": true,
+  "weather": "WEATHER_FOG_DIAGONAL",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -19,16 +19,43 @@
       "direction": "up"
     }
   ],
-  "object_events": [],
+  "object_events": [
+
+  ],
   "warp_events": [
     {
-      "x": 10,
-      "y": 18,
+      "x": 8,
+      "y": 28,
       "elevation": 0,
       "dest_map": "MAP_GRANITE_CAVE_B2F",
       "dest_warp_id": "5"
+    },
+    {
+      "x": 9,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_GRANITE_CAVE_B2F",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 12,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_HOLLOWBROOK",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 13,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_HOLLOWBROOK",
+      "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

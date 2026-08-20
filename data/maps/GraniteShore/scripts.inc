@@ -86,3 +86,13 @@ GraniteShore_Text_RancherAndyAlreadyGiven:
 	.string "life out here on the coast.\p"
 	.string "You take good care of the one\n"
 	.string "I gave you, now!$"
+
+GraniteShore_EventScript_Deacon::
+	trainerbattle_single TRAINER_GRANITESHORE_1, GraniteShore_Text_DeaconIntro, GraniteShore_Text_DeaconDefeated
+	msgbox GraniteShore_Text_DeaconPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+GraniteShore_EventScript_Priya::
+	trainerbattle_single TRAINER_GRANITESHORE_2, GraniteShore_Text_PriyaIntro, GraniteShore_Text_PriyaDefeated
+	msgbox GraniteShore_Text_PriyaPostBattle, MSGBOX_AUTOCLOSE
+	end

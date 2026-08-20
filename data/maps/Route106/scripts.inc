@@ -46,3 +46,8 @@ Route106_Text_TrainerTips:
 	.string "Advice on catching POKéMON with a ROD:\n"
 	.string "Press the A Button if you get a bite.$"
 
+
+Route106_EventScript_Milo::
+	trainerbattle_single TRAINER_ROUTE106_1, Route106_Text_MiloIntro, Route106_Text_MiloDefeated
+	msgbox Route106_Text_MiloPostBattle, MSGBOX_AUTOCLOSE
+	end

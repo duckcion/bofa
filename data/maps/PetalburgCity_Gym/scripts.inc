@@ -782,11 +782,13 @@ PetalburgCity_Gym_EventScript_DoorLocked::
 
 @ VAR_0x8008 and VAR_0x8009 below are the x and y coordinates of the warp
 PetalburgCity_Gym_EventScript_AccuracyRoomDoor::
+	@ Redirected by Claude: this used to be an alternate ungated entrance leading into
+	@ the Accuracy Room (Mary) branch. Now it just mirrors the Speed Room door so there's
+	@ no choice at the entrance -- both doors lead into the one required path (Randall).
 	lockall
-	goto_if_lt VAR_PETALBURG_GYM_STATE, 6, PetalburgCity_Gym_EventScript_DoorLocked
-	setvar VAR_0x8008, 1
-	setvar VAR_0x8009, 98
-	msgbox PetalburgCity_Gym_Text_EnterAccuracyRoom, MSGBOX_YESNO
+	setvar VAR_0x8008, 7
+	setvar VAR_0x8009, 85
+	msgbox PetalburgCity_Gym_Text_EnterSpeedRoom, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PetalburgCity_Gym_EventScript_EnterRoom
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
@@ -802,22 +804,28 @@ PetalburgCity_Gym_EventScript_ConfusionRoomDoor::
 	end
 
 PetalburgCity_Gym_EventScript_LeftDefenseRoomDoor::
+	@ Redirected by Claude: used to branch into the Defense Room (Alexia), an alternate
+	@ path around the required Confusion Room (Parker). Now mirrors ConfusionRoomDoor
+	@ so there's only one route forward after beating Randall.
 	lockall
 	goto_if_not_defeated TRAINER_RANDALL, PetalburgCity_Gym_EventScript_DoorLocked
-	 setvar VAR_PETALBURG_GYM_STATE, 6
-	setvar VAR_0x8008, 1
-	setvar VAR_0x8009, 59
-	msgbox PetalburgCity_Gym_Text_EnterDefenseRoom, MSGBOX_YESNO
+	setvar VAR_PETALBURG_GYM_STATE, 6
+	setvar VAR_0x8008, 7
+	setvar VAR_0x8009, 46
+	msgbox PetalburgCity_Gym_Text_EnterConfusionRoom, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PetalburgCity_Gym_EventScript_EnterRoom
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
 
 PetalburgCity_Gym_EventScript_RightDefenseRoomDoor::
+	@ Redirected by Claude: used to require Mary defeated (a trainer no longer reachable
+	@ on the required path) to branch into Defense Room. Now mirrors ConfusionRoomDoor,
+	@ same as LeftDefenseRoomDoor above.
 	lockall
-	goto_if_not_defeated TRAINER_MARY, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_not_defeated TRAINER_RANDALL, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
-	setvar VAR_0x8009, 59
-	msgbox PetalburgCity_Gym_Text_EnterDefenseRoom, MSGBOX_YESNO
+	setvar VAR_0x8009, 46
+	msgbox PetalburgCity_Gym_Text_EnterConfusionRoom, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PetalburgCity_Gym_EventScript_EnterRoom
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
@@ -843,8 +851,11 @@ PetalburgCity_Gym_EventScript_LeftStrengthRoomDoor::
 	end
 
 PetalburgCity_Gym_EventScript_RightStrengthRoomDoor::
+	@ Redirected by Claude: used to require Alexia defeated (no longer reachable). Now
+	@ requires Parker instead, matching LeftStrengthRoomDoor's gate -- both entrances
+	@ into the Strength Room (the 3rd required trainer, Jody) now agree.
 	lockall
-	goto_if_not_defeated TRAINER_ALEXIA, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_not_defeated TRAINER_PARKER, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
 	setvar VAR_0x8009, 20
 	msgbox PetalburgCity_Gym_Text_EnterStrengthRoom, MSGBOX_YESNO
@@ -883,8 +894,11 @@ PetalburgCity_Gym_EventScript_LeftGymLeadersRoomDoor::
 	end
 
 PetalburgCity_Gym_EventScript_RightGymLeadersRoomDoor::
+	@ Redirected by Claude: used to require Berke defeated (no longer reachable). Now
+	@ requires Jody, matching LeftGymLeadersRoomDoor's gate -- both entrances into
+	@ Norman's room now agree on the same (achievable) requirement.
 	lockall
-	goto_if_not_defeated TRAINER_BERKE, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_not_defeated TRAINER_JODY, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
 	setvar VAR_0x8009, 7
 	msgbox PetalburgCity_Gym_Text_EnterGymLeadersRoom, MSGBOX_YESNO

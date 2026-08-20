@@ -221,7 +221,6 @@ gStdScripts_End::
 	.include "data/maps/GraniteShore/scripts.inc"
 	.include "data/maps/WraithwoodForest/scripts.inc"
 	.include "data/maps/Hollowbrook/scripts.inc"
-	.include "data/maps/HollowbrookCemetery/scripts.inc"
 	.include "data/maps/HollowbrookShack/scripts.inc"
 	.include "data/maps/HollowbrookShack_MiningTunnel/scripts.inc"
 	.include "data/maps/SlateportCity_SternsShipyard_1F/scripts.inc"

@@ -4796,3 +4796,51 @@ VSSeeker_Text_TrainersNotReady::
 	.string "to be ready for battle.\p"
 	.string "Let's wait till later.{PAUSE_UNTIL_PRESS}$"
 `
+
+Route105_Text_TessIntro:
+	.string "Just practicing for now!$"
+
+Route105_Text_TessDefeated:
+	.string "Aw, my LILLIPUP wasn't ready yet.$"
+
+Route105_Text_TessPostBattle:
+	.string "I'll train it up properly soon.$"
+
+Route106_Text_MiloIntro:
+	.string "Hey, wanna battle real quick?$"
+
+Route106_Text_MiloDefeated:
+	.string "Whoa, guess I need more practice.$"
+
+Route106_Text_MiloPostBattle:
+	.string "Catch you around!$"
+
+GraniteShore_Text_DeaconIntro:
+	.string "Whoa, a trainer! Let's go!$"
+
+GraniteShore_Text_DeaconDefeated:
+	.string "My LILLIPUP's still just a pup…$"
+
+GraniteShore_Text_DeaconPostBattle:
+	.string "This cave's pretty deep, huh?$"
+
+GraniteShore_Text_PriyaIntro:
+	.string "Careful in the cave ahead!\p"
+	.string "But first, let's battle!$"
+
+GraniteShore_Text_PriyaDefeated:
+	.string "Guess I need a stronger team.$"
+
+GraniteShore_Text_PriyaPostBattle:
+	.string "Good luck in GRANITE CAVE!$"
+
+PetalburgCoast_Text_RonnieIntro:
+	.string "Hold it! You want that OVAL STONE?\n"
+	.string "Beat me first!$"
+
+PetalburgCoast_Text_RonnieDefeated:
+	.string "Ugh! Fine, it's all yours.$"
+
+PetalburgCoast_Text_RonniePostBattle:
+	.string "That stone looked important, so I\n"
+	.string "figured I'd test you first.$"

@@ -95,3 +95,8 @@ Route104_Text_DadPokenavCall:
 Route104_Text_RegisteredDadInPokenav:
 	.string "Registered DAD NORMAN\n"
 	.string "in the POKéNAV.$"
+
+Route105_EventScript_Tess::
+	trainerbattle_single TRAINER_ROUTE105_1, Route105_Text_TessIntro, Route105_Text_TessDefeated
+	msgbox Route105_Text_TessPostBattle, MSGBOX_AUTOCLOSE
+	end
