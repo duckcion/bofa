@@ -4482,6 +4482,16 @@
       "blockdata_filepath": "data/layouts/HollowbrookShack_MiningTunnel/map.bin"
     },
     {
+      "id": "LAYOUT_HOLLOWBROOK_CEMETERY",
+      "name": "HollowbrookCemetery_Layout",
+      "width": 16,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/HollowbrookCemetery/border.bin",
+      "blockdata_filepath": "data/layouts/HollowbrookCemetery/map.bin"
+    },
+    {
       "id": "LAYOUT_STARTER_ROOM",
       "name": "StarterRoom_Layout",
       "width": 9,
