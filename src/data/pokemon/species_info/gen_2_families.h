@@ -3483,10 +3483,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #define UNOWN_MISC_INFO(letter, _noFlip, frontWidth, frontHeight, backWidth, backHeight, backYOffset)   \
     {                                                                                                   \
         .baseHP        = 48,                                                                            \
-        .baseAttack    = 72,                                                                            \
+        .baseAttack    = 102,                                                                           \
         .baseDefense   = 48,                                                                            \
         .baseSpeed     = 48,                                                                            \
-        .baseSpAttack  = 72,                                                                            \
+        .baseSpAttack  = 102,                                                                           \
         .baseSpDefense = 48,                                                                            \
         .types = MON_TYPES(TYPE_PSYCHIC),                                                               \
         .catchRate = 225,                                                                               \
@@ -3498,7 +3498,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,                                                              \
         .growthRate = GROWTH_MEDIUM_FAST,                                                               \
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),                                      \
-        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },                                  \
+        .abilities = { ABILITY_WONDER_GUARD, ABILITY_WONDER_GUARD, ABILITY_NONE },                      \
         .bodyColor = BODY_COLOR_BLACK,                                                                  \
         .noFlip = _noFlip,                                                                              \
         .speciesName = _("Unown"),                                                                      \
