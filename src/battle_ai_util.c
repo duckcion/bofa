@@ -1710,6 +1710,10 @@ void ProtectChecks(u32 battlerAtk, u32 battlerDef, u32 move, u32 predictedMove, 
             ADJUST_SCORE_PTR(-(min(uses, 3)));
     }
 
+    // Protect is far less useful against opponents who can break through it
+    if ((HasMove(battlerDef, MOVE_FEINT) || HasMove(battlerDef, MOVE_SHADOW_FORCE)) && AI_RandLessThan(128))
+        ADJUST_SCORE_PTR(-2);
+
     if (gBattleMons[battlerAtk].status1 & (STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_FROSTBITE)
      || gBattleMons[battlerAtk].status2 & (STATUS2_CURSED | STATUS2_INFATUATION)
      || gStatuses3[battlerAtk] & (STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN))

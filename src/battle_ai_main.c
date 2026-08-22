@@ -3843,12 +3843,15 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
             //ADJUST_SCORE(8);
         break;
     case EFFECT_PURSUIT:
-        // TODO
-        // if (IsPredictedToSwitch(battlerDef, battlerAtk))
-        //     ADJUST_SCORE(GOOD_EFFECT);
-        // else if (IsPredictedToUsePursuitableMove(battlerDef, battlerAtk) && !MoveWouldHitFirst(move, battlerAtk, battlerDef)) //Pursuit against fast U-Turn
-        //     ADJUST_SCORE(GOOD_EFFECT);
-        // break;
+        if (predictedMove != MOVE_NONE && predictedMove != 0xFFFF)
+        {
+            u32 predictedEffect = gMovesInfo[predictedMove].effect;
+            if (predictedEffect == EFFECT_HIT_ESCAPE || predictedEffect == EFFECT_PARTING_SHOT || predictedEffect == EFFECT_BATON_PASS)
+                ADJUST_SCORE(GOOD_EFFECT); // Predicted to pivot/switch out - Pursuit punishes this
+            else if (IS_MOVE_STATUS(predictedMove) && !AI_IsSlower(battlerAtk, battlerDef, move))
+                ADJUST_SCORE(WEAK_EFFECT); // Opponent likely setting up rather than attacking
+        }
+        break;
     case EFFECT_DEFOG:
         if ((gSideStatuses[GetBattlerSide(battlerAtk)] & SIDE_STATUS_HAZARDS_ANY && CountUsablePartyMons(battlerAtk) != 0)
             || (gSideStatuses[GetBattlerSide(battlerDef)] & (SIDE_STATUS_SCREEN_ANY | SIDE_STATUS_SAFEGUARD | SIDE_STATUS_MIST)))
