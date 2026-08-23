@@ -1760,7 +1760,9 @@ bool32 ShouldLowerStat(u32 battler, u32 battlerAbility, u32 stat)
 
 bool32 BattlerStatCanRise(u32 battler, u32 battlerAbility, u32 stat)
 {
-    if ((gBattleMons[battler].statStages[stat] < MAX_STAT_STAGE && battlerAbility != ABILITY_CONTRARY)
+    // Simple doubles stat changes, so the AI should treat +3 raw stages as its effective ceiling (functionally +6)
+    u32 effectiveMax = (battlerAbility == ABILITY_SIMPLE) ? (DEFAULT_STAT_STAGE + 3) : MAX_STAT_STAGE;
+    if ((gBattleMons[battler].statStages[stat] < effectiveMax && battlerAbility != ABILITY_CONTRARY)
       || (battlerAbility == ABILITY_CONTRARY && gBattleMons[battler].statStages[stat] > MIN_STAT_STAGE))
         return TRUE;
     return FALSE;
