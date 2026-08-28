@@ -1,3 +1,9 @@
+@ Custom item-ball script so this TM location gives 2 copies (per hack-wide rule that
+@ every TM location grants 2 copies), instead of the generic 1-copy Common_EventScript_FindItem.
+FieryPath_EventScript_FindToxicTM::
+	finditem ITEM_TM_TOXIC, 2
+	end
+
 FieryPath_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FieryPath_OnTransition
 	.byte 0

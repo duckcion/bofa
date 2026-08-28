@@ -230,6 +230,9 @@ Route101_EventScript_BirchsBag::
 	waitmovement 0
 	special ChooseStarter
 	waitstate
+	@ Tag the Hoenn starter with a custom met location so it doesn't share
+	@ Route 101's met location with the wild Pokemon caught there.
+	setmonmetlocation 0, MAPSEC_GALAXY_FAR_FAR_AWAY
 	applymovement LOCALID_BIRCH, Route101_Movement_BirchApproachPlayer
 	waitmovement 0
 	msgbox Route101_Text_YouSavedMe, MSGBOX_DEFAULT

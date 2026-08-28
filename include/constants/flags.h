@@ -47,8 +47,8 @@
 #define FLAG_ITEM_PETALBURG_COAST_OVAL_STONE    0x21 // Item ball flag for the Oval Stone on Petalburg Coast
 #define FLAG_PETALBURG_WOODS_UNLOCKED    0x22 // Set once the path through Petalburg Woods is reopened (post-Wraithwood)
 #define FLAG_RECEIVED_RANCHER_ANDY_GIFT    0x23 // Set once the player takes Rancher Andy's Tauros/Miltank/Bouffalant gift on Granite Shore
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
+#define FLAG_RECEIVED_STARTER_ROOM_JOHTO_MON    0x24 // Set once the player is gifted a random Johto starter (Cyndaquil/Totodile/Chikorita) in Birch's Lab starter room
+#define FLAG_RECEIVED_OLDALE_STARTER_SUPPLIES    0x25 // Set once the player takes the starter status-berry/consumable stockpile from the woman in Oldale Town House 1
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
@@ -656,13 +656,13 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
+#define FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_AERODACTYLITE      (FLAG_HIDDEN_ITEMS_START + 0x70)
+#define FLAG_HIDDEN_ITEM_ROUTE_111_KANGASKHANITE             (FLAG_HIDDEN_ITEMS_START + 0x71)
+#define FLAG_HIDDEN_ITEM_FIERY_PATH_ABSOLITE                 (FLAG_HIDDEN_ITEMS_START + 0x72)
+#define FLAG_HIDDEN_ITEM_NEW_MAUVILLE_MANECTITE               (FLAG_HIDDEN_ITEMS_START + 0x73)
+#define FLAG_HIDDEN_ITEM_ROUTE_110_SWAMPERTITE               (FLAG_HIDDEN_ITEMS_START + 0x74)
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_SCEPTILITE           (FLAG_HIDDEN_ITEMS_START + 0x75)
+#define FLAG_HIDDEN_ITEM_ROUTE_112_BLAZIKENITE               (FLAG_HIDDEN_ITEMS_START + 0x76)
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag

@@ -222,7 +222,9 @@
 #define MAPSEC_HOLLOWBROOK                  0xDA
 #define MAPSEC_HOLLOWBROOK_CEMETERY         0xDB
 #define MAPSEC_HOLLOWBROOK_SHACK            0xDC
-#define MAPSEC_NONE                         0xDD
+#define MAPSEC_STARTER_ROOM                 0xDD // Prof. Birch's Lab starter room -- used only as a met-location tag, not shown on the region map
+#define MAPSEC_GALAXY_FAR_FAR_AWAY          0xDE // Route 101 Hoenn starter's met-location tag -- used only as a met-location tag, not shown on the region map
+#define MAPSEC_NONE                         0xDF
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

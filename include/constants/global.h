@@ -59,11 +59,11 @@
 #define SECRET_BASES_COUNT 20
 #define POKE_NEWS_COUNT 16
 #define PC_ITEMS_COUNT 50
-#define BAG_ITEMS_COUNT 30
+#define BAG_ITEMS_COUNT 50 // Bumped from vanilla 30: this hack adds all 18 Gen5 Gems plus more general items, so headroom is needed to hold them alongside normal consumables.
 #define BAG_KEYITEMS_COUNT 30
 #define BAG_POKEBALLS_COUNT 16
-#define BAG_TMHM_COUNT 64
-#define BAG_BERRIES_COUNT 46
+#define BAG_TMHM_COUNT 120 // Bumped from vanilla 64: this hack's item data table defines 108 distinct TM/HM items, so 64 wasn't enough to hold one of every TM/HM at once.
+#define BAG_BERRIES_COUNT 80 // Bumped from vanilla 46: this hack's item data table defines 68 distinct berry items, so 46 wasn't enough to hold one of every berry at once.
 #define OBJECT_EVENT_TEMPLATES_COUNT 64
 #define DECOR_MAX_SECRET_BASE 16
 #define DECOR_MAX_PLAYERS_HOUSE 12

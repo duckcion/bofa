@@ -2,6 +2,35 @@
 .set LOCALID_WALLYS_UNCLE, 7
 .set LOCALID_SCOTT, 11
 
+@ Gated behind Badge 2 -- a player who walks through Mauville without having
+@ beaten Brawly yet can't pick this up until they come back with the badge.
+MauvilleCity_EventScript_FindUltraBall::
+	goto_if_unset FLAG_BADGE02_GET, MauvilleCity_EventScript_ZoomLensLocked
+	finditem ITEM_ULTRA_BALL
+	end
+
+MauvilleCity_EventScript_ZoomLensLocked::
+	msgbox MauvilleCity_Text_ZoomLensLocked, MSGBOX_SIGN
+	end
+
+MauvilleCity_Text_ZoomLensLocked:
+	.string "The POKé BALL won't budge no matter\n"
+	.string "how hard you try. Maybe you need to\l"
+	.string "prove yourself in battle first.$"
+
+@ Blocks the GAME CORNER entrance until Wattson is defeated. Placed directly
+@ on the warp tile; the object auto-hides once FLAG_BADGE03_GET is set,
+@ the same disappearing-object convention used for Wally/Wattson/Scott above.
+MauvilleCity_EventScript_GameCornerBouncer::
+	msgbox MauvilleCity_Text_GameCornerNotOpenYet, MSGBOX_NPC
+	end
+
+MauvilleCity_Text_GameCornerNotOpenYet:
+	.string "Sorry, pal, the GAME CORNER isn't\n"
+	.string "open to you yet.\p"
+	.string "Come back once you've proven yourself\n"
+	.string "against WATTSON at the GYM!$"
+
 MauvilleCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleCity_OnTransition
 	.byte 0

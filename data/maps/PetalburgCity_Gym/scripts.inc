@@ -20,12 +20,8 @@ PetalburgCity_Gym_EventScript_OpenUnlockedDoors::
 	setvar VAR_0x8005, 1
 	call PetalburgCity_Gym_EventScript_OpenGymEntranceDoors
 	call_if_defeated TRAINER_RANDALL, PetalburgCity_Gym_EventScript_OpenSpeedRoomDoors
-	call_if_defeated TRAINER_MARY, PetalburgCity_Gym_EventScript_OpenAccuracyRoomDoors
-	call_if_defeated TRAINER_PARKER, PetalburgCity_Gym_EventScript_OpenConfusionRoomDoors
 	call_if_defeated TRAINER_ALEXIA, PetalburgCity_Gym_EventScript_OpenDefenseRoomDoors
-	call_if_defeated TRAINER_GEORGE, PetalburgCity_Gym_EventScript_OpenRecoveryRoomDoors
 	call_if_defeated TRAINER_JODY, PetalburgCity_Gym_EventScript_OpenStrengthRoomDoors
-	call_if_defeated TRAINER_BERKE, PetalburgCity_Gym_EventScript_OpenOHKORoomDoors
 	end
 
 PetalburgCity_Gym_EventScript_UnlockAllDoors::
@@ -107,7 +103,7 @@ PetalburgCity_Gym_EventScript_TurnPlayerNorth::
 PetalburgCity_Gym_EventScript_Norman::
 	lock
 	faceplayer
-	goto_if_set FLAG_GAVE_NORMAN_OVAL_STONE, PetalburgCity_Gym_EventScript_NormanReadyToBattle
+	goto_if_set FLAG_GAVE_NORMAN_OVAL_STONE, PetalburgCity_Gym_EventScript_NormanCheckTrials
 	checkitem ITEM_OVAL_STONE, 1
 	goto_if_eq VAR_RESULT, TRUE, PetalburgCity_Gym_EventScript_NormanReceiveOvalStone
 	msgbox PetalburgCity_Gym_Text_NormanSendToPetalburgCoast, MSGBOX_DEFAULT
@@ -120,7 +116,21 @@ PetalburgCity_Gym_EventScript_NormanReceiveOvalStone::
 	removeitem ITEM_OVAL_STONE, 1
 	setflag FLAG_GAVE_NORMAN_OVAL_STONE
 	closemessage
+	release
+	end
+
+@ Getting the Oval Stone only opens up the gym trials -- Norman won't accept a
+@ challenge until Randall, Alexia, and Jody (the last of the 3 required trainers)
+@ have all been beaten.
+PetalburgCity_Gym_EventScript_NormanCheckTrials::
+	goto_if_not_defeated TRAINER_JODY, PetalburgCity_Gym_EventScript_NormanWaitingForTrials
 	goto PetalburgCity_Gym_EventScript_NormanReadyToBattle
+	end
+
+PetalburgCity_Gym_EventScript_NormanWaitingForTrials::
+	msgbox PetalburgCity_Gym_Text_NormanWaitingForTrials, MSGBOX_DEFAULT
+	closemessage
+	release
 	end
 
 PetalburgCity_Gym_EventScript_NormanReadyToBattle::
@@ -755,7 +765,7 @@ PetalburgCity_Gym_EventScript_NoAmountOfTrainingIsEnough::
 
 PetalburgCity_Gym_EventScript_SpeedRoomDoor::
 	lockall
-	//goto_if_lt VAR_PETALBURG_GYM_STATE, 6, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_unset FLAG_GAVE_NORMAN_OVAL_STONE, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
 	setvar VAR_0x8009, 85
 	msgbox PetalburgCity_Gym_Text_EnterSpeedRoom, MSGBOX_YESNO
@@ -782,10 +792,11 @@ PetalburgCity_Gym_EventScript_DoorLocked::
 
 @ VAR_0x8008 and VAR_0x8009 below are the x and y coordinates of the warp
 PetalburgCity_Gym_EventScript_AccuracyRoomDoor::
-	@ Redirected by Claude: this used to be an alternate ungated entrance leading into
-	@ the Accuracy Room (Mary) branch. Now it just mirrors the Speed Room door so there's
-	@ no choice at the entrance -- both doors lead into the one required path (Randall).
+	@ Redirected: this used to be an alternate entrance leading into the Accuracy Room
+	@ (Mary) branch. Now it just mirrors the Speed Room door so there's no choice at
+	@ the entrance -- both doors lead into the one required path (Randall).
 	lockall
+	goto_if_unset FLAG_GAVE_NORMAN_OVAL_STONE, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
 	setvar VAR_0x8009, 85
 	msgbox PetalburgCity_Gym_Text_EnterSpeedRoom, MSGBOX_YESNO
@@ -793,56 +804,70 @@ PetalburgCity_Gym_EventScript_AccuracyRoomDoor::
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
 
+@ Redirected: this used to lead into the Confusion Room (Parker), a now-removed
+@ trainer. It's Randall's other exit door, so it now leads into the Defense Room
+@ (Alexia) just like LeftDefenseRoomDoor/RightDefenseRoomDoor below -- all 3 of
+@ Randall's exit doors converge on the one required next room.
 PetalburgCity_Gym_EventScript_ConfusionRoomDoor::
 	lockall
 	goto_if_not_defeated TRAINER_RANDALL, PetalburgCity_Gym_EventScript_DoorLocked
-	setvar VAR_0x8008, 7
-	setvar VAR_0x8009, 46
-	msgbox PetalburgCity_Gym_Text_EnterConfusionRoom, MSGBOX_YESNO
+	setvar VAR_0x8008, 1
+	setvar VAR_0x8009, 59
+	msgbox PetalburgCity_Gym_Text_EnterDefenseRoom, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PetalburgCity_Gym_EventScript_EnterRoom
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
 
+@ Redirected: used to branch into the Defense Room (Alexia) as an alternate path
+@ around the required Confusion Room (Parker, now removed). Now this IS the
+@ (only) route into the Defense Room -- no more choice after beating Randall.
+@ Also removed a stray "setvar VAR_PETALBURG_GYM_STATE, 6" that used to fire just
+@ from walking through this door, which would have made Norman battle-ready
+@ before Alexia or Jody were even fought.
 PetalburgCity_Gym_EventScript_LeftDefenseRoomDoor::
-	@ Redirected by Claude: used to branch into the Defense Room (Alexia), an alternate
-	@ path around the required Confusion Room (Parker). Now mirrors ConfusionRoomDoor
-	@ so there's only one route forward after beating Randall.
 	lockall
 	goto_if_not_defeated TRAINER_RANDALL, PetalburgCity_Gym_EventScript_DoorLocked
-	setvar VAR_PETALBURG_GYM_STATE, 6
-	setvar VAR_0x8008, 7
-	setvar VAR_0x8009, 46
-	msgbox PetalburgCity_Gym_Text_EnterConfusionRoom, MSGBOX_YESNO
+	setvar VAR_0x8008, 1
+	setvar VAR_0x8009, 59
+	msgbox PetalburgCity_Gym_Text_EnterDefenseRoom, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PetalburgCity_Gym_EventScript_EnterRoom
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
 
+@ Redirected: used to require Mary defeated (a trainer no longer reachable on the
+@ required path) to branch into the Defense Room. Now mirrors ConfusionRoomDoor/
+@ LeftDefenseRoomDoor above -- every exit from Randall's room leads to Alexia.
 PetalburgCity_Gym_EventScript_RightDefenseRoomDoor::
-	@ Redirected by Claude: used to require Mary defeated (a trainer no longer reachable
-	@ on the required path) to branch into Defense Room. Now mirrors ConfusionRoomDoor,
-	@ same as LeftDefenseRoomDoor above.
 	lockall
 	goto_if_not_defeated TRAINER_RANDALL, PetalburgCity_Gym_EventScript_DoorLocked
-	setvar VAR_0x8008, 7
-	setvar VAR_0x8009, 46
-	msgbox PetalburgCity_Gym_Text_EnterConfusionRoom, MSGBOX_YESNO
+	setvar VAR_0x8008, 1
+	setvar VAR_0x8009, 59
+	msgbox PetalburgCity_Gym_Text_EnterDefenseRoom, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PetalburgCity_Gym_EventScript_EnterRoom
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
 
+@ Redirected: this door sits inside Mary's now-removed Accuracy Room, which is
+@ unreachable from the entrance (both entrance doors lead to Randall). Left as
+@ dead code that can never be seen, but re-gated off Mary (removed trainer) onto
+@ Randall and repointed at the Defense Room so nothing here dangles on a trainer
+@ that no longer has a battle trigger.
 PetalburgCity_Gym_EventScript_RecoveryRoomDoor::
 	lockall
-	goto_if_not_defeated TRAINER_MARY, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_not_defeated TRAINER_RANDALL, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 1
-	setvar VAR_0x8009, 72
-	msgbox PetalburgCity_Gym_Text_EnterRecoveryRoom, MSGBOX_YESNO
+	setvar VAR_0x8009, 59
+	msgbox PetalburgCity_Gym_Text_EnterDefenseRoom, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PetalburgCity_Gym_EventScript_EnterRoom
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
 
+@ This door sits inside Parker's now-removed Confusion Room, which is unreachable
+@ (Randall's exits all lead to the Defense Room now). Dead code, but re-gated off
+@ Parker onto Alexia so it doesn't reference a trainer with no battle trigger.
 PetalburgCity_Gym_EventScript_LeftStrengthRoomDoor::
 	lockall
-	goto_if_not_defeated TRAINER_PARKER, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_not_defeated TRAINER_ALEXIA, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 1
 	setvar VAR_0x8009, 20
 	msgbox PetalburgCity_Gym_Text_EnterStrengthRoom, MSGBOX_YESNO
@@ -850,12 +875,12 @@ PetalburgCity_Gym_EventScript_LeftStrengthRoomDoor::
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
 
+@ This is one of Alexia's two exit doors, and IS reachable now that Alexia is the
+@ 2nd required trainer. Re-gated back onto Alexia (it had drifted to Parker) so
+@ beating her actually opens the way to Jody's Strength Room.
 PetalburgCity_Gym_EventScript_RightStrengthRoomDoor::
-	@ Redirected by Claude: used to require Alexia defeated (no longer reachable). Now
-	@ requires Parker instead, matching LeftStrengthRoomDoor's gate -- both entrances
-	@ into the Strength Room (the 3rd required trainer, Jody) now agree.
 	lockall
-	goto_if_not_defeated TRAINER_PARKER, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_not_defeated TRAINER_ALEXIA, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
 	setvar VAR_0x8009, 20
 	msgbox PetalburgCity_Gym_Text_EnterStrengthRoom, MSGBOX_YESNO
@@ -863,22 +888,28 @@ PetalburgCity_Gym_EventScript_RightStrengthRoomDoor::
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
 
+@ Alexia's other exit door. Used to lead into the One-Hit KO Room (Berke, now
+@ removed) -- redirected to also lead into the Strength Room (Jody) so both of
+@ Alexia's doors agree and there's no dead-end room to wander into.
 PetalburgCity_Gym_EventScript_LeftOHKORoomDoor::
 	lockall
 	goto_if_not_defeated TRAINER_ALEXIA, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 1
-	setvar VAR_0x8009, 33
-	msgbox PetalburgCity_Gym_Text_EnterOHKORoom, MSGBOX_YESNO
+	setvar VAR_0x8009, 20
+	msgbox PetalburgCity_Gym_Text_EnterStrengthRoom, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PetalburgCity_Gym_EventScript_EnterRoom
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
 
+@ This door sits inside George's now-removed Recovery Room, which is unreachable.
+@ Dead code, but re-gated off George onto Alexia and repointed at the Strength
+@ Room so it doesn't reference a trainer with no battle trigger.
 PetalburgCity_Gym_EventScript_RightOHKORoomDoor::
 	lockall
-	goto_if_not_defeated TRAINER_GEORGE, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_not_defeated TRAINER_ALEXIA, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
-	setvar VAR_0x8009, 33
-	msgbox PetalburgCity_Gym_Text_EnterOHKORoom, MSGBOX_YESNO
+	setvar VAR_0x8009, 20
+	msgbox PetalburgCity_Gym_Text_EnterStrengthRoom, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PetalburgCity_Gym_EventScript_EnterRoom
 	goto_if_eq VAR_RESULT, NO, PetalburgCity_Gym_EventScript_DontEnterRoom
 	end
@@ -923,73 +954,10 @@ PetalburgCity_Gym_EventScript_RandallPostBadge::
 	msgbox PetalburgCity_Gym_Text_RandallPostBadge, MSGBOX_NPC
 	end
 
-PetalburgCity_Gym_EventScript_Parker::
-	trainerbattle_single TRAINER_PARKER, PetalburgCity_Gym_Text_ParkerIntro, PetalburgCity_Gym_Text_ParkerDefeat, PetalburgCity_Gym_EventScript_SlideOpenConfusionRoomDoors
-	goto_if_set FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_Gym_EventScript_ParkerPostBadge
-	msgbox PetalburgCity_Gym_Text_ParkerPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-PetalburgCity_Gym_EventScript_SlideOpenConfusionRoomDoors::
-	setvar VAR_0x8005, 0
-	call PetalburgCity_Gym_EventScript_OpenConfusionRoomDoors
-	special DrawWholeMapView
-	release
-	end
-
-PetalburgCity_Gym_EventScript_ParkerPostBadge::
-	msgbox PetalburgCity_Gym_Text_ParkerPostBadge, MSGBOX_NPC
-	end
-
-PetalburgCity_Gym_EventScript_George::
-	trainerbattle_single TRAINER_GEORGE, PetalburgCity_Gym_Text_GeorgeIntro, PetalburgCity_Gym_Text_GeorgeDefeat, PetalburgCity_Gym_EventScript_SlideOpenRecoveryRoomDoors
-	goto_if_set FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_Gym_EventScript_GeorgePostBadge
-	msgbox PetalburgCity_Gym_Text_GeorgePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-PetalburgCity_Gym_EventScript_SlideOpenRecoveryRoomDoors::
-	setvar VAR_0x8005, 0
-	call PetalburgCity_Gym_EventScript_OpenRecoveryRoomDoors
-	special DrawWholeMapView
-	release
-	end
-
-PetalburgCity_Gym_EventScript_GeorgePostBadge::
-	msgbox PetalburgCity_Gym_Text_GeorgePostBadge, MSGBOX_NPC
-	end
-
-PetalburgCity_Gym_EventScript_Berke::
-	trainerbattle_single TRAINER_BERKE, PetalburgCity_Gym_Text_BerkeIntro, PetalburgCity_Gym_Text_BerkeDefeat, PetalburgCity_Gym_EventScript_SlideOpenOHKORoomDoors
-	goto_if_set FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_Gym_EventScript_BerkePostBadge
-	msgbox PetalburgCity_Gym_Text_BerkePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-PetalburgCity_Gym_EventScript_SlideOpenOHKORoomDoors::
-	setvar VAR_0x8005, 0
-	call PetalburgCity_Gym_EventScript_OpenOHKORoomDoors
-	special DrawWholeMapView
-	release
-	end
-
-PetalburgCity_Gym_EventScript_BerkePostBadge::
-	msgbox PetalburgCity_Gym_Text_BerkePostBadge, MSGBOX_NPC
-	end
-
-PetalburgCity_Gym_EventScript_Mary::
-	trainerbattle_single TRAINER_MARY, PetalburgCity_Gym_Text_MaryIntro, PetalburgCity_Gym_Text_MaryDefeat, PetalburgCity_Gym_EventScript_SlideOpenAccuracyRoomDoors
-	goto_if_set FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_Gym_EventScript_MaryPostBadge
-	msgbox PetalburgCity_Gym_Text_MaryPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-PetalburgCity_Gym_EventScript_SlideOpenAccuracyRoomDoors::
-	setvar VAR_0x8005, 0
-	call PetalburgCity_Gym_EventScript_OpenAccuracyRoomDoors
-	special DrawWholeMapView
-	release
-	end
-
-PetalburgCity_Gym_EventScript_MaryPostBadge::
-	msgbox PetalburgCity_Gym_Text_MaryPostBadge, MSGBOX_NPC
-	end
+@ Parker, George, Berke, and Mary were removed as required Gym trainers -- their
+@ trainerbattle scripts, map objects, and dialogue have been deleted entirely.
+@ Their TRAINER_* data entries are left untouched (harmless, unreferenced) to
+@ avoid renumbering every other trainer ID in the game.
 
 PetalburgCity_Gym_EventScript_Alexia::
 	trainerbattle_single TRAINER_ALEXIA, PetalburgCity_Gym_Text_AlexiaIntro, PetalburgCity_Gym_Text_AlexiaDefeat, PetalburgCity_Gym_EventScript_SlideOpenDefenseRoomDoors
@@ -1206,6 +1174,12 @@ PetalburgCity_Gym_Text_NormanTakesOvalStone:
 	.string "Let's see what you and your\l"
 	.string "POKéMON can really do!$"
 
+PetalburgCity_Gym_Text_NormanWaitingForTrials:
+	.string "DAD: Not so fast, {PLAYER}.\p"
+	.string "You'll need to prove yourself against\n"
+	.string "my TRAINERS before I'll battle you.\p"
+	.string "Go on, get to it!$"
+
 PetalburgCity_Gym_Text_WallyIdLikeAPokemon:
 	.string "Um… I…\n"
 	.string "I'd like to get a POKéMON, please…$"
@@ -1335,10 +1309,9 @@ PetalburgCity_Gym_Text_ReceivedBalanceBadge:
 	.string "from DAD!$"
 
 PetalburgCity_Gym_Text_ExplainBalanceBadgeTakeThis:
-	.string "DAD: With that BADGE, the DEFENSE\n"
-	.string "of all your POKéMON will increase.\p"
-	.string "POKéMON that know the HM move SURF\n"
-	.string "will be able to travel over water.\p"
+	.string "DAD: POKéMON that know the HM move\n"
+	.string "SURF will be able to travel over\l"
+	.string "water.\p"
 	.string "This is my gift to you. {PLAYER}, I'm\n"
 	.string "sure you can use it correctly.$"
 
@@ -1389,13 +1362,10 @@ PetalburgCity_Gym_Text_GymGuideAdvice:
 	.string "already open, so don't attack me!\p"
 	.string "The TRAINERS of PETALBURG GYM\n"
 	.string "use all kinds of items.\p"
-	.string "The door at the left leads to\n"
-	.string "the SPEED ROOM.\p"
-	.string "The door at the right leads to\n"
-	.string "the ACCURACY ROOM.\p"
-	.string "The room's name will be on\n"
-	.string "the door, so choose carefully.\p"
-	.string "Once you've chosen the door…\n"
+	.string "Both doors ahead lead to the same\n"
+	.string "SPEED ROOM, so don't worry about\l"
+	.string "picking wrong.\p"
+	.string "Once you're ready…\n"
 	.string "Well, hey, go for it!$"
 
 PetalburgCity_Gym_Text_GymGuidePostVictory:
@@ -1416,9 +1386,7 @@ PetalburgCity_Gym_Text_RandallDefeat:
 PetalburgCity_Gym_Text_RandallPostBattle:
 	.string "Go on to the next room where a new\n"
 	.string "challenge awaits you.\p"
-	.string "At the left is the CONFUSION ROOM.\p"
-	.string "The right door leads to the DEFENSE\n"
-	.string "ROOM.$"
+	.string "Ahead is the DEFENSE ROOM.$"
 
 PetalburgCity_Gym_Text_RandallPostBadge:
 	.string "Whomever you beat, and whomever you\n"
@@ -1427,93 +1395,7 @@ PetalburgCity_Gym_Text_RandallPostBadge:
 	.string "That's what I think being a\n"
 	.string "GYM LEADER is all about.$"
 
-PetalburgCity_Gym_Text_ParkerIntro:
-	.string "This is the CONFUSION ROOM.\p"
-	.string "Let me see how well bonded you are\n"
-	.string "with your POKéMON!$"
-
-PetalburgCity_Gym_Text_ParkerDefeat:
-	.string "I couldn't confuse your team enough…\n"
-	.string "You share a strong bond together.$"
-
-PetalburgCity_Gym_Text_ParkerPostBattle:
-	.string "The next room is the STRENGTH ROOM.\n"
-	.string "Can you withstand brute force?$"
-
-PetalburgCity_Gym_Text_ParkerPostBadge:
-	.string "After you beat our LEADER, the\n"
-	.string "training has become a lot tougher.$"
-
-PetalburgCity_Gym_Text_GeorgeIntro:
-	.string "Just when you think you're going to\n"
-	.string "win, your opponent restores HP…\p"
-	.string "Can you just imagine how awful that\n"
-	.string "must feel?\p"
-	.string "I'll show you exactly how awful it\n"
-	.string "feels!$"
-
-PetalburgCity_Gym_Text_GeorgeDefeat:
-	.string "I couldn't restore HP enough…\n"
-	.string "What ATTACK power…$"
-
-PetalburgCity_Gym_Text_GeorgePostBattle:
-	.string "I should have expected no less from\n"
-	.string "our LEADER's kid.\p"
-	.string "No, wait! A TRAINER's abilities are\n"
-	.string "earned only through effort.\p"
-	.string "I lost because my own efforts\n"
-	.string "weren't enough.\p"
-	.string "Go on! The ONE-HIT KO ROOM is next.$"
-
-PetalburgCity_Gym_Text_GeorgePostBadge:
-	.string "I'm going to keep training at GYMS.\n"
-	.string "One day, I'll become a LEADER.$"
-
-PetalburgCity_Gym_Text_BerkeIntro:
-	.string "I'm not going to take it easy just\n"
-	.string "because you're our LEADER's kid.\p"
-	.string "I'll show you how horrid it is for\n"
-	.string "a POKéMON to take a critical hit!$"
-
-PetalburgCity_Gym_Text_BerkeDefeat:
-	.string "Your power…\n"
-	.string "You're the real deal.$"
-
-PetalburgCity_Gym_Text_BerkePostBattle:
-	.string "Your father really is strong.\n"
-	.string "He's a TRAINER worth my respect.\p"
-	.string "And, I sense the same glow coming\n"
-	.string "from you as your father.\p"
-	.string "I hope that you'll stage a terrific\n"
-	.string "battle with your father!$"
-
-PetalburgCity_Gym_Text_BerkePostBadge:
-	.string "Since your dad became the LEADER,\n"
-	.string "the TRAINERS of PETALBURG CITY have\l"
-	.string "become a lot tougher.$"
-
-PetalburgCity_Gym_Text_MaryIntro:
-	.string "Giggle…\n"
-	.string "This is the ACCURACY ROOM.\p"
-	.string "It's pretty nasty when every attack\n"
-	.string "lands without fail.$"
-
-PetalburgCity_Gym_Text_MaryDefeat:
-	.string "You were a cut above me…$"
-
-PetalburgCity_Gym_Text_MaryPostBattle:
-	.string "There are some even stronger\n"
-	.string "TRAINERS waiting for you.\p"
-	.string "The left is the DEFENSE ROOM, and\n"
-	.string "the right is the RECOVERY ROOM.\p"
-	.string "Your POKéMON's ATTACK power will be\n"
-	.string "on trial either way.$"
-
-PetalburgCity_Gym_Text_MaryPostBadge:
-	.string "Do you know what we're trying to\n"
-	.string "achieve as TRAINERS?\p"
-	.string "We're striving to become soul mates\n"
-	.string "with our POKéMON.$"
+@ Parker/George/Berke/Mary dialogue removed along with their trainerbattle scripts.
 
 PetalburgCity_Gym_Text_AlexiaIntro:
 	.string "The higher the DEFENSE, the more\n"
@@ -1525,12 +1407,9 @@ PetalburgCity_Gym_Text_AlexiaDefeat:
 PetalburgCity_Gym_Text_AlexiaPostBattle:
 	.string "I think you've taught me a valuable\n"
 	.string "lesson here.\p"
-	.string "Now, go on! The left door goes to\n"
-	.string "the STRENGTH ROOM.\p"
-	.string "The right door opens to\n"
-	.string "the ONE-HIT KO ROOM.\p"
-	.string "Both of them have TRAINERS who are\n"
-	.string "skilled at offense.$"
+	.string "Now, go on! Ahead is the STRENGTH\n"
+	.string "ROOM.\p"
+	.string "That TRAINER is skilled at offense.$"
 
 PetalburgCity_Gym_Text_AlexiaPostBadge:
 	.string "Hi! Have you tried using SURF?$"

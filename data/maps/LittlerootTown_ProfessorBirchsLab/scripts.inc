@@ -32,6 +32,9 @@ LittlerootTown_ProfessorBirchsLab_OnTransition:
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_SetAfterJohtoStarterLayout
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_SetJohtoStarterLayout
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3, LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter
+	@ Once the player has their Hoenn starter (and has been told about the rival),
+	@ every later visit checks for the one-time random Johto starter gift below.
+	call_if_ge VAR_BIRCH_LAB_STATE, 3, LittlerootTown_ProfessorBirchsLab_EventScript_TryGiveRandomJohtoStarter
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter::
@@ -53,6 +56,53 @@ LittlerootTown_ProfessorBirchsLab_EventScript_SetAfterJohtoStarterLayout::
 	setmaplayoutindex LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB_WITH_TABLE
 	setobjectmovementtype LOCALID_RIVAL, MOVEMENT_TYPE_WANDER_UP_AND_DOWN
 	setobjectxyperm LOCALID_RIVAL, 5, 10
+	end
+
+@ One-time gift: once the player has their Hoenn starter, the next visit to the
+@ lab randomly rolls and gives them one of the 3 Johto starters at Lv. 5, met
+@ location "STARTER ROOM". This is independent of (and in addition to) the
+@ postgame National Dex Johto-starter choice further down this file.
+LittlerootTown_ProfessorBirchsLab_EventScript_TryGiveRandomJohtoStarter::
+	goto_if_set FLAG_RECEIVED_STARTER_ROOM_JOHTO_MON, LittlerootTown_ProfessorBirchsLab_EventScript_TryGiveRandomJohtoStarter_Done
+	lockall
+	getpartysize
+	copyvar VAR_0x8008, VAR_RESULT
+	random 3
+	switch VAR_RESULT
+	case 0, LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomCyndaquil
+	case 1, LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomTotodile
+	case 2, LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomChikorita
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomCyndaquil::
+	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
+	givemon SPECIES_CYNDAQUIL, 5
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_FinishRandomJohtoStarter
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomTotodile::
+	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
+	givemon SPECIES_TOTODILE, 5
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_FinishRandomJohtoStarter
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomChikorita::
+	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
+	givemon SPECIES_CHIKORITA, 5
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_FinishRandomJohtoStarter
+
+LittlerootTown_ProfessorBirchsLab_EventScript_FinishRandomJohtoStarter::
+	goto_if_ne VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_SkipRandomJohtoStarterLocation
+	setmonmetlocation VAR_0x8008, MAPSEC_STARTER_ROOM
+
+LittlerootTown_ProfessorBirchsLab_EventScript_SkipRandomJohtoStarterLocation::
+	setflag FLAG_RECEIVED_STARTER_ROOM_JOHTO_MON
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_ProfessorBirchsLab_Text_RandomJohtoStarterGift
+	waitmessage
+	waitfanfare
+	releaseall
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_TryGiveRandomJohtoStarter_Done::
 	end
 
 LittlerootTown_ProfessorBirchsLab_OnWarp:
@@ -942,6 +992,14 @@ LittlerootTown_ProfessorBirchsLab_Text_ReceivedJohtoStarter:
 LittlerootTown_ProfessorBirchsLab_Text_NicknameJohtoStarter:
 	.string "Want to give a nickname to\n"
 	.string "the {STR_VAR_1} you received?$"
+
+LittlerootTown_ProfessorBirchsLab_Text_RandomJohtoStarterGift:
+	.string "AIDE: Oh, hold on, {PLAYER}, before\n"
+	.string "you go!\p"
+	.string "A colleague overseas sent us this\n"
+	.string "little one -- PROF. BIRCH thought\l"
+	.string "you should have it too.\p"
+	.string "{PLAYER} received the {STR_VAR_1}!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting:
 	.string "PROF. BIRCH: Listen, {PLAYER}{KUN}.\n"

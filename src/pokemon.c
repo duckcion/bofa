@@ -3764,7 +3764,9 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     u16 evCount;
 
     // Determine the EV cap to use
-    u32 maxAllowedEVs = !B_EV_ITEMS_CAP ? MAX_TOTAL_EVS : GetCurrentEVCap();
+    // EVs are disabled entirely in this hack -- forcing the cap to 0 makes every
+    // EV-raising vitamin/item effect below hit its "already at cap" early return.
+    u32 maxAllowedEVs = 0;
 
     // Get item hold effect
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
@@ -5214,6 +5216,10 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 
 void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
 {
+    // EVs are disabled entirely in this hack -- no Pokemon gains EVs from battles,
+    // wild or trainer, regardless of species EV yield, held items, or Pokerus.
+    return;
+
     u8 evs[NUM_STATS];
     u16 evIncrease = 0;
     u16 totalEVs = 0;

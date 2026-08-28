@@ -548,21 +548,82 @@ SlateportCity_PokemartDecor:
 	.2byte DECOR_C_HIGH_NOTE_MAT
 	pokemartlistend
 
+@ Sold one at a time, capped at 3 owned via purchase (checkitem re-checks current bag
+@ quantity each visit, so the player can re-buy replacements after using their stock down).
+.set SLATEPORT_POWER_TM_PRICE, 3000
+
 SlateportCity_EventScript_PowerTMClerk::
 	lock
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart SlateportCity_Pokemart_PowerTMs
+	closemessage
+	msgbox SlateportCity_Text_WantHiddenPower, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, SlateportCity_EventScript_BuyHiddenPower
+	msgbox SlateportCity_Text_WantSecretPower, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, SlateportCity_EventScript_BuySecretPower
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-	.align 2
-SlateportCity_Pokemart_PowerTMs:
-	.2byte ITEM_TM_HIDDEN_POWER
-	.2byte ITEM_TM_SECRET_POWER
-	pokemartlistend
+SlateportCity_EventScript_BuyHiddenPower::
+	checkitem ITEM_TM_HIDDEN_POWER, 3
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_EventScript_AlreadyHaveEnoughPowerTMs
+	checkmoney SLATEPORT_POWER_TM_PRICE, 0
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_EventScript_NotEnoughMoneyForPowerTM
+	checkitemspace ITEM_TM_HIDDEN_POWER
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_EventScript_NoRoomForPowerTM
+	removemoney SLATEPORT_POWER_TM_PRICE
+	additem ITEM_TM_HIDDEN_POWER
+	playse SE_SHOP
+	msgbox gText_HereYouGoThankYou, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_BuySecretPower::
+	checkitem ITEM_TM_SECRET_POWER, 3
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_EventScript_AlreadyHaveEnoughPowerTMs
+	checkmoney SLATEPORT_POWER_TM_PRICE, 0
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_EventScript_NotEnoughMoneyForPowerTM
+	checkitemspace ITEM_TM_SECRET_POWER
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_EventScript_NoRoomForPowerTM
+	removemoney SLATEPORT_POWER_TM_PRICE
+	additem ITEM_TM_SECRET_POWER
+	playse SE_SHOP
+	msgbox gText_HereYouGoThankYou, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_AlreadyHaveEnoughPowerTMs::
+	msgbox SlateportCity_Text_AlreadyHaveEnoughPowerTMs, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_NotEnoughMoneyForPowerTM::
+	msgbox SlateportCity_Text_NotEnoughMoneyForPowerTM, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_NoRoomForPowerTM::
+	msgbox gText_NoMoreRoomForThis, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_Text_WantHiddenPower:
+	.string "I've got TM10, HIDDEN POWER, for sale --\n"
+	.string "3000 for it. Want it?$"
+
+SlateportCity_Text_WantSecretPower:
+	.string "How about TM43, SECRET POWER, for\n"
+	.string "3000?$"
+
+SlateportCity_Text_AlreadyHaveEnoughPowerTMs:
+	.string "You've already got three of those!\n"
+	.string "Come back once you've used a few up.$"
+
+SlateportCity_Text_NotEnoughMoneyForPowerTM:
+	.string "Sorry, you don't have enough money\n"
+	.string "for that.$"
 
 @ Scene with Capt Sterns interview and Team Aqua announcing plans to steal Submarine
 SlateportCity_EventScript_CaptStern::

@@ -288,6 +288,8 @@ MauvilleCity_GameCorner_EventScript_ConfirmTMPrize::
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTMDoubleTeam::
+	checkitem ITEM_TM_DOUBLE_TEAM, 3
+	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_AlreadyHaveEnoughTMs
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_DOUBLE_TEAM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
 	checkitemspace ITEM_TM_DOUBLE_TEAM
@@ -301,6 +303,8 @@ MauvilleCity_GameCorner_EventScript_BuyTMDoubleTeam::
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTMPsychic::
+	checkitem ITEM_TM_PSYCHIC, 3
+	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_AlreadyHaveEnoughTMs
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_PSYCHIC_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
 	checkitemspace ITEM_TM_PSYCHIC
@@ -314,6 +318,8 @@ MauvilleCity_GameCorner_EventScript_BuyTMPsychic::
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTMFlamethrower::
+	checkitem ITEM_TM_FLAMETHROWER, 3
+	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_AlreadyHaveEnoughTMs
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_FLAMETHROWER_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
 	checkitemspace ITEM_TM_FLAMETHROWER
@@ -327,6 +333,8 @@ MauvilleCity_GameCorner_EventScript_BuyTMFlamethrower::
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTMThunderbolt::
+	checkitem ITEM_TM_THUNDERBOLT, 3
+	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_AlreadyHaveEnoughTMs
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_THUNDERBOLT_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
 	checkitemspace ITEM_TM_THUNDERBOLT
@@ -340,6 +348,8 @@ MauvilleCity_GameCorner_EventScript_BuyTMThunderbolt::
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTMIceBeam::
+	checkitem ITEM_TM_ICE_BEAM, 3
+	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_AlreadyHaveEnoughTMs
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_ICE_BEAM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
 	checkitemspace ITEM_TM_ICE_BEAM
@@ -354,6 +364,14 @@ MauvilleCity_GameCorner_EventScript_BuyTMIceBeam::
 
 MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM::
 	msgbox MauvilleCity_GameCorner_Text_NotEnoughCoins, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
+	end
+
+@ Caps each of these TMs at 3 owned-via-purchase copies. Since this hack makes TMs
+@ single-use, this still lets the player re-buy replacements after using their stock
+@ down (checkitem re-checks current bag quantity, it isn't a lifetime purchase counter).
+MauvilleCity_GameCorner_EventScript_AlreadyHaveEnoughTMs::
+	msgbox MauvilleCity_GameCorner_Text_AlreadyHaveEnoughTMs, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
 	end
 
@@ -674,6 +692,10 @@ MauvilleCity_GameCorner_Text_SendToYourHomePC:
 
 MauvilleCity_GameCorner_Text_NotEnoughCoins:
 	.string "You don't have enough COINS.$"
+
+MauvilleCity_GameCorner_Text_AlreadyHaveEnoughTMs:
+	.string "You've already got three of those!\n"
+	.string "Come back once you've used a few up.$"
 
 @ Unused
 MauvilleCity_GameCorner_Text_NoRoomForPlacingDecor:
