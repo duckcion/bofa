@@ -75,6 +75,12 @@ struct
     SAVEBLOCK_CHUNK(struct PokemonStorage, 8), // SECTOR_ID_PKMN_STORAGE_END
 };
 
+// TEMP DIAGNOSTIC (Claude, 2026-08-28): intentionally-invalid initializer so the compiler's warning/error
+// text reports the exact byte size of struct SaveBlock1, regardless of whether the asserts below pass.
+// Placed before the asserts so it's always processed even if one of them hard-fails first.
+// Safe to remove once we've confirmed SaveBlock1 fits comfortably under its budget -- delete this line and rebuild.
+static char (*sSaveBlock1SizeProbe)[sizeof(struct SaveBlock1)] = 1;
+
 // These will produce an error if a save struct is larger than the space
 // alloted for it in the flash.
 STATIC_ASSERT(sizeof(struct SaveBlock3) <= SAVE_BLOCK_3_CHUNK_SIZE * NUM_SECTORS_PER_SLOT, SaveBlock3FreeSpace);
