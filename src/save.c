@@ -75,11 +75,27 @@ struct
     SAVEBLOCK_CHUNK(struct PokemonStorage, 8), // SECTOR_ID_PKMN_STORAGE_END
 };
 
-// TEMP DIAGNOSTIC (Claude, 2026-08-28): intentionally-invalid initializer so the compiler's warning/error
-// text reports the exact byte size of struct SaveBlock1, regardless of whether the asserts below pass.
-// Placed before the asserts so it's always processed even if one of them hard-fails first.
-// Safe to remove once we've confirmed SaveBlock1 fits comfortably under its budget -- delete this line and rebuild.
-static char (*sSaveBlock1SizeProbe)[sizeof(struct SaveBlock1)] = 1;
+// TEMP DIAGNOSTIC (Claude, 2026-08-28): a bracket of STATIC_ASSERTs at various budget deltas, using the
+// exact same warning-free typedef trick as the real asserts below, so none of them can trip -Werror on
+// anything but the intended "size of array is negative" message. Whichever of these PASS (compile clean)
+// vs FAIL (show up as an error) brackets the exact overflow in one build -- read the log, then tell me
+// which ones failed. Safe to delete this whole block once we've confirmed SaveBlock1 fits under budget.
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 16,   SaveBlock1Probe_plus0016);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 32,   SaveBlock1Probe_plus0032);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 64,   SaveBlock1Probe_plus0064);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 96,   SaveBlock1Probe_plus0096);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 128,  SaveBlock1Probe_plus0128);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 160,  SaveBlock1Probe_plus0160);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 200,  SaveBlock1Probe_plus0200);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 250,  SaveBlock1Probe_plus0250);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 300,  SaveBlock1Probe_plus0300);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 400,  SaveBlock1Probe_plus0400);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 500,  SaveBlock1Probe_plus0500);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 700,  SaveBlock1Probe_plus0700);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 1000, SaveBlock1Probe_plus1000);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 1500, SaveBlock1Probe_plus1500);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 2000, SaveBlock1Probe_plus2000);
+STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1) + 3000, SaveBlock1Probe_plus3000);
 
 // These will produce an error if a save struct is larger than the space
 // alloted for it in the flash.
