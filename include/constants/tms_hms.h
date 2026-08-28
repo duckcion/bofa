@@ -51,7 +51,23 @@
     F(STEEL_WING) \
     F(SKILL_SWAP) \
     F(SNATCH) \
-    F(OVERHEAT)
+    F(OVERHEAT) \
+    F(PLUCK) \
+    F(AURORA_BEAM) \
+    F(SILVER_WIND) \
+    F(GRASS_KNOT) \
+    F(SLEEP_TALK) \
+    F(SHADOW_CLAW) \
+    F(FLING) \
+    F(PAYBACK) \
+    F(FEINT_ATTACK) \
+    F(EMBARGO) \
+    F(SCALD) \
+    F(WILD_CHARGE) \
+    F(DAZZLING_GLEAM) \
+    F(DRAGON_TAIL) \
+    F(FOUL_PLAY) \
+    F(VOLT_SWITCH)
 
 #define FOREACH_HM(F) \
     F(CUT) \
