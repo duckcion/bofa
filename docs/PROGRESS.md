@@ -22,7 +22,7 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
 | 0.1 | Fix `trainers.party` AI-flag source (regen-drift bug) | **done** |
 | 0.2 | Bisect 93 baseline test failures for AI-flag regressions | **done — 93 FAILED, matches baseline exactly, zero regressions** |
 | 0.3 | Confirm/close Route104 direct-road bypass | **done — real shortcut found and closed, see below** |
-| 1.1 | Renumber `FLAG_BADGE0N_GET` to match approved order | not started |
+| 1.1 | Renumber `FLAG_BADGE0N_GET` to match approved order | not started (next up) |
 | 1.2 | Connect Mauville into traversal path | not started |
 | 1.3 | Resolve Route104 bypass per decision 2 | in progress (see 0.3) |
 | 2 | Split 1 (Norman/Petalburg) redesign | not started |
