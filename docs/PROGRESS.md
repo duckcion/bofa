@@ -22,10 +22,10 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
 | 0.1 | Fix `trainers.party` AI-flag source (regen-drift bug) | **done** |
 | 0.2 | Bisect 93 baseline test failures for AI-flag regressions | **done — 93 FAILED, matches baseline exactly, zero regressions** |
 | 0.3 | Confirm/close Route104 direct-road bypass | **done — real shortcut found and closed, see below** |
-| 1.1 | Renumber `FLAG_BADGE0N_GET` to match approved order | not started (next up) |
-| 1.2 | Connect Mauville into traversal path | not started |
-| 1.3 | Resolve Route104 bypass per decision 2 | in progress (see 0.3) |
-| 2 | Split 1 (Norman/Petalburg) redesign | not started |
+| 1.1 | Renumber `FLAG_BADGE0N_GET` to match approved order | **done** — build clean, 93 FAILED matches baseline |
+| 1.2 | Connect Mauville into traversal path | **already satisfied — see finding below, no work needed** |
+| 1.3 | Resolve Route104 bypass per decision 2 | done (see Phase 0.3) |
+| 2 | Split 1 (Norman/Petalburg) redesign | **implemented, build/tests running** |
 | 3 | Split 2 (Roxanne/Rustboro) redesign | not started |
 | 4 | Split 3 (Brawly/Dewford) redesign | not started |
 | 4b | Level-cap engine feature | not started |
@@ -126,6 +126,118 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
     Given Briney's boat was the trivially-exploitable path and is now closed,
     this residual risk is low; flagging rather than re-opening a full
     walkability trace.
+
+- **Phase 1.1 (badge renumbering) — implementation notes.** Swapped which
+  gym sets which `FLAG_BADGE0N_GET`: Norman 05→01, Roxanne 01→02, Brawly
+  02→03, Wattson 03→04 (a clean 4-way rotation, no collisions). Before
+  touching anything, audited every one of the ~30 repo-wide references to
+  these 4 flags (`grep` across `data/` and `src/`) to separate gym-identity-
+  specific checks (need renumbering) from generic badge-count/slot-index
+  systems (HM field-move gating, traded-mon obedience caps, stat boosts,
+  Trainer Card display, PokeNav/match-call arrays, debug cheats) — those are
+  all `FLAG_BADGE01_GET + i`-style loops or hardcoded vanilla per-count
+  thresholds (e.g. Cut=badge1, Rock Smash=badge3, Strength=badge4, Surf=
+  badge5 — standard vanilla Hoenn HM/badge mapping) and correctly need **no
+  changes**, since they'll now track "Nth gym beaten in real order" instead of
+  a stale count.
+  - Also updated 6 NPC-dialogue references outside the gyms themselves that
+    were specifically about a named leader (Mom's Amulet Coin gift for
+    beating Norman in `players_house.inc`; Rustboro's "have you challenged the
+    gym" NPC and Scott's dialogue ×2 for Roxanne; Mauville's Game Corner
+    bouncer for Wattson).
+  - **Left unchanged, and confirmed already correct for the new order**:
+    `GraniteCave_B2F`'s `WraithwoodBlocker` object event already gates on
+    `FLAG_BADGE02_GET` — under the new numbering this correctly means "must
+    have beaten Norman AND Roxanne" before passing through the cave toward
+    Dewford, which is exactly the intended gate. It reads like this was
+    already written anticipating this renumbering.
+  - **Not touched (correctly out of scope)**: Lavaridge/Flannery's gym
+    (vanilla badge 4) still also sets `FLAG_BADGE04_GET`. Harmless for now
+    (unreachable this early, and Wattson will set it first in practice), but
+    a future milestone extending past badge 4 will need to renumber her too.
+- **Phase 1.2 finding**: Mauville is already reachable from Rustboro via the
+  untouched vanilla path Rustboro→Route116→Verdanturf→Route117→Mauville
+  (BFS-confirmed at depth 4, no script blockers found on Route116/Verdanturf).
+  The original audit's "not reachable within 10 hops" was scoped to a
+  different traversal and doesn't hold up — no new route construction is
+  needed for splits 1-4's badge-4 connectivity.
+
+- **Phase 2 (Petalburg/Norman split) — implementation.** Redesigned all 4
+  required Petalburg Gym trainers for the approved Lv13-16 band (ace 16),
+  replacing 100% vanilla late-game data:
+  - **Randall**: Taillow Lv14 @ Sitrus Berry (Wing Attack/Tackle/Uproar/
+    Whirlwind) — was Swellow Lv26. Swapped to the pre-evolution since Swellow
+    doesn't naturally evolve until Lv22.
+  - **Alexia**: Jigglypuff Lv14 @ Oran Berry (Sing/Double Slap/Water Pulse/
+    Pound) — was Wigglytuff Lv26 (Wigglytuff needs a Moon Stone, not level,
+    so pre-evolution is the only legal early option).
+  - **Jody**: Zangoose Lv16 @ Quick Claw (False Swipe/Metal Claw/Fury Cutter/
+    Cut) — was Lv26; Zangoose has no evolution so only the level/moveset/item
+    needed changing.
+  - **Norman (leader)**: Zigzagoon Lv14 -> Whismur Lv15 -> Slakoth Lv16 (ace),
+    replacing his old Spinda/Vigoroth/Linoone/Slaking Lv27-31 vanilla team.
+    Kept the Truant-ace callback to his vanilla Slaking identity via Slakoth
+    (pre-evolution, still has Truant, evolves at 18 so it's legal at 16).
+    AI upgraded to `Smart Trainer` (a single token that expands to
+    `AI_FLAG_BASIC_TRAINER | AI_FLAG_OMNISCIENT | AI_FLAG_SMART_SWITCHING |
+    AI_FLAG_SMART_MON_CHOICES` -- confirmed this composite macro exists and
+    resolves correctly) rather than the baseline `Basic Trainer / Smart Mon
+    Choices` the 3 rank-and-file trainers use, giving the boss fight
+    meaningfully stronger AI per "bosses substantially more demanding."
+  - All movesets verified against actual level-up learnsets (not guessed) so
+    every move is legally learnable by that level; `trainerproc` and the full
+    ROM build both accepted everything without a manual header hand-patch.
+- **Gift-NPC finding**: the "Dewford gift NPC" the earlier audit flagged as
+  existing is actually **dead/orphaned code** --
+  `DewfordTown_EventScript_RanchGift` exists in `scripts.inc` but is not
+  attached to any object event in `DewfordTown/map.json`, so it's currently
+  unreachable in-game. It's also a near-exact duplicate of Rancher Andy's
+  Granite Shore gift (same Tauros/Miltank/Bouffalant choice, different flag
+  name), so wiring it up as-is would just offer the same reward twice rather
+  than satisfying "~2 *different* gift mons." Deferring the real fix (pick a
+  distinct species, wire up an actual NPC) to Phase 4 (split 3, Dewford) as
+  already scheduled in the roadmap -- flagging now so it isn't mistaken for
+  already-done work.
+
+- **Universal AI upgrade (your request: "all trainers... highest AI tier...
+  smart and predictable").** Applied `AI_FLAG_SMART_TRAINER` (the engine's own
+  documented ceiling: `BASIC_TRAINER | OMNISCIENT | SMART_SWITCHING |
+  SMART_MON_CHOICES` -- full knowledge of the player's moves/abilities/items,
+  smarter switching, smarter mid-battle mon choices, plus the core bad-move-
+  avoidance/KO-seeking/viability-scoring trio) to **every trainer in the
+  game**, not just gym leaders:
+  - Replaced all 848 existing `AI:` lines (whatever mix of `Basic Trainer`,
+    `Check Bad Move`, `Try To Faint`, `Force Setup First Turn`, `Risky`,
+    `Smart Mon Choices` they previously had) with a single `AI: Smart Trainer`.
+  - Added a `Smart Trainer` line to 11 real trainers that had **no AI line at
+    all** (Dianne, Jani, the 5 Lao ninja boys, Lung, Mariela, Alvaro, Everett)
+    -- these were previously fighting with zero AI logic, an upstream data gap
+    unrelated to bofa's own work. Left `TRAINER_NONE` and 4 explicitly-named
+    `_PLACEHOLDER`/cameo trainers (Red, Leaf, Brendan, May) untouched since
+    they're not real battles.
+  - Deliberately did NOT stack additional flags beyond `Smart Trainer` (e.g.
+    `Risky`, `Conservative`, `Prefer Strongest Move`, `Stall`) -- the header
+    comment in `battle_ai.h` explicitly documents `Smart Trainer` as the
+    complete "smart" ceiling and warns other flags are situational tuning that
+    "could make the trainer worse/better depending on the flag," not a
+    strictly-higher tier. Removing `Risky` specifically (a handful of trainers
+    had it) directly serves "predictable" -- it made AI play more recklessly/
+    accuracy-ignoring. `Force Setup First Turn` is superseded by `Smart
+    Trainer`'s `CHECK_VIABILITY`, which the flag's own doc comment says
+    "will instead do this when the AI determines it makes sense" -- a smarter,
+    context-aware version of the same idea, not a downgrade.
+  - Verified before applying: grepped every historical AI-line variant that
+    ever existed in the file and confirmed none used a structural mechanic
+    (Ace Pokemon, Double Ace Pokemon, Sequence Switching, etc.) that a blanket
+    replace would have silently destroyed.
+  - Note this changes the earlier "bosses get stronger AI than rank-and-file
+    trainers" distinction from the original design proposal -- difficulty
+    separation between ordinary trainers and gym leaders now needs to come
+    from levels/movesets/items alone, not AI tier, since everyone's at the
+    ceiling now. That's a direct consequence of this request, flagging it so
+    it's a known tradeoff rather than a silent side effect.
+  - Full rebuild + `make check` run to confirm no regressions before
+    committing.
 
 ## Decisions needing your input
 
