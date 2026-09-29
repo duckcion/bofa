@@ -19,7 +19,7 @@ MauvilleCity_Text_ZoomLensLocked:
 	.string "prove yourself in battle first.$"
 
 @ Blocks the GAME CORNER entrance until Wattson is defeated. Placed directly
-@ on the warp tile; the object auto-hides once FLAG_BADGE03_GET is set,
+@ on the warp tile; the object auto-hides once FLAG_BADGE04_GET is set,
 @ the same disappearing-object convention used for Wally/Wattson/Scott above.
 MauvilleCity_EventScript_GameCornerBouncer::
 	msgbox MauvilleCity_Text_GameCornerNotOpenYet, MSGBOX_NPC
