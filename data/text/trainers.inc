@@ -9592,51 +9592,99 @@ VSSeeker_Text_TrainersNotReady::
 	.string "to be ready for battle.\p"
 # 4797 "data/text/trainers.pory"
 	.string "Let's wait till later.{PAUSE_UNTIL_PRESS}$"
+# 4798 "data/text/trainers.pory"
 
-Route105_Text_TessIntro:
+# 4799 "data/text/trainers.pory"
+Route105_Text_TessIntro::
+# 4800 "data/text/trainers.pory"
 	.string "Just practicing for now!$"
+# 4801 "data/text/trainers.pory"
 
-Route105_Text_TessDefeated:
+# 4802 "data/text/trainers.pory"
+Route105_Text_TessDefeated::
+# 4803 "data/text/trainers.pory"
 	.string "Aw, my LILLIPUP wasn't ready yet.$"
+# 4804 "data/text/trainers.pory"
 
-Route105_Text_TessPostBattle:
+# 4805 "data/text/trainers.pory"
+Route105_Text_TessPostBattle::
+# 4806 "data/text/trainers.pory"
 	.string "I'll train it up properly soon.$"
+# 4807 "data/text/trainers.pory"
 
-Route106_Text_MiloIntro:
+# 4808 "data/text/trainers.pory"
+Route106_Text_MiloIntro::
+# 4809 "data/text/trainers.pory"
 	.string "Hey, wanna battle real quick?$"
+# 4810 "data/text/trainers.pory"
 
-Route106_Text_MiloDefeated:
+# 4811 "data/text/trainers.pory"
+Route106_Text_MiloDefeated::
+# 4812 "data/text/trainers.pory"
 	.string "Whoa, guess I need more practice.$"
+# 4813 "data/text/trainers.pory"
 
-Route106_Text_MiloPostBattle:
+# 4814 "data/text/trainers.pory"
+Route106_Text_MiloPostBattle::
+# 4815 "data/text/trainers.pory"
 	.string "Catch you around!$"
+# 4816 "data/text/trainers.pory"
 
-GraniteShore_Text_DeaconIntro:
+# 4817 "data/text/trainers.pory"
+GraniteShore_Text_DeaconIntro::
+# 4818 "data/text/trainers.pory"
 	.string "Whoa, a trainer! Let's go!$"
+# 4819 "data/text/trainers.pory"
 
-GraniteShore_Text_DeaconDefeated:
+# 4820 "data/text/trainers.pory"
+GraniteShore_Text_DeaconDefeated::
+# 4821 "data/text/trainers.pory"
 	.string "My LILLIPUP's still just a pup…$"
+# 4822 "data/text/trainers.pory"
 
-GraniteShore_Text_DeaconPostBattle:
+# 4823 "data/text/trainers.pory"
+GraniteShore_Text_DeaconPostBattle::
+# 4824 "data/text/trainers.pory"
 	.string "This cave's pretty deep, huh?$"
+# 4825 "data/text/trainers.pory"
 
-GraniteShore_Text_PriyaIntro:
+# 4826 "data/text/trainers.pory"
+GraniteShore_Text_PriyaIntro::
+# 4827 "data/text/trainers.pory"
 	.string "Careful in the cave ahead!\p"
+# 4828 "data/text/trainers.pory"
 	.string "But first, let's battle!$"
+# 4829 "data/text/trainers.pory"
 
-GraniteShore_Text_PriyaDefeated:
+# 4830 "data/text/trainers.pory"
+GraniteShore_Text_PriyaDefeated::
+# 4831 "data/text/trainers.pory"
 	.string "Guess I need a stronger team.$"
+# 4832 "data/text/trainers.pory"
 
-GraniteShore_Text_PriyaPostBattle:
+# 4833 "data/text/trainers.pory"
+GraniteShore_Text_PriyaPostBattle::
+# 4834 "data/text/trainers.pory"
 	.string "Good luck in GRANITE CAVE!$"
+# 4835 "data/text/trainers.pory"
 
-PetalburgCoast_Text_RonnieIntro:
+# 4836 "data/text/trainers.pory"
+PetalburgCoast_Text_RonnieIntro::
+# 4837 "data/text/trainers.pory"
 	.string "Hold it! You want that OVAL STONE?\n"
+# 4838 "data/text/trainers.pory"
 	.string "Beat me first!$"
+# 4839 "data/text/trainers.pory"
 
-PetalburgCoast_Text_RonnieDefeated:
+# 4840 "data/text/trainers.pory"
+PetalburgCoast_Text_RonnieDefeated::
+# 4841 "data/text/trainers.pory"
 	.string "Ugh! Fine, it's all yours.$"
+# 4842 "data/text/trainers.pory"
 
-PetalburgCoast_Text_RonniePostBattle:
+# 4843 "data/text/trainers.pory"
+PetalburgCoast_Text_RonniePostBattle::
+# 4844 "data/text/trainers.pory"
 	.string "That stone looked important, so I\n"
+# 4845 "data/text/trainers.pory"
 	.string "figured I'd test you first.$"
