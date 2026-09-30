@@ -110,6 +110,9 @@ extern const u8 gText_Cancel[];
 extern const u8 gText_StarterTradeChikorita[];
 extern const u8 gText_StarterTradeCyndaquil[];
 extern const u8 gText_StarterTradeTotodile[];
+extern const u8 gText_StoneChoiceFire[];
+extern const u8 gText_StoneChoiceWater[];
+extern const u8 gText_StoneChoiceLeaf[];
 
 extern const u8 gText_Color161Shadow161[];
 extern const u8 gText_GoBackPrevMenu[];

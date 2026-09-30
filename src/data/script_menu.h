@@ -791,6 +791,14 @@ static const struct MenuAction MultichoiceList_JohtoStarterTrade[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_EvolutionStone[] =
+{
+    {gText_StoneChoiceFire},
+    {gText_StoneChoiceWater},
+    {gText_StoneChoiceLeaf},
+    {gText_Exit},
+};
+
 struct MultichoiceListStruct
 {
     const struct MenuAction *list;
@@ -915,6 +923,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
     [MULTI_JOHTO_STARTER_TRADE]        = MULTICHOICE(MultichoiceList_JohtoStarterTrade),
+    [MULTI_EVOLUTION_STONE]            = MULTICHOICE(MultichoiceList_EvolutionStone),
 };
 
 const u8 *const gStdStrings[] =

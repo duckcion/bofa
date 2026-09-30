@@ -53,7 +53,7 @@
 #define FLAG_RECEIVED_STARTER_SUPPLIES    0x27
 #define FLAG_JOHTO_STARTER_TRADE_DONE    0x28
 #define FLAG_RECEIVED_SKORUPI_GIFT    0x29
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
+#define FLAG_RECEIVED_EVOLUTION_STONE    0x2A
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag

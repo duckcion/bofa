@@ -1297,3 +1297,75 @@ RustboroCity_Text_YouCanHave2On2Battle:
 	.string "they'll both challenge you.\p"
 	.string "Don't you think it'd be cool if you\n"
 	.string "could beat two TRAINERS by yourself?$"
+
+RustboroCity_EventScript_StoneCollector::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_EVOLUTION_STONE, RustboroCity_EventScript_StoneCollectorDone
+	msgbox RustboroCity_Text_StoneCollectorIntro, MSGBOX_DEFAULT
+	msgbox RustboroCity_Text_StoneCollectorOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_EventScript_StoneCollectorDecline
+	multichoice 0, 0, MULTI_EVOLUTION_STONE, FALSE
+	switch VAR_RESULT
+	case 0, RustboroCity_EventScript_StoneCollectorFire
+	case 1, RustboroCity_EventScript_StoneCollectorWater
+	case 2, RustboroCity_EventScript_StoneCollectorLeaf
+	goto RustboroCity_EventScript_StoneCollectorDecline
+
+RustboroCity_EventScript_StoneCollectorFire::
+	giveitem ITEM_FIRE_STONE
+	goto RustboroCity_EventScript_StoneCollectorFinish
+
+RustboroCity_EventScript_StoneCollectorWater::
+	giveitem ITEM_WATER_STONE
+	goto RustboroCity_EventScript_StoneCollectorFinish
+
+RustboroCity_EventScript_StoneCollectorLeaf::
+	giveitem ITEM_LEAF_STONE
+	goto RustboroCity_EventScript_StoneCollectorFinish
+
+@ giveitem preserves whether the item actually fit in VAR_0x8007 (Std_ObtainItem
+@ copies additem's result there, and its own success/no-room messaging branches
+@ on it). Gate the one-time flag on that so a player whose BAG was full can come
+@ back and still claim a stone. giveitem already printed the "no room in your
+@ BAG" message itself, so there is nothing more to say in that case.
+RustboroCity_EventScript_StoneCollectorFinish::
+	goto_if_eq VAR_0x8007, FALSE, RustboroCity_EventScript_StoneCollectorRelease
+	msgbox RustboroCity_Text_StoneCollectorGiven, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_EVOLUTION_STONE
+
+RustboroCity_EventScript_StoneCollectorRelease::
+	release
+	end
+
+RustboroCity_EventScript_StoneCollectorDecline::
+	msgbox RustboroCity_Text_StoneCollectorDecline, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_EventScript_StoneCollectorDone::
+	msgbox RustboroCity_Text_StoneCollectorDone, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_Text_StoneCollectorIntro:
+	.string "The quarries around here turn up more\n"
+	.string "than building stone.\p"
+	.string "Every so often we pull out one of the\n"
+	.string "odd ones. The kind POKéMON react to.$"
+
+RustboroCity_Text_StoneCollectorOffer:
+	.string "I've three of them on my table right\n"
+	.string "now. You can have one.\p"
+	.string "Only one, mind. Choose carefully.$"
+
+RustboroCity_Text_StoneCollectorGiven:
+	.string "Good pick. Mind who you use it on.\n"
+	.string "There's no undoing it.$"
+
+RustboroCity_Text_StoneCollectorDecline:
+	.string "Think it over. They'll keep.$"
+
+RustboroCity_Text_StoneCollectorDone:
+	.string "You made your choice. The other two\n"
+	.string "are spoken for.$"
