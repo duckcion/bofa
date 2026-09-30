@@ -5,3 +5,141 @@ WraithwoodForest_MapScripts::
 WraithwoodForest_OnTransition:
 	setflag FLAG_CLEARED_WRAITHWOOD_ROUTE
 	end
+
+WraithwoodForest_EventScript_Desmond::
+	trainerbattle_single TRAINER_DESMOND, WraithwoodForest_Text_DesmondIntro, WraithwoodForest_Text_DesmondDefeat, WraithwoodForest_EventScript_TryRegisterDesmondAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, WraithwoodForest_EventScript_RematchDesmond
+	setvar VAR_0x8004, TRAINER_DESMOND
+	specialvar VAR_RESULT, IsTrainerRegistered
+	goto_if_eq VAR_RESULT, FALSE, WraithwoodForest_EventScript_TryRegisterDesmond
+	msgbox WraithwoodForest_Text_DesmondPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+WraithwoodForest_EventScript_RematchDesmond::
+	trainerbattle_rematch TRAINER_DESMOND, WraithwoodForest_Text_DesmondRematchIntro, WraithwoodForest_Text_DesmondDefeat
+	msgbox WraithwoodForest_Text_DesmondPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+WraithwoodForest_EventScript_TryRegisterDesmond::
+	msgbox WraithwoodForest_Text_DesmondRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_DESMOND
+	release
+	end
+
+WraithwoodForest_EventScript_TryRegisterDesmondAfterBattle::
+	msgbox WraithwoodForest_Text_DesmondRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_DESMOND
+	release
+	end
+
+WraithwoodForest_Text_DesmondIntro:
+	.string "DESMOND: The bugs in this fog love\n"
+	.string "company! Come keep us busy!$"
+
+WraithwoodForest_Text_DesmondDefeat:
+	.string "DESMOND: Aw, bug out!$"
+
+WraithwoodForest_Text_DesmondPostBattle:
+	.string "DESMOND: This fog's thick, but my bugs\n"
+	.string "know the way around.$"
+
+WraithwoodForest_Text_DesmondRegister:
+	.string "DESMOND: Let's swap numbers!$"
+
+WraithwoodForest_Text_DesmondRematchIntro:
+	.string "DESMOND: Back for more bug bites?$"
+
+WraithwoodForest_EventScript_Ottoline::
+	trainerbattle_single TRAINER_OTTOLINE, WraithwoodForest_Text_OttolineIntro, WraithwoodForest_Text_OttolineDefeat, WraithwoodForest_EventScript_TryRegisterOttolineAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, WraithwoodForest_EventScript_RematchOttoline
+	setvar VAR_0x8004, TRAINER_OTTOLINE
+	specialvar VAR_RESULT, IsTrainerRegistered
+	goto_if_eq VAR_RESULT, FALSE, WraithwoodForest_EventScript_TryRegisterOttoline
+	msgbox WraithwoodForest_Text_OttolinePostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+WraithwoodForest_EventScript_RematchOttoline::
+	trainerbattle_rematch TRAINER_OTTOLINE, WraithwoodForest_Text_OttolineRematchIntro, WraithwoodForest_Text_OttolineDefeat
+	msgbox WraithwoodForest_Text_OttolinePostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+WraithwoodForest_EventScript_TryRegisterOttoline::
+	msgbox WraithwoodForest_Text_OttolineRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_OTTOLINE
+	release
+	end
+
+WraithwoodForest_EventScript_TryRegisterOttolineAfterBattle::
+	msgbox WraithwoodForest_Text_OttolineRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_OTTOLINE
+	release
+	end
+
+WraithwoodForest_Text_OttolineIntro:
+	.string "OTTOLINE: Something's watching us from\n"
+	.string "the fog… oh, it's just me!$"
+
+WraithwoodForest_Text_OttolineDefeat:
+	.string "OTTOLINE: My spirits… they've fled!$"
+
+WraithwoodForest_Text_OttolinePostBattle:
+	.string "OTTOLINE: This place is thick with\n"
+	.string "restless spirits.$"
+
+WraithwoodForest_Text_OttolineRegister:
+	.string "OTTOLINE: Let's stay in touch!$"
+
+WraithwoodForest_Text_OttolineRematchIntro:
+	.string "OTTOLINE: The spirits are restless again!$"
+
+WraithwoodForest_EventScript_Rufus::
+	trainerbattle_single TRAINER_RUFUS, WraithwoodForest_Text_RufusIntro, WraithwoodForest_Text_RufusDefeat, WraithwoodForest_EventScript_TryRegisterRufusAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, WraithwoodForest_EventScript_RematchRufus
+	setvar VAR_0x8004, TRAINER_RUFUS
+	specialvar VAR_RESULT, IsTrainerRegistered
+	goto_if_eq VAR_RESULT, FALSE, WraithwoodForest_EventScript_TryRegisterRufus
+	msgbox WraithwoodForest_Text_RufusPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+WraithwoodForest_EventScript_RematchRufus::
+	trainerbattle_rematch TRAINER_RUFUS, WraithwoodForest_Text_RufusRematchIntro, WraithwoodForest_Text_RufusDefeat
+	msgbox WraithwoodForest_Text_RufusPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+WraithwoodForest_EventScript_TryRegisterRufus::
+	msgbox WraithwoodForest_Text_RufusRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_RUFUS
+	release
+	end
+
+WraithwoodForest_EventScript_TryRegisterRufusAfterBattle::
+	msgbox WraithwoodForest_Text_RufusRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_RUFUS
+	release
+	end
+
+WraithwoodForest_Text_RufusIntro:
+	.string "RUFUS: Heading for GRANITE CAVE?\n"
+	.string "Not before you beat me!$"
+
+WraithwoodForest_Text_RufusDefeat:
+	.string "RUFUS: Solid hit, that.$"
+
+WraithwoodForest_Text_RufusPostBattle:
+	.string "RUFUS: The cave entrance is just\n"
+	.string "south of here.$"
+
+WraithwoodForest_Text_RufusRegister:
+	.string "RUFUS: Let's trade numbers!$"
+
+WraithwoodForest_Text_RufusRematchIntro:
+	.string "RUFUS: Fancy another round?$"

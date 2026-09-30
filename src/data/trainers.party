@@ -17035,3 +17035,57 @@ AI: Smart Trainer
 Lillipup
 Level: 1
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_DESMOND ===
+Name: DESMOND
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Male
+Items: Potion
+Double Battle: No
+AI: Smart Trainer
+
+Nincada @ Silver Powder
+Level: 24
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Bug Buzz
+- Dig
+- Leech Life
+- Mud-Slap
+
+=== TRAINER_OTTOLINE ===
+Name: OTTOLINE
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Music: Intense
+Items: Potion
+Double Battle: No
+AI: Smart Trainer
+
+Shuppet @ Spell Tag
+Level: 25
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Night Shade
+- Spite
+- Ominous Wind
+- Will-O-Wisp
+
+=== TRAINER_RUFUS ===
+Name: RUFUS
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Music: Hiker
+Items: Potion
+Double Battle: No
+AI: Smart Trainer
+
+Roggenrola @ Oran Berry
+Level: 26
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Smack Down
+- Iron Defense
+- Headbutt
+- Mud-Slap
