@@ -574,6 +574,83 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
     the 18 currently built out (Dewford/Brawly and Mauville/Wattson splits
     haven't been started yet per the original roadmap).
 
+- **Convenience/QoL systems (Phase 1), implemented and committed.**
+  - Littleroot Town supplies NPC: gives 900 each of Rare Candy, Max Repel,
+    Full Restore, Escape Rope, once only, gated on the new
+    `FLAG_RECEIVED_STARTER_SUPPLIES` (0x27). Reused a pre-existing unused
+    `OBJ_EVENT_GFX_MANIAC` object_event at (26,15) that had `script: NULL`
+    and no flag -- the same orphaned-placeholder pattern found repeatedly
+    in this project, here for a plain NPC rather than a trainer. 900 is
+    safely under `MAX_BAG_ITEM_CAPACITY` (999) so each fits one stack.
+  - Rare Candy `.price` -> 1, and added to all 12 standard town Mart
+    inventories. OldaleTown/PetalburgCity/RustboroCity each have two
+    inventory tiers (Basic/Expanded) -- added to both. Deliberately left
+    specialty shops alone (Decoration Shop, Herb Shop, the four Department
+    Store floors, Pretty Petal Flower Shop, Trainer Hill, EverGrande
+    league shop), since those sell category-specific goods and aren't
+    "standard Poké Marts."
+  - Starting money -> `MAX_MONEY` (999,999) in `src/new_game.c`. Used the
+    constant rather than a literal so it can't drift out of range.
+  - Berry harvest -> flat 255 regardless of species
+    (`GetBerryCountByBerryTreeId` in `src/berry.c`). Growth/watering/
+    mutation mechanics untouched. All three call sites already route
+    through `AddBagItem`/`CheckBagHasSpace`, whose capacity handling is
+    quantity-agnostic, so no extra bag-safety work was needed.
+  - **Not gameplay-verified.** These are confirmed to compile and to be
+    wired correctly in the generated data, but nothing here has been
+    tested in an actual running game.
+
+- **Gift Pokemon #1 and #2, implemented and committed.**
+  - Species-wide changes: Dwebble evolves at 26 (was 34); Crustle's stats
+    set to the specified spread (80/105/125/65/80/45, BST 500 -- notably
+    *down* on Attack and Speed from its current 134/61, up on SpA/SpD, so
+    it is now a mixed wall rather than a glass physical attacker);
+    Rock Blast added at 15, Rock Slide at 24, Bug Bite moved 5 -> 19 on
+    both Dwebble and Crustle; Shell Smash moved from Dwebble lvl 36 to
+    Crustle lvl 32 (it was unreachable pre-evolution once Dwebble evolves
+    at 26). Skorupi and Drapion both get Battle Armor in ability slot 1
+    (neither had it before in this codebase, despite it being their
+    signature ability in the retail games); Skorupi evolves at 32 (was 40).
+  - Gift NPCs: **Dwebble** at Viridian Forest (9,11) -- Lv10, Adamant,
+    Sturdy, 31 IVs across the board, Rock Blast/Struggle Bug/Tackle/String
+    Shot. Viridian Forest is reachable in split 1: Route 103 warps into it
+    at (4,0)/(5,0), and Route 103 connects down to Oldale Town.
+    **Skorupi** at Wraithwood Forest (20,11) -- Lv22, Jolly, Battle Armor,
+    31 IVs, Poison Jab/Slash/Bite/Pin Missile. Wraithwood's own trainers
+    sit at Lv24-26, i.e. the Roxanne(23) -> Brawly(31) band, so this is a
+    split-3 gift that evolves into Drapion during split 4.
+  - Verified that `abilityNum=0` in the `givemon` macro indexes ability
+    slot 1 and that `MON_DATA_ABILITY_NUM` carries through evolution, so
+    the gifted Skorupi really does keep Battle Armor as a Drapion.
+
+- **Found and fixed a latent data-loss hazard in the poryscript setup.**
+  Three of the new maps (`WraithwoodForest`, `Hollowbrook`, `GraniteShore`)
+  had a `scripts.pory` that was a 2-to-35-line stub while the real content
+  lived only in the generated `scripts.inc`. `GraniteShore/scripts.pory`
+  even carried a note from an earlier session asserting "this project does
+  not auto-compile .pory to .inc, so the real, authoritative script lives
+  in scripts.inc." **That note is wrong.** The Makefile has a live rule
+  (`data/%.inc: data/%.pory`), and editing `LittlerootTown/scripts.pory`
+  for the supplies NPC regenerated its `scripts.inc` exactly as expected.
+  The only reason those three maps had not already lost their scripts is
+  that their `.inc` happened to have a newer mtime than their `.pory`;
+  any `touch`, fresh clone, or checkout that reordered those timestamps
+  would have silently regenerated all three maps from near-empty stubs and
+  destroyed every trainer and gift script in them. Rewrote all three
+  `.pory` files to hold the real content inside a `raw` passthrough block,
+  then deleted and regenerated the `.inc` files and diffed them against
+  the originals to confirm the output is content-identical (the only
+  difference is poryscript's own `#line` debug markers). `.pory` is now
+  genuinely authoritative for those maps.
+
 ## Decisions needing your input
 
-(none currently outstanding beyond what's already been asked)
+- Location and timing for the **Gen 3 starter trade** (Treecko/Torchic/
+  Mudkip, player's choice, 31 IVs, one-time) -- proposal not yet written.
+- Location for the **evolution stone NPC** (Fire/Water/Leaf Stone, player's
+  choice, one-time) -- proposal not yet written.
+- Note for the record: Granite Shore already has a **third, pre-existing
+  gift NPC** ("Rancher Andy") that hands out a *random* one of Tauros /
+  Miltank / Bouffalant at Lv20 with 31 IVs. It predates this session's
+  work. Worth deciding whether it stays as-is alongside the two approved
+  gifts, since it brings the splits-1-4 gift count to three.
