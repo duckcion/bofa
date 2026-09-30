@@ -51,7 +51,7 @@
 #define FLAG_RECEIVED_OLDALE_STARTER_SUPPLIES    0x25 // Set once the player takes the starter status-berry/consumable stockpile from the woman in Oldale Town House 1
 #define FLAG_CLEARED_WRAITHWOOD_ROUTE    0x26 // Set on first entering Wraithwood Forest; gates Mr. Briney's boat to Dewford so the Rustboro->mining tunnel->Wraithwood->Granite Cave route can't be skipped
 #define FLAG_RECEIVED_STARTER_SUPPLIES    0x27
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
+#define FLAG_JOHTO_STARTER_TRADE_DONE    0x28
 #define FLAG_RECEIVED_SKORUPI_GIFT    0x29
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag

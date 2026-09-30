@@ -1047,6 +1047,57 @@ static const struct InGameTrade sIngameTrades[] =
         .otGender = FEMALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_SKITTY
+    },
+    // The three starter trades below are accepted in exchange for ANY species.
+    // Their requestedSpecies is never read: the Viridian Forest trade script
+    // deliberately omits the goto_if_ne species check the other trades use.
+    [INGAME_TRADE_CHIKORITA] =
+    {
+        .nickname = _("LEAFLET"),
+        .species = SPECIES_CHIKORITA,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 51204,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x2C,
+        .heldItem = ITEM_NONE,
+        .mailNum = -1,
+        .otName = _("HAZEL"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_NONE
+    },
+    [INGAME_TRADE_CYNDAQUIL] =
+    {
+        .nickname = _("EMBER"),
+        .species = SPECIES_CYNDAQUIL,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 51204,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x2D,
+        .heldItem = ITEM_NONE,
+        .mailNum = -1,
+        .otName = _("HAZEL"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_NONE
+    },
+    [INGAME_TRADE_TOTODILE] =
+    {
+        .nickname = _("SNAPPER"),
+        .species = SPECIES_TOTODILE,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 51204,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x2E,
+        .heldItem = ITEM_NONE,
+        .mailNum = -1,
+        .otName = _("HAZEL"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_NONE
     }
 };
 

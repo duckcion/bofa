@@ -107,6 +107,9 @@ extern const u8 gText_NoDecorationsInUse[];
 
 extern const u8 gText_Exit[];
 extern const u8 gText_Cancel[];
+extern const u8 gText_StarterTradeChikorita[];
+extern const u8 gText_StarterTradeCyndaquil[];
+extern const u8 gText_StarterTradeTotodile[];
 
 extern const u8 gText_Color161Shadow161[];
 extern const u8 gText_GoBackPrevMenu[];
