@@ -393,13 +393,23 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
     wrapped in `pcall` since it's genuinely uncertain whether one exists in
     a given mGBA build) but always also writes `bofa_export.txt` as the
     guaranteed fallback, and prints to the console either way.
-  - **Not verified end-to-end in a live emulator** -- no Lua interpreter was
-    available in this environment to even syntax-check it (tried installing
-    one via WSL apt, it hung; checked manually line-by-line instead, and I'm
-    confident in the syntax, but the actual mGBA scripting API surface --
-    exact method names on `emu`/`console`, whether `io.open` is permitted in
-    its sandbox, whether any clipboard API exists at all -- can only be
-    confirmed by loading it in mGBA and trying the commands.
+  - **Follow-up: actually tested the two riskiest assumptions against the
+    real running game.** mGBA turned out to be installed on this machine
+    (`C:\Program Files\mGBA`). No Lua interpreter or gdb binary was available
+    anywhere in this environment, but the GDB remote serial protocol is
+    simple enough to implement directly -- wrote a minimal Python client,
+    launched mGBA with `-g` (its built-in GDB server), and connected to it.
+    Confirmed: (1) reading 13 bytes at the derived address for species index
+    1 (`gSpeciesInfo + 1*260 + 44`) returns exactly Bulbasaur's charmap-
+    encoded name byte-for-byte -- validates the empirically-derived struct
+    offset/stride against the live game, not just the static ROM file; (2)
+    writing 2 bytes to a party mon's HP offset and reading it back returns
+    the written value unchanged -- validates the basic read/write mechanics
+    `sethp`/`setstatus`/`setweather` all depend on. Closed the test instance
+    afterward. Still not verified: the Lua file's own syntax/runtime (no Lua
+    interpreter was available to actually load and call it) and mGBA's exact
+    scripting API surface (clipboard, io sandboxing) -- those need an actual
+    Tools > Scripting session.
 
 ## Decisions needing your input
 

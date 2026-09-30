@@ -21,6 +21,21 @@ SpeciesInfo struct has been extended well past its stale "/*0xC4*/" comment;
 the real stride was found by searching the compiled ROM for a known species'
 name and computing table_offset - known_index * candidate_stride).
 
+VERIFIED against the actual running ROM (not just static file analysis): with
+mGBA launched via `mGBA.exe -g` and a minimal Python GDB-remote-protocol
+client (no gdb binary was available in this environment, so the protocol was
+implemented directly -- it's simple enough), confirmed (a) reading 13 bytes
+at species index 1's derived name address returns exactly Bulbasaur's
+charmap-encoded name, byte for byte, and (b) writing 2 bytes to a party
+mon's HP offset and reading it back returns the written value unchanged.
+That validates the two riskiest assumptions this script depends on -- the
+gSpeciesInfo address math, and the basic emu-style read/write mechanics --
+against the real game, not just this reasoning. What's still unverified is
+the Lua syntax/runtime itself (no Lua interpreter was available to load this
+file and actually call its functions) and mGBA's exact scripting API surface
+(clipboard availability, io sandboxing) -- those need an actual Tools >
+Scripting session in mGBA.
+
 Requirements: mGBA development build (Tools > Scripting > File > Load script).
 
 Commands (type in the Scripting console):
