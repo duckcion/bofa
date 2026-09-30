@@ -611,14 +611,22 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
     at 26). Skorupi and Drapion both get Battle Armor in ability slot 1
     (neither had it before in this codebase, despite it being their
     signature ability in the retail games); Skorupi evolves at 32 (was 40).
-  - Gift NPCs: **Dwebble** at Viridian Forest (9,11) -- Lv10, Adamant,
-    Sturdy, 31 IVs across the board, Rock Blast/Struggle Bug/Tackle/String
-    Shot. Viridian Forest is reachable in split 1: Route 103 warps into it
-    at (4,0)/(5,0), and Route 103 connects down to Oldale Town.
+  - Gift NPCs: **Dwebble** is given by the pre-existing Rancher Andy NPC at
+    Granite Shore -- Lv20, Adamant, Sturdy, 31 IVs across the board, Rock
+    Blast/Struggle Bug/Bug Bite/X-Scissor. (Initially placed as a separate
+    NPC in Viridian Forest, then moved here on request; Andy's old random
+    Tauros/Miltank/Bouffalant gift was replaced outright, so he is now the
+    Dwebble source and that cattle trio is no longer obtainable from him.
+    The Viridian Forest NPC and its FLAG_RECEIVED_DWEBBLE_GIFT were removed
+    and flag 0x28 returned to the unused pool.)
     **Skorupi** at Wraithwood Forest (20,11) -- Lv22, Jolly, Battle Armor,
     31 IVs, Poison Jab/Slash/Bite/Pin Missile. Wraithwood's own trainers
     sit at Lv24-26, i.e. the Roxanne(23) -> Brawly(31) band, so this is a
     split-3 gift that evolves into Drapion during split 4.
+  - Note that both gifts now land in roughly the same progression window
+    (Granite Shore and Wraithwood are both in the Lv24-26 band), rather
+    than one early and one mid. Worth revisiting if the intent was to have
+    a split-1 gift.
   - Verified that `abilityNum=0` in the `givemon` macro indexes ability
     slot 1 and that `MON_DATA_ABILITY_NUM` carries through evolution, so
     the gifted Skorupi really does keep Battle Armor as a Drapion.
@@ -649,8 +657,7 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
   Mudkip, player's choice, 31 IVs, one-time) -- proposal not yet written.
 - Location for the **evolution stone NPC** (Fire/Water/Leaf Stone, player's
   choice, one-time) -- proposal not yet written.
-- Note for the record: Granite Shore already has a **third, pre-existing
-  gift NPC** ("Rancher Andy") that hands out a *random* one of Tauros /
-  Miltank / Bouffalant at Lv20 with 31 IVs. It predates this session's
-  work. Worth deciding whether it stays as-is alongside the two approved
-  gifts, since it brings the splits-1-4 gift count to three.
+- Whether the splits-1-4 gift count should stay at two. Rancher Andy is now
+  the Dwebble gift, so the Tauros/Miltank/Bouffalant trio he used to hand
+  out is currently unobtainable anywhere -- flagging in case those were
+  wanted somewhere else rather than dropped.
