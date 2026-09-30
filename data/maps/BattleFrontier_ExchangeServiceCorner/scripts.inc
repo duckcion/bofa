@@ -242,9 +242,8 @@ BattleFrontier_ExchangeServiceCorner_EventScript_BlastoiseDoll::
 BattleFrontier_ExchangeServiceCorner_EventScript_VitaminClerk::
 	lock
 	faceplayer
-	setvar VAR_TEMP_2, EXCHANGE_CORNER_VITAMIN_CLERK
-	call BattleFrontier_ExchangeServiceCorner_EventScript_ClerkWelcome
-	goto BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_VitaminsDiscontinued, MSGBOX_DEFAULT
+	release
 	end
 
 BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin::
@@ -504,6 +503,11 @@ BattleFrontier_ExchangeServiceCorner_Text_ConfirmCharizardDoll:
 BattleFrontier_ExchangeServiceCorner_Text_ConfirmBlastoiseDoll:
 	.string "You've chosen the BLASTOISE DOLL.\n"
 	.string "Is that correct?$"
+
+BattleFrontier_ExchangeServiceCorner_Text_VitaminsDiscontinued:
+	.string "Sorry, we don't carry vitamins\n"
+	.string "anymore. Try the hold item or\l"
+	.string "decoration counter instead!$"
 
 BattleFrontier_ExchangeServiceCorner_Text_ConfirmProtein:
 	.string "You've chosen the PROTEIN.\n"

@@ -139,10 +139,7 @@ SlateportCity_Movement_ScottExit:
 SlateportCity_EventScript_EnergyGuru::
 	lock
 	faceplayer
-	message SlateportCity_Text_EnergyGuruSellWhatYouNeed
-	waitmessage
-	pokemart SlateportCity_Pokemart_EnergyGuru
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox SlateportCity_Text_EnergyGuruOutOfStock, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1002,6 +999,12 @@ SlateportCity_EventScript_BerryCrushRankingsSign::
 	waitstate
 	releaseall
 	end
+
+SlateportCity_Text_EnergyGuruOutOfStock:
+	.string "I'm the ENERGY GURU! Or, well, I used\n"
+	.string "to be…\p"
+	.string "Vitamins just aren't a thing anymore.\n"
+	.string "Guess I'm out of a job!$"
 
 SlateportCity_Text_EnergyGuruSellWhatYouNeed:
 	.string "I'm the ENERGY GURU! I'll go for it and\n"

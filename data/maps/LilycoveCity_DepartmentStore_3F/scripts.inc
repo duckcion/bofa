@@ -4,10 +4,7 @@ LilycoveCity_DepartmentStore_3F_MapScripts::
 LilycoveCity_DepartmentStore_3F_EventScript_ClerkLeft::
 	lock
 	faceplayer
-	message gText_HowMayIServeYou
-	waitmessage
-	pokemart LilycoveCity_DepartmentStore_3F_Pokemart_Vitamins
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox LilycoveCity_DepartmentStore_3F_Text_VitaminsDiscontinued, MSGBOX_DEFAULT
 	release
 	end
 
@@ -53,6 +50,11 @@ LilycoveCity_DepartmentStore_3F_EventScript_PokefanM::
 LilycoveCity_DepartmentStore_3F_EventScript_Woman::
 	msgbox LilycoveCity_DepartmentStore_3F_Text_GaveCarbosToSpeedUpMon, MSGBOX_NPC
 	end
+
+LilycoveCity_DepartmentStore_3F_Text_VitaminsDiscontinued:
+	.string "Sorry, we've discontinued our vitamin\n"
+	.string "line. Can't sell what doesn't work\l"
+	.string "anymore!$"
 
 LilycoveCity_DepartmentStore_3F_Text_ItemsBestForTougheningPokemon:
 	.string "For quickly toughening up POKéMON,\n"
