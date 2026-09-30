@@ -64,13 +64,32 @@ Everything else. Specifically:
 - **Team Aqua grunts** in Petalburg Woods and Rusturf Tunnel: single Poochyena
   Lv9/Lv11, vanilla. **PARTIALLY IMPLEMENTED.**
 
-### Cannot be determined without play testing
+### Mandatory vs optional — now derived (corrects an earlier draft)
 
-- **Whether any given trainer is mandatory.** Whether a trainer's sight range
-  forces the battle is not derivable from `map.json` + scripts alone. Every
-  trainer's "Mandatory?" field is UNKNOWN. This affects the whole audit.
-- Whether the Lv34 Trainer Grove trainers are actually reachable on foot, or
-  fenced off by collision.
+An earlier draft of this audit said this could not be determined. It can. Each
+trainer object event carries `trainer_type` and `trainer_sight_or_berry_tree_id`,
+and `src/trainer_see.c` uses the latter as the approach distance, so:
+
+- sight range >= 1 → the NPC challenges on sight. **303 trainers game-wide.**
+- sight range 0, or `TRAINER_TYPE_NONE` → must be talked to. **36 trainers.**
+- Gym leaders all have range 0 but gate a badge, so they are labelled
+  `REQUIRED - awards Badge N` (derived from which gym sets which badge flag).
+
+This is now a real column in `BOFA_Documentation.xlsx` on every split sheet.
+
+Joining object events to trainer IDs needs the script label as an intermediary,
+and for leaders and story battles the `trainerbattle` call sits behind `goto`/`call`
+chains, so the generator follows those edges transitively.
+
+### Still cannot be determined without play testing
+
+- **Whether a forcing sight line can be physically walked around.** This needs
+  per-map collision pathfinding. It was done for Trainer Grove, where the answer is
+  no — see the Critical finding in the Design Gaps report. It has **not** been done
+  for any other map.
+- Rival and story battles (Brendan/May, Wally) report UNKNOWN: they fire from coord
+  events and story scripts rather than a trainer object event, so there is no sight
+  range to read.
 - Whether Route 103's east connection to Route 110 is walkable pre-badge-1 or
   blocked by terrain/ledges.
 
@@ -179,4 +198,8 @@ including 17 added by an earlier project commit. All four custom Split-3 maps
 4. **Three `script: NULL` object events in Viridian Forest** — two Bug Catchers and
    a `BRENDAN_FIELD_MOVE` NPC, placed but inert.
 5. **Brawly's and Wattson's gyms are un-redesigned**, breaking the level curve.
-6. **Trainer Grove's Bum1–Bum4** are unfinished placeholder content on a Split-1 path.
+6. **Badge 1 is walled behind three unavoidable Lv34 battles.** Norman requires an
+   Oval Stone; the stone is on Petalburg Coast; Petalburg Coast is only reachable
+   through Trainer Grove; three of Trainer Grove's four Lv34 trainers have sight
+   lines that cannot be dodged. Verified by BFS over the map's collision data.
+   This is the highest-severity finding in the audit — see the Design Gaps report.

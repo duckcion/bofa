@@ -682,3 +682,110 @@ def national_dex_numbers():
             out[name] = counter
             counter += 1
     return out
+
+
+# ------------------------------------------------- trainer forcing behaviour ---
+
+@lru_cache(maxsize=None)
+def script_label_to_trainers():
+    """Script label -> tuple of TRAINER_ constants that label starts a battle with.
+
+    Object events reference a script *label*, not a trainer constant, so the two
+    have to be joined through the script body to tell which physical NPC
+    corresponds to which trainer entry.
+    """
+    out = {}
+    bodies = {}
+    for path in glob.glob(os.path.join(REPO, "data", "maps", "*", "scripts.inc")):
+        try:
+            with open(path, "r", encoding="utf-8", errors="replace") as f:
+                text = f.read()
+        except OSError:
+            continue
+        text = text.replace("\r\n", "\n")
+        # split on top-level labels
+        chunks = re.split(r"\n(?=[A-Za-z_][A-Za-z0-9_]*::)", text)
+        for chunk in chunks:
+            m = re.match(r"([A-Za-z_][A-Za-z0-9_]*)::", chunk)
+            if not m:
+                continue
+            label = m.group(1)
+            consts = tuple(dict.fromkeys(re.findall(r"trainerbattle\w*\s+(TRAINER_[A-Z0-9_]+)", chunk)))
+            refs = tuple(dict.fromkeys(
+                re.findall(r"(?:goto|call)(?:_if_\w+)?\s+(?:[A-Z_]+,\s*)?([A-Za-z_][A-Za-z0-9_]*)", chunk)))
+            bodies[label] = (consts, refs)
+
+    # Gym leaders and story battles sit behind goto/call chains rather than
+    # calling trainerbattle in the object's own script, so follow those edges.
+    def resolve(label, seen):
+        if label in seen or label not in bodies:
+            return ()
+        seen.add(label)
+        consts, refs = bodies[label]
+        found = list(consts)
+        for r in refs:
+            found.extend(resolve(r, seen))
+        return tuple(dict.fromkeys(found))
+
+    for label in bodies:
+        got = resolve(label, set())
+        if got:
+            out[label] = got
+    return out
+
+
+def trainer_forcing():
+    """TRAINER_ const -> list of placement dicts describing how it engages.
+
+    Derived from each object event's trainer_type and trainer_sight_or_berry_tree_id,
+    which src/trainer_see.c uses as the approach distance. A range of 0 means the
+    NPC never initiates, so the battle is opt-in; a range >= 1 means it challenges
+    the player on sight along its facing direction.
+
+    Whether the player can physically route around that line of sight is a
+    collision question this does not attempt to answer.
+    """
+    label_map = script_label_to_trainers()
+    out = {}
+    for path in glob.glob(os.path.join(REPO, "data", "maps", "*", "map.json")):
+        mapname = os.path.basename(os.path.dirname(path))
+        try:
+            with open(path, "r", encoding="utf-8", errors="replace") as f:
+                data = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            continue
+        for o in data.get("object_events") or []:
+            ttype = o.get("trainer_type") or "TRAINER_TYPE_NONE"
+            script = o.get("script") or ""
+            consts = label_map.get(script, ())
+            if not consts:
+                continue
+            raw = o.get("trainer_sight_or_berry_tree_id")
+            try:
+                rng = int(str(raw))
+            except (TypeError, ValueError):
+                rng = None
+            for const in consts:
+                out.setdefault(const, []).append({
+                    "map": mapname,
+                    "trainer_type": ttype,
+                    "sight_range": rng,
+                    "script": script,
+                    "x": o.get("x"), "y": o.get("y"),
+                })
+    return out
+
+
+def classify_engagement(placements):
+    """Human-readable mandatory/optional verdict for a trainer's placements."""
+    if not placements:
+        return "UNKNOWN (no object event found)"
+    verdicts = set()
+    for p in placements:
+        if p["trainer_type"] == "TRAINER_TYPE_NONE":
+            verdicts.add("Opt-in (not a sight trainer)")
+        elif p["sight_range"] in (0, None):
+            verdicts.add("Opt-in (sight range 0)")
+        else:
+            verdicts.add(f"Forces on sight (range {p['sight_range']})")
+    return "; ".join(sorted(verdicts))

@@ -12,9 +12,13 @@ Two kinds of statement appear below and are kept separate:
 
 ## Per-area summary
 
-Trainer counts are by script reference. "Mandatory" is **unknown for every area** —
-whether a trainer's sight range forces the battle cannot be read from data files, so
-the mandatory/optional split below is not filled in rather than guessed.
+Trainer counts are by script reference. Mandatory/optional *is* now derivable and
+is reported per trainer in `BOFA_Documentation.xlsx`: an object event's sight range
+(`src/trainer_see.c` uses it as the approach distance) tells you whether the NPC
+challenges on sight. Across the whole game, **303 trainers force on sight and 36 are
+opt-in**. What still cannot be answered from data alone is whether a given forcing
+sight line can be physically walked around — that needs per-map pathfinding, which
+was done only for Trainer Grove (see the Critical entry below).
 
 | Area | Split | Trainers | Custom teams | Wild table | OW items | Density verdict |
 |---|---|---|---|---|---|---|
@@ -25,7 +29,7 @@ the mandatory/optional split below is not filled in rather than guessed.
 | Viridian Forest | 1 | 0 | — | **none** | 0 | **empty except the trade** |
 | Route 102 | 1 | 4 | 0 | vanilla Lv3–4 | 2 | fine |
 | Petalburg City | 1 | 0 | — | water only | 4 | fine (hub) |
-| Trainer Grove | 1 | 4 | 0 | **none** | 0 | **placeholder content** |
+| Trainer Grove | 1 | 4 | 0 | **none** | 0 | **blocks badge 1 (see Critical)** |
 | Petalburg Coast | 1 | 1 | 1 | **none** | 1 | thin |
 | Petalburg Gym | 1 | 4 | 4 | — | 0 | good |
 | Route 104 | 2 | 13 | 0 | vanilla Lv3–5 | 9 | dense |
@@ -90,12 +94,14 @@ encounters as core, not optional.
 Trainers Lv25–27; wild Aron/Sableye/Zubat/Abra at **Lv9–12** (vanilla tables). Any
 Pokémon caught there is immediately unusable at that point in the game.
 
-### 4. Trainer Grove is unfinished placeholder content on a Split-1 path [FILE] — HIGH
+### 4. Trainer Grove is unfinished placeholder content on a Split-1 path [FILE] — CRITICAL
 
 Four trainers, "Bum1"–"Bum4", identical Wailmer Lv34 + Horsea Lv34 teams, classes
 that don't match the sprites or each other (Salon Maiden / Swimmer M / Team Magma /
-Team Aqua). Lv34 exceeds every boss in splits 1–4. Reachable from Petalburg City in
-Split 1, and it's the route to the Oval Stone.
+Team Aqua). Lv34 exceeds every boss in splits 1–4.
+
+**Three of the four cannot be avoided, and they gate badge 1.** See the Critical
+entry under Progression and softlock risks.
 
 ### 5. Route 103 is over-levelled for Split 1 [FILE] — MEDIUM
 
@@ -137,14 +143,58 @@ object events.
 
 ## Progression and softlock risks
 
-- **No softlock identified.** Briney's shortcut is gated behind
-  `FLAG_CLEARED_WRAITHWOOD_ROUTE`, which is set on entering Wraithwood — reachable
-  from inside Rustboro, so the gate cannot lock a player out of Dewford.
+### CRITICAL — Badge 1 is walled behind three forced Lv34 battles [FILE]
+
+This supersedes an earlier draft of this document, which said no softlock was
+identified. That was wrong. The chain is:
+
+1. Norman will not battle until the player brings him an **Oval Stone**
+   (`PetalburgCity_Gym_EventScript_Norman`: `checkitem ITEM_OVAL_STONE` →
+   otherwise `Text_NormanSendToPetalburgCoast`).
+2. The Oval Stone is an item ball on **Petalburg Coast**.
+3. Petalburg Coast's **only** connection is up to **Trainer Grove**, whose only
+   other connection is up to Petalburg City. There is no alternative route.
+4. Trainer Grove's four trainers are all `TRAINER_TYPE_NORMAL` with **sight range
+   3**, so they challenge on sight, and each runs **Wailmer Lv34 + Horsea Lv34**.
+
+Sight lines, computed from each object's facing and range, stopping at walls:
+
+| Trainer | Position | Faces | Watches |
+|---|---|---|---|
+| TrainerOne (Anabel sprite) | (6,4) | up | (6,3), (6,2) |
+| TrainerTwo (Swimmer M) | (4,9) | left | (3,9), (2,9) |
+| TrainerThree (Magma grunt) | (4,14) | left | (3,14), (2,14) |
+| TrainerFour (Aqua grunt) | (11,15) | down | (11,16), (11,17), (11,18) |
+
+A breadth-first search over the map's collision data, from the north entrance
+tiles (10,0)/(11,0) to the south exit row, gives:
+
+- Avoiding **all four** sight lines: **impossible**.
+- Avoiding **only TrainerFour**: possible.
+- Avoiding TrainerOne, TrainerTwo or TrainerThree individually: **impossible** —
+  rows 2–3 are the only link west from the entrance and cross TrainerOne's line at
+  x=6, and the x=2–3 column is the only way south, crossing TrainerTwo's line at
+  row 9 and TrainerThree's at row 14.
+
+**So three Lv34 double-Pokémon battles are unavoidable to obtain the item badge 1
+requires**, against an intended party of roughly Lv10–16.
+
+Not a literal softlock, because the Littleroot NPC hands out 900 Rare Candies, so a
+player *can* grind past it — but that is presumably not the intent, and it is
+actively hostile to the Nuzlocke framing.
+
+[RECOMMENDATION] Either re-level Trainer Grove into the Split-1 band (~Lv10–14) and
+give the four trainers real distinct teams, or move the Oval Stone somewhere not
+behind them, or drop their sight ranges to 0 so the battles are opt-in.
+
+### Other progression notes
+
+- Briney's shortcut is correctly gated behind `FLAG_CLEARED_WRAITHWOOD_ROUTE`,
+  which is set on entering Wraithwood — reachable from inside Rustboro, so that
+  gate cannot lock a player out of Dewford. No problem there.
 - [FILE] **Not verified:** whether Route 103's east connection to Route 110 is
   actually walkable before badge 1. If it is, a Split-1 player can wander into
-  Split-4 terrain. Needs in-game checking.
-- [FILE] **Not verified:** whether Trainer Grove's Lv34 trainers have forcing sight
-  ranges. If they do, a Split-1 player could be hard-blocked from the Oval Stone.
+  Split-4 terrain.
 
 ---
 

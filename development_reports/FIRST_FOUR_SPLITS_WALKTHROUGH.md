@@ -101,18 +101,31 @@ Required. Gym, Mart, Poké Center, Wally's house. Connects west to Route 104, ea
 to Route 102, **south to `MAP_TRAINER_GROVE`** (a custom map).
 Items: Max Revive, Ether, TM Fling, hidden Rare Candy.
 
-### Trainer Grove → Petalburg Coast — *optional, unfinished*
-Custom maps reached south out of Petalburg City.
+### Trainer Grove → Petalburg Coast — **REQUIRED for badge 1**
+Custom maps reached south out of Petalburg City. Not optional: Norman refuses to
+battle until you bring him the Oval Stone that sits at the end of this path.
 
 **Trainer Grove** holds four trainers named **Bum1–Bum4**, each with an identical
-team of **Wailmer Lv34 + Horsea Lv34**, and with mismatched classes (Salon Maiden,
-Swimmer M, Team Magma, Team Aqua). Lv34 is above every boss in splits 1–4.
+team of **Wailmer Lv34 + Horsea Lv34**, mismatched classes (Salon Maiden, Swimmer M,
+Team Magma, Team Aqua), and **sight range 3** — they challenge on sight. Lv34 is
+above every boss in splits 1–4.
 
-**Petalburg Coast** holds RONNIE (Youngster; Zigzagoon Lv13, Taillow Lv14) who
-gates an **Oval Stone** item ball behind `goto_if_not_defeated`. Neither map has
-wild encounters.
+Pathfinding over the map's collision data shows **three of the four cannot be
+avoided**: rows 2–3 are the only way west from the entrance and cross TrainerOne's
+upward sight line at x=6; the x=2–3 column is the only way south and crosses
+TrainerTwo's line at row 9 and TrainerThree's at row 14. Only TrainerFour (the Aqua
+grunt watching column 11) can be dodged, by descending column 10 instead.
+
+**Petalburg Coast** holds RONNIE (Youngster; Zigzagoon Lv13, Taillow Lv14, sight 5)
+who gates the **Oval Stone** item ball behind `goto_if_not_defeated`.
+
+Neither map has wild encounters.
 
 ### Petalburg Gym — BADGE 1
+Norman's own script gates the fight: `checkitem ITEM_OVAL_STONE` → if absent he
+sends you to Petalburg Coast; once handed over (`FLAG_GAVE_NORMAN_OVAL_STONE`) he
+checks the gym trials (`goto_if_not_defeated TRAINER_JODY`) before battling.
+
 | Trainer | Team |
 |---|---|
 | RANDALL | Taillow Lv14 @ Flame Orb (Guts), Zigzagoon Lv14 @ Bright Powder (Quick Feet) |
@@ -278,7 +291,8 @@ Mart stocks ₽1 Rare Candies. Game Corner bouncer hides once badge 4 is earned.
 ## Accessible earlier than intended
 
 - **Route 103's Lv14–15 trainers** are reachable before badge 1, with a Lv5–8 party.
-- **Trainer Grove's Lv34 trainers** are reachable in Split 1 from Petalburg City.
+- **Trainer Grove's Lv34 trainers** are not merely reachable in Split 1 — three of
+  them are **unavoidable**, and they gate badge 1. See the Design Gaps report.
 - **Route 110 and Route 117** are reachable from Route 103's east connection
   (`Route103 → right → MAP_ROUTE110`), i.e. potentially before badge 1.
 - **Three Mega Stones** are obtainable across splits 2–4 (Sceptilite in Petalburg

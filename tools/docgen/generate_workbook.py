@@ -426,6 +426,20 @@ def sheet_move_changes(wb, mcur, mbase):
     return sum(1 for r in rows if r[-2] == "YES")
 
 
+def engagement_note(const, entry, mapnames, forcing, gym_badge_by_map):
+    """Mandatory/optional verdict.
+
+    Two independent things matter: whether the NPC forces the battle on sight
+    (from its object event's sight range), and whether the battle gates
+    progression (gym leaders award a badge). A leader has sight range 0 -- you
+    walk up and talk to them -- but is still required.
+    """
+    for m in mapnames:
+        if m in gym_badge_by_map and "leader" in (entry.get("class") or "").lower():
+            return f"REQUIRED - awards Badge {gym_badge_by_map[m]}"
+    return E.classify_engagement(forcing.get(const, []))
+
+
 def trainer_rows(entry, mapnames, split, mandatory_note):
     """One row per Pokemon, with trainer-level columns repeated."""
     out = []
@@ -469,12 +483,16 @@ TRAINER_HEADERS = ["Trainer", "Class", "Trainer ID", "Location", "Split",
 TRAINER_WIDTHS = [16, 14, 26, 26, 12, 13, 9, 30, 20, 6, 16, 7, 18, 16, 16, 16, 16, 16, 16, 16]
 
 
+FORCING = {}
+GYM_BADGE_BY_MAP = {}
+
+
 def sheet_trainers(wb, trainers, locations, split_label, consts):
     rows, fills = [], {}
     for const in consts:
         entry = trainers[const]
         maps = locations.get(const, [])
-        mandatory = "UNVERIFIED"
+        mandatory = engagement_note(const, entry, maps, FORCING, GYM_BADGE_BY_MAP)
         placeholder = E.is_placeholder_team(entry)
         sub = trainer_rows(entry, maps, split_label, mandatory)
         for r in sub:
@@ -488,10 +506,13 @@ def sheet_trainers(wb, trainers, locations, split_label, consts):
     write_sheet(ws, f"{split_label} - Trainers", TRAINER_HEADERS, rows,
                 widths=TRAINER_WIDTHS, tab_color=SPLIT_TAB_COLOR, row_fills=fills,
                 note=("One row per Pokemon. Location is derived from which map scripts reference the "
-                      "trainer ID. 'Mandatory?' is UNVERIFIED throughout: whether a trainer's sight "
-                      "range forces the battle cannot be determined from data files alone and needs "
-                      "in-game checking. Orange = reserved-but-undesigned placeholder team. "
-                      "Red = trainer ID with no party data at all."))
+                      "trainer ID. 'Mandatory?' is derived from the object event's trainer_type and "
+                      "sight range (src/trainer_see.c uses that field as the approach distance): "
+                      "range >= 1 means the NPC challenges on sight, range 0 means it must be talked "
+                      "to. Gym leaders are labelled REQUIRED because they gate a badge even though "
+                      "their sight range is 0. Whether a forcing sight line can be physically walked "
+                      "around is a collision question this does not answer. "
+                      "Orange = placeholder team. Red = trainer ID with no party data."))
     return len(rows)
 
 
@@ -516,6 +537,9 @@ def main():
     trades = E.ingame_trades()
     trade_locs = E.trade_script_locations()
     badge_sources, gym_by_badge = build_split_model()
+    global FORCING, GYM_BADGE_BY_MAP
+    FORCING = E.trainer_forcing()
+    GYM_BADGE_BY_MAP = {m: n for n, maps in gym_by_badge.items() for m in maps}
     items = E.parse_items()
 
     # preserve manual sheets
@@ -584,7 +608,8 @@ def main():
         entry = trainers[const]
         maps = locations.get(const, [])
         label = sorted({classify_map(m, split_table) for m in maps} or {"Unassigned"})[0]
-        for r in trainer_rows(entry, maps, label, "Mandatory (boss)"):
+        for r in trainer_rows(entry, maps, label,
+                              engagement_note(const, entry, maps, FORCING, GYM_BADGE_BY_MAP)):
             boss_rows.append(r)
     ws = wb.create_sheet("Boss Battles")
     write_sheet(ws, "Boss Battles - leaders, Elite Four, Champion", TRAINER_HEADERS,

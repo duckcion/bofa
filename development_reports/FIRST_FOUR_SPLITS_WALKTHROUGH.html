@@ -1,24 +1,24 @@
-<!-- generated from FIRST_FOUR_SPLITS_WALKTHROUGH.md -->
 <title>First Four Splits — Current Walkthrough</title>
 <style>
-:root{--bg:#ffffff;--fg:#1a1a1a;--mut:#5b6472;--line:#d8dde5;--acc:#1f3864;--card:#f6f8fb;--warn:#fff4e5}
+:root{--bg:#fff;--fg:#1a1a1a;--mut:#5b6472;--line:#d8dde5;--acc:#1f3864;--card:#f6f8fb;--warn:#fff4e5}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#14171c;--fg:#e7eaf0;--mut:#9aa4b2;--line:#2b313a;--acc:#7da7e8;--card:#1b1f26;--warn:#2e2618}}
 :root[data-theme=dark]{--bg:#14171c;--fg:#e7eaf0;--mut:#9aa4b2;--line:#2b313a;--acc:#7da7e8;--card:#1b1f26;--warn:#2e2618}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding-block:28px;padding-left:18px;padding-right:18px;max-width:1080px;margin:0 auto}
 h1{font-size:1.7rem;margin:0 0 .2em;color:var(--acc)}
 h3{font-size:1.02rem;margin:1.5em 0 .4em;color:var(--acc)}
-p{margin:.6em 0} ul{margin:.5em 0 .8em 1.2em} li{margin:.2em 0}
+p{margin:.6em 0}ul,ol{margin:.5em 0 .8em 1.3em}li{margin:.25em 0}
 code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.05em .35em;font-size:.86em;word-break:break-word}
 blockquote{margin:.9em 0;padding:.7em .9em;background:var(--warn);border-left:4px solid #e8a33d;border-radius:0 6px 6px 0}
 hr{border:0;border-top:1px solid var(--line);margin:1.4em 0}
 .toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.9em 1.1em;margin:1.2em 0}
 .toc h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--mut);margin:0 0 .5em}
-.toc ol{margin:0;padding-left:1.3em} .toc a{color:var(--acc);text-decoration:none} .toc a:hover{text-decoration:underline}
+.toc ol{margin:0;padding-left:1.3em}.toc a{color:var(--acc);text-decoration:none}
+.toc a:hover{text-decoration:underline}
 details{border:1px solid var(--line);border-radius:10px;margin:.7em 0;background:var(--card);overflow:hidden}
 summary{cursor:pointer;padding:.75em 1em;font-weight:600;color:var(--acc);list-style:none}
 summary::-webkit-details-marker{display:none}
-summary::before{content:"B8";display:inline-block;margin-right:.6em;transition:transform .15s;color:var(--mut)}
+summary::before{content:"\25B8";display:inline-block;margin-right:.6em;transition:transform .15s;color:var(--mut)}
 details[open]>summary::before{transform:rotate(90deg)}
 .inner{padding:0 1em 1em;border-top:1px solid var(--line)}
 .tw{overflow-x:auto;margin:.8em 0}
@@ -36,10 +36,7 @@ footer{margin-top:2em;padding-top:1em;border-top:1px solid var(--line);color:var
 <p><strong>Generated:</strong> 2026-09-30. Sources: <code>data/maps/<em>/map.json</code> (connections, warps, object events), <code>data/maps/</em>/scripts.inc</code> and <code>scripts.pory</code>, <code>src/data/trainers.party</code>, <code>src/data/wild_encounters.json</code>, <code>src/data/trade.h</code>, <code>include/constants/flags.h</code>.</p>
 <p><strong>Nothing here is gameplay-verified.</strong> It is what the data says will happen, not what has been observed happening in an emulator.</p>
 <hr>
-<div class="bar">
-  <button onclick="document.querySelectorAll('details').forEach(d=>d.open=true)">Expand all</button>
-  <button onclick="document.querySelectorAll('details').forEach(d=>d.open=false)">Collapse all</button>
-</div>
+<div class="bar"><button onclick="document.querySelectorAll('details').forEach(d=>d.open=true)">Expand all</button><button onclick="document.querySelectorAll('details').forEach(d=>d.open=false)">Collapse all</button></div>
 <nav class="toc"><h2>Contents</h2><ol><li><a href="#actual-gym-order-derived-not-assumed">Actual gym order (derived, not assumed)</a></li><li><a href="#split-1-new-game-badge-1-norman-petalburg">SPLIT 1 — New Game → Badge 1 (Norman, Petalburg)</a></li><li><a href="#split-2-badge-1-badge-2-roxanne-rustboro">SPLIT 2 — Badge 1 → Badge 2 (Roxanne, Rustboro)</a></li><li><a href="#split-3-badge-2-badge-3-brawly-dewford">SPLIT 3 — Badge 2 → Badge 3 (Brawly, Dewford)</a></li><li><a href="#split-4-badge-3-badge-4-wattson-mauville">SPLIT 4 — Badge 3 → Badge 4 (Wattson, Mauville)</a></li><li><a href="#accessible-earlier-than-intended">Accessible earlier than intended</a></li></ol></nav>
 <details id="actual-gym-order-derived-not-assumed" open><summary>Actual gym order (derived, not assumed)</summary><div class="inner"><p>Read from which gym script calls <code>setflag FLAG_BADGE0N_GET</code>:</p>
 <div class="tw"><table><thead><tr><th>Badge</th><th>Gym</th><th>Leader</th><th>Leader&#x27;s ace</th><th>Level band</th></tr></thead><tbody>
@@ -90,11 +87,14 @@ footer{margin-top:2em;padding-top:1em;border-top:1px solid var(--line);color:var
 <p>Required westward route to Petalburg. 4 trainers, <strong>Lv3–5</strong> (Allen, Calvin, Rick, Tiana). Wild land Lv3–4 including Ralts and Seedot. Items: Potion, TM Pluck.</p>
 <h3>Petalburg City</h3>
 <p>Required. Gym, Mart, Poké Center, Wally&#x27;s house. Connects west to Route 104, east to Route 102, <strong>south to <code>MAP_TRAINER_GROVE</code></strong> (a custom map). Items: Max Revive, Ether, TM Fling, hidden Rare Candy.</p>
-<h3>Trainer Grove → Petalburg Coast — <em>optional, unfinished</em></h3>
-<p>Custom maps reached south out of Petalburg City.</p>
-<p><strong>Trainer Grove</strong> holds four trainers named <strong>Bum1–Bum4</strong>, each with an identical team of <strong>Wailmer Lv34 + Horsea Lv34</strong>, and with mismatched classes (Salon Maiden, Swimmer M, Team Magma, Team Aqua). Lv34 is above every boss in splits 1–4.</p>
-<p><strong>Petalburg Coast</strong> holds RONNIE (Youngster; Zigzagoon Lv13, Taillow Lv14) who gates an <strong>Oval Stone</strong> item ball behind <code>goto_if_not_defeated</code>. Neither map has wild encounters.</p>
+<h3>Trainer Grove → Petalburg Coast — <strong>REQUIRED for badge 1</strong></h3>
+<p>Custom maps reached south out of Petalburg City. Not optional: Norman refuses to battle until you bring him the Oval Stone that sits at the end of this path.</p>
+<p><strong>Trainer Grove</strong> holds four trainers named <strong>Bum1–Bum4</strong>, each with an identical team of <strong>Wailmer Lv34 + Horsea Lv34</strong>, mismatched classes (Salon Maiden, Swimmer M, Team Magma, Team Aqua), and <strong>sight range 3</strong> — they challenge on sight. Lv34 is above every boss in splits 1–4.</p>
+<p>Pathfinding over the map&#x27;s collision data shows <strong>three of the four cannot be avoided</strong>: rows 2–3 are the only way west from the entrance and cross TrainerOne&#x27;s upward sight line at x=6; the x=2–3 column is the only way south and crosses TrainerTwo&#x27;s line at row 9 and TrainerThree&#x27;s at row 14. Only TrainerFour (the Aqua grunt watching column 11) can be dodged, by descending column 10 instead.</p>
+<p><strong>Petalburg Coast</strong> holds RONNIE (Youngster; Zigzagoon Lv13, Taillow Lv14, sight 5) who gates the <strong>Oval Stone</strong> item ball behind <code>goto_if_not_defeated</code>.</p>
+<p>Neither map has wild encounters.</p>
 <h3>Petalburg Gym — BADGE 1</h3>
+<p>Norman&#x27;s own script gates the fight: <code>checkitem ITEM_OVAL_STONE</code> → if absent he sends you to Petalburg Coast; once handed over (<code>FLAG_GAVE_NORMAN_OVAL_STONE</code>) he checks the gym trials (<code>goto_if_not_defeated TRAINER_JODY</code>) before battling.</p>
 <div class="tw"><table><thead><tr><th>Trainer</th><th>Team</th></tr></thead><tbody>
 <tr><td>RANDALL</td><td>Taillow Lv14 @ Flame Orb (Guts), Zigzagoon Lv14 @ Bright Powder (Quick Feet)</td></tr>
 <tr><td>ALEXIA</td><td>Jigglypuff Lv14 @ Focus Sash (Aftermath), Whismur Lv15 @ Sitrus Berry (Rattled)</td></tr>
@@ -177,10 +177,11 @@ footer{margin-top:2em;padding-top:1em;border-top:1px solid var(--line);color:var
 <tr><td><strong>WATTSON</strong></td><td>Voltorb Lv20, Electrike Lv20, Magneton Lv22, Manectric Lv24 @ Sitrus Berry</td></tr>
 </tbody></table></div>
 <p><strong>Also still vanilla</strong> — no abilities, natures or IVs specified; one held item on the ace.</p>
-<hr></div></details><details id="accessible-earlier-than-intended"><summary>Accessible earlier than intended</summary><div class="inner"><ul><li><strong>Route 103&#x27;s Lv14–15 trainers</strong> are reachable before badge 1, with a Lv5–8 party.</li><li><strong>Trainer Grove&#x27;s Lv34 trainers</strong> are reachable in Split 1 from Petalburg City.</li><li><strong>Route 110 and Route 117</strong> are reachable from Route 103&#x27;s east connection</li></ul>
+<hr></div></details><details id="accessible-earlier-than-intended"><summary>Accessible earlier than intended</summary><div class="inner"><ul><li><strong>Route 103&#x27;s Lv14–15 trainers</strong> are reachable before badge 1, with a Lv5–8 party.</li><li><strong>Trainer Grove&#x27;s Lv34 trainers</strong> are not merely reachable in Split 1 — three of</li></ul>
+<p>them are <strong>unavoidable</strong>, and they gate badge 1. See the Design Gaps report.</p>
+<ul><li><strong>Route 110 and Route 117</strong> are reachable from Route 103&#x27;s east connection</li></ul>
 <p>(<code>Route103 → right → MAP_ROUTE110</code>), i.e. potentially before badge 1.</p>
 <ul><li><strong>Three Mega Stones</strong> are obtainable across splits 2–4 (Sceptilite in Petalburg</li></ul>
 <p>Woods, Aerodactylite in Granite Cave, Swampertite on Route 110), earlier than the badge-4 Mega unlock discussed in design notes.</p>
 <ul><li><strong>Altering Cave</strong> warps directly off Route 103 (Split 1).</li></ul></div></details>
-<footer>Generated 2026-09-30 from the bofa project source files.
-Nothing in this document is gameplay-verified.</footer>
+<footer>Generated from <code>FIRST_FOUR_SPLITS_WALKTHROUGH.md</code> on 2026-09-30. Nothing in this document is gameplay-verified.</footer>
