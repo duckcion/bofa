@@ -25,8 +25,13 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
 | 1.1 | Renumber `FLAG_BADGE0N_GET` to match approved order | **done** — build clean, 93 FAILED matches baseline |
 | 1.2 | Connect Mauville into traversal path | **already satisfied — see finding below, no work needed** |
 | 1.3 | Resolve Route104 bypass per decision 2 | done (see Phase 0.3) |
-| 2 | Split 1 (Norman/Petalburg) redesign | **implemented, build/tests running** |
-| 3 | Split 2 (Roxanne/Rustboro) redesign | not started |
+| 2 | Split 1 (Norman/Petalburg) redesign | **done** — 93 FAILED matches baseline |
+| 3 | Split 2 (Roxanne/Rustboro) redesign | **done** — 93 FAILED matches baseline |
+| - | Game-wide: remove spinning trainers | **done** — all 6 converted to fixed facing |
+| - | Route trainer density expansion (per user request, vs. PK benchmark) | **in progress** — Wraithwood Forest done (3 trainers), other empty new-region maps (Hollowbrook, Granite Cave x3, Granite Shore) still at zero |
+| - | Universal `Smart Trainer` AI upgrade (per user request) | **done** — 93 FAILED matches baseline |
+| - | Disable match-call/rematch registration (`FREE_MATCH_CALL`, per user request) | **build verified clean, test pending** — also frees 104 bytes of SaveBlock1 |
+| - | Remove EV-related items from the game (per user request) | **in progress** — see findings below |
 | 4 | Split 3 (Brawly/Dewford) redesign | not started |
 | 4b | Level-cap engine feature | not started |
 | 5 | Split 4 (Wattson/Mauville) + route + Mega unlock | not started |
@@ -238,6 +243,118 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
     it's a known tradeoff rather than a silent side effect.
   - Full rebuild + `make check` run to confirm no regressions before
     committing.
+
+- **Phase 3 (Roxanne/Rustboro split) — implementation.** Rustboro's rank-and-
+  file gym trainers (Josh/Tommy/Marc, all Geodude) were already roughly early-
+  game-appropriate species (unlike Petalburg's, which were vanilla badge-5
+  leftovers) -- just needed re-leveling and real movesets for the Lv20-23 band:
+  - Josh: Geodude Lv18 (was Lv10), Tommy: 2x Geodude Lv19 (was Lv8), Marc: 2x
+    Geodude Lv20 (was Lv8).
+  - Roxanne: Geodude(20)/Geodude(21)/Nosepass(23, ace), replacing her Lv12/12/15
+    vanilla team. Kept Nosepass as ace (her signature mon) -- Solid Rock +
+    Def135 wall stats plus Rock Slide/Iron Head/Seismic Toss give a real
+    defensive-stall gameplan.
+  - All movesets verified against level-up learnsets.
+
+- **Game-wide: removed all spinning trainers (your request: "make all
+  trainers mandatory... they don't spin").** Found exactly 6 across the whole
+  game using `MOVEMENT_TYPE_ROTATE_CLOCKWISE/COUNTERCLOCKWISE` (Valerie/Cedric
+  on Mt.Pyre 6F, Winston on Route104, Carol on Route112, Madeline on Route113,
+  Bernie on Route114) -- converted all to `MOVEMENT_TYPE_FACE_DOWN`. A spinning
+  trainer's sight-line sweeps around, letting a player dodge the encounter by
+  timing their walk past. Note: this addresses the "can't dodge by timing"
+  angle specifically; a full "no trainer can be walked around via map
+  geometry" audit (checking every trainer's sight range/placement against
+  walkable alternate paths) is a much bigger, separate undertaking not done
+  here.
+
+- **Route trainer density expansion (your request, informed by the Platinum
+  Kaizo trainer-count research below).** Added 3 new trainers to Wraithwood
+  Forest, which had zero before: Desmond (Bug Catcher, Nincada Lv24),
+  Ottoline (Hex Maniac, Shuppet Lv25), Rufus (Hiker, Roggenrola Lv26) --
+  positioned using the map's actual collision data (not guessed) so none are
+  placed on non-walkable tiles. New trainer IDs `TRAINER_DESMOND`/
+  `TRAINER_OTTOLINE`/`TRAINER_RUFUS` (864-866) claim the free ID space a
+  prior session reserved. **Hit and recovered from a naming collision twice**
+  (first tried "Wade", which collided with a pre-existing vanilla
+  `TRAINER_WADE` (344); a careless blanket rename to "Waylon" then collided
+  with a pre-existing `TRAINER_WAylon` too) -- both times caught by the build
+  (`initialized field overwritten` error), reverted cleanly via git checkout
+  of just the affected files, and redone with names verified unique by grep
+  *before* editing. Remaining empty new-region maps (Hollowbrook, Granite Cave
+  1F/B1F/B2F, Granite Shore) still need the same treatment -- not done yet.
+  Platinum Kaizo's own gym-interior trainer counts (Roark 3, Gardenia 4,
+  Fantina 18(!), Maylene 7 -- Fantina's 7-room gauntlet is a deliberate
+  outlier, not a template) already roughly match bofa's current 4-per-gym
+  (leader+3), so gyms don't need more work on this front; the real gap is
+  route/overworld density, where PK runs 23-43 trainers per split versus
+  bofa's current ~27 across the whole badge-1/2 area combined. Full research
+  in `Reference/notes/platinum_kaizo_trainer_counts.md`.
+
+- **Disabled match-call/rematch registration (your request: "don't have
+  people try to register my number").** Found `FREE_MATCH_CALL` in
+  `include/config/save.h` -- an existing, fully-supported config flag (used
+  via `#if FREE_MATCH_CALL == FALSE` guards throughout `battle_setup.c`) that
+  removes the match-call/rematch/VS Seeker system entirely. Flipped it to
+  `TRUE`. Confirmed via rebuild that none of the 843+ trainer scripts (which
+  all reference `ShouldTryRematchBattle`/`register_matchcall`/
+  `IsTrainerRegistered`) broke -- those calls remain valid, they just become
+  inert. Bonus: frees exactly the promised 104 bytes of SaveBlock1 (confirmed
+  via the build's memory-usage report, EWRAM used dropped from 243210 to
+  243106 bytes), which directly helps the tight SaveBlock1 budget flagged in
+  the original audit.
+
+- **EV-related items removed from acquisition (your request: "remove those
+  items from game rn").** Scope: Vitamins (HP Up/Protein/Iron/Calcium/Zinc/
+  Carbos), Macho Brace, 15 EV-lowering berries (Pomeg/Kelpsy/Qualot/Hondew/
+  Grepa/Tamato/Cornn/Magost/Rabuta/Nomel/Spelon/Pamtre/Watmel/Durin/Belue), and
+  6 Power items (Weight/Bracer/Anklet/Band/Lens/Belt). Power items were
+  already unplaced anywhere in the game (item definitions only, never sold or
+  given) -- nothing to do there. For the rest:
+  - Removed the 6 vitamins from `BattleFrontier_Mart`'s general item list
+    (simple deletion from a mixed list).
+  - `SlateportCity`'s "Energy Guru" and `LilycoveCity_DepartmentStore_3F`'s
+    vitamin counter and `BattleFrontier_ExchangeServiceCorner`'s Vitamin Clerk
+    were each **dedicated, vitamin-only** shops/NPCs -- emptying their item
+    lists would leave a shop selling nothing, so instead redirected each NPC's
+    script to a short "we don't carry those anymore" message, skipping the
+    shop/menu interaction entirely. The now-unreferenced item-list data blocks
+    and menu-branch functions are harmless orphaned dead code, left in place.
+  - `Route111_WinstrateFamilysHouse`'s one-time Macho Brace gift now gives a
+    Choice Band instead (kept the gift, swapped the item + matching dialogue).
+  - `Route123_BerryMastersHouse`'s obscure secret-phrase reward system (an
+    e-Reader-era Easter egg, rarely triggered) previously gave one of 5
+    EV-lowering berries for specific phrases -- simplified so every phrase now
+    falls through to the same "give a random normal berry" default the system
+    already had, rather than rebuilding the whole phrase-reward branch.
+  - `data/scripts/new_game.inc` seeded 20 wild berry trees across Routes
+    115/119/123 with EV-lowering berries (Kelpsy x3, Pomeg x7, Hondew x2,
+    Grepa x4, Qualot x4) -- swapped each species for a always-useful non-EV
+    berry (Oran/Sitrus/Lum/Persim/Chesto respectively) so the trees stay
+    functional decorations instead of becoming empty/dead tree slots.
+  - **Core mechanic fix, done.** Found via `git blame` that EV-gain-from-battle
+    was *already* disabled by an earlier commit (`0ed8c6214` -- buried inside
+    a commit whose message was about an unrelated Mauville gate/Mega Stone
+    change, `MonGainEVs` in `src/pokemon.c` has an unconditional early
+    `return` with a comment saying EVs are disabled in this hack). That
+    explains why vitamins were the last real lever -- they `SetMonData`
+    EVs directly, bypassing the disabled battle-gain path entirely. Closed
+    the loop by editing `CalculateMonStats` (same file) so all 6 EV reads are
+    hardcoded to 0 instead of `GetMonData(..._EV, ...)`, meaning even a mon
+    with legacy/traded-in nonzero EV data gets zero stat effect from it.
+    Checked `pokemon_summary_screen.c` for an EV display to hide -- there
+    isn't one, nothing to clean up there.
+  - Rebuild + `make check` pending for this specific change (bundled with the
+    other EV-item edits above).
+  - Also still open from your other requests, not yet started: **IV display
+    next to stats on the summary screen** (no existing config toggle for this,
+    confirmed by checking `include/config/pokemon.h` -- would be a genuine UI
+    addition), and the **Lua debug script** (predamage/set status/export-to-
+    Showdown-with-clipboard/change weather) -- read the EK.lua reference in
+    full; its Gen3 struct-parsing logic is reusable as-is (standard, unchanged
+    Pokémon data layout) but its hardcoded memory addresses are specific to
+    vanilla Emerald's compiled binary and need replacing with bofa's own
+    addresses (pullable from `pokeemerald.elf`'s symbols) -- not started yet.
 
 ## Decisions needing your input
 
