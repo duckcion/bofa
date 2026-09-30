@@ -17074,9 +17074,23 @@ Music: Female
 Double Battle: No
 AI: Smart Trainer
 
-Lillipup
-Level: 1
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tentacool @ Poison Barb
+Level: 25
+Ability: Clear Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bubble Beam
+- Poison Jab
+- Psybeam
+- Confuse Ray
+
+Wingull @ Mystic Water
+Level: 26
+Ability: Gluttony
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Water Pulse
+- Wing Attack
+- Bite
+- Supersonic
 
 === TRAINER_ROUTE106_1 ===
 Name: MILO
@@ -17087,9 +17101,23 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Lillipup
-Level: 1
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Geodude @ Hard Stone
+Level: 25
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Throw
+- Headbutt
+- Karate Chop
+- Dig
+
+Aron @ Metal Coat
+Level: 25
+Ability: Rock Head
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Iron Head
+- Headbutt
+- Take Down
+- Flash Cannon
 
 === TRAINER_GRANITESHORE_1 ===
 Name: DEACON
@@ -17174,9 +17202,23 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Lillipup
-Level: 1
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Zigzagoon @ Oran Berry
+Level: 13
+Ability: Quick Feet
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Quick Attack
+- Sand Attack
+- Headbutt
+- Mud-Slap
+
+Taillow @ Sitrus Berry
+Level: 14
+Ability: Guts
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Wing Attack
+- Tackle
+- Uproar
+- Whirlwind
 
 === TRAINER_DESMOND ===
 Name: DESMOND
