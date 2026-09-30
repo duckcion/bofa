@@ -17003,12 +17003,17 @@ Class: Youngster
 Pic: Youngster
 Gender: Male
 Music: Male
+Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Lillipup
-Level: 1
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Wingull @ Oran Berry
+Level: 24
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Water Pulse
+- Wing Attack
+- Bite
+- Supersonic
 
 === TRAINER_GRANITESHORE_2 ===
 Name: PRIYA
@@ -17016,12 +17021,17 @@ Class: Lass
 Pic: Lass
 Gender: Female
 Music: Female
+Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Lillipup
-Level: 1
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tentacool @ Oran Berry
+Level: 24
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Bubble Beam
+- Poison Jab
+- Psybeam
+- Confuse Ray
 
 === TRAINER_PETALBURGCOAST_1 ===
 Name: RONNIE

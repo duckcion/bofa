@@ -28,7 +28,7 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
 | 2 | Split 1 (Norman/Petalburg) redesign | **done** — 93 FAILED matches baseline |
 | 3 | Split 2 (Roxanne/Rustboro) redesign | **done** — 93 FAILED matches baseline |
 | - | Game-wide: remove spinning trainers | **done** — all 6 converted to fixed facing |
-| - | Route trainer density expansion (per user request, vs. PK benchmark) | **in progress** — Wraithwood Forest done (3 trainers), other empty new-region maps (Hollowbrook, Granite Cave x3, Granite Shore) still at zero |
+| - | Route trainer density expansion (per user request, vs. PK benchmark) | **done** — all previously-empty new-region maps now have trainers |
 | - | Universal `Smart Trainer` AI upgrade (per user request) | **done** — 93 FAILED matches baseline |
 | - | Disable match-call/rematch registration (`FREE_MATCH_CALL`, per user request) | **build verified clean, test pending** — also frees 104 bytes of SaveBlock1 |
 | - | Remove EV-related items from the game (per user request) | **in progress** — see findings below |
@@ -410,6 +410,38 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
     interpreter was available to actually load and call it) and mGBA's exact
     scripting API surface (clipboard, io sandboxing) -- those need an actual
     Tools > Scripting session.
+
+- **Route trainer density expansion, completed.** Filled in the remaining
+  empty new-region maps the same way as Wraithwood (collision-data-verified
+  placement, level-up-learnset-verified movesets):
+  - Hollowbrook: Mortimer (Gentleman, Duskull Lv25) and Prudence (Lass,
+    Spinarak Lv26).
+  - GraniteCave_1F: Percy (Hiker, Aron Lv25).
+  - GraniteCave_B1F: Dalton (Black Belt, Makuhita Lv25).
+  - GraniteCave_B2F: Ansel (Hiker, Aron Lv27) -- placed clear of the existing
+    item balls, rock-smash puzzle rocks, and the `WraithwoodBlocker` story
+    gate.
+  - GraniteShore: **found two more orphaned trainers** (Deacon/Priya,
+    `TRAINER_GRANITESHORE_1`/`_2`) -- same bug pattern as the Dewford gift
+    NPC from Phase 2: fully-written `trainerbattle_single` scripts existed
+    with real dialogue, but were never attached to an object event, AND
+    their trainers.party entries were still the generic "Lv1 Lillipup, 0 IVs"
+    placeholder stub used for reserved-but-undesigned trainer slots. Wired
+    both to actual map positions and gave them real teams (Wingull Lv24,
+    Tentacool Lv24) instead of creating a new trainer ID for this slot --
+    cleaner than growing the ID space further when a matched pair of
+    already-reserved IDs was sitting right there.
+  - **Two naming collisions hit and recovered from** during this pass
+    (picked "Wade" and then "Waylon" for the very first Wraithwood trainer,
+    both already existed as vanilla trainer names) -- see the entry above
+    for how those were fixed. This time, checked every candidate name via
+    `grep` before writing anything, and hit zero further collisions across
+    Percy/Dalton/Ansel/Mortimer/Prudence (Delia did collide with an
+    intended-male sprite mismatch, not a name collision -- caught by re-
+    reading my own placement rather than the build).
+  - New trainer IDs 864-871 (`TRAINER_DESMOND` through `TRAINER_ANSEL`)
+    claim more of the free ID space a prior session reserved (864-1199);
+    `TRAINERS_COUNT` bumped to 872 accordingly.
 
 ## Decisions needing your input
 

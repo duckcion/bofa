@@ -37,3 +37,19 @@ GraniteCave_1F_Text_ExplainFlash:
 	.string "But, to use it, you need the GYM BADGE\n"
 	.string "from DEWFORD's POKéMON GYM.$"
 
+GraniteCave_1F_EventScript_Percy::
+	trainerbattle_single TRAINER_PERCY, GraniteCave_1F_Text_PercyIntro, GraniteCave_1F_Text_PercyDefeat
+	msgbox GraniteCave_1F_Text_PercyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+GraniteCave_1F_Text_PercyIntro:
+	.string "PERCY: These rocks don't dig\n"
+	.string "themselves, you know!$"
+
+GraniteCave_1F_Text_PercyDefeat:
+	.string "PERCY: Solid as stone, you are.$"
+
+GraniteCave_1F_Text_PercyPostBattle:
+	.string "PERCY: Watch your step further in,\n"
+	.string "it's easy to get turned around.$"
+

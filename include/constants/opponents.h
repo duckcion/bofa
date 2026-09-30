@@ -870,6 +870,11 @@
 #define TRAINER_DESMOND                       864
 #define TRAINER_OTTOLINE                      865
 #define TRAINER_RUFUS                          866
+#define TRAINER_MORTIMER                       867
+#define TRAINER_PRUDENCE                       868
+#define TRAINER_PERCY                           869
+#define TRAINER_DALTON                           870
+#define TRAINER_ANSEL                           871
 
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, trainer ID space is capped by MAX_TRAINERS_COUNT
@@ -880,7 +885,7 @@
 //       (336 new free slots: 864-1199). This DOES shift every flag number after TRAINER_FLAGS_END and grows the save block by
 //       ~42 bytes, so any existing save files / savestates from before this change are no longer compatible -- start a fresh save.
 
-#define TRAINERS_COUNT                      867
+#define TRAINERS_COUNT                      872
 #define MAX_TRAINERS_COUNT                  1200
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
 
