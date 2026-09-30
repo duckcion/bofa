@@ -443,6 +443,137 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
     claim more of the free ID space a prior session reserved (864-1199);
     `TRAINERS_COUNT` bumped to 872 accordingly.
 
+- **Difficulty pass on the 18 trainers built so far (Wraithwood, Hollowbrook,
+  Granite Cave x3, Granite Shore, Petalburg Gym, Rustboro Gym), prompted by
+  "these are not near PK/EK level."** Pulled the actual per-trainer data out
+  of `Copy of Platinum Kaizo Docs (1).xlsx` (Roark Split, Gardenia Split)
+  with openpyxl rather than relying on the earlier condensed summary, to see
+  what really makes PK trainers hit harder. Findings that changed the plan:
+  - **Real PK route trainers already run 3-4 mons at Lv5-8** (Route 202's
+    "Bug Catcher Logan" has four). Team size was the most visible gap but
+    turned out not to be the biggest lever.
+  - **Items are the biggest lever**, not raw stats: PK fields Focus Sash,
+    Life Orb, BrightPowder, Wide Lens, Berry Juice, Light Clay, Mystic Water,
+    etc. on ordinary early trainers, not just Oran Berry. Nearly every
+    species this game has fielded so far as a route mon (Nincada, Spinarak,
+    Shuppet, Duskull, Roggenrola, Aron, Wingull, Tentacool, Makuhita,
+    Geodude, Zigzagoon, Whismur, Slakoth, Jigglypuff, Taillow) is itself an
+    unevolved pre-evolution, so **Eviolite** (1.5x Def/SpDef, engine-legal
+    on any species with a defined evolution) is the single highest-value,
+    most PK-authentic fix and got applied broadly. Type-boost items
+    (Silver Powder, Black Sludge, Mystic Water, Spell Tag) went on the
+    mons whose kit is actually offensive; Custap Berry went on Norman's
+    true ace (Slakoth) as a boss flourish; Taillow got a deliberately odd
+    Flame Orb + Guts combo (permanent 1.5x Attack, burn damage ignored by
+    Guts) as a PK-style "give it a signature weird item" pick.
+  - **Abilities were left at silent slot-1 default everywhere** -- added
+    explicit `Ability:` lines picking the mechanically strongest option per
+    species (Solid Rock Nosepass -- literally PK's own pick for the same
+    species; Intimidate Spinarak; Cursed Body Shuppet; Sturdy Roggenrola;
+    Rock Head Aron, which also cancels Take Down's recoil on the exact
+    move these Aron carry; Quick Feet Zigzagoon, pairing with its new base
+    Speed buff).
+  - Applied a targeted BST redistribution (PK's "give a role, don't
+    power-creep the whole dex" pattern, not a blanket buff) to the five
+    weakest pre-evolutions actually in use: Zigzagoon (240->280, Atk/Spe/SpD),
+    Whismur (240->275, HP/Def/SpD), Makuhita (237->265, HP/Atk/SpD), Nincada
+    (266->291, Atk/Spe), Slakoth (280->290, HP/Atk token bump). Left the
+    other 12 species (Taillow/Jigglypuff/Zangoose/Geodude/Nosepass/Shuppet/
+    Roggenrola/Duskull/Spinarak/Aron/Wingull/Tentacool, all BST 270-458)
+    alone -- PK's own doc shows already-decent mons get zero or token
+    changes, not another buff.
+  - **Checked the move-buff request against `src/data/moves_info.h` and
+    found most of it already done upstream**, not by me: DoubleSlap
+    (30 BP/90 acc), Fire/Ice/Thunder Punch (95 BP), Mega Kick (140 BP/90
+    acc/8 PP), and the accuracy-floor cleanup on Cut/Tackle/Fury Attack/
+    Take Down/Wrap (all 100%) match PK's documented buffs exactly, but come
+    from upstream commit `e89683532` ("Buff underpowered Gen5-6/cross-gen
+    mons..."), not a PK-specific change -- coincidental convergence, not
+    something that needed redoing.
+  - IVs across all 18 trainers were sitting at 20-24 instead of the spec's
+    default of 31 -- a self-imposed ~15-25% stat penalty with no design
+    rationale behind it. Bumped to 31 everywhere in scope.
+  - **Fixed a third occurrence of the "orphaned trainer" bug**, worse than
+    the previous two: `TRAINER_MORTIMER`, `TRAINER_PRUDENCE`, `TRAINER_PERCY`,
+    `TRAINER_DALTON`, `TRAINER_ANSEL` were wired into their maps'
+    `trainerbattle_single` scripts and had IDs reserved in `opponents.h`,
+    but **had no matching `=== TRAINER_X ===` block in `trainers.party` at
+    all** -- likely lost in the Wade/Waylon revert from an earlier pass.
+    `trainerproc` silently emits a zero-initialized entry for an ID with no
+    block rather than erroring, so these 5 fights would have run with an
+    empty party. Written from scratch (species/level/class were still
+    documented above from the original design pass) with the same
+    item/ability treatment as everything else in this pass.
+  - **Corrected after user feedback: dropped the blanket-Eviolite approach,
+    pulled real per-trainer PK data directly from the xlsx (Roark Split,
+    Gardenia Split sheets via openpyxl) instead of guessing.** That data
+    showed real PK route trainers running 3-4 mons even at Lv5-8 (Route
+    202's "Bug Catcher Logan" has four), and using a genuinely varied item
+    pool (Focus Sash, Life Orb, BrightPowder, Wide Lens, Mystic Water, Light
+    Clay, Berry Juice, Razor Claw, Silk Scarf) rather than one item
+    repeated everywhere. Rebuilt all 18 trainers accordingly: route
+    trainers (Wraithwood x3, Hollowbrook x2, Granite Cave x3, Granite Shore
+    x2) now run 3 mons each with distinct items per mon (Silver Powder,
+    Black Sludge, Bright Powder, Lum Berry, Sitrus Berry, Metal Coat, Wide
+    Lens, Black Belt, Life Orb, Hard Stone, Rocky Helmet, Poison Barb,
+    Focus Sash, Flame Orb+Guts, Custap Berry, Quick Claw -- no single item
+    repeated more than 2-3 times across the whole set); Rustboro's Josh/
+    Tommy/Marc went to 3 mons; Norman and Roxanne (leaders) stayed at 4.
+  - **Went back to the "make every Pokemon match PK" ask directly** rather
+    than inventing stat buffs: extracted PK's full `Personal` sheet (507
+    species) and diffed it against this codebase's actual compiled-in
+    stats (had to fix an extraction bug first -- `P_UPDATED_ABILITIES/
+    STATS/TYPES = GEN_LATEST` in `include/config/pokemon.h` means the
+    *first* `#if` branch in each species block is the active one, not the
+    `#else` legacy fallback, which is what an earlier pass in this
+    conversation had mistakenly read). Result: this codebase's "modern"
+    baseline already matches PK almost exactly for the Gen1-4 dex (only 5
+    species had a real stat difference, and all 5 were this session's own
+    invented buffs on Zigzagoon/Whismur/Makuhita/Nincada/Slakoth --
+    reverted them back to vanilla since PK itself doesn't touch those
+    stats). Applied PK's real remaining differences directly: 45 species
+    got an `Ability:` swap to match PK exactly (Pidgey Keen Eye->Tangled
+    Feet, Machop Guts->No Guard, Eevee Run Away->Adaptability, Scyther/
+    Scizor Swarm->Technician, the legendary birds' weather-trio abilities,
+    etc.), verified via assert-checked script (every "before" value
+    confirmed matching before writing). Excluded Fairy-typing diffs
+    (Gen4-baseline artifact from PK predating the Fairy type, not a real
+    PK design choice -- reverting it would be a regression) and 9
+    form-variant species (Deoxys/Giratina/Shaymin/Castform/Wormadam/Rotom/
+    Arceus/Unown/Mothim -- name-matching picked the wrong form for a few of
+    these and they need dedicated handling, deferred).
+  - Did the same direct-copy treatment for PK's `Move Changes` sheet (338
+    entries): split into 313 simple numeric/type changes vs 25 full
+    reflavors (e.g. Comet Punch -> Water Ball, Bind -> Mystical Fire --
+    repurposing a bad move into a new type/effect entirely, deferred as
+    higher-risk hand-design work); of the 313, 301 matched a real
+    `MOVE_` constant, and applying them found **254 already matched PK
+    exactly** (this codebase's upstream move-balance commit `e89683532`
+    independently converged with most of PK's choices), 18 genuine gaps
+    applied (Stomp->Ground type, Dig 80->60 bp, Yawn 0->70 acc, Absorb->Dark
+    type, several old Normal-type status/attack moves retyped to match PK's
+    Dark/Ground/Rock/Ice/Grass retypes, etc.), and 29 skipped as either
+    priority/targeting-only notes (out of scope for a blind script) or one
+    real mismatch (Will-O-Wisp accuracy, left as-is pending a decision).
+  - Verified: `make` succeeds after each stage; `make check` run pending
+    confirmation against the 93-FAILED baseline for this final combined
+    state.
+  - **Known remaining gap, not yet fixed:** found a fourth likely instance of
+    the same orphan-placeholder pattern -- `TRAINER_PETALBURGCOAST_1`
+    ("RONNIE") still has the generic "Lv1 Lillipup, 0 IVs, no moves"
+    placeholder stub in `trainers.party`. Not confirmed whether it's wired
+    to a map object event yet. Flagging for a future pass rather than
+    fixing now, since PetalburgCoast hasn't been touched this session and
+    is out of the scope that was just redesigned.
+  - **Deferred, larger follow-up if wanted:** PK's Gen5-6 mons aren't in
+    this xlsx at all (Platinum Kaizo is a Gen4 game), so there's no direct
+    data to copy for them -- the user's own instruction was to use PK's
+    Gen1-4 pattern "as a reference" there, not a literal port. Also
+    deferred: the 25 move reflavors, the 9 form-variant species, and
+    extending this same direct-copy treatment to species/trainers beyond
+    the 18 currently built out (Dewford/Brawly and Mauville/Wattson splits
+    haven't been started yet per the original roadmap).
+
 ## Decisions needing your input
 
 (none currently outstanding beyond what's already been asked)

@@ -48,9 +48,9 @@ SINGLE_BATTLE_TEST("Grassy Terrain increases power of Grass-type moves by 30/50 
     } WHEN {
         if (terrain)
             TURN { MOVE(player, MOVE_GRASSY_TERRAIN); }
-        TURN { MOVE(player, MOVE_ABSORB); }
+        TURN { MOVE(player, MOVE_MEGA_DRAIN); }
     } SCENE {
-        MESSAGE("Wobbuffet used Absorb!");
+        MESSAGE("Wobbuffet used Mega Drain!");
         HP_BAR(opponent, captureDamage: &results[i].damage);
     } FINALLY {
         if (B_TERRAIN_TYPE_BOOST >= GEN_8)

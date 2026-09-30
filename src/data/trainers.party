@@ -1268,13 +1268,23 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Taillow @ Sitrus Berry
+Taillow @ Flame Orb
 Level: 14
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Guts
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Wing Attack
 - Tackle
 - Uproar
 - Whirlwind
+
+Zigzagoon @ Bright Powder
+Level: 14
+Ability: Quick Feet
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Quick Attack
+- Sand Attack
+- Headbutt
+- Mud-Slap
 
 === TRAINER_PARKER ===
 Name: PARKER
@@ -1676,12 +1686,22 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Jigglypuff @ Oran Berry
+Jigglypuff @ Focus Sash
 Level: 14
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Aftermath
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Sing
 - Double Slap
 - Water Pulse
+- Pound
+
+Whismur @ Sitrus Berry
+Level: 15
+Ability: Rattled
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Uproar
+- Growl
+- Astonish
 - Pound
 
 === TRAINER_JODY ===
@@ -1696,11 +1716,21 @@ AI: Smart Trainer
 
 Zangoose @ Quick Claw
 Level: 16
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Hyper Cutter
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - False Swipe
 - Metal Claw
 - Fury Cutter
 - Cut
+
+Slakoth @ Sitrus Berry
+Level: 16
+Ability: Truant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Snore
+- Take Down
+- Bite
+- Feint Attack
 
 === TRAINER_WENDY ===
 Name: WENDY
@@ -4802,25 +4832,37 @@ Items: Super Potion / Super Potion
 Double Battle: No
 AI: Smart Trainer
 
-Geodude @ Oran Berry
+Geodude @ Hard Stone
 Level: 20
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Throw
 - Dig
 - Headbutt
 - Karate Chop
 
-Geodude @ Oran Berry
+Geodude @ Rocky Helmet
 Level: 21
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Throw
 - Mud Bomb
 - Headbutt
 - Self-Destruct
 
-Nosepass @ Sitrus Berry
+Aron @ Life Orb
+Level: 22
+Ability: Rock Head
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Iron Head
+- Headbutt
+- Take Down
+- Flash Cannon
+
+Nosepass @ Wide Lens
 Level: 23
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Ability: Solid Rock
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Slide
 - Iron Head
 - Seismic Toss
@@ -4954,9 +4996,10 @@ Items: Super Potion / Super Potion
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon @ Oran Berry
+Zigzagoon @ Bright Powder
 Level: 14
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Quick Feet
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Quick Attack
 - Sand Attack
 - Headbutt
@@ -4964,15 +5007,26 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 
 Whismur @ Sitrus Berry
 Level: 15
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Rattled
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Uproar
 - Growl
 - Astonish
 - Pound
 
-Slakoth @ Sitrus Berry
+Zangoose @ Quick Claw
 Level: 16
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Ability: Hyper Cutter
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- False Swipe
+- Metal Claw
+- Fury Cutter
+- Cut
+
+Slakoth @ Custap Berry
+Level: 16
+Ability: Truant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Snore
 - Take Down
 - Bite
@@ -5976,13 +6030,31 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Geodude @ Oran Berry
+Geodude @ Hard Stone
 Level: 18
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Throw
 - Headbutt
 - Karate Chop
 - Dig
+
+Geodude @ Rocky Helmet
+Level: 18
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Throw
+- Mud Bomb
+- Headbutt
+- Self-Destruct
+
+Nosepass @ Sitrus Berry
+Level: 18
+Ability: Solid Rock
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Headbutt
+- Rock Slide
+- Seismic Toss
 
 === TRAINER_TOMMY ===
 Name: TOMMY
@@ -5994,21 +6066,32 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Geodude
+Geodude @ Hard Stone
 Level: 19
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Throw
 - Headbutt
 - Karate Chop
 - Dig
 
-Geodude
+Geodude @ Rocky Helmet
 Level: 19
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Throw
 - Mud Bomb
 - Headbutt
 - Self-Destruct
+
+Nosepass @ Sitrus Berry
+Level: 19
+Ability: Solid Rock
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Headbutt
+- Rock Slide
+- Seismic Toss
+- Iron Head
 
 === TRAINER_JOEY ===
 Name: JOEY
@@ -10578,21 +10661,32 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Geodude @ Oran Berry
+Geodude @ Hard Stone
 Level: 20
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Throw
 - Headbutt
 - Karate Chop
 - Dig
 
-Geodude @ Oran Berry
+Geodude @ Rocky Helmet
 Level: 20
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Throw
 - Mud Bomb
 - Headbutt
 - Self-Destruct
+
+Nosepass @ Sitrus Berry
+Level: 20
+Ability: Solid Rock
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Headbutt
+- Rock Slide
+- Seismic Toss
+- Iron Head
 
 === TRAINER_BRENDEN ===
 Name: BRENDEN
@@ -17007,13 +17101,32 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Wingull @ Oran Berry
+Wingull @ Mystic Water
 Level: 24
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Gluttony
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Water Pulse
 - Wing Attack
 - Bite
 - Supersonic
+
+Tentacool @ Poison Barb
+Level: 24
+Ability: Clear Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bubble Beam
+- Poison Jab
+- Psybeam
+- Confuse Ray
+
+Zigzagoon @ Bright Powder
+Level: 24
+Ability: Quick Feet
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Quick Attack
+- Sand Attack
+- Headbutt
+- Mud-Slap
 
 === TRAINER_GRANITESHORE_2 ===
 Name: PRIYA
@@ -17025,13 +17138,32 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Tentacool @ Oran Berry
+Tentacool @ Poison Barb
 Level: 24
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Clear Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Bubble Beam
 - Poison Jab
 - Psybeam
 - Confuse Ray
+
+Wingull @ Mystic Water
+Level: 24
+Ability: Gluttony
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Water Pulse
+- Wing Attack
+- Bite
+- Supersonic
+
+Jigglypuff @ Focus Sash
+Level: 24
+Ability: Aftermath
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sing
+- Double Slap
+- Water Pulse
+- Pound
 
 === TRAINER_PETALBURGCOAST_1 ===
 Name: RONNIE
@@ -17058,11 +17190,30 @@ AI: Smart Trainer
 
 Nincada @ Silver Powder
 Level: 24
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Compound Eyes
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Bug Buzz
 - Dig
 - Leech Life
 - Mud-Slap
+
+Spinarak @ Black Sludge
+Level: 24
+Ability: Intimidate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Poison Jab
+- Shadow Sneak
+- Bug Bite
+- Night Shade
+
+Shuppet @ Bright Powder
+Level: 24
+Ability: Cursed Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Night Shade
+- Spite
+- Ominous Wind
+- Will-O-Wisp
 
 === TRAINER_OTTOLINE ===
 Name: OTTOLINE
@@ -17076,11 +17227,30 @@ AI: Smart Trainer
 
 Shuppet @ Spell Tag
 Level: 25
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Cursed Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Night Shade
 - Spite
 - Ominous Wind
 - Will-O-Wisp
+
+Duskull @ Lum Berry
+Level: 25
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Night Shade
+- Confuse Ray
+- Double-Edge
+- Future Sight
+
+Roggenrola @ Sitrus Berry
+Level: 25
+Ability: Sturdy
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Smack Down
+- Iron Defense
+- Headbutt
+- Mud-Slap
 
 === TRAINER_RUFUS ===
 Name: RUFUS
@@ -17092,9 +17262,213 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Roggenrola @ Oran Berry
+Roggenrola @ Sitrus Berry
 Level: 26
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Sturdy
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Smack Down
+- Iron Defense
+- Headbutt
+- Mud-Slap
+
+Aron @ Metal Coat
+Level: 26
+Ability: Rock Head
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Iron Head
+- Headbutt
+- Take Down
+- Flash Cannon
+
+Nosepass @ Wide Lens
+Level: 26
+Ability: Solid Rock
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Headbutt
+- Rock Slide
+- Seismic Toss
+- Iron Head
+
+=== TRAINER_MORTIMER ===
+Name: MORTIMER
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Music: Male
+Items: Potion
+Double Battle: No
+AI: Smart Trainer
+
+Duskull @ Lum Berry
+Level: 25
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Night Shade
+- Confuse Ray
+- Double-Edge
+- Future Sight
+
+Shuppet @ Spell Tag
+Level: 25
+Ability: Cursed Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Night Shade
+- Spite
+- Ominous Wind
+- Will-O-Wisp
+
+Roggenrola @ Sitrus Berry
+Level: 25
+Ability: Weak Armor
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Smack Down
+- Iron Defense
+- Headbutt
+- Mud-Slap
+
+=== TRAINER_PRUDENCE ===
+Name: PRUDENCE
+Class: Lass
+Pic: Lass
+Gender: Female
+Music: Female
+Items: Potion
+Double Battle: No
+AI: Smart Trainer
+
+Spinarak @ Black Sludge
+Level: 26
+Ability: Intimidate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Poison Jab
+- Shadow Sneak
+- Bug Bite
+- Spider Web
+
+Nincada @ Silver Powder
+Level: 26
+Ability: Compound Eyes
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bug Buzz
+- Dig
+- Leech Life
+- Mud-Slap
+
+Whismur @ Sitrus Berry
+Level: 26
+Ability: Rattled
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Uproar
+- Growl
+- Astonish
+- Pound
+
+=== TRAINER_PERCY ===
+Name: PERCY
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Music: Hiker
+Items: Potion
+Double Battle: No
+AI: Smart Trainer
+
+Aron @ Metal Coat
+Level: 25
+Ability: Rock Head
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Iron Head
+- Headbutt
+- Take Down
+- Flash Cannon
+
+Geodude @ Hard Stone
+Level: 25
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Throw
+- Headbutt
+- Karate Chop
+- Dig
+
+Nosepass @ Wide Lens
+Level: 25
+Ability: Solid Rock
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Slide
+- Seismic Toss
+- Iron Head
+- Power Gem
+
+=== TRAINER_DALTON ===
+Name: DALTON
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Music: Male
+Items: Potion
+Double Battle: No
+AI: Smart Trainer
+
+Makuhita @ Black Belt
+Level: 25
+Ability: Guts
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Take Down
+- Seismic Toss
+- Submission
+- Smelling Salts
+
+Aron @ Life Orb
+Level: 25
+Ability: Rock Head
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Iron Head
+- Headbutt
+- Take Down
+- Flash Cannon
+
+Geodude @ Bright Powder
+Level: 25
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Throw
+- Headbutt
+- Karate Chop
+- Dig
+
+=== TRAINER_ANSEL ===
+Name: ANSEL
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Music: Hiker
+Items: Potion
+Double Battle: No
+AI: Smart Trainer
+
+Aron @ Focus Sash
+Level: 27
+Ability: Rock Head
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Iron Head
+- Headbutt
+- Take Down
+- Flash Cannon
+
+Nosepass @ Sitrus Berry
+Level: 26
+Ability: Solid Rock
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Slide
+- Seismic Toss
+- Iron Head
+- Power Gem
+
+Roggenrola @ Sitrus Berry
+Level: 27
+Ability: Sand Force
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Smack Down
 - Iron Defense
 - Headbutt
