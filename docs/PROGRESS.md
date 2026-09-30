@@ -346,15 +346,60 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
     isn't one, nothing to clean up there.
   - Rebuild + `make check` pending for this specific change (bundled with the
     other EV-item edits above).
-  - Also still open from your other requests, not yet started: **IV display
-    next to stats on the summary screen** (no existing config toggle for this,
-    confirmed by checking `include/config/pokemon.h` -- would be a genuine UI
-    addition), and the **Lua debug script** (predamage/set status/export-to-
-    Showdown-with-clipboard/change weather) -- read the EK.lua reference in
-    full; its Gen3 struct-parsing logic is reusable as-is (standard, unchanged
-    Pokémon data layout) but its hardcoded memory addresses are specific to
-    vanilla Emerald's compiled binary and need replacing with bofa's own
-    addresses (pullable from `pokeemerald.elf`'s symbols) -- not started yet.
+- **IV display, done (press START on the Skills page).** The stats page has
+  zero free screen space -- mapped out every window template's tilemap
+  coordinates and confirmed it's a fully-packed 30x20 tile grid with
+  background-graphic labels, no room to add numbers alongside the existing
+  ones. Implemented as a toggle instead: START swaps the existing HP/Atk/Def/
+  SpAtk/SpDef/Speed number windows between normal stats and IVs -- same
+  widgets, guaranteed to fit. Added IV fields to the summary screen's
+  internal struct (it didn't retain them before) and populated them
+  alongside the existing stat extraction. **Not visually verified** -- the
+  logic is straightforward but this needs a quick in-game check.
+
+- **Lua debug script, done: `bofa_kaizo_tools.lua`** (predamage/set-status/
+  change-weather/export-to-Showdown). Read the full EK.lua reference --
+  its Gen3 mon-decryption logic (BitXOR + substructSelector) is standard,
+  unchanged Pokémon data layout and was ported as-is, but its hardcoded
+  memory addresses are specific to vanilla Emerald's compiled binary and
+  don't apply to bofa. Pulled bofa's own addresses from `pokeemerald.elf`
+  via `arm-none-eabi-nm` (gPlayerParty=0x02035694, gEnemyParty=0x020358ec,
+  gBattleWeather=0x02000754, etc).
+  - **Species names read directly from the ROM** (works for all 1524+
+    species, vanilla or newly added) -- this took real effort since bofa's
+    expansion moved species names into a per-species struct instead of a
+    flat name table EK.lua could just index; the struct's per-field offset
+    comments are stale (its "0xC4" size comment is wrong -- the struct has
+    clearly grown since that was written), so the offset (44) and true
+    per-entry stride (260 bytes, not the commented size) were derived
+    **empirically**: searched the compiled ROM for Bulbasaur's own
+    charmap-encoded name (confirmed bofa uses mixed-case names like
+    "Zigzagoon", not "ZIGZAGOON" -- cost one wrong search attempt) and
+    computed the offset from where it was found relative to species index 1.
+  - **Real correctness catch before finalizing**: initially wrote the
+    decryption/bitmasking logic using native Lua bitwise operators
+    (`~ & | << >>`). Re-reading EK.lua's own `BitXOR` function -- which
+    exists specifically because it can't assume native XOR support --
+    made clear that assuming 5.3+ bitwise operators would risk the whole
+    script failing to even parse on whatever Lua version mGBA embeds.
+    Rewrote all bit operations (XOR/AND/right-shift) as pure arithmetic
+    functions, matching EK.lua's own defensive style, before finalizing.
+  - Moves use a hardcoded vanilla Gen1-3 name table (ported from EK.lua);
+    bofa's own move additions (TM51-66, the Gen4-9 movepool) print as
+    "Move #N" -- scoped out for time. Items/abilities print as "Item #N"/
+    "Ability #N" (numeric only, no name table attempted this pass). Natures
+    are always correct (computed from personality, not a lookup table).
+  - Export tries an mGBA scripting clipboard API (a few plausible names,
+    wrapped in `pcall` since it's genuinely uncertain whether one exists in
+    a given mGBA build) but always also writes `bofa_export.txt` as the
+    guaranteed fallback, and prints to the console either way.
+  - **Not verified end-to-end in a live emulator** -- no Lua interpreter was
+    available in this environment to even syntax-check it (tried installing
+    one via WSL apt, it hung; checked manually line-by-line instead, and I'm
+    confident in the syntax, but the actual mGBA scripting API surface --
+    exact method names on `emu`/`console`, whether `io.open` is permitted in
+    its sandbox, whether any clipboard API exists at all -- can only be
+    confirmed by loading it in mGBA and trying the commands.
 
 ## Decisions needing your input
 
