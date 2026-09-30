@@ -1,0 +1,186 @@
+<!-- generated from FIRST_FOUR_SPLITS_WALKTHROUGH.md -->
+<title>First Four Splits — Current Walkthrough</title>
+<style>
+:root{--bg:#ffffff;--fg:#1a1a1a;--mut:#5b6472;--line:#d8dde5;--acc:#1f3864;--card:#f6f8fb;--warn:#fff4e5}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#14171c;--fg:#e7eaf0;--mut:#9aa4b2;--line:#2b313a;--acc:#7da7e8;--card:#1b1f26;--warn:#2e2618}}
+:root[data-theme=dark]{--bg:#14171c;--fg:#e7eaf0;--mut:#9aa4b2;--line:#2b313a;--acc:#7da7e8;--card:#1b1f26;--warn:#2e2618}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding-block:28px;padding-left:18px;padding-right:18px;max-width:1080px;margin:0 auto}
+h1{font-size:1.7rem;margin:0 0 .2em;color:var(--acc)}
+h3{font-size:1.02rem;margin:1.5em 0 .4em;color:var(--acc)}
+p{margin:.6em 0} ul{margin:.5em 0 .8em 1.2em} li{margin:.2em 0}
+code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.05em .35em;font-size:.86em;word-break:break-word}
+blockquote{margin:.9em 0;padding:.7em .9em;background:var(--warn);border-left:4px solid #e8a33d;border-radius:0 6px 6px 0}
+hr{border:0;border-top:1px solid var(--line);margin:1.4em 0}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.9em 1.1em;margin:1.2em 0}
+.toc h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--mut);margin:0 0 .5em}
+.toc ol{margin:0;padding-left:1.3em} .toc a{color:var(--acc);text-decoration:none} .toc a:hover{text-decoration:underline}
+details{border:1px solid var(--line);border-radius:10px;margin:.7em 0;background:var(--card);overflow:hidden}
+summary{cursor:pointer;padding:.75em 1em;font-weight:600;color:var(--acc);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"B8";display:inline-block;margin-right:.6em;transition:transform .15s;color:var(--mut)}
+details[open]>summary::before{transform:rotate(90deg)}
+.inner{padding:0 1em 1em;border-top:1px solid var(--line)}
+.tw{overflow-x:auto;margin:.8em 0}
+table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:420px}
+th,td{border:1px solid var(--line);padding:.4em .6em;text-align:left;vertical-align:top}
+th{background:var(--acc);color:#fff;position:sticky;top:0}
+tbody tr:nth-child(even){background:rgba(127,127,127,.06)}
+.bar{display:flex;gap:.5em;flex-wrap:wrap;margin:1em 0}
+button{font:inherit;padding:.4em .8em;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--acc)}
+footer{margin-top:2em;padding-top:1em;border-top:1px solid var(--line);color:var(--mut);font-size:.82rem}
+</style>
+<h1>First Four Splits — Current Walkthrough</h1>
+<p><strong>What this is:</strong> a chronological account of what a player actually encounters from a new game through the fourth badge, read out of the project files as they stand.</p>
+<p><strong>Generated:</strong> 2026-09-30. Sources: <code>data/maps/<em>/map.json</code> (connections, warps, object events), <code>data/maps/</em>/scripts.inc</code> and <code>scripts.pory</code>, <code>src/data/trainers.party</code>, <code>src/data/wild_encounters.json</code>, <code>src/data/trade.h</code>, <code>include/constants/flags.h</code>.</p>
+<p><strong>Nothing here is gameplay-verified.</strong> It is what the data says will happen, not what has been observed happening in an emulator.</p>
+<hr>
+<div class="bar">
+  <button onclick="document.querySelectorAll('details').forEach(d=>d.open=true)">Expand all</button>
+  <button onclick="document.querySelectorAll('details').forEach(d=>d.open=false)">Collapse all</button>
+</div>
+<nav class="toc"><h2>Contents</h2><ol><li><a href="#actual-gym-order-derived-not-assumed">Actual gym order (derived, not assumed)</a></li><li><a href="#split-1-new-game-badge-1-norman-petalburg">SPLIT 1 — New Game → Badge 1 (Norman, Petalburg)</a></li><li><a href="#split-2-badge-1-badge-2-roxanne-rustboro">SPLIT 2 — Badge 1 → Badge 2 (Roxanne, Rustboro)</a></li><li><a href="#split-3-badge-2-badge-3-brawly-dewford">SPLIT 3 — Badge 2 → Badge 3 (Brawly, Dewford)</a></li><li><a href="#split-4-badge-3-badge-4-wattson-mauville">SPLIT 4 — Badge 3 → Badge 4 (Wattson, Mauville)</a></li><li><a href="#accessible-earlier-than-intended">Accessible earlier than intended</a></li></ol></nav>
+<details id="actual-gym-order-derived-not-assumed" open><summary>Actual gym order (derived, not assumed)</summary><div class="inner"><p>Read from which gym script calls <code>setflag FLAG_BADGE0N_GET</code>:</p>
+<div class="tw"><table><thead><tr><th>Badge</th><th>Gym</th><th>Leader</th><th>Leader&#x27;s ace</th><th>Level band</th></tr></thead><tbody>
+<tr><td>1</td><td>Petalburg</td><td>Norman</td><td>Slakoth Lv16</td><td>14–16</td></tr>
+<tr><td>2</td><td>Rustboro</td><td>Roxanne</td><td>Nosepass Lv23</td><td>20–23</td></tr>
+<tr><td>3</td><td>Dewford</td><td>Brawly</td><td>Makuhita Lv19</td><td>16–19</td></tr>
+<tr><td>4</td><td>Mauville</td><td>Wattson</td><td>Manectric Lv24</td><td>20–24</td></tr>
+<tr><td>5</td><td>Lavaridge</td><td>Flannery</td><td>—</td><td>—</td></tr>
+<tr><td>6</td><td>Fortree</td><td>Winona</td><td>—</td><td>—</td></tr>
+<tr><td>7</td><td>Mossdeep</td><td>Tate &amp; Liza</td><td>—</td><td>—</td></tr>
+<tr><td>8</td><td>Sootopolis</td><td>Juan</td><td>—</td><td>—</td></tr>
+</tbody></table></div>
+<p>This is a <strong>custom order</strong>, not vanilla Emerald&#x27;s. Norman has been pulled from badge 5 to badge 1, and Roxanne/Brawly/Wattson each shifted accordingly.</p>
+<blockquote><strong>The level curve is inverted at badge 3.</strong> Badge 2 (Roxanne, Lv20–23) is <em>higher</em> than badge 3 (Brawly, Lv16–19). See the Design Gaps report.</blockquote>
+<p><strong>Level caps:</strong> none are enforced. <code>B_LEVEL_CAP_TYPE = LEVEL_CAP_NONE</code> in <code>include/config/caps.h</code>. The engine supports caps via <code>LEVEL_CAP_FLAG_LIST</code> and <code>sLevelCapFlagMap</code> in <code>src/caps.c</code>, but that path is switched off. The boss-entry level restriction discussed in design notes does not exist in code.</p>
+<hr></div></details><details id="split-1-new-game-badge-1-norman-petalburg"><summary>SPLIT 1 — New Game → Badge 1 (Norman, Petalburg)</summary><div class="inner"><h3>Littleroot Town</h3>
+<p>Required. Starting town. Warps to Birch&#x27;s Lab, both rival houses, and <code>MAP_STARTER_ROOM</code>. Connects north to Route 101 only.</p>
+<ul><li><strong>Starter choice</strong> is the <em>Johto</em> trio: Chikorita / Cyndaquil / Totodile, Lv5</li></ul>
+<p>(<code>LittlerootTown_ProfessorBirchsLab</code>). Default IVs — not perfect.</p>
+<ul><li><strong>Supplies NPC</strong> (added this session): gives 900 each of Rare Candy, Max Repel,</li></ul>
+<p>Full Restore, Escape Rope, once, gated on <code>FLAG_RECEIVED_STARTER_SUPPLIES</code>.</p>
+<ul><li>Starting money: 999,999.</li><li>No wild encounters, no overworld items.</li></ul>
+<h3>Route 101</h3>
+<p>Required corridor to Oldale. Wild land: Poochyena / Wurmple / Zigzagoon, <strong>Lv2–3</strong> (vanilla table). No trainers, no items.</p>
+<h3>Oldale Town</h3>
+<p>Required. Mart (now stocks ₽1 Rare Candies), Poké Center. Connects north to Route 103, west to Route 102.</p>
+<h3>Route 103 — <em>optional, and badly over-levelled</em></h3>
+<p>Reachable immediately from Oldale. <strong>14 trainers.</strong> The rival fight here is Lv5, but the rest of the route is Lv14–15:</p>
+<div class="tw"><table><thead><tr><th>Trainer</th><th>Class</th><th>Team</th></tr></thead><tbody>
+<tr><td>BRENDAN / MAY</td><td>Rival</td><td>one starter, Lv5 (3 variants by player choice)</td></tr>
+<tr><td>AMY &amp; LIV</td><td>Twins</td><td>Plusle Lv15, Minun Lv15</td></tr>
+<tr><td>ANDREW</td><td>Fisherman</td><td>Magikarp Lv5, Tentacool Lv10, Magikarp Lv15</td></tr>
+<tr><td>DAISY</td><td>Aroma Lady</td><td>Shroomish Lv14, Roselia Lv14</td></tr>
+<tr><td>ISABELLE</td><td>Swimmer F</td><td>Marill Lv15</td></tr>
+<tr><td>MARCOS</td><td>Guitarist</td><td>Voltorb Lv15</td></tr>
+<tr><td>MIGUEL</td><td>Pokéfan</td><td>Skitty Lv15 @ Oran Berry</td></tr>
+<tr><td>PETE</td><td>Swimmer M</td><td>Tentacool Lv15</td></tr>
+<tr><td>RHETT</td><td>Black Belt</td><td>Makuhita Lv15</td></tr>
+</tbody></table></div>
+<p>Wild: Poochyena / Wingull / Zigzagoon Lv2–4 land; water and fishing tables reach Lv25–45 (Sharpedo, Wailmer) but need Surf/Rod. Items: Guard Spec., PP Up.</p>
+<h3>Viridian Forest — <em>optional side area, Split 1</em></h3>
+<p>Entered by warp from Route 103 at (4,0)/(5,0). A dead end — its only exit is back to Route 103.</p>
+<ul><li><strong>Gen 2 starter trade</strong> at (8,1), the far end of the forest: trade any Pokémon</li></ul>
+<p>for your choice of Chikorita / Cyndaquil / Totodile, <strong>31 IVs in all six stats</strong>, once only.</p>
+<ul><li><strong>No wild encounters at all.</strong></li><li>Three object events have <code>script: NULL</code> — two Bug Catchers and one</li></ul>
+<p><code>BRENDAN_FIELD_MOVE</code> NPC. They are placed but inert.</p>
+<h3>Route 102</h3>
+<p>Required westward route to Petalburg. 4 trainers, <strong>Lv3–5</strong> (Allen, Calvin, Rick, Tiana). Wild land Lv3–4 including Ralts and Seedot. Items: Potion, TM Pluck.</p>
+<h3>Petalburg City</h3>
+<p>Required. Gym, Mart, Poké Center, Wally&#x27;s house. Connects west to Route 104, east to Route 102, <strong>south to <code>MAP_TRAINER_GROVE</code></strong> (a custom map). Items: Max Revive, Ether, TM Fling, hidden Rare Candy.</p>
+<h3>Trainer Grove → Petalburg Coast — <em>optional, unfinished</em></h3>
+<p>Custom maps reached south out of Petalburg City.</p>
+<p><strong>Trainer Grove</strong> holds four trainers named <strong>Bum1–Bum4</strong>, each with an identical team of <strong>Wailmer Lv34 + Horsea Lv34</strong>, and with mismatched classes (Salon Maiden, Swimmer M, Team Magma, Team Aqua). Lv34 is above every boss in splits 1–4.</p>
+<p><strong>Petalburg Coast</strong> holds RONNIE (Youngster; Zigzagoon Lv13, Taillow Lv14) who gates an <strong>Oval Stone</strong> item ball behind <code>goto_if_not_defeated</code>. Neither map has wild encounters.</p>
+<h3>Petalburg Gym — BADGE 1</h3>
+<div class="tw"><table><thead><tr><th>Trainer</th><th>Team</th></tr></thead><tbody>
+<tr><td>RANDALL</td><td>Taillow Lv14 @ Flame Orb (Guts), Zigzagoon Lv14 @ Bright Powder (Quick Feet)</td></tr>
+<tr><td>ALEXIA</td><td>Jigglypuff Lv14 @ Focus Sash (Aftermath), Whismur Lv15 @ Sitrus Berry (Rattled)</td></tr>
+<tr><td>JODY</td><td>Zangoose Lv16 @ Quick Claw (Hyper Cutter), Slakoth Lv16 @ Sitrus Berry (Truant)</td></tr>
+<tr><td><strong>NORMAN</strong></td><td>Zigzagoon Lv14 @ Bright Powder, Whismur Lv15 @ Sitrus Berry, Zangoose Lv16 @ Quick Claw, <strong>Slakoth Lv16 @ Custap Berry</strong></td></tr>
+</tbody></table></div>
+<p>All fully specified: explicit abilities, natures, held items, 31 IVs, Smart Trainer AI.</p>
+<hr></div></details><details id="split-2-badge-1-badge-2-roxanne-rustboro"><summary>SPLIT 2 — Badge 1 → Badge 2 (Roxanne, Rustboro)</summary><div class="inner"><h3>Route 104</h3>
+<p>Required. <strong>13 trainers, Lv5–15</strong> — mostly Lv5–9 filler plus the Lv13–15 rival. Wild land Lv3–5 (Marill, Poochyena, Taillow, Wingull, Wurmple). 9 items including Bright Powder and a hidden Heart Scale. Warps to Petalburg Woods, Mr. Briney&#x27;s house, the Flower Shop.</p>
+<blockquote>Mr. Briney&#x27;s boat to Dewford is gated behind <code>FLAG_CLEARED_WRAITHWOOD_ROUTE</code>, which is set on first entering Wraithwood Forest — closing what was a shortcut past Rustboro entirely.</blockquote>
+<h3>Petalburg Woods</h3>
+<p>Required-ish. 3 trainers: a <strong>Team Aqua Grunt</strong> (Poochyena Lv9), James (2× Nincada Lv6), Lyle (4× Wurmple Lv3). Wild land Lv5–6. <strong>10 items</strong>, including a hidden <strong>Sceptilite</strong> (Mega Stone) and TM Silver Wind. Warps to <code>MAP_LOST_CAVE</code> (custom, currently empty: no trainers, no items, no wild table).</p>
+<h3>Rustboro City</h3>
+<p>Required. Gym, Mart, Devon Corp, Poké School. Rival battle (Lv13–15). Connects north to Route 115, south to Route 104, east to Route 116. Warps additionally to <strong><code>MAP_HOLLOWBROOK_SHACK_MINING_TUNNEL</code></strong> — the entrance to the custom region.</p>
+<ul><li><strong>Evolution stone NPC</strong> at (18,34) (added this session): choice of one Fire /</li></ul>
+<p>Water / Leaf Stone, once only.</p>
+<ul><li>Item: Razor Claw. Two in-game trade NPCs sit in Rustboro houses (Seedot trade).</li></ul>
+<h3>Route 116 / Rusturf Tunnel — <em>optional</em></h3>
+<p>Route 116: 10 trainers Lv8–9, wild Lv6–8, 8 items including TM Steel Wing. Rusturf Tunnel: a <strong>Team Aqua Grunt</strong> (Poochyena Lv11) and Mike (2× Geodude + Machop, Lv16). Wild Whismur Lv5–8.</p>
+<h3>Rustboro Gym — BADGE 2</h3>
+<div class="tw"><table><thead><tr><th>Trainer</th><th>Team</th></tr></thead><tbody>
+<tr><td>JOSH</td><td>Geodude Lv18 @ Hard Stone, Geodude Lv18 @ Rocky Helmet, Nosepass Lv18 @ Sitrus Berry</td></tr>
+<tr><td>TOMMY</td><td>same shape at Lv19</td></tr>
+<tr><td>MARC</td><td>same shape at Lv20</td></tr>
+<tr><td><strong>ROXANNE</strong></td><td>Geodude Lv20 @ Hard Stone, Geodude Lv21 @ Rocky Helmet, <strong>Aron Lv22 @ Life Orb</strong>, <strong>Nosepass Lv23 @ Wide Lens</strong></td></tr>
+</tbody></table></div>
+<p>Fully specified (abilities, items, 31 IVs). Note the three rank-and-file trainers run the <em>identical</em> 2×Geodude + Nosepass shape, differing only by level.</p>
+<hr></div></details><details id="split-3-badge-2-badge-3-brawly-dewford"><summary>SPLIT 3 — Badge 2 → Badge 3 (Brawly, Dewford)</summary><div class="inner"><p>The intended route runs <strong>Rustboro → Mining Tunnel → Hollowbrook → Wraithwood Forest → Granite Cave B2F → B1F → 1F → Route 106 → Dewford</strong>, with Granite Shore hanging off Dewford.</p>
+<h3>Hollowbrook Shack / Mining Tunnel</h3>
+<p>Corridor from inside Rustboro. No trainers, items, or encounters.</p>
+<h3>Hollowbrook</h3>
+<p>2 trainers, 3 Pokémon each, Lv25–26, fully specified:</p>
+<ul><li><strong>MORTIMER</strong> (Gentleman): Duskull @ Lum Berry, Shuppet @ Spell Tag, Roggenrola @ Sitrus Berry</li><li><strong>PRUDENCE</strong> (Lass): Spinarak @ Black Sludge, Nincada @ Silver Powder, Whismur @ Sitrus Berry</li></ul>
+<p>No wild encounters. No items.</p>
+<h3>Wraithwood Forest</h3>
+<p>Sets <code>FLAG_CLEARED_WRAITHWOOD_ROUTE</code> on first entry. 3 trainers, 3 Pokémon each, Lv24–26:</p>
+<ul><li><strong>DESMOND</strong> (Bug Catcher): Nincada, Spinarak, Shuppet</li><li><strong>OTTOLINE</strong> (Hex Maniac): Shuppet, Duskull, Roggenrola</li><li><strong>RUFUS</strong> (Hiker): Roggenrola, Aron @ Metal Coat, Nosepass @ Wide Lens</li></ul>
+<p><strong>Gift: Skorupi Lv22</strong>, Jolly, Battle Armor, 31 IVs, at (20,11). Evolves to Drapion at 32. No wild encounters. No items.</p>
+<h3>Granite Cave (B2F → B1F → 1F)</h3>
+<p>One trainer per floor, 3 Pokémon each:</p>
+<ul><li><strong>ANSEL</strong> (B2F): Aron Lv27 @ Focus Sash, Nosepass Lv26, Roggenrola Lv27</li><li><strong>DALTON</strong> (B1F): Makuhita Lv25 @ Black Belt, Aron Lv25 @ Life Orb, Geodude Lv25</li><li><strong>PERCY</strong> (1F): Aron Lv25 @ Metal Coat, Geodude Lv25 @ Hard Stone, Nosepass Lv25</li></ul>
+<p>Items: B2F has Repel, Rare Candy, 2× hidden Everstone and a hidden <strong>Aerodactylite</strong> (Mega Stone). B1F a Poké Ball; 1F an Escape Rope.</p>
+<p><strong>Wild encounters are vanilla and far below the trainers:</strong> 1F Zubat/Geodude/Makuhita/Abra <strong>Lv6–10</strong>, B1F Aron/Sableye/Zubat/Makuhita/Abra <strong>Lv9–11</strong>, B2F Aron/Sableye/Zubat/Abra <strong>Lv10–12</strong> — against trainers at Lv25–27.</p>
+<h3>Granite Shore</h3>
+<p>Connects up to Dewford Town. 2 trainers, 3 Pokémon each at Lv24:</p>
+<ul><li><strong>DEACON</strong>: Wingull @ Mystic Water, Tentacool @ Poison Barb, Zigzagoon @ Bright Powder</li><li><strong>PRIYA</strong>: Tentacool, Wingull, Jigglypuff @ Focus Sash</li></ul>
+<p><strong>Gift: Dwebble Lv20</strong> (Rancher Andy), Adamant, Sturdy, 31 IVs. Evolves to Crustle at 26. No wild encounters, no items.</p>
+<h3>Routes 105 / 106 / 107 — <em>optional, water routes</em></h3>
+<ul><li><strong>Route 105</strong>: 8 trainers Lv25–26 (Ruin Maniacs with Sandshrew/Sandslash, Swimmers,</li></ul>
+<p>Bird Keeper, and TESS with Tentacool Lv25 / Wingull Lv26). Water + fishing only. Items: Star Piece, hidden Heart Scale, hidden Big Pearl.</p>
+<ul><li><strong>Route 106</strong>: 5 trainers. Douglas (2× Tentacool Lv24), Kyla (Wailmer Lv26), MILO</li></ul>
+<p>(Geodude Lv25 @ Hard Stone, Aron Lv25 @ Metal Coat) — plus <strong>Elliot (Lv7–10) and Ned (Lv11)</strong>, vanilla leftovers far under the rest. Items include TM Aurora Beam.</p>
+<ul><li><strong>Route 107</strong>: 6 trainers Lv24–27, all water.</li></ul>
+<h3>Dewford Gym — BADGE 3</h3>
+<div class="tw"><table><thead><tr><th>Trainer</th><th>Team</th></tr></thead><tbody>
+<tr><td>BRENDEN, TAKAO</td><td>Machop Lv13</td></tr>
+<tr><td>CRISTIAN</td><td>Makuhita Lv13</td></tr>
+<tr><td>JOCELYN, LAURA, LILITH</td><td>Meditite Lv13</td></tr>
+<tr><td><strong>BRAWLY</strong></td><td>Machop Lv16, Meditite Lv16, Makuhita Lv19 @ Sitrus Berry</td></tr>
+</tbody></table></div>
+<p><strong>This gym is still vanilla.</strong> Single-Pokémon Lv13 rank-and-file; the leader has no specified abilities, natures or IVs, and only one held item. The player arrives here having fought Lv24–27 trainers.</p>
+<hr></div></details><details id="split-4-badge-3-badge-4-wattson-mauville"><summary>SPLIT 4 — Badge 3 → Badge 4 (Wattson, Mauville)</summary><div class="inner"><h3>Route 108 / 109</h3>
+<ul><li><strong>Route 108</strong>: 6 trainers Lv24–26 (incl. Carolina with 2× Manectric + Swellow Lv24).</li></ul>
+<p>Warps to the Abandoned Ship. Items: Star Piece, hidden Rare Candy.</p>
+<ul><li><strong>Route 109</strong>: 13 trainers, <strong>Lv12–27 mixed</strong> — Elijah (2× Skarmory Lv25) and</li></ul>
+<p>Mel &amp; Paul (Dustox/Beautifly Lv27) sit beside Chandler, Edmond, Hailey, Huey, Lola and Ricky at Lv12–13. 8 items.</p>
+<h3>Slateport City</h3>
+<p>Required. No trainers. Water/fishing tables only. Mart stocks ₽1 Rare Candies.</p>
+<h3>Route 110</h3>
+<p>Required north to Mauville. <strong>20 trainers, Lv6–20</strong> — the widest spread in the game: Triathletes and Psychics at Lv14–16, Jacob and Jasmine carrying <strong>Lv6 Voltorbs</strong>, and the rival at Lv18–20. Items include Scope Lens, Rare Candy, and a hidden <strong>Swampertite</strong> (Mega Stone). Trick House entrance is here (its puzzles gate on badge count).</p>
+<h3>Mauville City</h3>
+<p>Required. Wally rival battle (Ralts Lv16). Items: Ultra Ball, TM Sleep Talk. Mart stocks ₽1 Rare Candies. Game Corner bouncer hides once badge 4 is earned.</p>
+<h3>Mauville Gym — BADGE 4</h3>
+<div class="tw"><table><thead><tr><th>Trainer</th><th>Team</th></tr></thead><tbody>
+<tr><td>ANGELO</td><td>Illumise Lv17, Volbeat Lv17</td></tr>
+<tr><td>BEN</td><td>Zigzagoon Lv17, Gulpin Lv17</td></tr>
+<tr><td>KIRK</td><td>Electrike Lv17, Voltorb Lv17</td></tr>
+<tr><td>SHAWN</td><td>Voltorb Lv17, Magnemite Lv17</td></tr>
+<tr><td>VIVIAN</td><td>Meditite Lv17, Meditite Lv17</td></tr>
+<tr><td><strong>WATTSON</strong></td><td>Voltorb Lv20, Electrike Lv20, Magneton Lv22, Manectric Lv24 @ Sitrus Berry</td></tr>
+</tbody></table></div>
+<p><strong>Also still vanilla</strong> — no abilities, natures or IVs specified; one held item on the ace.</p>
+<hr></div></details><details id="accessible-earlier-than-intended"><summary>Accessible earlier than intended</summary><div class="inner"><ul><li><strong>Route 103&#x27;s Lv14–15 trainers</strong> are reachable before badge 1, with a Lv5–8 party.</li><li><strong>Trainer Grove&#x27;s Lv34 trainers</strong> are reachable in Split 1 from Petalburg City.</li><li><strong>Route 110 and Route 117</strong> are reachable from Route 103&#x27;s east connection</li></ul>
+<p>(<code>Route103 → right → MAP_ROUTE110</code>), i.e. potentially before badge 1.</p>
+<ul><li><strong>Three Mega Stones</strong> are obtainable across splits 2–4 (Sceptilite in Petalburg</li></ul>
+<p>Woods, Aerodactylite in Granite Cave, Swampertite on Route 110), earlier than the badge-4 Mega unlock discussed in design notes.</p>
+<ul><li><strong>Altering Cave</strong> warps directly off Route 103 (Split 1).</li></ul></div></details>
+<footer>Generated 2026-09-30 from the bofa project source files.
+Nothing in this document is gameplay-verified.</footer>
