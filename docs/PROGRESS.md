@@ -483,13 +483,18 @@ for the full approved design and `docs/audit_notes.md` for the original repo aud
     alone -- PK's own doc shows already-decent mons get zero or token
     changes, not another buff.
   - **Checked the move-buff request against `src/data/moves_info.h` and
-    found most of it already done upstream**, not by me: DoubleSlap
-    (30 BP/90 acc), Fire/Ice/Thunder Punch (95 BP), Mega Kick (140 BP/90
-    acc/8 PP), and the accuracy-floor cleanup on Cut/Tackle/Fury Attack/
-    Take Down/Wrap (all 100%) match PK's documented buffs exactly, but come
-    from upstream commit `e89683532` ("Buff underpowered Gen5-6/cross-gen
-    mons..."), not a PK-specific change -- coincidental convergence, not
-    something that needed redoing.
+    found most of it already applied**: DoubleSlap (30 BP/90 acc),
+    Fire/Ice/Thunder Punch (95 BP), Mega Kick (140 BP/90 acc/8 PP), and the
+    accuracy-floor cleanup on Cut/Tackle/Fury Attack/Take Down/Wrap (all
+    100%) already matched PK's documented buffs.
+    **Correction (2026-09-30):** this entry originally claimed those came
+    from upstream. They did not. `e89683532` ("Buff underpowered Gen5-6/
+    cross-gen mons...") is a **project commit by duckcion dated 2026-08-21**,
+    verified with `git log -1 --format=%an e89683532` and
+    `git merge-base --is-ancestor e89683532 9a0b5756c` (which reports it is
+    NOT an ancestor of the upstream baseline). So this project had already
+    applied PK-style move buffs in an earlier session; the convergence was
+    deliberate, not coincidental.
   - IVs across all 18 trainers were sitting at 20-24 instead of the spec's
     default of 31 -- a self-imposed ~15-25% stat penalty with no design
     rationale behind it. Bumped to 31 everywhere in scope.
