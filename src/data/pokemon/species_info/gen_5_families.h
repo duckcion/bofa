@@ -4863,17 +4863,17 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sDwebbleLevelUpLearnset,
         .teachableLearnset = sDwebbleTeachableLearnset,
         .eggMoveLearnset = sDwebbleEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 34, SPECIES_CRUSTLE}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 26, SPECIES_CRUSTLE}),
     },
 
     [SPECIES_CRUSTLE] =
     {
         .baseHP        = 80,
-        .baseAttack    = 134,
+        .baseAttack    = 105,
         .baseDefense   = 125,
-        .baseSpeed     = 61,
-        .baseSpAttack  = 30,
-        .baseSpDefense = 75,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_BUG, TYPE_ROCK),
         .catchRate = 75,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_7) ? 170 : 166,

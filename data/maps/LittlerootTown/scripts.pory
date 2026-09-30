@@ -1020,6 +1020,37 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+LittlerootTown_EventScript_SuppliesMan::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_STARTER_SUPPLIES, LittlerootTown_EventScript_SuppliesManAlready
+	msgbox LittlerootTown_Text_SuppliesManIntro, MSGBOX_DEFAULT
+	giveitem ITEM_RARE_CANDY, 900
+	giveitem ITEM_MAX_REPEL, 900
+	giveitem ITEM_FULL_RESTORE, 900
+	giveitem ITEM_ESCAPE_ROPE, 900
+	setflag FLAG_RECEIVED_STARTER_SUPPLIES
+	msgbox LittlerootTown_Text_SuppliesManGiven, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_EventScript_SuppliesManAlready::
+	msgbox LittlerootTown_Text_SuppliesManAlready, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_Text_SuppliesManIntro:
+	.string "Hey, you're just starting out, right?\p"
+	.string "Here, take these supplies. You'll\n"
+	.string "need them out there.$"
+
+LittlerootTown_Text_SuppliesManGiven:
+	.string "Good luck on your journey!$"
+
+LittlerootTown_Text_SuppliesManAlready:
+	.string "Take care of that stock I gave you.\n"
+	.string "I don't have any more to spare!$"
+
 
 `
 script LittlerootTown_EventScript_NewSign {
