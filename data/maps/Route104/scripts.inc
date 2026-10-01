@@ -1183,3 +1183,79 @@ Route104_Text_PetalburgWoodsBlocked:
 	.string "PETALBURG WOODS is closed off for now.\p"
 	.string "Something's not right in there…\n"
 	.string "best steer clear till it's sorted out.$"
+
+@ ---------------------------------------------------------------- Split 1
+Route104_EventScript_Split1MagmaGrunt::
+	trainerbattle_single TRAINER_GRUNT_ROUTE_104_MAGMA, Route104_Text_Split1MagmaIntro, Route104_Text_Split1MagmaDefeated
+	msgbox Route104_Text_Split1MagmaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route104_EventScript_Split1AquaGrunt::
+	trainerbattle_single TRAINER_GRUNT_ROUTE_104_AQUA, Route104_Text_Split1AquaIntro, Route104_Text_Split1AquaDefeated
+	msgbox Route104_Text_Split1AquaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+@ Norman only gives the Everstone quest once the four Split 1 trainers here are beaten.
+Route104_EventScript_Split1Norman::
+	lock
+	faceplayer
+	goto_if_not_defeated TRAINER_DARIAN, Route104_EventScript_Split1NormanBusy
+	goto_if_not_defeated TRAINER_BILLY, Route104_EventScript_Split1NormanBusy
+	goto_if_not_defeated TRAINER_GRUNT_ROUTE_104_MAGMA, Route104_EventScript_Split1NormanBusy
+	goto_if_not_defeated TRAINER_GRUNT_ROUTE_104_AQUA, Route104_EventScript_Split1NormanBusy
+	msgbox Route104_Text_Split1NormanQuest, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_SPLIT1_STATE, 1
+	fadescreen FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	setflag FLAG_HIDE_ROUTE_104_NORMAN
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+Route104_EventScript_Split1NormanBusy::
+	msgbox Route104_Text_Split1NormanBusy, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_Text_Split1MagmaIntro:
+	.string "TEAM MAGMA's got business on this\n"
+	.string "route. Beat it, kid!$"
+
+Route104_Text_Split1MagmaDefeated:
+	.string "Hot-headed, huh?\n"
+	.string "Just like us…$"
+
+Route104_Text_Split1MagmaPostBattle:
+	.string "More land means more room for people\n"
+	.string "and POKéMON. That's what TEAM MAGMA\l"
+	.string "is all about.$"
+
+Route104_Text_Split1AquaIntro:
+	.string "Out of the way! TEAM AQUA is\n"
+	.string "surveying this coast!$"
+
+Route104_Text_Split1AquaDefeated:
+	.string "Washed out…$"
+
+Route104_Text_Split1AquaPostBattle:
+	.string "The sea gave life to everything.\n"
+	.string "TEAM AQUA wants to give it more room.$"
+
+Route104_Text_Split1NormanBusy:
+	.string "DAD: {PLAYER}? You came all this way?\p"
+	.string "There are some rough types around here,\n"
+	.string "TEAM MAGMA and TEAM AQUA among them.\p"
+	.string "Show me you can handle every TRAINER\n"
+	.string "on this stretch of road, then we'll talk.$"
+
+Route104_Text_Split1NormanQuest:
+	.string "DAD: Well done, {PLAYER}.\n"
+	.string "You handled those TRAINERS nicely.\p"
+	.string "I came out here looking for an\n"
+	.string "EVERSTONE, but I haven't had any luck.\p"
+	.string "I hear one washed up on PETALBURG\n"
+	.string "COAST. Take the path through TRAINER\l"
+	.string "GROVE, south of PETALBURG.\p"
+	.string "Bring me that EVERSTONE and I'll\n"
+	.string "open the GYM for you.$"

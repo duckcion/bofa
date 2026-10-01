@@ -23,13 +23,6 @@ script TrainerGrove_EventScript_TrainerThree{
     end
 }
 
-script TrainerGrove_EventScript_TrainerFour{
-    trainerbattle_single(TRAINER_TRAINERGROVET4, TrainerGrove_Text_Trainer4Intro, TrainerGrove_Text_Trainer4Outro)
-    msgbox(TrainerGrove_Text_Trainer4PostBattle, MSGBOX_DEFAULT)
-    release
-    end
-}
-
 text TrainerGrove_Text_Trainer1Intro{
     "Bring that ass here boy!"
 }
@@ -55,25 +48,34 @@ text TrainerGrove_Text_Trainer2PostBattle{
 }
 
 text TrainerGrove_Text_Trainer3Intro{
-    "IMA BOUNCE ON YOU!"
+    "I came out here to camp, but a battle
+sounds even better!"
 }
 
 text TrainerGrove_Text_Trainer3Outro{
-    "IM BOUNCING, IM BOUNCING"
+    "Aww, my campfire went out…"
 }
 
 text TrainerGrove_Text_Trainer3PostBattle{
-    "This champ sucks, I'ma play Nunu instead."
+    "The coast is just past here.
+Watch out for the tide!"
 }
 
-text TrainerGrove_Text_Trainer4Intro{
-    "Your gyat is gonna get rizzled."
+// Split 1: the grove stays closed until Norman (Route 104) asks for the Everstone.
+script TrainerGrove_EventScript_PathClosed{
+    lockall
+    msgbox(TrainerGrove_Text_PathClosed, MSGBOX_DEFAULT)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, TrainerGrove_Movement_StepBack)
+    waitmovement(0)
+    releaseall
+    end
 }
 
-text TrainerGrove_Text_Trainer4Outro{
-    "After this loss, I'm going to Ohio."
+movement TrainerGrove_Movement_StepBack{
+    walk_up
 }
 
-text TrainerGrove_Text_Trainer4PostBattle{
-    "OHIO OHIO OHIO."
+text TrainerGrove_Text_PathClosed{
+    "The grove is full of TRAINERS.\nBetter find DAD on ROUTE 104 first."
 }

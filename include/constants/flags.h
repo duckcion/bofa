@@ -43,8 +43,8 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
-#define FLAG_GAVE_NORMAN_OVAL_STONE    0x20 // Set when the player hands Norman the Oval Stone from Petalburg Coast
-#define FLAG_ITEM_PETALBURG_COAST_OVAL_STONE    0x21 // Item ball flag for the Oval Stone on Petalburg Coast
+#define FLAG_GAVE_NORMAN_EVERSTONE    0x20 // Set when the player hands Norman the Everstone from Petalburg Coast
+#define FLAG_ITEM_PETALBURG_COAST_EVERSTONE    0x21 // Item ball flag for the Everstone on Petalburg Coast (Norman's Split 1 quest)
 #define FLAG_PETALBURG_WOODS_UNLOCKED    0x22 // Set once the path through Petalburg Woods is reopened (post-Wraithwood)
 #define FLAG_RECEIVED_RANCHER_ANDY_GIFT    0x23 // Set once the player takes Rancher Andy's Tauros/Miltank/Bouffalant gift on Granite Shore
 #define FLAG_RECEIVED_STARTER_ROOM_JOHTO_MON    0x24 // Set once the player is gifted a random Johto starter (Cyndaquil/Totodile/Chikorita) in Birch's Lab starter room
@@ -54,11 +54,11 @@
 #define FLAG_JOHTO_STARTER_TRADE_DONE    0x28
 #define FLAG_RECEIVED_SKORUPI_GIFT    0x29
 #define FLAG_RECEIVED_EVOLUTION_STONE    0x2A
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F    0x2F // Unused Flag
+#define FLAG_HIDE_PETALBURG_GYM_BLOCKER    0x2B // Split 1: NPC blocking Petalburg Gym until the Everstone is found
+#define FLAG_HIDE_PETALBURG_CITY_SPLIT1_RIVAL    0x2C // Split 1: rival who battles at the gym entrance (set at new game)
+#define FLAG_HIDE_ROUTE_104_NORMAN    0x2D // Split 1: Norman on Route 104, hidden after he asks for the Everstone
+#define FLAG_DEFEATED_PETALBURG_RIVAL    0x2E // Split 1: beat the rival at the Petalburg Gym entrance
+#define FLAG_PETALBURG_COAST_CORPHISH    0x2F // Split 1: one-time beach Corphish on Petalburg Coast
 #define FLAG_UNUSED_0x030    0x30 // Unused Flag
 #define FLAG_UNUSED_0x031    0x31 // Unused Flag
 #define FLAG_UNUSED_0x032    0x32 // Unused Flag

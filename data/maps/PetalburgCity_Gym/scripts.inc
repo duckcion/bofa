@@ -103,18 +103,18 @@ PetalburgCity_Gym_EventScript_TurnPlayerNorth::
 PetalburgCity_Gym_EventScript_Norman::
 	lock
 	faceplayer
-	goto_if_set FLAG_GAVE_NORMAN_OVAL_STONE, PetalburgCity_Gym_EventScript_NormanCheckTrials
-	checkitem ITEM_OVAL_STONE, 1
-	goto_if_eq VAR_RESULT, TRUE, PetalburgCity_Gym_EventScript_NormanReceiveOvalStone
+	goto_if_set FLAG_GAVE_NORMAN_EVERSTONE, PetalburgCity_Gym_EventScript_NormanCheckTrials
+	checkitem ITEM_EVERSTONE, 1
+	goto_if_eq VAR_RESULT, TRUE, PetalburgCity_Gym_EventScript_NormanReceiveEverstone
 	msgbox PetalburgCity_Gym_Text_NormanSendToPetalburgCoast, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
-PetalburgCity_Gym_EventScript_NormanReceiveOvalStone::
-	msgbox PetalburgCity_Gym_Text_NormanTakesOvalStone, MSGBOX_DEFAULT
-	removeitem ITEM_OVAL_STONE, 1
-	setflag FLAG_GAVE_NORMAN_OVAL_STONE
+PetalburgCity_Gym_EventScript_NormanReceiveEverstone::
+	msgbox PetalburgCity_Gym_Text_NormanTakesEverstone, MSGBOX_DEFAULT
+	removeitem ITEM_EVERSTONE, 1
+	setflag FLAG_GAVE_NORMAN_EVERSTONE
 	closemessage
 	release
 	end
@@ -765,7 +765,7 @@ PetalburgCity_Gym_EventScript_NoAmountOfTrainingIsEnough::
 
 PetalburgCity_Gym_EventScript_SpeedRoomDoor::
 	lockall
-	goto_if_unset FLAG_GAVE_NORMAN_OVAL_STONE, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_unset FLAG_GAVE_NORMAN_EVERSTONE, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
 	setvar VAR_0x8009, 85
 	msgbox PetalburgCity_Gym_Text_EnterSpeedRoom, MSGBOX_YESNO
@@ -796,7 +796,7 @@ PetalburgCity_Gym_EventScript_AccuracyRoomDoor::
 	@ (Mary) branch. Now it just mirrors the Speed Room door so there's no choice at
 	@ the entrance -- both doors lead into the one required path (Randall).
 	lockall
-	goto_if_unset FLAG_GAVE_NORMAN_OVAL_STONE, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_unset FLAG_GAVE_NORMAN_EVERSTONE, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
 	setvar VAR_0x8009, 85
 	msgbox PetalburgCity_Gym_Text_EnterSpeedRoom, MSGBOX_YESNO
@@ -1158,21 +1158,17 @@ PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon:
 
 PetalburgCity_Gym_Text_NormanSendToPetalburgCoast:
 	.string "DAD: Hold on now, {PLAYER}.\p"
-	.string "I'm not about to battle just any\n"
-	.string "TRAINER who wanders through that\l"
-	.string "door.\p"
-	.string "There's an OVAL STONE that washed up\n"
-	.string "somewhere along PETALBURG COAST,\l"
-	.string "past the grove behind town.\p"
-	.string "Find it and bring it back to me.\n"
-	.string "Then I'll know you're serious.$"
+	.string "I still need that EVERSTONE from\n"
+	.string "PETALBURG COAST, past the grove\l"
+	.string "behind town.\p"
+	.string "Bring it here and then we'll talk.$"
 
-PetalburgCity_Gym_Text_NormanTakesOvalStone:
-	.string "DAD: Heh, you actually found it.\n"
+PetalburgCity_Gym_Text_NormanTakesEverstone:
+	.string "DAD: That's the EVERSTONE!\n"
 	.string "Not bad, {PLAYER}.\p"
 	.string "Alright, that's enough waiting around.\n"
-	.string "Let's see what you and your\l"
-	.string "POKéMON can really do!$"
+	.string "Beat my TRAINERS and then you and\l"
+	.string "I will have our battle!$"
 
 PetalburgCity_Gym_Text_NormanWaitingForTrials:
 	.string "DAD: Not so fast, {PLAYER}.\p"

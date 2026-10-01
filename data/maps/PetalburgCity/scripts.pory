@@ -4,6 +4,7 @@ raw `
 .set LOCALID_WALLYS_DAD, 5
 .set LOCALID_GYM_BOY, 8
 .set LOCALID_SCOTT, 9
+.set LOCALID_SPLIT1_RIVAL, 12
 
 PetalburgCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_OnTransition
@@ -12,6 +13,10 @@ PetalburgCity_MapScripts::
 
 PetalburgCity_OnTransition:
 	setflag FLAG_VISITED_PETALBURG_CITY
+	call Common_EventScript_SetupRivalGfxId
+	call_if_set FLAG_ITEM_PETALBURG_COAST_EVERSTONE, PetalburgCity_EventScript_Split1GotEverstone
+	call_if_ge VAR_SPLIT1_STATE, 2, PetalburgCity_EventScript_Split1HideGymBlocker
+	call_if_lt VAR_SPLIT1_STATE, 3, PetalburgCity_EventScript_Split1HideRival
 	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
 	call_if_eq VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
 	call_if_eq VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
@@ -30,6 +35,161 @@ PetalburgCity_EventScript_DisableMapNameAndMusic::
 PetalburgCity_EventScript_SetGymDoorsUnlocked::
 	setvar VAR_PETALBURG_GYM_STATE, 7
 	return
+
+@ ---------------------------------------------------------------- Split 1
+@ VAR_SPLIT1_STATE: 0 start, 1 Norman asked for the Everstone (Route 104),
+@ 2 has the Everstone, 3 beat the rival at the gym entrance.
+PetalburgCity_EventScript_Split1GotEverstone::
+	call_if_lt VAR_SPLIT1_STATE, 2, PetalburgCity_EventScript_Split1SetHasEverstone
+	return
+
+PetalburgCity_EventScript_Split1SetHasEverstone::
+	setvar VAR_SPLIT1_STATE, 2
+	return
+
+PetalburgCity_EventScript_Split1HideGymBlocker::
+	setflag FLAG_HIDE_PETALBURG_GYM_BLOCKER
+	return
+
+PetalburgCity_EventScript_Split1HideRival::
+	setflag FLAG_HIDE_PETALBURG_CITY_SPLIT1_RIVAL
+	return
+
+PetalburgCity_EventScript_GymBlocker::
+	lock
+	faceplayer
+	goto_if_ge VAR_SPLIT1_STATE, 1, PetalburgCity_EventScript_GymBlockerQuest
+	msgbox PetalburgCity_Text_GymBlockerNormanAway, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_EventScript_GymBlockerQuest::
+	msgbox PetalburgCity_Text_GymBlockerFindEverstone, MSGBOX_DEFAULT
+	release
+	end
+
+@ Fires once, on the tile in front of the gym door, after the Everstone quest.
+@ A loss leaves VAR_SPLIT1_STATE at 2, so the rival challenges again next time.
+PetalburgCity_EventScript_Split1Rival::
+	lockall
+	clearflag FLAG_HIDE_PETALBURG_CITY_SPLIT1_RIVAL
+	addobject LOCALID_SPLIT1_RIVAL
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, PetalburgCity_EventScript_Split1PlayMayMusic
+	call_if_eq VAR_RESULT, FEMALE, PetalburgCity_EventScript_Split1PlayBrendanMusic
+	applymovement LOCALID_SPLIT1_RIVAL, PetalburgCity_Movement_Split1RivalApproach
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	msgbox PetalburgCity_Text_Split1RivalChallenge, MSGBOX_DEFAULT
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, PetalburgCity_EventScript_Split1BattleMay
+	goto PetalburgCity_EventScript_Split1BattleBrendan
+	end
+
+PetalburgCity_EventScript_Split1PlayMayMusic::
+	playbgm MUS_ENCOUNTER_MAY, TRUE
+	return
+
+PetalburgCity_EventScript_Split1PlayBrendanMusic::
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	return
+
+PetalburgCity_EventScript_Split1BattleMay::
+	switch VAR_STARTER_MON
+	case 0, PetalburgCity_EventScript_Split1MayTreecko
+	case 1, PetalburgCity_EventScript_Split1MayTorchic
+	case 2, PetalburgCity_EventScript_Split1MayMudkip
+	end
+
+PetalburgCity_EventScript_Split1BattleBrendan::
+	switch VAR_STARTER_MON
+	case 0, PetalburgCity_EventScript_Split1BrendanTreecko
+	case 1, PetalburgCity_EventScript_Split1BrendanTorchic
+	case 2, PetalburgCity_EventScript_Split1BrendanMudkip
+	end
+
+PetalburgCity_EventScript_Split1MayTreecko::
+	trainerbattle_no_intro TRAINER_MAY_PETALBURG_TREECKO, PetalburgCity_Text_Split1RivalDefeated
+	goto PetalburgCity_EventScript_Split1RivalAfter
+	end
+
+PetalburgCity_EventScript_Split1MayTorchic::
+	trainerbattle_no_intro TRAINER_MAY_PETALBURG_TORCHIC, PetalburgCity_Text_Split1RivalDefeated
+	goto PetalburgCity_EventScript_Split1RivalAfter
+	end
+
+PetalburgCity_EventScript_Split1MayMudkip::
+	trainerbattle_no_intro TRAINER_MAY_PETALBURG_MUDKIP, PetalburgCity_Text_Split1RivalDefeated
+	goto PetalburgCity_EventScript_Split1RivalAfter
+	end
+
+PetalburgCity_EventScript_Split1BrendanTreecko::
+	trainerbattle_no_intro TRAINER_BRENDAN_PETALBURG_TREECKO, PetalburgCity_Text_Split1RivalDefeated
+	goto PetalburgCity_EventScript_Split1RivalAfter
+	end
+
+PetalburgCity_EventScript_Split1BrendanTorchic::
+	trainerbattle_no_intro TRAINER_BRENDAN_PETALBURG_TORCHIC, PetalburgCity_Text_Split1RivalDefeated
+	goto PetalburgCity_EventScript_Split1RivalAfter
+	end
+
+PetalburgCity_EventScript_Split1BrendanMudkip::
+	trainerbattle_no_intro TRAINER_BRENDAN_PETALBURG_MUDKIP, PetalburgCity_Text_Split1RivalDefeated
+	goto PetalburgCity_EventScript_Split1RivalAfter
+	end
+
+PetalburgCity_EventScript_Split1RivalAfter::
+	msgbox PetalburgCity_Text_Split1RivalAfter, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_SPLIT1_RIVAL, PetalburgCity_Movement_Split1RivalLeave
+	waitmovement 0
+	removeobject LOCALID_SPLIT1_RIVAL
+	setflag FLAG_HIDE_PETALBURG_CITY_SPLIT1_RIVAL
+	setflag FLAG_DEFEATED_PETALBURG_RIVAL
+	setvar VAR_SPLIT1_STATE, 3
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	releaseall
+	end
+
+PetalburgCity_Movement_Split1RivalApproach:
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+PetalburgCity_Movement_Split1RivalLeave:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+PetalburgCity_Text_GymBlockerNormanAway:
+	.string "Sorry, the GYM's closed right now.\p"
+	.string "NORMAN went out to ROUTE 104, just\n"
+	.string "west of town. Something about an\l"
+	.string "EVERSTONE.\p"
+	.string "If you want to battle him, you'll\n"
+	.string "have to go find him there.$"
+
+PetalburgCity_Text_GymBlockerFindEverstone:
+	.string "NORMAN won't open the GYM until\n"
+	.string "someone finds that EVERSTONE.\p"
+	.string "Head south through TRAINER GROVE\n"
+	.string "to PETALBURG COAST.$"
+
+PetalburgCity_Text_Split1RivalChallenge:
+	.string "{RIVAL}: {PLAYER}{KUN}! There you are!\p"
+	.string "You're about to take on the GYM?\n"
+	.string "Not before you get past me!$"
+
+PetalburgCity_Text_Split1RivalDefeated:
+	.string "Whoa… You're really strong now!$"
+
+PetalburgCity_Text_Split1RivalAfter:
+	.string "{RIVAL}: Okay, you're ready.\n"
+	.string "Go show the GYM LEADER what you've got!$"
 
 PetalburgCity_OnFrame:
 	map_script_2 VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_WallyTutorial

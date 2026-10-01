@@ -431,12 +431,20 @@ def load_trainers(sheet):
         cur["mons"].append(row)
     return trainers
 
+ALL_TRAINER_NAMES = {}   # trainer ID -> name, to tell real rematches (same name) from numbered IDs
+for _s in ["Split 1", "Split 2", "Split 3", "Split 4", "Split 5", "Split 6", "Split 7", "Split 8",
+           "Elite Four & Champion", "Postgame", "Unassigned"]:
+    _d = rd(_s).dropna(subset=["Trainer ID"])
+    ALL_TRAINER_NAMES.update(zip(_d["Trainer ID"].astype(str), _d["Trainer"].astype(str)))
+
 def trainer_title(t):
     name = str(t["Trainer"]).title()
     cls = "" if blank(t["Class"]) else str(t["Class"])
     title = f"{cls} {name}".strip()
-    m = re.search(r"_(\d+)$", str(t["Trainer ID"]))
-    if m and m.group(1) != "1":
+    tid = str(t["Trainer ID"])
+    m = re.search(r"_(\d+)$", tid)
+    # only a rematch if the _1 entry is the same trainer (TRAINER_VIRIDIAN_FOREST_2 is not)
+    if m and m.group(1) != "1" and ALL_TRAINER_NAMES.get(tid[:m.start()] + "_1") == str(t["Trainer"]):
         title += f" (Rematch {int(m.group(1)) - 1})"
     return title
 
@@ -763,11 +771,16 @@ def planned_tm_locs():
 
 def planned_gifts():
     df = rd("Gifts & Trades")
-    mp, species = plan.GIFTS["remove_trade_species_at"]
-    df = df[~((df["Type"] == "In-game Trade") & (df["Map"] == mp) & (df["Species"].isin(species)))]
-    df = df.drop_duplicates(subset=["Type", "Species", "Map"])
-    johto = (df["Type"].str.startswith("Gift")) & (df["Species"].isin(species))
-    df.loc[johto, "Moves / Notes"] = plan.GIFTS["johto_gift_note"]
+    _, species = plan.GIFTS["remove_trade_species_at"]
+    # the old Viridian Forest starter trades: their trade.h entries are unused now
+    df = df[~((df["Type"] == "In-game Trade") & (df["Species"].isin(species)))]
+    df = df.drop_duplicates(subset=["Type", "Species", "Map"]).copy()
+    johto = df["Type"].str.startswith("Gift") & df["Species"].isin(species)
+    room = johto & (df["Map"] == "StarterRoom")
+    df.loc[room, "Moves / Notes"] = plan.GIFTS["johto_gift_note"]
+    df.loc[room, "Split"] = "Split 1"
+    df.loc[johto & ~room, "Moves / Notes"] = "Postgame: Birch's National Dex Johto-starter choice"
+    df.loc[johto & ~room, "Split"] = "Postgame"
     return df
 
 plain_sheet("Progression", "Progression", drop=("Status",))
@@ -911,9 +924,9 @@ DESC = {
     "Moves": "Current data for every Gen 1-6 move (changed moves in orange)",
     "Move Changes": "One line per changed Gen 1-6 move: old -> new",
     "Encounters": "Wild encounters per map and method with % chance",
-    "Split 1": "PLANNED Split 1 restructure, in play order (16 main battles + 3 optional Viridian Forest trainers)",
-    "Split 1 Progression": "Step-by-step Split 1 route, gates and events (planned)",
-    "Split 1 Plan Check": "Trainer counts per area and every place the plan conflicts with the ROM (read this first)",
+    "Split 1": "Restructured Split 1 in play order (in ROM, not playtested): 16 main battles + 3 optional Viridian Forest trainers",
+    "Split 1 Progression": "Step-by-step Split 1 route, gates and story flags",
+    "Split 1 Plan Check": "Trainer counts per area and every open decision (read this first)",
     "Items": "Every Gen 1-6 item: pocket, price, fling power, description and where to find it",
 }
 for i, n in enumerate(wb.sheetnames[1:], 4):

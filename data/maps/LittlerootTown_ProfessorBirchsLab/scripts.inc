@@ -32,9 +32,8 @@ LittlerootTown_ProfessorBirchsLab_OnTransition:
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_SetAfterJohtoStarterLayout
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_SetJohtoStarterLayout
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3, LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter
-	@ Once the player has their Hoenn starter (and has been told about the rival),
-	@ every later visit checks for the one-time random Johto starter gift below.
-	call_if_ge VAR_BIRCH_LAB_STATE, 3, LittlerootTown_ProfessorBirchsLab_EventScript_TryGiveRandomJohtoStarter
+	@ Split 1: the Johto starter is now a choose-one gift in the Starter Room
+	@ (data/maps/StarterRoom); the old random gift that lived here was removed.
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter::
@@ -56,53 +55,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_SetAfterJohtoStarterLayout::
 	setmaplayoutindex LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB_WITH_TABLE
 	setobjectmovementtype LOCALID_RIVAL, MOVEMENT_TYPE_WANDER_UP_AND_DOWN
 	setobjectxyperm LOCALID_RIVAL, 5, 10
-	end
-
-@ One-time gift: once the player has their Hoenn starter, the next visit to the
-@ lab randomly rolls and gives them one of the 3 Johto starters at Lv. 5, met
-@ location "STARTER ROOM". This is independent of (and in addition to) the
-@ postgame National Dex Johto-starter choice further down this file.
-LittlerootTown_ProfessorBirchsLab_EventScript_TryGiveRandomJohtoStarter::
-	goto_if_set FLAG_RECEIVED_STARTER_ROOM_JOHTO_MON, LittlerootTown_ProfessorBirchsLab_EventScript_TryGiveRandomJohtoStarter_Done
-	lockall
-	getpartysize
-	copyvar VAR_0x8008, VAR_RESULT
-	random 3
-	switch VAR_RESULT
-	case 0, LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomCyndaquil
-	case 1, LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomTotodile
-	case 2, LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomChikorita
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomCyndaquil::
-	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
-	givemon SPECIES_CYNDAQUIL, 5
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_FinishRandomJohtoStarter
-
-LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomTotodile::
-	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
-	givemon SPECIES_TOTODILE, 5
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_FinishRandomJohtoStarter
-
-LittlerootTown_ProfessorBirchsLab_EventScript_GiveRandomChikorita::
-	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
-	givemon SPECIES_CHIKORITA, 5
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_FinishRandomJohtoStarter
-
-LittlerootTown_ProfessorBirchsLab_EventScript_FinishRandomJohtoStarter::
-	goto_if_ne VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_SkipRandomJohtoStarterLocation
-	setmonmetlocation VAR_0x8008, MAPSEC_STARTER_ROOM
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SkipRandomJohtoStarterLocation::
-	setflag FLAG_RECEIVED_STARTER_ROOM_JOHTO_MON
-	playfanfare MUS_OBTAIN_ITEM
-	message LittlerootTown_ProfessorBirchsLab_Text_RandomJohtoStarterGift
-	waitmessage
-	waitfanfare
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_TryGiveRandomJohtoStarter_Done::
 	end
 
 LittlerootTown_ProfessorBirchsLab_OnWarp:
@@ -170,13 +122,33 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent::
 	waitfanfare
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedexNow
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter::
 	setvar VAR_0x8004, 0
 	call Common_EventScript_NameReceivedPartyMon
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedexNow
+	end
+
+@ Split 1: the Pokedex is handed over straight away. The Route 103 rival battle
+@ that used to gate it is gone (the rival now fights at the Petalburg Gym entrance).
+LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedexNow::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_TakePokedexNow, MSGBOX_DEFAULT
+	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedex
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_TakeThesePokeBalls, MSGBOX_DEFAULT
+	giveitem ITEM_POKE_BALL, 5
+	giveitem ITEM_RARE_CANDY, 90
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_HeadForPetalburg, MSGBOX_DEFAULT
+	clearflag FLAG_HIDE_ROUTE_101_BOY
+	setflag FLAG_HIDE_ROUTE_103_RIVAL
+	setvar VAR_BIRCH_LAB_STATE, 5
+	setflag FLAG_ADVENTURE_STARTED
+	setvar VAR_OLDALE_TOWN_STATE, 1
+	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
+	setvar VAR_LITTLEROOT_TOWN_STATE, 3
+	releaseall
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival::
@@ -798,6 +770,24 @@ LittlerootTown_ProfessorBirchsLab_Text_HeardYouBeatRivalTakePokedex:
 	.string "research, but I think you should have\l"
 	.string "this POKéDEX.$"
 
+LittlerootTown_ProfessorBirchsLab_Text_TakePokedexNow:
+	.string "PROF. BIRCH: You know, {PLAYER}{KUN},\n"
+	.string "I can tell you'll take good care of\l"
+	.string "that POKéMON.\p"
+	.string "So I'd like you to have this too.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_TakeThesePokeBalls:
+	.string "And take these along with you.\n"
+	.string "They'll help you get started.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_HeadForPetalburg:
+	.string "PROF. BIRCH: Your journey starts in\n"
+	.string "PETALBURG CITY, past OLDALE TOWN and\l"
+	.string "ROUTE 102.\p"
+	.string "Oh, and drop by the room next to the\n"
+	.string "lab before you go. There's a POKéMON\l"
+	.string "from the JOHTO region waiting there!$"
+
 LittlerootTown_ProfessorBirchsLab_Text_ReceivedPokedex:
 	.string "{PLAYER} received the POKéDEX!$"
 
@@ -992,14 +982,6 @@ LittlerootTown_ProfessorBirchsLab_Text_ReceivedJohtoStarter:
 LittlerootTown_ProfessorBirchsLab_Text_NicknameJohtoStarter:
 	.string "Want to give a nickname to\n"
 	.string "the {STR_VAR_1} you received?$"
-
-LittlerootTown_ProfessorBirchsLab_Text_RandomJohtoStarterGift:
-	.string "AIDE: Oh, hold on, {PLAYER}, before\n"
-	.string "you go!\p"
-	.string "A colleague overseas sent us this\n"
-	.string "little one -- PROF. BIRCH thought\l"
-	.string "you should have it too.\p"
-	.string "{PLAYER} received the {STR_VAR_1}!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting:
 	.string "PROF. BIRCH: Listen, {PLAYER}{KUN}.\n"
