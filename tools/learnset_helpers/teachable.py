@@ -49,6 +49,10 @@ with open("./src/pokemon.c", "r") as file:
                 continue
             universal_moves.append(y)
 
+# BOFA: weather-setting moves are not teachable by any Pokemon
+banned_moves = ["MOVE_RAIN_DANCE", "MOVE_SUNNY_DAY", "MOVE_SANDSTORM", "MOVE_HAIL",
+                "MOVE_SNOWSCAPE", "MOVE_CHILLY_RECEPTION"]
+
 # get compatibility from jsons
 def construct_compatibility_dict(force_custom_check):
     dict_out = {}
@@ -139,7 +143,7 @@ for mon in list_of_mons:
         print("Unable to find %s in json" % mon)
         continue
     for move in tm_moves:
-        if move in universal_moves:
+        if move in universal_moves or move in banned_moves:
             continue
         if move in tm_learnset:
             continue
@@ -147,7 +151,7 @@ for mon in list_of_mons:
             tm_learnset.append(move)
             continue
     for move in tutor_moves:
-        if move in universal_moves:
+        if move in universal_moves or move in banned_moves:
             continue
         if move in tutor_learnset:
             continue

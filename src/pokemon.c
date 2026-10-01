@@ -5542,6 +5542,13 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
         case MOVE_SPLISHY_SPLASH:
         case MOVE_VOLT_TACKLE:
         case MOVE_ZIPPY_ZAP:
+        // BOFA: no Pokemon can learn weather-setting moves
+        case MOVE_RAIN_DANCE:
+        case MOVE_SUNNY_DAY:
+        case MOVE_SANDSTORM:
+        case MOVE_HAIL:
+        case MOVE_SNOWSCAPE:
+        case MOVE_CHILLY_RECEPTION:
             return FALSE;
         default:
             return TRUE;
