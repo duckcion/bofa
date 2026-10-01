@@ -6903,6 +6903,8 @@ static void Cmd_switchindataupdate(void)
     gBattleMons[battler].types[1] = gSpeciesInfo[gBattleMons[battler].species].types[1];
     gBattleMons[battler].types[2] = TYPE_MYSTERY;
     gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
+    if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        gBattleMons[battler].ability = GetEnemyPartyAbility(gBattlerPartyIndexes[battler], gBattleMons[battler].ability);
     #if TESTING
     if (gTestRunnerEnabled)
     {

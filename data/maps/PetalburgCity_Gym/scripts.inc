@@ -123,6 +123,8 @@ PetalburgCity_Gym_EventScript_NormanReceiveEverstone::
 @ challenge until Randall, Alexia, and Jody (the last of the 3 required trainers)
 @ have all been beaten.
 PetalburgCity_Gym_EventScript_NormanCheckTrials::
+	goto_if_not_defeated TRAINER_RANDALL, PetalburgCity_Gym_EventScript_NormanWaitingForTrials
+	goto_if_not_defeated TRAINER_ALEXIA, PetalburgCity_Gym_EventScript_NormanWaitingForTrials
 	goto_if_not_defeated TRAINER_JODY, PetalburgCity_Gym_EventScript_NormanWaitingForTrials
 	goto PetalburgCity_Gym_EventScript_NormanReadyToBattle
 	end

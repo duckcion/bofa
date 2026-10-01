@@ -1,16 +1,11 @@
 ViridianForest_MapScripts::
 	.byte 0
 
-@ Split 1: optional preparation area before Norman. Three trainers and HM06 Rock Smash.
+@ Split 1: optional preparation area before Norman. Two trainers and HM06 Rock Smash.
 @ The old Johto starter trade was removed (the starter is a gift in the Starter Room now).
 ViridianForest_EventScript_Trainer1::
 	trainerbattle_single TRAINER_VIRIDIAN_FOREST_1, ViridianForest_Text_Trainer1Intro, ViridianForest_Text_Trainer1Defeated
 	msgbox ViridianForest_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-ViridianForest_EventScript_Trainer2::
-	trainerbattle_single TRAINER_VIRIDIAN_FOREST_2, ViridianForest_Text_Trainer2Intro, ViridianForest_Text_Trainer2Defeated
-	msgbox ViridianForest_Text_Trainer2PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 ViridianForest_EventScript_Trainer3::
@@ -44,17 +39,6 @@ ViridianForest_Text_Trainer1Defeated:
 
 ViridianForest_Text_Trainer1PostBattle:
 	.string "Bug POKéMON grow up super fast.$"
-
-ViridianForest_Text_Trainer2Intro:
-	.string "Shh! I'm waiting for my cocoons\n"
-	.string "to evolve!$"
-
-ViridianForest_Text_Trainer2Defeated:
-	.string "Still cocoons…$"
-
-ViridianForest_Text_Trainer2PostBattle:
-	.string "Patience is a bug catcher's best\n"
-	.string "friend.$"
 
 ViridianForest_Text_Trainer3Intro:
 	.string "I came all the way here to catch a\n"

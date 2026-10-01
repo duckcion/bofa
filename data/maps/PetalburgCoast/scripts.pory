@@ -2,23 +2,9 @@ raw `
 PetalburgCoast_MapScripts::
 	.byte 0
 
-PetalburgCoast_EventScript_Ronnie::
-	trainerbattle_single TRAINER_PETALBURGCOAST_1, PetalburgCoast_Text_RonnieIntro, PetalburgCoast_Text_RonnieDefeated
-	msgbox PetalburgCoast_Text_RonniePostBattle, MSGBOX_AUTOCLOSE
-	end
-
 PetalburgCoast_EventScript_EverstoneBall::
-	goto_if_not_defeated TRAINER_PETALBURGCOAST_1, PetalburgCoast_EventScript_EverstoneGuarded
 	goto Common_EventScript_FindItem
 	end
-
-PetalburgCoast_EventScript_EverstoneGuarded::
-	msgbox PetalburgCoast_Text_EverstoneGuarded, MSGBOX_DEFAULT
-	end
-
-PetalburgCoast_Text_EverstoneGuarded:
-	.string "The EVERSTONE is behind that kid.\n"
-	.string "Guess you'll have to battle him.$"
 
 @ Split 1: after the Everstone, point the player at Viridian Forest (optional prep).
 PetalburgCoast_EventScript_HintFisherman::

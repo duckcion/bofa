@@ -56,27 +56,27 @@ TrainerGrove_Movement_StepBack:
 
 TrainerGrove_Text_Trainer1Intro::
 # 26 "data/maps/TrainerGrove/scripts.pory"
-	.string "Bring that ass here boy!$"
+	.string "I've hiked every trail around PETALBURG.\nLet's see if you can keep up!$"
 
 TrainerGrove_Text_Trainer1Outro::
 # 30 "data/maps/TrainerGrove/scripts.pory"
-	.string "Your gyatt was too much for me to handle.$"
+	.string "Whew! You're tougher than a\nmountain climb.$"
 
 TrainerGrove_Text_Trainer1PostBattle::
 # 34 "data/maps/TrainerGrove/scripts.pory"
-	.string "Damn, you're the goat.$"
+	.string "My POKéMON are tough as rocks, but\nyours hit even harder.$"
 
 TrainerGrove_Text_Trainer2Intro::
 # 38 "data/maps/TrainerGrove/scripts.pory"
-	.string "Uhh I think I'm in the wrong place.$"
+	.string "I packed a picnic and my favorite\nPOKéMON from UNOVA. Want to battle?$"
 
 TrainerGrove_Text_Trainer2Outro::
 # 42 "data/maps/TrainerGrove/scripts.pory"
-	.string "Damn, could you at least get me unstuck stepbro?$"
+	.string "Oh no, my lunch is going to\nget cold!$"
 
 TrainerGrove_Text_Trainer2PostBattle::
 # 46 "data/maps/TrainerGrove/scripts.pory"
-	.string "Arrgghhhh! I'm STUCK!$"
+	.string "Every one of my POKéMON comes from\nthe UNOVA region. Aren't they cute?$"
 
 TrainerGrove_Text_Trainer3Intro::
 # 50 "data/maps/TrainerGrove/scripts.pory"

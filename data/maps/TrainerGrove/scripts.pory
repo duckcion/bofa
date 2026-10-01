@@ -24,27 +24,27 @@ script TrainerGrove_EventScript_TrainerThree{
 }
 
 text TrainerGrove_Text_Trainer1Intro{
-    "Bring that ass here boy!"
+    "I've hiked every trail around PETALBURG.\nLet's see if you can keep up!"
 }
 
 text TrainerGrove_Text_Trainer1Outro{
-    "Your gyatt was too much for me to handle."
+    "Whew! You're tougher than a\nmountain climb."
 }
 
 text TrainerGrove_Text_Trainer1PostBattle{
-    "Damn, you're the goat."
+    "My POKéMON are tough as rocks, but\nyours hit even harder."
 }
 
 text TrainerGrove_Text_Trainer2Intro{
-    "Uhh I think I'm in the wrong place."
+    "I packed a picnic and my favorite\nPOKéMON from UNOVA. Want to battle?"
 }
 
 text TrainerGrove_Text_Trainer2Outro{
-    "Damn, could you at least get me unstuck stepbro?"
+    "Oh no, my lunch is going to\nget cold!"
 }
 
 text TrainerGrove_Text_Trainer2PostBattle{
-    "Arrgghhhh! I'm STUCK!"
+    "Every one of my POKéMON comes from\nthe UNOVA region. Aren't they cute?"
 }
 
 text TrainerGrove_Text_Trainer3Intro{

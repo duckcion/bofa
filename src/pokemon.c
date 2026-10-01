@@ -83,6 +83,8 @@ EWRAM_DATA u8 gPlayerPartyCount = 0;
 EWRAM_DATA u8 gEnemyPartyCount = 0;
 EWRAM_DATA struct Pokemon gPlayerParty[PARTY_SIZE] = {0};
 EWRAM_DATA struct Pokemon gEnemyParty[PARTY_SIZE] = {0};
+// BOFA: abilities given to trainer Pokemon that their species can't normally have (0 = none).
+EWRAM_DATA static u16 sEnemyPartyAbilityOverride[PARTY_SIZE] = {0};
 EWRAM_DATA struct SpriteTemplate gMultiuseSpriteTemplate = {0};
 EWRAM_DATA static struct MonSpritesGfxManager *sMonSpritesGfxManagers[MON_SPR_GFX_MANAGERS_COUNT] = {NULL};
 EWRAM_DATA static u8 sTriedEvolving = 0;
@@ -1058,9 +1060,32 @@ void ZeroBoxMonData(struct BoxPokemon *boxMon)
         raw[i] = 0;
 }
 
+static s32 GetEnemyPartyIndex(struct Pokemon *mon)
+{
+    if (mon >= &gEnemyParty[0] && mon < &gEnemyParty[PARTY_SIZE])
+        return mon - &gEnemyParty[0];
+    return -1;
+}
+
+void SetEnemyPartyAbilityOverride(struct Pokemon *mon, u16 ability)
+{
+    s32 index = GetEnemyPartyIndex(mon);
+    if (index >= 0)
+        sEnemyPartyAbilityOverride[index] = ability;
+}
+
+// Returns the trainer-specific ability for this enemy party slot, or defaultAbility if there is none.
+u16 GetEnemyPartyAbility(u32 partyIndex, u16 defaultAbility)
+{
+    if (partyIndex < PARTY_SIZE && sEnemyPartyAbilityOverride[partyIndex] != ABILITY_NONE)
+        return sEnemyPartyAbilityOverride[partyIndex];
+    return defaultAbility;
+}
+
 void ZeroMonData(struct Pokemon *mon)
 {
     u32 arg;
+    SetEnemyPartyAbilityOverride(mon, ABILITY_NONE);
     ZeroBoxMonData(&mon->box);
     arg = 0;
     SetMonData(mon, MON_DATA_STATUS, &arg);
@@ -3472,7 +3497,11 @@ u16 GetMonAbility(struct Pokemon *mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     u8 abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM, NULL);
-    return GetAbilityBySpecies(species, abilityNum);
+    s32 index = GetEnemyPartyIndex(mon);
+    u16 ability = GetAbilityBySpecies(species, abilityNum);
+    if (index >= 0)
+        ability = gLastUsedAbility = GetEnemyPartyAbility(index, ability);
+    return ability;
 }
 
 void CreateSecretBaseEnemyParty(struct SecretBase *secretBaseRecord)
@@ -3683,6 +3712,8 @@ void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst)
     dst->types[2] = TYPE_MYSTERY;
     dst->isShiny = IsMonShiny(src);
     dst->ability = GetAbilityBySpecies(dst->species, dst->abilityNum);
+    if (GetEnemyPartyIndex(src) >= 0)
+        dst->ability = GetEnemyPartyAbility(GetEnemyPartyIndex(src), dst->ability);
     GetMonData(src, MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(dst->nickname, nickname);
     GetMonData(src, MON_DATA_OT_NAME, dst->otName);

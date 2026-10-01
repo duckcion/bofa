@@ -6265,7 +6265,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "A rock-crushing attack\n"
             "that may lower Defense."),
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 60,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 15,

@@ -1260,31 +1260,49 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 === TRAINER_RANDALL ===
 Name: RANDALL
-Class: Cooltrainer
-Pic: Cooltrainer M
+Class: Youngster
+Pic: Youngster
 Gender: Male
-Music: Cool
+Music: Male
 Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Taillow @ Flame Orb
-Level: 14
-Ability: Guts
+Aipom @ Silk Scarf
+Level: 13
+Ability: Technician
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Wing Attack
-- Tackle
-- Uproar
-- Whirlwind
+- Fake Out
+- Quick Attack
+- U-turn
+- Pursuit
 
-Zigzagoon @ Bright Powder
-Level: 14
+Minccino @ Oran Berry
+Level: 12
+Ability: Skill Link
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Tail Slap
+- Bullet Seed
+- Rock Blast
+- Encore
+
+Whismur @ Sitrus Berry
+Level: 13
+Ability: Soundproof
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hyper Voice
+- Echoed Voice
+- Bite
+- Supersonic
+
+Teddiursa @ Toxic Orb
+Level: 13
 Ability: Quick Feet
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Quick Attack
-- Sand Attack
-- Headbutt
-- Mud-Slap
+- Slash
+- Shadow Claw
+- Rock Tomb
+- Protect
 
 === TRAINER_PARKER ===
 Name: PARKER
@@ -1686,23 +1704,50 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Jigglypuff @ Focus Sash
-Level: 14
-Ability: Aftermath
+Buneary @ Silk Scarf
+Level: 12
+Ability: Limber
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Sing
-- Double Slap
-- Water Pulse
-- Pound
+- Fake Out
+- Quick Attack
+- Low Sweep
+- Thunder Wave
 
-Whismur @ Sitrus Berry
-Level: 15
-Ability: Rattled
+Chansey @ Oran Berry
+Level: 12
+Ability: Natural Cure
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Uproar
-- Growl
-- Astonish
-- Pound
+- Seismic Toss
+- Thunder Wave
+- Soft-Boiled
+- Counter
+
+Solosis @ Eviolite
+Level: 12
+Ability: Magic Guard
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Psybeam
+- Recover
+- Hidden Power
+- Thunder Wave
+
+Vullaby @ Oran Berry
+Level: 12
+Ability: Overcoat
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Pluck
+- Foul Play
+- Roost
+- Toxic
+
+Deerling @ Sitrus Berry
+Level: 12
+Ability: Sap Sipper
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Horn Leech
+- Headbutt
+- Jump Kick
+- Leech Seed
 
 === TRAINER_JODY ===
 Name: JODY
@@ -1714,23 +1759,40 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Zangoose @ Quick Claw
-Level: 16
-Ability: Hyper Cutter
+Meowth @ Silk Scarf
+Level: 14
+Ability: Technician
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- False Swipe
-- Metal Claw
-- Fury Cutter
-- Cut
-
-Slakoth @ Sitrus Berry
-Level: 16
-Ability: Truant
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Snore
-- Take Down
+- Fake Out
 - Bite
-- Feint Attack
+- U-turn
+- Feint
+
+Mienfoo @ Black Belt
+Level: 14
+Ability: Regenerator
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Drain Punch
+- Knock Off
+- Fake Out
+- U-turn
+
+Swablu @ Oran Berry
+Level: 14
+Ability: Natural Cure
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Aerial Ace
+- Dragon Breath
+- Roost
+- Sing
+
+Girafarig
+Level: 14
+Ability: Sap Sipper
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Psybeam
+- Thunder Wave
+- Quick Attack
 
 === TRAINER_WENDY ===
 Name: WENDY
@@ -4996,41 +5058,57 @@ Items: Super Potion / Super Potion
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon @ Bright Powder
+Smeargle @ Focus Sash
 Level: 14
-Ability: Quick Feet
+Ability: Own Tempo
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sticky Web
+- Extreme Speed
+
+Spinda @ Oran Berry
+Level: 14
+Ability: Own Tempo
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Teeter Dance
+- Psybeam
+- Dizzy Punch
+- Fake Out
+
+Nidorino @ Eviolite
+Level: 14
+Ability: Poison Point
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Poison Jab
+- Double Kick
+- Rock Tomb
+- Focus Energy
+
+Staravia
+Level: 14
+Ability: Intimidate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Wing Attack
 - Quick Attack
-- Sand Attack
-- Headbutt
-- Mud-Slap
+- Double Team
+- U-turn
 
-Whismur @ Sitrus Berry
-Level: 15
-Ability: Rattled
+Machop @ Oran Berry
+Level: 14
+Ability: Guts
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Uproar
-- Growl
-- Astonish
-- Pound
+- Low Sweep
+- Rock Throw
+- Knock Off
+- Bulk Up
 
-Zangoose @ Quick Claw
+Slaking @ Sitrus Berry
 Level: 16
-Ability: Hyper Cutter
+Ability: Slow Start
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- False Swipe
-- Metal Claw
-- Fury Cutter
-- Cut
-
-Slakoth @ Custap Berry
-Level: 16
-Ability: Truant
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Snore
-- Take Down
+- Slash
+- Rock Tomb
 - Bite
-- Feint Attack
+- Rock Smash
 
 === TRAINER_WINONA_1 ===
 Name: WINONA
@@ -5999,9 +6077,32 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Poochyena
-Level: 5
+Poochyena @ Oran Berry
+Level: 6
+Ability: Quick Feet
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Bite
+- Quick Attack
+- Sand Attack
+- Howl
+
+Lillipup @ Silk Scarf
+Level: 6
+Ability: Vital Spirit
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Tackle
+- Bite
+- Leer
+- Odor Sleuth
+
+Shinx @ Oran Berry
+Level: 7
+Ability: Rivalry
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Spark
+- Quick Attack
+- Leer
+- Charge
 
 === TRAINER_BILLY ===
 Name: BILLY
@@ -6012,13 +6113,41 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Seedot
+Hoothoot @ Oran Berry
 Level: 7
+Ability: Insomnia
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Hypnosis
+- Peck
+- Confusion
+- Reflect
+
+Nidoran-F @ Poison Barb
+Level: 7
+Ability: Poison Point
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Poison Sting
+- Double Kick
+- Bite
+- Tail Whip
+
+Pancham @ Black Belt
+Level: 8
+Ability: Iron Fist
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Arm Thrust
+- Bullet Punch
+- Leer
+- Tackle
+
+Electrike @ Magnet
+Level: 8
+Ability: Static
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Thunder Shock
+- Quick Attack
+- Thunder Wave
+- Bite
 
 === TRAINER_JOSH ===
 Name: JOSH
@@ -6307,13 +6436,32 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon
-Level: 4
+Zigzagoon @ Silk Scarf
+Level: 6
+Ability: Gluttony
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Quick Attack
+- Sand Attack
+- Headbutt
+- Growl
 
-Taillow
-Level: 3
+Sentret @ Silk Scarf
+Level: 6
+Ability: Adaptability
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Quick Attack
+- Sand Attack
+- Scratch
+- Defense Curl
+
+Pidgey @ Sharp Beak
+Level: 7
+Ability: Tangled Feet
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Gust
+- Quick Attack
+- Sand Attack
+- Mud-Slap
 
 === TRAINER_TIMMY ===
 Name: TIMMY
@@ -11173,13 +11321,41 @@ Music: Female
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon
-Level: 4
+Starly @ Oran Berry
+Level: 6
+Ability: Keen Eye
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Quick Attack
+- Wing Attack
+- Growl
+- Double Team
 
-Shroomish
-Level: 4
+Growlithe @ Charcoal
+Level: 6
+Ability: Intimidate
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Flame Charge
+- Ember
+- Bite
+- Leer
+
+Bunnelby @ Silk Scarf
+Level: 7
+Ability: Huge Power
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Quick Attack
+- Mud-Slap
+- Tackle
+- Leer
+
+Shroomish @ Toxic Orb
+Level: 7
+Ability: Poison Heal
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Mega Drain
+- Leech Seed
+- Stun Spore
+- Headbutt
 
 === TRAINER_HALEY_1 ===
 Name: HALEY
@@ -11377,13 +11553,48 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Wurmple
-Level: 4
+Joltik @ Focus Sash
+Level: 5
+Ability: Unnerve
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Sticky Web
+- Bug Bite
+- String Shot
+- Tackle
 
-Wurmple
-Level: 4
+Caterpie @ Oran Berry
+Level: 5
+Ability: Tinted Lens
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Bug Bite
+- String Shot
+- Tackle
+
+Wurmple @ Silver Powder
+Level: 5
+Ability: Shield Dust
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Bug Bite
+- Poison Sting
+- String Shot
+- Tackle
+
+Sewaddle @ Miracle Seed
+Level: 5
+Ability: Swarm
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Bug Bite
+- String Shot
+- Tackle
+
+Venipede @ Oran Berry
+Level: 5
+Ability: Poison Point
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Poison Sting
+- Bug Bite
+- String Shot
+- Tackle
 
 === TRAINER_LYLE ===
 Name: LYLE
@@ -13096,9 +13307,41 @@ Music: Hiker
 Double Battle: No
 AI: Smart Trainer
 
-Magikarp
-Level: 9
+Poliwag @ Oran Berry
+Level: 7
+Ability: Water Absorb
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Bubble Beam
+- Hypnosis
+- Icy Wind
+- Encore
+
+Dwebble @ Oran Berry
+Level: 7
+Ability: Sturdy
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Rock Tomb
+- Bug Bite
+- Sand Attack
+- Stealth Rock
+
+Finneon @ Mystic Water
+Level: 7
+Ability: Swift Swim
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Water Pulse
+- Air Cutter
+- Aurora Beam
+- Attract
+
+Corphish @ Oran Berry
+Level: 8
+Ability: Adaptability
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Aqua Jet
+- Bubble Beam
+- Knock Off
+- Rock Tomb
 
 === TRAINER_HAILEY ===
 Name: HAILEY
@@ -16998,38 +17241,111 @@ Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TRAINERGROVET1 ===
-Name: Bum1
-Class: Salon Maiden
-Pic: Salon Maiden Anabel
-Gender: Female
-Music: Female
+Name: ROCCO
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Music: Hiker
 Double Battle: No
 AI: Smart Trainer
 
-Wailmer
-Level: 11
+Geodude @ Oran Berry
+Level: 10
+Ability: Sturdy
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Stealth Rock
+- Rock Tomb
+- Bulldoze
+- Rock Blast
 
-Horsea
-Level: 11
+Litleo @ Charcoal
+Level: 10
+Ability: Unnerve
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Flame Charge
+- Hyper Voice
+- Snarl
+- Will-O-Wisp
+
+Nidoran-M @ Poison Barb
+Level: 10
+Ability: Poison Point
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Poison Sting
+- Double Kick
+- Bite
+
+Bergmite @ Never-Melt Ice
+Level: 11
+Ability: Sturdy
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Ice Shard
+- Avalanche
+- Rock Tomb
+- Rapid Spin
+
+Aron @ Oran Berry
+Level: 11
+Ability: Rock Head
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Rock Slide
+- Metal Claw
+- Bulldoze
+- Protect
 
 === TRAINER_TRAINERGROVET2 ===
-Name: Bum2
-Class: Swimmer M
-Pic: Swimmer M
-Gender: Male
-Music: Swimmer
+Name: MAISIE
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Music: Girl
 Double Battle: No
 AI: Smart Trainer
 
-Wailmer
+Munna @ Light Clay
 Level: 11
+Ability: Synchronize
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Reflect
+- Light Screen
+- Yawn
+- Psybeam
 
-Horsea
-Level: 12
+Snivy @ Miracle Seed
+Level: 11
+Ability: Contrary
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Leaf Tornado
+- Glare
+- Leech Seed
+- Tackle
+
+Tepig @ Charcoal
+Level: 11
+Ability: Thick Fat
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Flame Charge
+- Flame Wheel
+- Rollout
+- Defense Curl
+
+Oshawott @ Mystic Water
+Level: 11
+Ability: Shell Armor
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Aqua Jet
+- Razor Shell
+- Fury Cutter
+- Swords Dance
+
+Drilbur @ Soft Sand
+Level: 12
+Ability: Mold Breaker
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Hone Claws
+- Bulldoze
+- Rock Tomb
+- Rapid Spin
 
 === TRAINER_TRAINERGROVET3 ===
 Name: GRANT
@@ -17040,13 +17356,50 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Lotad
-Level: 11
+Zubat @ Oran Berry
+Level: 10
+Ability: Inner Focus
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Wing Attack
+- Bite
+- Supersonic
+- U-turn
 
-Nincada @ Oran Berry
-Level: 12
+Nincada @ Silver Powder
+Level: 10
+Ability: Compound Eyes
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Bug Bite
+- Dig
+- Leech Life
+- Sand Attack
+
+Nidoran-F @ Oran Berry
+Level: 10
+Ability: Poison Point
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Poison Sting
+- Double Kick
+- Bite
+- Tail Whip
+
+Mankey @ Black Belt
+Level: 11
+Ability: Vital Spirit
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Low Sweep
+- Rock Tomb
+- Karate Chop
+- Taunt
+
+Rhyhorn @ Eviolite
+Level: 11
+Ability: Rock Head
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Rock Tomb
+- Bulldoze
+- Headbutt
+- Fire Fang
 
 === TRAINER_TRAINERGROVET4 ===
 Name: Bum4
@@ -17525,14 +17878,50 @@ Music: Magma
 Double Battle: No
 AI: Smart Trainer
 
-Poochyena
-Level: 8
+Vulpix @ Heat Rock
+Level: 9
+Ability: Drought
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Ember
+- Quick Attack
+- Will-O-Wisp
+- Confuse Ray
 
 Numel @ Oran Berry
 Level: 9
-Nature: Adamant
+Ability: Simple
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Flame Charge
+- Magnitude
+- Growl
+- Tackle
+
+Skorupi @ Poison Barb
+Level: 9
+Ability: Battle Armor
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Poison Fang
+- Bug Bite
+- Knock Off
+- Rock Tomb
+
+Houndour @ Charcoal
+Level: 9
+Ability: Flash Fire
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Ember
+- Bite
+- Smog
+- Howl
+
+Sandile @ Soft Sand
+Level: 9
+Ability: Intimidate
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Bulldoze
+- Bite
+- Sand Attack
+- Assurance
 
 === TRAINER_GRUNT_ROUTE_104_AQUA ===
 Name: GRUNT
@@ -17543,14 +17932,50 @@ Music: Aqua
 Double Battle: No
 AI: Smart Trainer
 
-Poochyena
-Level: 8
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Carvanha @ Oran Berry
+Wingull @ Damp Rock
 Level: 9
-Nature: Jolly
+Ability: Drizzle
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Water Pulse
+- Wing Attack
+- Supersonic
+- Quick Attack
+
+Croagunk @ Black Sludge
+Level: 9
+Ability: Dry Skin
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Fake Out
+- Drain Punch
+- Poison Jab
+- Sucker Punch
+
+Koffing @ Oran Berry
+Level: 9
+Ability: Levitate
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Sludge
+- Will-O-Wisp
+- Clear Smog
+- Assurance
+
+Helioptile @ Magnet
+Level: 9
+Ability: Dry Skin
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Thunder
+- Volt Switch
+- Thunder Wave
+- Mud-Slap
+
+Carvanha @ Mystic Water
+Level: 9
+Ability: Speed Boost
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Aqua Jet
+- Bite
+- Ice Fang
+- Protect
 
 === TRAINER_BRENDAN_PETALBURG_TREECKO ===
 Name: BRENDAN
@@ -17561,17 +17986,59 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon
+Espurr @ Oran Berry
 Level: 12
+Ability: Infiltrator
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Fake Out
+- Confusion
+- Light Screen
+- Covet
 
-Lotad
-Level: 12
+Chespin @ Miracle Seed
+Level: 13
+Ability: Bulletproof
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Seed Bomb
+- Rollout
+- Leech Seed
+- Bite
 
-Torchic @ Oran Berry
+Fennekin @ Charcoal
+Level: 13
+Ability: Blaze
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Flame Charge
+- Psybeam
+- Will-O-Wisp
+- Quick Attack
+
+Froakie @ Mystic Water
+Level: 13
+Ability: Protean
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Water Pulse
+- Quick Attack
+- Lick
+- Rock Tomb
+
+Inkay @ Oran Berry
+Level: 13
+Ability: Contrary
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Topsy-Turvy
+- Psybeam
+- Foul Play
+- Rock Tomb
+
+Fletchling @ Sharp Beak
 Level: 14
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Ability: Gale Wings
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Acrobatics
+- Flame Charge
+- Quick Attack
+- Roost
 
 === TRAINER_BRENDAN_PETALBURG_TORCHIC ===
 Name: BRENDAN
@@ -17582,17 +18049,59 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon
+Espurr @ Oran Berry
 Level: 12
+Ability: Infiltrator
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Fake Out
+- Confusion
+- Light Screen
+- Covet
 
-Slugma
-Level: 12
+Chespin @ Miracle Seed
+Level: 13
+Ability: Bulletproof
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Seed Bomb
+- Rollout
+- Leech Seed
+- Bite
 
-Mudkip @ Oran Berry
+Fennekin @ Charcoal
+Level: 13
+Ability: Blaze
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Flame Charge
+- Psybeam
+- Will-O-Wisp
+- Quick Attack
+
+Froakie @ Mystic Water
+Level: 13
+Ability: Protean
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Water Pulse
+- Quick Attack
+- Lick
+- Rock Tomb
+
+Inkay @ Oran Berry
+Level: 13
+Ability: Contrary
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Topsy-Turvy
+- Psybeam
+- Foul Play
+- Rock Tomb
+
+Fletchling @ Sharp Beak
 Level: 14
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Ability: Gale Wings
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Acrobatics
+- Flame Charge
+- Quick Attack
+- Roost
 
 === TRAINER_BRENDAN_PETALBURG_MUDKIP ===
 Name: BRENDAN
@@ -17603,17 +18112,59 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon
+Espurr @ Oran Berry
 Level: 12
+Ability: Infiltrator
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Fake Out
+- Confusion
+- Light Screen
+- Covet
 
-Wingull
-Level: 12
+Chespin @ Miracle Seed
+Level: 13
+Ability: Bulletproof
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Seed Bomb
+- Rollout
+- Leech Seed
+- Bite
 
-Treecko @ Oran Berry
+Fennekin @ Charcoal
+Level: 13
+Ability: Blaze
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Flame Charge
+- Psybeam
+- Will-O-Wisp
+- Quick Attack
+
+Froakie @ Mystic Water
+Level: 13
+Ability: Protean
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Water Pulse
+- Quick Attack
+- Lick
+- Rock Tomb
+
+Inkay @ Oran Berry
+Level: 13
+Ability: Contrary
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Topsy-Turvy
+- Psybeam
+- Foul Play
+- Rock Tomb
+
+Fletchling @ Sharp Beak
 Level: 14
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Ability: Gale Wings
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Acrobatics
+- Flame Charge
+- Quick Attack
+- Roost
 
 === TRAINER_MAY_PETALBURG_TREECKO ===
 Name: MAY
@@ -17624,17 +18175,59 @@ Music: Female
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon
+Espurr @ Oran Berry
 Level: 12
+Ability: Infiltrator
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Fake Out
+- Confusion
+- Light Screen
+- Covet
 
-Lotad
-Level: 12
+Chespin @ Miracle Seed
+Level: 13
+Ability: Bulletproof
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Seed Bomb
+- Rollout
+- Leech Seed
+- Bite
 
-Torchic @ Oran Berry
+Fennekin @ Charcoal
+Level: 13
+Ability: Blaze
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Flame Charge
+- Psybeam
+- Will-O-Wisp
+- Quick Attack
+
+Froakie @ Mystic Water
+Level: 13
+Ability: Protean
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Water Pulse
+- Quick Attack
+- Lick
+- Rock Tomb
+
+Inkay @ Oran Berry
+Level: 13
+Ability: Contrary
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Topsy-Turvy
+- Psybeam
+- Foul Play
+- Rock Tomb
+
+Fletchling @ Sharp Beak
 Level: 14
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Ability: Gale Wings
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Acrobatics
+- Flame Charge
+- Quick Attack
+- Roost
 
 === TRAINER_MAY_PETALBURG_TORCHIC ===
 Name: MAY
@@ -17645,17 +18238,59 @@ Music: Female
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon
+Espurr @ Oran Berry
 Level: 12
+Ability: Infiltrator
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Fake Out
+- Confusion
+- Light Screen
+- Covet
 
-Torkoal
-Level: 12
+Chespin @ Miracle Seed
+Level: 13
+Ability: Bulletproof
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Seed Bomb
+- Rollout
+- Leech Seed
+- Bite
 
-Mudkip @ Oran Berry
+Fennekin @ Charcoal
+Level: 13
+Ability: Blaze
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Flame Charge
+- Psybeam
+- Will-O-Wisp
+- Quick Attack
+
+Froakie @ Mystic Water
+Level: 13
+Ability: Protean
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Water Pulse
+- Quick Attack
+- Lick
+- Rock Tomb
+
+Inkay @ Oran Berry
+Level: 13
+Ability: Contrary
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Topsy-Turvy
+- Psybeam
+- Foul Play
+- Rock Tomb
+
+Fletchling @ Sharp Beak
 Level: 14
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Ability: Gale Wings
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Acrobatics
+- Flame Charge
+- Quick Attack
+- Roost
 
 === TRAINER_MAY_PETALBURG_MUDKIP ===
 Name: MAY
@@ -17666,17 +18301,59 @@ Music: Female
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon
+Espurr @ Oran Berry
 Level: 12
+Ability: Infiltrator
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Fake Out
+- Confusion
+- Light Screen
+- Covet
 
-Wingull
-Level: 12
+Chespin @ Miracle Seed
+Level: 13
+Ability: Bulletproof
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Seed Bomb
+- Rollout
+- Leech Seed
+- Bite
 
-Treecko @ Oran Berry
+Fennekin @ Charcoal
+Level: 13
+Ability: Blaze
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Flame Charge
+- Psybeam
+- Will-O-Wisp
+- Quick Attack
+
+Froakie @ Mystic Water
+Level: 13
+Ability: Protean
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Water Pulse
+- Quick Attack
+- Lick
+- Rock Tomb
+
+Inkay @ Oran Berry
+Level: 13
+Ability: Contrary
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Topsy-Turvy
+- Psybeam
+- Foul Play
+- Rock Tomb
+
+Fletchling @ Sharp Beak
 Level: 14
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Ability: Gale Wings
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Acrobatics
+- Flame Charge
+- Quick Attack
+- Roost
 
 === TRAINER_VIRIDIAN_FOREST_1 ===
 Name: SAMMY
@@ -17687,13 +18364,50 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Caterpie
-Level: 10
+Pineco @ Oran Berry
+Level: 11
+Ability: Sturdy
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Spikes
+- Bug Bite
+- Rock Throw
+- Protect
 
-Weedle
-Level: 10
+Karrablast @ Silver Powder
+Level: 11
+Ability: Swarm
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Bug Bite
+- Peck
+- Fury Cutter
+- Leer
+
+Surskit @ Mystic Water
+Level: 11
+Ability: Swift Swim
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Bubble Beam
+- Bug Bite
+- Quick Attack
+- Sweet Scent
+
+Dwebble @ Hard Stone
+Level: 11
+Ability: Sturdy
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Rock Tomb
+- Bug Bite
+- Sand Attack
+- Stealth Rock
+
+Vivillon @ Charti Berry
+Level: 11
+Ability: Compound Eyes
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Sleep Powder
+- Stun Spore
+- Bug Buzz
+- Air Slash
 
 === TRAINER_VIRIDIAN_FOREST_2 ===
 Name: DOUG
@@ -17725,10 +18439,81 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Pidgey
-Level: 10
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Pikachu @ Oran Berry
+Abra @ Light Clay
 Level: 11
+Ability: Magic Guard
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Reflect
+- Light Screen
+- Psychic
+- Encore
+
+Bulbasaur @ Eviolite
+Level: 11
+Ability: Chlorophyll
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Giga Drain
+- Sludge Bomb
+- Sleep Powder
+- Leech Seed
+
+Charmander @ Charcoal
+Level: 11
+Ability: Blaze
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Flame Charge
+- Fire Fang
+- Dragon Breath
+- Will-O-Wisp
+
+Squirtle @ Eviolite
+Level: 11
+Ability: Torrent
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Scald
+- Aqua Jet
+- Ice Beam
+- Rapid Spin
+
+Beedrill @ Oran Berry
+Level: 11
+Ability: Swarm
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Leech Life
+- Poison Sting
+
+Pikachu @ Light Ball
+Level: 13
+Ability: Static
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Shock Wave
+- Surf
+- Grass Knot
+- Thunder Wave
+
+=== TRAINER_GRUNT_PETALBURG_WOODS_2 ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt F
+Gender: Female
+Music: Aqua
+Double Battle: No
+AI: Smart Trainer
+
+Poochyena
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+
+=== TRAINER_GRUNT_PETALBURG_WOODS_3 ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Smart Trainer
+
+Poochyena
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

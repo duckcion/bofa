@@ -796,6 +796,8 @@ u8 GetMonsStateToDoubles(void);
 u8 GetMonsStateToDoubles_2(void);
 u16 GetAbilityBySpecies(u16 species, u8 abilityNum);
 u16 GetMonAbility(struct Pokemon *mon);
+void SetEnemyPartyAbilityOverride(struct Pokemon *mon, u16 ability);
+u16 GetEnemyPartyAbility(u32 partyIndex, u16 defaultAbility);
 void CreateSecretBaseEnemyParty(struct SecretBase *secretBaseRecord);
 u8 GetSecretBaseTrainerPicIndex(void);
 u8 GetSecretBaseTrainerClass(void);

@@ -1991,7 +1991,11 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                         break;
                 }
                 if (ability >= maxAbilities)
+                {
+                    // BOFA: trainer-specific ability the species doesn't normally have.
                     ability = 0;
+                    SetEnemyPartyAbilityOverride(&party[i], partyData[i].ability);
+                }
             }
             else if (B_TRAINER_MON_RANDOM_ABILITY)
             {
@@ -3490,6 +3494,8 @@ static void DoBattleIntro(void)
                 gBattleMons[battler].types[1] = gSpeciesInfo[gBattleMons[battler].species].types[1];
                 gBattleMons[battler].types[2] = TYPE_MYSTERY;
                 gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
+                if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+                    gBattleMons[battler].ability = GetEnemyPartyAbility(gBattlerPartyIndexes[battler], gBattleMons[battler].ability);
                 gBattleStruct->hpOnSwitchout[GetBattlerSide(battler)] = gBattleMons[battler].hp;
                 gBattleMons[battler].status2 = 0;
                 for (i = 0; i < NUM_BATTLE_STATS; i++)
