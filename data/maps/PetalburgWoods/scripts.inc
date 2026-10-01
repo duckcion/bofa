@@ -474,3 +474,101 @@ PetalburgWoods_Text_TrainerTipsPP:
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+@ ---------------------------------------------------------------- Split 2
+@ Exactly four mandatory battles, in path order: James -> Aqua Grunt 1 -> 2 -> 3.
+@ Each sight line was checked against the map's collision so it cannot be walked around.
+@ The old Devon researcher ambush scene above is no longer on the map (its objects and triggers were removed).
+PetalburgWoods_EventScript_Split2Regular::
+	trainerbattle_single TRAINER_JAMES_1, PetalburgWoods_Text_Split2RegularIntro, PetalburgWoods_Text_Split2RegularDefeat
+	msgbox PetalburgWoods_Text_Split2RegularPost, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_EventScript_Split2Grunt1::
+	trainerbattle_single TRAINER_GRUNT_PETALBURG_WOODS, PetalburgWoods_Text_Split2Grunt1Intro, PetalburgWoods_Text_Split2Grunt1Defeat
+	msgbox PetalburgWoods_Text_Split2Grunt1Post, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_EventScript_Split2Grunt2::
+	trainerbattle_single TRAINER_GRUNT_PETALBURG_WOODS_2, PetalburgWoods_Text_Split2Grunt2Intro, PetalburgWoods_Text_Split2Grunt2Defeat
+	msgbox PetalburgWoods_Text_Split2Grunt2Post, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_EventScript_Split2Grunt3::
+	trainerbattle_single TRAINER_GRUNT_PETALBURG_WOODS_3, PetalburgWoods_Text_Split2Grunt3Intro, PetalburgWoods_Text_Split2Grunt3Defeat
+	msgbox PetalburgWoods_Text_Split2Grunt3Post, MSGBOX_AUTOCLOSE
+	end
+
+@ Regular trainer: something odd is going on in the woods
+PetalburgWoods_Text_Split2RegularIntro:
+	.string "Shh! Did you see them too?\p"
+	.string "People in blue uniforms keep\n"
+	.string "hauling crates through the woods.\p"
+	.string "Well, as long as we're both here,\n"
+	.string "let's battle!$"
+
+PetalburgWoods_Text_Split2RegularDefeat:
+	.string "Aww, I was too busy watching\n"
+	.string "the path!$"
+
+PetalburgWoods_Text_Split2RegularPost:
+	.string "Those people in blue went deeper\n"
+	.string "into the woods.\p"
+	.string "One of them said they were saving\n"
+	.string "the sea. Saving it from what?$"
+
+@ Aqua Grunt 1: the idealist
+PetalburgWoods_Text_Split2Grunt1Intro:
+	.string "Wait, wait! I'm not here to hurt\n"
+	.string "anyone.\p"
+	.string "You call us criminals, but have you\n"
+	.string "ever seen what people dump into\l"
+	.string "the sea?$"
+
+PetalburgWoods_Text_Split2Grunt1Defeat:
+	.string "Okay… you're really strong.$"
+
+PetalburgWoods_Text_Split2Grunt1Post:
+	.string "I grew up by the water. Every year\n"
+	.string "there's more trash on the beach and\l"
+	.string "fewer POKéMON in the tide pools.\p"
+	.string "Everyone says it's a shame, and then\n"
+	.string "they do nothing.\p"
+	.string "Someone has to protect it.\n"
+	.string "That's why I joined TEAM AQUA.$"
+
+@ Aqua Grunt 2: the pragmatist
+PetalburgWoods_Text_Split2Grunt2Intro:
+	.string "The new kid been talking your ear\n"
+	.string "off? Let me guess, you think we're\l"
+	.string "the bad guys.\p"
+	.string "Fine. Let's get this over with.$"
+
+PetalburgWoods_Text_Split2Grunt2Defeat:
+	.string "Heh. Not bad at all.$"
+
+PetalburgWoods_Text_Split2Grunt2Post:
+	.string "Do I agree with everything AQUA\n"
+	.string "does? No.\p"
+	.string "But the LEAGUE talks about protecting\n"
+	.string "nature while the cities keep\l"
+	.string "spreading.\p"
+	.string "At least we're actually doing\n"
+	.string "something.$"
+
+@ Aqua Grunt 3: the ends justify the means
+PetalburgWoods_Text_Split2Grunt3Intro:
+	.string "You talked to the others, didn't\n"
+	.string "you? They're too soft.\p"
+	.string "People love the ocean right up until\n"
+	.string "protecting it costs them something.$"
+
+PetalburgWoods_Text_Split2Grunt3Defeat:
+	.string "Beating me changes nothing.$"
+
+PetalburgWoods_Text_Split2Grunt3Post:
+	.string "That's why asking nicely doesn't\n"
+	.string "work.\p"
+	.string "Sooner or later, people will have to\n"
+	.string "listen, whether they want to or not.\p"
+	.string "Now get out of here. We have work\n"
+	.string "to do.$"

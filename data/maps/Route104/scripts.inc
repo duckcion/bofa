@@ -17,6 +17,7 @@ Route104_EventScript_StartSailToDewford::
 	end
 
 Route104_OnTransition:
+	call_if_set FLAG_BADGE01_GET, Route104_EventScript_OpenPetalburgWoods
 	call Common_EventScript_SetupRivalGfxId
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
@@ -1259,3 +1260,8 @@ Route104_Text_Split1NormanQuest:
 	.string "GROVE, south of PETALBURG.\p"
 	.string "Bring me that EVERSTONE and I'll\n"
 	.string "open the GYM for you.$"
+
+@ Split 2 starts in Petalburg Woods, so the hikers blocking it leave once the player has Badge 1.
+Route104_EventScript_OpenPetalburgWoods::
+	setflag FLAG_PETALBURG_WOODS_UNLOCKED
+	return

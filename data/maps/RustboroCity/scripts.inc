@@ -1,4 +1,5 @@
 .set LOCALID_LITTLE_BOY, 7
+.set LOCALID_SPLIT2_GYM_BLOCKER, 18
 .set LOCALID_LITTLE_GIRL, 8
 .set LOCALID_DEVON_EMPLOYEE, 9
 .set LOCALID_GRUNT, 10
@@ -14,6 +15,7 @@ RustboroCity_OnTransition:
 	setflag FLAG_VISITED_RUSTBORO_CITY
 	call Common_EventScript_SetupRivalGfxId
 	call_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_HideMapNamePopup
+	call_if_set FLAG_ROUTE116_ROXANNE_FOUND, RustboroCity_EventScript_Split2MoveGymBlocker
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	goto_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_PositionScientistForExit
 	end
@@ -1369,3 +1371,42 @@ RustboroCity_Text_StoneCollectorDecline:
 RustboroCity_Text_StoneCollectorDone:
 	.string "You made your choice. The other two\n"
 	.string "are spoken for.$"
+
+@ ---------------------------------------------------------------- Split 2
+@ Blocks the gym door (27,19) until the player meets Roxanne at the end of Route 116,
+@ then steps aside to (28,20).
+RustboroCity_EventScript_Split2MoveGymBlocker::
+	setobjectxyperm LOCALID_SPLIT2_GYM_BLOCKER, 28, 20
+	setobjectmovementtype LOCALID_SPLIT2_GYM_BLOCKER, MOVEMENT_TYPE_FACE_LEFT
+	return
+
+RustboroCity_EventScript_Split2GymBlocker::
+	lock
+	faceplayer
+	goto_if_set FLAG_ROUTE116_ROXANNE_FOUND, RustboroCity_EventScript_Split2GymOpen
+	msgbox RustboroCity_Text_Split2GymBlocked, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_EventScript_Split2GymOpen::
+	msgbox RustboroCity_Text_Split2GymOpen, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_Text_Split2GymBlocked:
+	.string "Again? Seriously?\p"
+	.string "First NORMAN disappears, and now\n"
+	.string "ROXANNE's nowhere to be found.\p"
+	.string "I'm starting to think GYM LEADERS\n"
+	.string "will do anything except stay in\l"
+	.string "their GYMS.\p"
+	.string "Last I heard, ROXANNE headed toward\n"
+	.string "ROUTE 116. Maybe you'll have better\l"
+	.string "luck finding her than I did.$"
+
+RustboroCity_Text_Split2GymOpen:
+	.string "You actually found her?\p"
+	.string "Huh. A GYM LEADER who's finally\n"
+	.string "going back to their GYM.\p"
+	.string "What a concept.\p"
+	.string "Go on in.$"

@@ -401,6 +401,19 @@
       "trainer_sight_or_berry_tree_id": "ITEM_TM_STEEL_WING",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_116_TM_STEEL_WING"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ROXANNE",
+      "x": 45,
+      "y": 11,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route116_EventScript_Split2Roxanne",
+      "flag": "FLAG_HIDE_ROUTE_116_ROXANNE"
     }
   ],
   "warp_events": [
@@ -449,6 +462,51 @@
       "var": "VAR_ROUTE116_STATE",
       "var_value": "1",
       "script": "Route116_EventScript_BrineyTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route116_EventScript_Split2Roxanne"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route116_EventScript_Split2Roxanne"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route116_EventScript_Split2Roxanne"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route116_EventScript_Split2Roxanne"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 13,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route116_EventScript_Split2Roxanne"
     }
   ],
   "bg_events": [

@@ -3,13 +3,13 @@
 Read by build_pk_format.py. Since the restructure is now built into the ROM, every
 trainer comes from trainers.party via `from_id`; this file only sets the play order,
 mandatory/optional status and the notes shown on each trainer card.
-"Spark" is what players call the rival (Brendan/May), so the rival keeps its in-game names.
+The rival (Brendan/May) keeps its in-game names; it is not Spark.
 """
 
 PLAN_TAG = "In ROM, not playtested yet"
 
-_RIVAL_NOTE = ("\"Spark\" - fights once, on the tile in front of the gym door, after the Everstone quest. "
-               "Team depends on the player's starter (suffix) and gender (Brendan/May).")
+_RIVAL_NOTE = ("Rival - fights once, on the tile in front of the gym door, after the Everstone quest. "
+               "Same approved six-Pokemon Gen 6 team in every variant (Brendan/May x player's starter).")
 
 SPLIT1_TRAINERS = [
     # 1-4 Route 102 (existing teams, all mandatory)
@@ -29,34 +29,28 @@ SPLIT1_TRAINERS = [
      "note": "First Team Aqua battle. New."},
     # 9-11 Trainer Grove (gated until Norman gives the quest)
     {"order": 9, "from_id": "TRAINER_TRAINERGROVET1", "loc": "TrainerGrove", "status": "REQUIRED",
-     "note": "Team kept, levels 34 -> 11. Name is still the placeholder \"Bum1\"."},
-    {"order": 10, "from_id": "TRAINER_TRAINERGROVET2", "loc": "TrainerGrove", "status": "REQUIRED",
-     "note": "Team kept, levels 34 -> 11/12. Name is still the placeholder \"Bum2\"."},
-    {"order": 11, "from_id": "TRAINER_TRAINERGROVET3", "loc": "TrainerGrove", "status": "REQUIRED",
-     "note": "Camper Grant replaces the Team Magma grunt. The Team Aqua grunt was removed from the map."},
+     "note": "Hiker Rocco. Nidoran-M intentionally has three moves (no Focus Energy)."},
+    {"order": 10, "from_id": "TRAINER_TRAINERGROVET3", "loc": "TrainerGrove", "status": "REQUIRED",
+     "note": "Camper Grant."},
+    {"order": 11, "from_id": "TRAINER_TRAINERGROVET2", "loc": "TrainerGrove", "status": "REQUIRED",
+     "note": "Picnicker Maisie, Gen 5 specialist."},
     # 12 Rival at the gym entrance (6 variants)
     *[{"order": 12, "from_id": f"TRAINER_{r}_PETALBURG_{s}", "loc": "PetalburgCity_GymEntrance",
        "status": "REQUIRED", "note": f"{_RIVAL_NOTE} This one: player chose {s.title()}."}
       for r in ("BRENDAN", "MAY") for s in ("TREECKO", "TORCHIC", "MUDKIP")],
     # 13-16 Petalburg Gym (unchanged)
-    {"order": 13, "from_id": "TRAINER_ALEXIA", "loc": "PetalburgCity_Gym", "status": "Opt-in",
-     "note": "Gym trainer (sight range 0)."},
-    {"order": 14, "from_id": "TRAINER_JODY", "loc": "PetalburgCity_Gym", "status": "REQUIRED",
-     "note": "Norman will not battle until Jody is beaten."},
-    {"order": 15, "from_id": "TRAINER_RANDALL", "loc": "PetalburgCity_Gym", "status": "Opt-in",
-     "note": "Gym trainer (sight range 0)."},
+    {"order": 13, "from_id": "TRAINER_RANDALL", "loc": "PetalburgCity_Gym", "status": "REQUIRED",
+     "note": "Gym Youngster. Rooms unlock in order Randall -> Alexia -> Jody; Norman checks all three."},
+    {"order": 14, "from_id": "TRAINER_ALEXIA", "loc": "PetalburgCity_Gym", "status": "REQUIRED",
+     "note": "Gym defensive trainer. Solosis has even IVs so its Hidden Power is Fighting-type."},
+    {"order": 15, "from_id": "TRAINER_JODY", "loc": "PetalburgCity_Gym", "status": "REQUIRED",
+     "note": "Gym Ace Trainer. Girafarig intentionally has three moves."},
     {"order": 16, "from_id": "TRAINER_NORMAN_1", "loc": "PetalburgCity_Gym", "status": "REQUIRED"},
     # Optional: Viridian Forest
     {"order": 20, "from_id": "TRAINER_VIRIDIAN_FOREST_1", "loc": "ViridianForest_Optional", "status": "Opt-in",
-     "note": "Optional area. New."},
-    {"order": 21, "from_id": "TRAINER_VIRIDIAN_FOREST_2", "loc": "ViridianForest_Optional", "status": "Opt-in",
-     "note": "Optional area. New."},
-    {"order": 22, "from_id": "TRAINER_VIRIDIAN_FOREST_3", "loc": "ViridianForest_Optional", "status": "Opt-in",
-     "note": "Optional area. New."},
-    # Not in the planned list - kept so it is not silently dropped
-    {"order": 30, "from_id": "TRAINER_PETALBURGCOAST_1", "loc": "PetalburgCoast_NotInYourList",
-     "status": "Forces", "note": "NEEDS DECISION: not in your Split 1 list, but he guards the Everstone "
-                                 "on Petalburg Coast, so he is effectively mandatory."},
+     "note": "Bug Catcher. Team finalized."},
+    {"order": 21, "from_id": "TRAINER_VIRIDIAN_FOREST_3", "loc": "ViridianForest_Optional", "status": "Opt-in",
+     "note": "Gen 1 specialist. Beedrill intentionally has only Leech Life + Poison Sting."},
 ]
 
 # Route 103 trainers leave Split 1 (east side is across water). Shown on the Unassigned sheet.
@@ -77,17 +71,17 @@ PROGRESSION = [
     (6, "Route 104 (south)", "Beat 4 trainers, then talk to Norman at (12,58)",
      "4 (Fisherman Darian, Youngster Billy, Magma Grunt, Aqua Grunt)",
      "Norman checks all four, then sets VAR_SPLIT1_STATE = 1 and leaves", PLAN_TAG),
-    (7, "Trainer Grove", "Path to the Everstone", "3 (Bum1, Bum2, Camper Grant)",
+    (7, "Trainer Grove", "Path to the Everstone", "3 (Hiker Rocco, Camper Grant, Picnicker Maisie)",
      "Entrance turns the player back while VAR_SPLIT1_STATE = 0", PLAN_TAG),
-    (8, "Petalburg Coast (your \"Shoal Cave\")", "Everstone item ball (guarded by Ronnie), one-time Corphish Lv11, "
-     "fisherman points to Viridian Forest once you have the stone", "Ronnie (needs decision)",
+    (8, "Petalburg Coast (your \"Shoal Cave\")", "Everstone item ball, one-time Corphish Lv11, "
+     "fisherman points to Viridian Forest once you have the stone", "None (Ronnie removed)",
      "Returning to Petalburg with the stone sets VAR_SPLIT1_STATE = 2", PLAN_TAG),
-    (9, "Viridian Forest (optional)", "3 trainers, new wild table (Kanto bugs, Pidgey, rare Pikachu), "
-     "HM06 Rock Smash from the Black Belt at the end", "3 optional", "Not required for the gym", PLAN_TAG),
-    (10, "Petalburg City (return)", "Blocker gone; rival (\"Spark\") battles on the tile in front of the gym door",
+    (9, "Viridian Forest (optional)", "2 trainers, new wild table (Kanto bugs, Pidgey, rare Pikachu), "
+     "HM06 Rock Smash from the Black Belt at the end", "2 optional", "Not required for the gym", PLAN_TAG),
+    (10, "Petalburg City (return)", "Blocker gone; the rival battles on the tile in front of the gym door",
      "Rival - once", "Win sets VAR_SPLIT1_STATE = 3; a loss lets the rival challenge again", PLAN_TAG),
     (11, "Petalburg Gym", "Hand Norman the Everstone, beat Jody, then Norman -> Badge 1",
-     "Jody required; Alexia/Randall optional", "FLAG_GAVE_NORMAN_EVERSTONE, FLAG_BADGE01_GET", "In ROM"),
+     "Randall, Alexia, Jody (all required)", "FLAG_GAVE_NORMAN_EVERSTONE, FLAG_BADGE01_GET", "In ROM"),
 ]
 
 GIFTS = {
@@ -98,7 +92,7 @@ GIFTS = {
 NEW_ITEMS = [
     # item, method, map, split, note
     ("Everstone", "Item Ball", "PetalburgCoast", "Split 1",
-     "Replaces the Oval Stone; Norman's quest item. Guarded by Ronnie."),
+     "Replaces the Oval Stone; Norman's quest item."),
     ("HM Rock Smash", "Gift (end of forest)", "ViridianForest", "Split 1",
      "Optional; shares its flag with the Mauville City gift, so it is only given once."),
 ]
@@ -106,23 +100,34 @@ REMOVED_ITEMS = [("Oval Stone", "PetalburgCoast")]
 
 # Still open, or places the build differs from the original plan.
 FLAGS = [
-    ("Not playtested", "Everything builds, but none of the Split 1 scripts have been played through yet."),
-    ("Everstone location", "Your plan said Shoal Cave; you confirmed Petalburg Coast. The real Shoal Cave maps are "
-     "unchanged."),
-    ("Trainer Grove count", "Your written plan implied 4 trainers; your ordered list has 3. Built with 3: the Team "
-     "Aqua grunt was removed from the map (its trainer data is unused)."),
-    ("Trainer Grove placeholders", "The two kept regulars are still named \"Bum1\"/\"Bum2\" and still have their "
-     "old intro/defeat lines. Their teams are identical Wailmer + Horsea."),
-    ("Petalburg Coast trainer", "Youngster Ronnie is not in your list but guards the Everstone, so every player "
-     "fights him. Decide whether to keep, move or remove him."),
-    ("Route 104 extras", "Lady Cindy (16,42) and an unscripted girl (21,50) are also on the south part of Route 104. "
-     "Norman only checks Darian, Billy and the two grunts."),
-    ("Viridian Forest encounters", "It had no wild table; a new one was added (my pick: Caterpie, Weedle, Metapod, "
-     "Kakuna, Pidgey, rare Pikachu, Lv9-11). The extra end-of-forest encounter is still TBD."),
-    ("Petalburg Coast encounter", "The coast has no grass, so its encounter is a one-time Corphish Lv11 on the "
-     "beach (my pick)."),
-    ("Gym trainers", "Alexia and Randall have sight range 0 (optional). Jody is required by Norman."),
-    ("Route 103", "Only its 8 trainers across the water move out of Split 1 (Unassigned sheet). The west side "
-     "(Viridian Forest entrance) is still reachable."),
-    ("Rival name", "No trainer is called Spark; the rival stays Brendan/May (\"Spark\")."),
+    ("Not playtested", "Everything builds, but the Split 1 scripts and teams have not been played through yet."),
+    ("Trainer-only abilities", "16 approved abilities are not on the species (e.g. Slaking Slow Start, Smeargle/Spinda "
+     "Own Tempo, Vulpix Drought, Wingull Drizzle). An engine change now applies a trainer's listed ability anyway; "
+     "wild and player Pokemon keep their normal abilities."),
+    ("Weather setters", "The Magma grunt's Vulpix (Drought + Heat Rock) and Aqua grunt's Wingull (Drizzle + Damp Rock) "
+     "set weather. Earlier weather removal only covered species, learnsets and TMs, so these are allowed."),
+    ("Level cap 16", "No level cap exists in the ROM (B_LEVEL_CAP_TYPE = LEVEL_CAP_NONE). Not implemented."),
+    ("Viridian Forest", "Now exactly two trainers. Bug Catcher Doug was removed from the map (his trainer data is "
+     "unused)."),
+    ("Everstone location", "Your plan says Shoal Cave; you confirmed Petalburg Coast."),
+    ("Route 104 extras", "Lady Cindy (16,42) and an unscripted girl (21,50) are also on the south part of Route 104."),
 ]
+
+# ---------------------------------------------------------------- Split 2 (progression only; teams come later)
+SPLIT2_PROGRESSION = [
+    (1, "Route 104 (south)", "Hikers blocking Petalburg Woods leave once the player has Badge 1",
+     "-", "Route 104 sets FLAG_PETALBURG_WOODS_UNLOCKED on entry when FLAG_BADGE01_GET is set", PLAN_TAG),
+    (2, "Petalburg Woods", "4 mandatory battles in path order; Team Aqua's worldview introduced",
+     "Bug Catcher James, Aqua Grunt 1 (idealist), Grunt 2 (pragmatist), Grunt 3 (ends justify the means)",
+     "Sight lines verified unavoidable; Devon researcher ambush removed; Lyle removed", PLAN_TAG),
+    (3, "Route 104 (north)", "Path to Rustboro", "Existing trainers (unchanged)", "-", "In ROM"),
+    (4, "Rustboro City", "NPC blocks the gym door (27,19): Roxanne went to Route 116", "-",
+     "Blocker steps aside to (28,20) once FLAG_ROUTE116_ROXANNE_FOUND is set", PLAN_TAG),
+    (5, "Route 116 (east end)", "Meet Roxanne by the Rusturf Tunnel entrance; she heads back to her gym",
+     "Existing trainers (unchanged)", "Trigger line x=43, y=9-13 sets FLAG_ROUTE116_ROXANNE_FOUND; "
+     "Rusturf Tunnel stays optional", PLAN_TAG),
+    (6, "Rustboro Gym", "Gym trainers + Roxanne -> Badge 2", "Existing (unchanged)", "FLAG_BADGE02_GET", "In ROM"),
+]
+
+# Trainers whose map objects were removed; their data is unused, so the docs skip them.
+REMOVED_FROM_MAP = ["TRAINER_LYLE", "TRAINER_VIRIDIAN_FOREST_2", "TRAINER_TRAINERGROVET4", "TRAINER_PETALBURGCOAST_1"]

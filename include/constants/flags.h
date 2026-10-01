@@ -45,7 +45,7 @@
 
 #define FLAG_GAVE_NORMAN_EVERSTONE    0x20 // Set when the player hands Norman the Everstone from Petalburg Coast
 #define FLAG_ITEM_PETALBURG_COAST_EVERSTONE    0x21 // Item ball flag for the Everstone on Petalburg Coast (Norman's Split 1 quest)
-#define FLAG_PETALBURG_WOODS_UNLOCKED    0x22 // Set once the path through Petalburg Woods is reopened (post-Wraithwood)
+#define FLAG_PETALBURG_WOODS_UNLOCKED    0x22 // Hides the Route 104 hikers; set on entering Route 104 once the player has Badge 1 (Split 2 starts in the woods)
 #define FLAG_RECEIVED_RANCHER_ANDY_GIFT    0x23 // Set once the player takes Rancher Andy's Tauros/Miltank/Bouffalant gift on Granite Shore
 #define FLAG_RECEIVED_STARTER_ROOM_JOHTO_MON    0x24 // Set once the player is gifted a random Johto starter (Cyndaquil/Totodile/Chikorita) in Birch's Lab starter room
 #define FLAG_RECEIVED_OLDALE_STARTER_SUPPLIES    0x25 // Set once the player takes the starter status-berry/consumable stockpile from the woman in Oldale Town House 1
@@ -59,8 +59,8 @@
 #define FLAG_HIDE_ROUTE_104_NORMAN    0x2D // Split 1: Norman on Route 104, hidden after he asks for the Everstone
 #define FLAG_DEFEATED_PETALBURG_RIVAL    0x2E // Split 1: beat the rival at the Petalburg Gym entrance
 #define FLAG_PETALBURG_COAST_CORPHISH    0x2F // Split 1: one-time beach Corphish on Petalburg Coast
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
+#define FLAG_ROUTE116_ROXANNE_FOUND    0x30 // Split 2: reached the end of Route 116 by Rusturf Tunnel and met Roxanne; opens Rustboro Gym
+#define FLAG_HIDE_ROUTE_116_ROXANNE    0x31 // Split 2: Roxanne by Rusturf Tunnel, hidden once she heads back to her gym
 #define FLAG_UNUSED_0x032    0x32 // Unused Flag
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag
 #define FLAG_UNUSED_0x034    0x34 // Unused Flag

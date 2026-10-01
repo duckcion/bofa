@@ -1,4 +1,5 @@
 .set LOCALID_BRINEY, 11
+.set LOCALID_SPLIT2_ROXANNE, 30
 .set LOCALID_WANDAS_BF_OUTSIDE, 21
 
 Route116_MapScripts::
@@ -471,3 +472,33 @@ Route116_Text_TrainerTipsBagHasPockets:
 	.string "No TRAINER can afford to be without\n"
 	.string "a BAG of their own.$"
 
+@ ---------------------------------------------------------------- Split 2
+@ Tiles (43,9)-(43,13) are the only way to the Rusturf Tunnel entrance at (47,8), so walking
+@ to the end of Route 116 always crosses this line. Entering the tunnel is not required.
+Route116_EventScript_Split2Roxanne::
+	setvar VAR_TEMP_1, 1
+	goto_if_set FLAG_ROUTE116_ROXANNE_FOUND, Route116_EventScript_Split2RoxanneDone
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	msgbox Route116_Text_Split2Roxanne, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_SPLIT2_ROXANNE
+	setflag FLAG_HIDE_ROUTE_116_ROXANNE
+	setflag FLAG_ROUTE116_ROXANNE_FOUND
+	fadescreen FADE_FROM_BLACK
+	releaseall
+	end
+
+Route116_EventScript_Split2RoxanneDone::
+	end
+
+Route116_Text_Split2Roxanne:
+	.string "ROXANNE: Oh! Were you looking for me?\p"
+	.string "I came to see the tunnel for myself.\n"
+	.string "All this digging has been upsetting\l"
+	.string "the wild POKéMON.\p"
+	.string "But a challenger shouldn't be kept\n"
+	.string "waiting. I'll head back to the GYM.\p"
+	.string "I'll be ready for you in RUSTBORO!$"

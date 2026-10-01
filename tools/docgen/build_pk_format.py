@@ -648,7 +648,7 @@ def plan_trainer(p):
 
 split1 = [plan_trainer(p) for p in plan.SPLIT1_TRAINERS]
 moved_ids = {p["from_id"] for p in plan.SPLIT1_TRAINERS if "from_id" in p}
-moved_ids |= {"TRAINER_TRAINERGROVET3", "TRAINER_TRAINERGROVET4"}   # grunts replaced / removed
+moved_ids |= set(plan.REMOVED_FROM_MAP)   # no longer on any map
 route103 = []
 for t in loaded["Split 1"]:
     tid = str(t["Trainer ID"])
@@ -787,6 +787,8 @@ plain_sheet("Progression", "Progression", drop=("Status",))
 
 prog = pd.DataFrame(plan.PROGRESSION, columns=["Step", "Area", "What Happens", "Trainers", "Gate / Event", "Status"])
 plain_sheet(None, "Split 1 Progression", df=prog, widths=[6, 34, 60, 46, 60, 34])
+prog2 = pd.DataFrame(plan.SPLIT2_PROGRESSION, columns=["Step", "Area", "What Happens", "Trainers", "Gate / Event", "Status"])
+plain_sheet(None, "Split 2 Progression", df=prog2, widths=[6, 30, 60, 60, 70, 28])
 
 # Split 1 plan check: counts audit + contradictions
 ws = wb.create_sheet("Split 1 Plan Check")
@@ -797,7 +799,7 @@ by_loc = {}
 for t in split1:
     by_loc.setdefault(pretty_loc(t["Location"]), []).append(t)
 rows = [
-    ("Mandatory battles a player fights", f"{len(req) - len(rival_variants) + 1} - your list says 16 because it counts gym trainers Alexia and Randall, who are optional in the ROM "
+    ("Mandatory battles a player fights", f"{len(req) - len(rival_variants) + 1} (approved: 16) "
      f"(rival counted once; {len(rival_variants)} rival variants for Brendan/May x 3 starters)"),
     ("Optional trainers", ", ".join(trainer_title(t) for t in split1 if t["Mandatory?"] == "Opt-in")),
 ] + [(f"Trainers at {loc}", f"{len(ts)}: " + ", ".join(trainer_title(t) for t in ts)) for loc, ts in by_loc.items()] + [
@@ -924,8 +926,9 @@ DESC = {
     "Moves": "Current data for every Gen 1-6 move (changed moves in orange)",
     "Move Changes": "One line per changed Gen 1-6 move: old -> new",
     "Encounters": "Wild encounters per map and method with % chance",
-    "Split 1": "Restructured Split 1 in play order (in ROM, not playtested): 16 main battles + 3 optional Viridian Forest trainers",
+    "Split 1": "Restructured Split 1 in play order (in ROM, not playtested): 16 mandatory battles + 2 optional Viridian Forest trainers",
     "Split 1 Progression": "Step-by-step Split 1 route, gates and story flags",
+    "Split 2 Progression": "Split 2 route and gates (woods open after Badge 1, Roxanne found on Route 116); teams not redesigned yet",
     "Split 1 Plan Check": "Trainer counts per area and every open decision (read this first)",
     "Items": "Every Gen 1-6 item: pocket, price, fling power, description and where to find it",
 }
