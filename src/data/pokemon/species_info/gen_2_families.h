@@ -2660,6 +2660,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #if P_FAMILY_SUNKERN
     [SPECIES_SUNKERN] =
     {
+        .itemCommon = ITEM_SUN_STONE,
+        .itemRare = ITEM_SUN_STONE,
         .baseHP        = 30,
         .baseAttack    = 30,
         .baseDefense   = 30,

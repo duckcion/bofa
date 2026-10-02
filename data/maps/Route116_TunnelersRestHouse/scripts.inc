@@ -7,7 +7,9 @@ Route116_TunnelersRestHouse_OnTransition:
 	end
 
 Route116_TunnelersRestHouse_EventScript_Tunneler1::
-	msgbox Route116_TunnelersRestHouse_Text_WeHadToStopBoring, MSGBOX_NPC
+	lock
+	faceplayer
+	goto Route116_TunnelersRestHouse_EventScript_Tunneler1_Gift
 	end
 
 Route116_TunnelersRestHouse_EventScript_Tunneler2::
@@ -60,3 +62,31 @@ Route116_TunnelersRestHouse_Text_TunnelHasGoneThrough:
 	.string "Sometimes, if you hope strongly enough,\n"
 	.string "dreams do come true.$"
 
+
+Route116_TunnelersRestHouse_EventScript_Tunneler1_Gift::
+	goto_if_set FLAG_RECEIVED_HARD_STONE_TUNNELER, Route116_TunnelersRestHouse_EventScript_Tunneler1_GiftDone
+	msgbox Route116_TunnelersRestHouse_EventScript_Tunneler1_Text_GiftIntro, MSGBOX_DEFAULT
+	giveitem ITEM_HARD_STONE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_HARD_STONE_TUNNELER
+	msgbox Route116_TunnelersRestHouse_EventScript_Tunneler1_Text_GiftAfter, MSGBOX_DEFAULT
+	release
+	end
+
+Route116_TunnelersRestHouse_EventScript_Tunneler1_GiftDone::
+	msgbox Route116_TunnelersRestHouse_EventScript_Tunneler1_Text_GiftDone, MSGBOX_DEFAULT
+	release
+	end
+
+Route116_TunnelersRestHouse_EventScript_Tunneler1_Text_GiftIntro:
+	.string "We dug this out of the tunnel before\n"
+	.string "we had to stop boring.\p"
+	.string "It's a HARD STONE. Go on, take it.$"
+
+Route116_TunnelersRestHouse_EventScript_Tunneler1_Text_GiftAfter:
+	.string "A POKéMON holding it hits harder with\n"
+	.string "ROCK-type moves.$"
+
+Route116_TunnelersRestHouse_EventScript_Tunneler1_Text_GiftDone:
+	.string "We had to stop boring the tunnel.\n"
+	.string "It was scaring the wild POKéMON.$"

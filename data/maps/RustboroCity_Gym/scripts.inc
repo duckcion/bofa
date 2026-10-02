@@ -56,6 +56,7 @@ RustboroCity_Gym_EventScript_Marc::
 RustboroCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
+	goto_if_unset FLAG_RECEIVED_TWISTED_SPOON_GYM, RustboroCity_Gym_EventScript_GymGuide_Gift
 	goto_if_set FLAG_DEFEATED_RUSTBORO_GYM, RustboroCity_Gym_EventScript_GymGuidePostVictory
 	msgbox RustboroCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
 	release
@@ -281,3 +282,32 @@ RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons:
 	.string "You only have one POKéMON with you?\p"
 	.string "Please return with at least one more\n"
 	.string "POKéMON.$"
+
+RustboroCity_Gym_EventScript_GymGuide_Gift::
+	goto_if_set FLAG_RECEIVED_TWISTED_SPOON_GYM, RustboroCity_Gym_EventScript_GymGuide_GiftDone
+	msgbox RustboroCity_Gym_EventScript_GymGuide_Text_GiftIntro, MSGBOX_DEFAULT
+	giveitem ITEM_TWISTED_SPOON
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_TWISTED_SPOON_GYM
+	msgbox RustboroCity_Gym_EventScript_GymGuide_Text_GiftAfter, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_Gym_EventScript_GymGuide_GiftDone::
+	msgbox RustboroCity_Gym_EventScript_GymGuide_Text_GiftDone, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_Gym_EventScript_GymGuide_Text_GiftIntro:
+	.string "Yo, challenger! ROCK POKéMON hate\n"
+	.string "special attacks.\p"
+	.string "Take this TWISTED SPOON. It boosts\n"
+	.string "PSYCHIC-type moves.$"
+
+RustboroCity_Gym_EventScript_GymGuide_Text_GiftAfter:
+	.string "Now go show ROXANNE what you've\n"
+	.string "got!$"
+
+RustboroCity_Gym_EventScript_GymGuide_Text_GiftDone:
+	.string "Hit ROCK POKéMON with special\n"
+	.string "attacks. Trust me!$"

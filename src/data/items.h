@@ -11408,28 +11408,34 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_VOLT_SWITCH,
     },
 
-    [ITEM_TM67] =
+    [ITEM_TM_STRUGGLE_BUG] =
     {
         .name = _("TM67"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "Resisting, the user\n"
+            "attacks and lowers\n"
+            "the foe's Sp. Atk."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_STRUGGLE_BUG,
     },
 
-    [ITEM_TM68] =
+    [ITEM_TM_WING_ATTACK] =
     {
         .name = _("TM68"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "Strikes the target\n"
+            "with wings spread\n"
+            "wide."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_WING_ATTACK,
     },
 
     [ITEM_TM69] =

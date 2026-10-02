@@ -245,7 +245,9 @@ PetalburgWoods_EventScript_Boy1::
 	end
 
 PetalburgWoods_EventScript_Boy2::
-	msgbox PetalburgWoods_Text_HiddenItemsExplanation, MSGBOX_NPC
+	lock
+	faceplayer
+	goto PetalburgWoods_EventScript_Boy2_Gift
 	end
 
 PetalburgWoods_EventScript_Girl::
@@ -500,21 +502,22 @@ PetalburgWoods_EventScript_Split2Grunt3::
 
 @ Regular trainer: something odd is going on in the woods
 PetalburgWoods_Text_Split2RegularIntro:
-	.string "Shh! Did you see them too?\p"
-	.string "People in blue uniforms keep\n"
-	.string "hauling crates through the woods.\p"
-	.string "Well, as long as we're both here,\n"
-	.string "let's battle!$"
+	.string "I study the wild POKéMON in these\n"
+	.string "woods.\p"
+	.string "Lately, people in blue uniforms keep\n"
+	.string "hauling crates through here. The\l"
+	.string "POKéMON have gone quiet.\p"
+	.string "Show me how your POKéMON are doing!$"
 
 PetalburgWoods_Text_Split2RegularDefeat:
-	.string "Aww, I was too busy watching\n"
-	.string "the path!$"
+	.string "Remarkable! Your team is in\n"
+	.string "great shape.$"
 
 PetalburgWoods_Text_Split2RegularPost:
-	.string "Those people in blue went deeper\n"
-	.string "into the woods.\p"
-	.string "One of them said they were saving\n"
-	.string "the sea. Saving it from what?$"
+	.string "Those people in blue said they were\n"
+	.string "protecting nature.\p"
+	.string "Funny. The POKéMON here don't seem\n"
+	.string "to think so.$"
 
 @ Aqua Grunt 1: the idealist
 PetalburgWoods_Text_Split2Grunt1Intro:
@@ -547,12 +550,13 @@ PetalburgWoods_Text_Split2Grunt2Defeat:
 	.string "Heh. Not bad at all.$"
 
 PetalburgWoods_Text_Split2Grunt2Post:
-	.string "Do I agree with everything AQUA\n"
-	.string "does? No.\p"
-	.string "But the LEAGUE talks about protecting\n"
-	.string "nature while the cities keep\l"
-	.string "spreading.\p"
-	.string "At least we're actually doing\n"
+	.string "Do I agree with everything AQUA does?\n"
+	.string "No.\p"
+	.string "But the LEAGUE, the government, the\n"
+	.string "big companies… they all talk about\l"
+	.string "protecting nature.\p"
+	.string "Then the cities keep spreading.\n"
+	.string "At least we're actually doing\l"
 	.string "something.$"
 
 @ Aqua Grunt 3: the ends justify the means
@@ -566,9 +570,38 @@ PetalburgWoods_Text_Split2Grunt3Defeat:
 	.string "Beating me changes nothing.$"
 
 PetalburgWoods_Text_Split2Grunt3Post:
-	.string "That's why asking nicely doesn't\n"
-	.string "work.\p"
-	.string "Sooner or later, people will have to\n"
-	.string "listen, whether they want to or not.\p"
-	.string "Now get out of here. We have work\n"
-	.string "to do.$"
+	.string "Asking nicely doesn't work. It never\n"
+	.string "has.\p"
+	.string "If a few people get hurt along the\n"
+	.string "way, that's the price.\p"
+	.string "The sea has paid ours for long\n"
+	.string "enough. Now get out of here.$"
+
+PetalburgWoods_EventScript_Boy2_Gift::
+	goto_if_set FLAG_RECEIVED_CHARCOAL_PETALBURG_WOODS, PetalburgWoods_EventScript_Boy2_GiftDone
+	msgbox PetalburgWoods_EventScript_Boy2_Text_GiftIntro, MSGBOX_DEFAULT
+	giveitem ITEM_CHARCOAL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_CHARCOAL_PETALBURG_WOODS
+	msgbox PetalburgWoods_EventScript_Boy2_Text_GiftAfter, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgWoods_EventScript_Boy2_GiftDone::
+	msgbox PetalburgWoods_EventScript_Boy2_Text_GiftDone, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgWoods_EventScript_Boy2_Text_GiftIntro:
+	.string "I'm camping out here. My campfire\n"
+	.string "burned down to this lump of CHARCOAL.\p"
+	.string "It makes FIRE-type moves stronger.\n"
+	.string "You can have it!$"
+
+PetalburgWoods_EventScript_Boy2_Text_GiftAfter:
+	.string "Some items are hidden on the ground,\n"
+	.string "too. Look carefully!$"
+
+PetalburgWoods_EventScript_Boy2_Text_GiftDone:
+	.string "Some items are hidden on the ground.\n"
+	.string "Look carefully!$"

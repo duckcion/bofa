@@ -96,9 +96,7 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
@@ -115,6 +113,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "RustboroCity_Gym_EventScript_RightGymStatue"
+    },
+    {
+      "type": "hidden_item",
+      "x": 1,
+      "y": 13,
+      "elevation": 3,
+      "item": "ITEM_RARE_CANDY",
+      "flag": "FLAG_HIDDEN_ITEM_RUSTBORO_GYM_RARE_CANDY"
     }
   ]
 }

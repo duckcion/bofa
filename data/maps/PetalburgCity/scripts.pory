@@ -4,7 +4,7 @@ raw `
 .set LOCALID_WALLYS_DAD, 5
 .set LOCALID_GYM_BOY, 8
 .set LOCALID_SCOTT, 9
-.set LOCALID_SPLIT1_RIVAL, 12
+.set LOCALID_SPLIT1_RIVAL, 11
 
 PetalburgCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_OnTransition
@@ -190,6 +190,91 @@ PetalburgCity_Text_Split1RivalDefeated:
 PetalburgCity_Text_Split1RivalAfter:
 	.string "{RIVAL}: Okay, you're ready.\n"
 	.string "Go show the GYM LEADER what you've got!$"
+
+@ Split 1: the first time the player walks into Petalburg from Route 102, Wally runs up with a Focus Sash.
+PetalburgCity_EventScript_WallyFocusSash::
+	setvar VAR_TEMP_2, 1
+	goto_if_set FLAG_RECEIVED_FOCUS_SASH_WALLY, PetalburgCity_EventScript_WallyFocusSashEnd
+	lockall
+	getplayerxy VAR_0x8004, VAR_0x8005
+	copyvar VAR_0x8006, VAR_0x8004
+	subvar VAR_0x8006, 3
+	clearflag FLAG_HIDE_PETALBURG_CITY_WALLY
+	setobjectxyperm LOCALID_WALLY, VAR_0x8006, VAR_0x8005
+	addobject LOCALID_WALLY
+	applymovement LOCALID_WALLY, PetalburgCity_Movement_WallyRunUp
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	msgbox PetalburgCity_Text_WallyFocusSash, MSGBOX_DEFAULT
+	giveitem ITEM_FOCUS_SASH
+	setflag FLAG_RECEIVED_FOCUS_SASH_WALLY
+	msgbox PetalburgCity_Text_WallyFocusSashAfter, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_WALLY, PetalburgCity_Movement_WallyLeave
+	waitmovement 0
+	removeobject LOCALID_WALLY
+	setflag FLAG_HIDE_PETALBURG_CITY_WALLY
+	releaseall
+PetalburgCity_EventScript_WallyFocusSashEnd::
+	end
+
+PetalburgCity_Movement_WallyRunUp:
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+PetalburgCity_Movement_WallyLeave:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+PetalburgCity_Text_WallyFocusSash:
+	.string "WALLY: Um… excuse me! You're a\n"
+	.string "TRAINER, right?\p"
+	.string "I'm WALLY. I want to be a TRAINER\n"
+	.string "too, someday…\p"
+	.string "My dad gave me this, but I don't have\n"
+	.string "any POKéMON yet. Please, take it!$"
+
+PetalburgCity_Text_WallyFocusSashAfter:
+	.string "If a POKéMON holding a FOCUS SASH has\n"
+	.string "full HP, it can survive any hit!\p"
+	.string "Good luck… I'll catch up to you\n"
+	.string "someday!$"
+
+PetalburgCity_EventScript_Gentleman_Gift::
+	goto_if_set FLAG_RECEIVED_SILK_SCARF_PETALBURG, PetalburgCity_EventScript_Gentleman_GiftDone
+	msgbox PetalburgCity_EventScript_Gentleman_Text_GiftIntro, MSGBOX_DEFAULT
+	giveitem ITEM_SILK_SCARF
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_SILK_SCARF_PETALBURG
+	msgbox PetalburgCity_EventScript_Gentleman_Text_GiftAfter, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_EventScript_Gentleman_GiftDone::
+	msgbox PetalburgCity_EventScript_Gentleman_Text_GiftDone, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_EventScript_Gentleman_Text_GiftIntro:
+	.string "Ah, a young TRAINER. Let me share\n"
+	.string "a little secret.\p"
+	.string "Some held items make moves of one\n"
+	.string "type hit harder.\p"
+	.string "A SILK SCARF boosts NORMAL-type\n"
+	.string "moves. Here, I'd like you to have it.$"
+
+PetalburgCity_EventScript_Gentleman_Text_GiftAfter:
+	.string "There are items like this for every\n"
+	.string "type. Keep an eye out for them!$"
+
+PetalburgCity_EventScript_Gentleman_Text_GiftDone:
+	.string "Type-boosting items are simple, but\n"
+	.string "they make a real difference.$"
 
 PetalburgCity_OnFrame:
 	map_script_2 VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_WallyTutorial
@@ -394,7 +479,9 @@ PetalburgCity_EventScript_CitySign::
 	end
 
 PetalburgCity_EventScript_Gentleman::
-	msgbox PetalburgCity_Text_FullPartyExplanation, MSGBOX_NPC
+	lock
+	faceplayer
+	goto PetalburgCity_EventScript_Gentleman_Gift
 	end
 
 PetalburgCity_EventScript_WallyHouseSign::

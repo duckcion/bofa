@@ -663,6 +663,16 @@ for s in split_sheets:
         loaded[s] = [t for t in loaded[s] if str(t["Trainer ID"]) not in moved_ids]
 loaded["Unassigned"] = route103 + loaded["Unassigned"]
 
+for t in loaded["Split 2"]:
+    tid = str(t["Trainer ID"])
+    if tid in plan.SPLIT2_ORDER:
+        t["Note"] = plan.SPLIT2_NOTES.get(tid)
+# Split 2 in play order: the listed trainers first, then everyone else by location
+loaded["Split 2"] = sorted(loaded["Split 2"], key=lambda t: (plan.SPLIT2_ORDER.get(str(t["Trainer ID"]), 99),
+                                                            loc_key(t["Location"]), str(t["Trainer ID"])))
+for i, t in enumerate(loaded["Split 2"]):
+    t["Order"] = i
+
 for s in split_sheets:
     write_split(s, loaded[s])
 
@@ -753,21 +763,62 @@ def plain_sheet(src, title, drop=(), widths=None, keep=None, df=None):
     ws.freeze_panes = "B2"
     ws.auto_filter.ref = f"A1:{get_column_letter(len(df.columns))}{len(df)+1}"
 
+def split_fixups(df):
+    if "Coords" in df.columns:
+        ys = df["Coords"].astype(str).str.extract(r"\(\s*\d+,\s*(\d+)\)")[0].astype(float)
+        south = (df["Map"] == "Route104") & (ys >= 41)
+        df.loc[south, "Split"] = "Split 1"
+        xs = df["Coords"].astype(str).str.extract(r"\(\s*(\d+),")[0].astype(float)
+        df = df.assign(Note=df["Note"] if "Note" in df.columns else "")
+        cut = (df["Map"] == "PetalburgWoods") & (((xs == 35) & (ys == 20)) | ((xs == 42) & (ys == 20)) | ((xs == 45) & (ys == 7)))
+        df.loc[cut, "Note"] = "Behind Cut trees - not reachable in Split 2"
+        later = ((df["Map"] == "Route116") & (xs >= 60)) | ((df["Map"] == "RusturfTunnel") & (ys >= 10))
+        df.loc[later, "Note"] = "Past Rusturf Tunnel - not reachable in Split 2"
+        surf = (df["Map"] == "Route103") & (xs >= 30)
+        df.loc[surf, "Note"] = "Across the water - needs Surf"
+    if "Item" in df.columns and "Method" in df.columns:
+        late = df["Method"].astype(str).str.startswith("Purchased") & df["Item"].isin(["Great Ball", "Timer Ball"])
+        df = df.assign(Note=df.get("Note", ""))
+        df.loc[late, "Note"] = "Only sold after Badge 2"
+    return df
+
+SPLIT_RANK = {**{f"Split {i}": i for i in range(1, 9)}, "Elite Four & Champion": 9, "Postgame": 10, "Unassigned": 11}
+METHOD_RANK = {"Item Ball": 0, "Hidden": 1, "Mart": 3, "Purchased": 3}
+
+def chrono_sort(df):
+    """Order rows the way a player meets them: split, then visit order of the map, then pickups before marts."""
+    def map_rank(split, mp):
+        order = plan.CHRONO_MAPS.get(split, [])
+        mp = str(mp)
+        if split in ("Split 2",) and mp.startswith("RustboroCity_Gym"):
+            return 90        # the gym comes last in Split 2
+        hits = [(len(prefix), i) for i, prefix in enumerate(order) if mp.startswith(prefix)]
+        if hits:
+            return max(hits)[1]          # longest matching name wins (PetalburgCity_Gym over PetalburgCity)
+        return 100 + loc_key(mp)[1]
+    keys = [(SPLIT_RANK.get(str(r["Split"]), 12), map_rank(str(r["Split"]), r["Map"]),
+             METHOD_RANK.get(str(r["Method"]).split(" (")[0], 2), str(r.get("Item", r.get("TM/HM", ""))))
+            for _, r in df.iterrows()]
+    df = df.assign(_k=keys).sort_values("_k", kind="stable").drop(columns="_k")
+    return df.reset_index(drop=True)
+
 def planned_item_locs():
-    df = rd("Item Locations")
+    df = split_fixups(rd("Item Locations"))
     for item, mp in plan.REMOVED_ITEMS:
         df = df[~((df["Item"] == item) & (df["Map"] == mp))]
-    df = df.assign(Note="")
     add = pd.DataFrame([{"Item": it, "Method": me, "Map": mp, "Split": sp, "Note": note}
                         for it, me, mp, sp, note in plan.NEW_ITEMS])
-    return pd.concat([add, df], ignore_index=True)
+    return chrono_sort(pd.concat([add, df], ignore_index=True))
 
 def planned_tm_locs():
-    df = rd("TM & HM Locations").assign(Note="")
-    add = pd.DataFrame([{"TM/HM": "HM06", "Move Taught": "Rock Smash", "Method": "Gift (end of forest)",
-                         "Map": "ViridianForest", "Split": "Split 1", "Coords": "(13, 1)",
-                         "Note": plan.PLAN_TAG + " - optional; Mauville City still gives one too"}])
-    return pd.concat([add, df], ignore_index=True)
+    df = split_fixups(rd("TM & HM Locations").assign(Note=""))
+    add = pd.DataFrame([{"TM/HM": t, "Move Taught": mv, "Method": how, "Map": mp, "Split": sp, "Note": note}
+                        for t, mv, how, mp, sp, note in (
+        ("HM06", "Rock Smash", "NPC gift (end of forest)", "ViridianForest", "Split 1", "Shares its flag with the Mauville gift"),
+        ("TM17", "Protect", "Gym reward (Norman), x1", "PetalburgCity_Gym", "Split 1", "Only single-copy TM"),
+        ("TM68", "Wing Attack", "NPC gift, x2", "RustboroCity", "Split 2", "New BOFA TM"),
+        ("TM39", "Rock Tomb", "Gym reward (Roxanne), x2", "RustboroCity_Gym", "Split 2", ""))])
+    return chrono_sort(pd.concat([add, df], ignore_index=True))
 
 def planned_gifts():
     df = rd("Gifts & Trades")

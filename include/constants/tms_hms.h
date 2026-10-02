@@ -67,7 +67,9 @@
     F(DAZZLING_GLEAM) \
     F(DRAGON_TAIL) \
     F(FOUL_PLAY) \
-    F(VOLT_SWITCH)
+    F(VOLT_SWITCH) \
+    F(STRUGGLE_BUG) \
+    F(WING_ATTACK)
 
 #define FOREACH_HM(F) \
     F(CUT) \

@@ -20,7 +20,7 @@ static u8 BerryTreeGetNumStagesWatered(struct BerryTree *tree);
 static u8 GetNumStagesWateredByBerryTreeId(u8 id);
 static u8 CalcBerryYieldInternal(u16 max, u16 min, u8 water);
 static u8 CalcBerryYield(struct BerryTree *tree);
-static u8 GetBerryCountByBerryTreeId(u8 id);
+static u16 GetBerryCountByBerryTreeId(u8 id);
 static u16 GetStageDurationByBerryType(u8);
 static u8 GetDrainRateByBerryType(u8);
 static u8 GetWaterBonusByBerryType(u8);
@@ -2075,9 +2075,21 @@ static u8 CalcBerryYield(struct BerryTree *tree)
     return result;
 }
 
-static u8 GetBerryCountByBerryTreeId(u8 id)
+// BOFA: the six basic berries are effectively unlimited (~900 per tree); everything else gives 255.
+static u16 GetBerryCountByBerryTreeId(u8 id)
 {
-    return 255;
+    switch (BerryTypeToItemId(GetBerryTypeByBerryTreeId(id)))
+    {
+    case ITEM_ORAN_BERRY:
+    case ITEM_CHERI_BERRY:
+    case ITEM_CHESTO_BERRY:
+    case ITEM_PECHA_BERRY:
+    case ITEM_PERSIM_BERRY:
+    case ITEM_ASPEAR_BERRY:
+        return 900;
+    default:
+        return 255;
+    }
 }
 
 static u16 GetStageDurationByBerryType(u8 berry)
@@ -2147,7 +2159,7 @@ void ObjectEventInteractionGetBerryCountString(void)
 {
     u8 treeId = GetObjectEventBerryTreeId(gSelectedObjectEvent);
     u8 berry = GetBerryTypeByBerryTreeId(treeId);
-    u8 count = GetBerryCountByBerryTreeId(treeId);
+    u16 count = GetBerryCountByBerryTreeId(treeId);
 
     gSpecialVar_0x8006 = BerryTypeToItemId(berry);
     CopyItemNameHandlePlural(BerryTypeToItemId(berry), gStringVar1, count);

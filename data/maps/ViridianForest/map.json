@@ -52,6 +52,19 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "ViridianForest_EventScript_Trainer3",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 0,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_FOCUS_BAND",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_VIRIDIAN_FOREST_FOCUS_BAND"
     }
   ],
   "warp_events": [
@@ -71,5 +84,14 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 7,
+      "y": 0,
+      "elevation": 3,
+      "item": "ITEM_CHILAN_BERRY",
+      "flag": "FLAG_HIDDEN_ITEM_VIRIDIAN_FOREST_CHILAN_BERRY"
+    }
+  ]
 }

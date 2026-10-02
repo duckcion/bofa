@@ -1,6 +1,7 @@
-.set LOCALID_BRINEY, 11
-.set LOCALID_SPLIT2_ROXANNE, 30
-.set LOCALID_WANDAS_BF_OUTSIDE, 21
+.set LOCALID_BRINEY, 9
+.set LOCALID_SPLIT2_ROXANNE, 20
+.set LOCALID_SIDNEY, 29
+.set LOCALID_WANDAS_BF_OUTSIDE, 15
 
 Route116_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route116_OnTransition
@@ -473,32 +474,236 @@ Route116_Text_TrainerTipsBagHasPockets:
 	.string "a BAG of their own.$"
 
 @ ---------------------------------------------------------------- Split 2
-@ Tiles (43,9)-(43,13) are the only way to the Rusturf Tunnel entrance at (47,8), so walking
-@ to the end of Route 116 always crosses this line. Entering the tunnel is not required.
-Route116_EventScript_Split2Roxanne::
-	setvar VAR_TEMP_1, 1
-	goto_if_set FLAG_ROUTE116_ROXANNE_FOUND, Route116_EventScript_Split2RoxanneDone
+@ Four double battles against two trainers each. Each fires when the player crosses a full column of
+@ tiles (x = 9, 21, 31, 37), so none can be skipped. Lv20. A loss re-arms the trigger.
+Route116_EventScript_Pair1::
+	setvar VAR_TEMP_2, 1
+	goto_if_defeated TRAINER_CLARK, Route116_EventScript_PairDone
 	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	msgbox Route116_Text_Split2Roxanne, MSGBOX_DEFAULT
+	msgbox Route116_Text_Pair1IntroA, MSGBOX_DEFAULT
+	msgbox Route116_Text_Pair1IntroB, MSGBOX_DEFAULT
 	closemessage
-	fadescreen FADE_TO_BLACK
-	removeobject LOCALID_SPLIT2_ROXANNE
-	setflag FLAG_HIDE_ROUTE_116_ROXANNE
-	setflag FLAG_ROUTE116_ROXANNE_FOUND
-	fadescreen FADE_FROM_BLACK
+	trainerbattle_two_trainers TRAINER_CLARK, Route116_Text_Pair1LoseA, TRAINER_ROUTE116_ETHAN, Route116_Text_Pair1LoseB
 	releaseall
 	end
 
-Route116_EventScript_Split2RoxanneDone::
+Route116_EventScript_Pair1A::
+	goto_if_not_defeated TRAINER_CLARK, Route116_EventScript_Pair1
+	msgbox Route116_Text_Pair1PostA, MSGBOX_NPC
 	end
 
-Route116_Text_Split2Roxanne:
-	.string "ROXANNE: Oh! Were you looking for me?\p"
-	.string "I came to see the tunnel for myself.\n"
-	.string "All this digging has been upsetting\l"
-	.string "the wild POKéMON.\p"
-	.string "But a challenger shouldn't be kept\n"
-	.string "waiting. I'll head back to the GYM.\p"
-	.string "I'll be ready for you in RUSTBORO!$"
+Route116_EventScript_Pair1B::
+	goto_if_not_defeated TRAINER_CLARK, Route116_EventScript_Pair1
+	msgbox Route116_Text_Pair1PostB, MSGBOX_NPC
+	end
+
+Route116_EventScript_Pair2::
+	setvar VAR_TEMP_3, 1
+	goto_if_defeated TRAINER_ROUTE116_DIANA, Route116_EventScript_PairDone
+	lockall
+	msgbox Route116_Text_Pair2IntroA, MSGBOX_DEFAULT
+	msgbox Route116_Text_Pair2IntroB, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_two_trainers TRAINER_ROUTE116_DIANA, Route116_Text_Pair2LoseA, TRAINER_ROUTE116_CHLOE, Route116_Text_Pair2LoseB
+	releaseall
+	end
+
+Route116_EventScript_Pair2A::
+	goto_if_not_defeated TRAINER_ROUTE116_DIANA, Route116_EventScript_Pair2
+	msgbox Route116_Text_Pair2PostA, MSGBOX_NPC
+	end
+
+Route116_EventScript_Pair2B::
+	goto_if_not_defeated TRAINER_ROUTE116_DIANA, Route116_EventScript_Pair2
+	msgbox Route116_Text_Pair2PostB, MSGBOX_NPC
+	end
+
+Route116_EventScript_Pair3::
+	setvar VAR_TEMP_4, 1
+	goto_if_defeated TRAINER_ROUTE116_PRESTON, Route116_EventScript_PairDone
+	lockall
+	msgbox Route116_Text_Pair3IntroA, MSGBOX_DEFAULT
+	msgbox Route116_Text_Pair3IntroB, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_two_trainers TRAINER_ROUTE116_PRESTON, Route116_Text_Pair3LoseA, TRAINER_ROUTE116_TASHA, Route116_Text_Pair3LoseB
+	releaseall
+	end
+
+Route116_EventScript_Pair3A::
+	goto_if_not_defeated TRAINER_ROUTE116_PRESTON, Route116_EventScript_Pair3
+	msgbox Route116_Text_Pair3PostA, MSGBOX_NPC
+	end
+
+Route116_EventScript_Pair3B::
+	goto_if_not_defeated TRAINER_ROUTE116_PRESTON, Route116_EventScript_Pair3
+	msgbox Route116_Text_Pair3PostB, MSGBOX_NPC
+	end
+
+Route116_EventScript_Pair4::
+	setvar VAR_TEMP_5, 1
+	goto_if_defeated TRAINER_ROUTE116_COLE, Route116_EventScript_PairDone
+	lockall
+	msgbox Route116_Text_Pair4IntroA, MSGBOX_DEFAULT
+	msgbox Route116_Text_Pair4IntroB, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_two_trainers TRAINER_ROUTE116_COLE, Route116_Text_Pair4LoseA, TRAINER_ROUTE116_MAYA, Route116_Text_Pair4LoseB
+	releaseall
+	end
+
+Route116_EventScript_Pair4A::
+	goto_if_not_defeated TRAINER_ROUTE116_COLE, Route116_EventScript_Pair4
+	msgbox Route116_Text_Pair4PostA, MSGBOX_NPC
+	end
+
+Route116_EventScript_Pair4B::
+	goto_if_not_defeated TRAINER_ROUTE116_COLE, Route116_EventScript_Pair4
+	msgbox Route116_Text_Pair4PostB, MSGBOX_NPC
+	end
+
+Route116_EventScript_PairDone::
+	end
+
+@ Far end of Route 116 (x = 43, rows 9-13): Roxanne and Sidney are talking. Roxanne heads back to her gym,
+@ Sidney battles. Beating Sidney sets FLAG_ROUTE116_ROXANNE_FOUND, which opens Rustboro Gym.
+@ Roxanne's hide flag is only set after the win, so a loss replays the whole scene.
+Route116_EventScript_Split2Roxanne::
+	setvar VAR_TEMP_1, 1
+	goto_if_set FLAG_ROUTE116_ROXANNE_FOUND, Route116_EventScript_PairDone
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	msgbox Route116_Text_RoxanneSidneyTalk, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_SPLIT2_ROXANNE
+	fadescreen FADE_FROM_BLACK
+	msgbox Route116_Text_SidneyChallenge, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_SIDNEY_ROUTE116, Route116_Text_SidneyDefeat
+	msgbox Route116_Text_SidneyAfter, MSGBOX_DEFAULT
+	setflag FLAG_HIDE_ROUTE_116_ROXANNE
+	setflag FLAG_ROUTE116_ROXANNE_FOUND
+	releaseall
+	end
+
+Route116_EventScript_Sidney::
+	goto_if_unset FLAG_ROUTE116_ROXANNE_FOUND, Route116_EventScript_Split2Roxanne
+	msgbox Route116_Text_SidneyPost, MSGBOX_NPC
+	end
+
+Route116_Text_Pair1IntroA:
+	.string "CLARK: Watch your step! The sand\n"
+	.string "out here gets everywhere.$"
+
+Route116_Text_Pair1IntroB:
+	.string "ETHAN: Me and CLARK are a team.\n"
+	.string "Think you can handle both of us?$"
+
+Route116_Text_Pair1LoseA:
+	.string "CLARK: Buried in my own sandstorm…$"
+
+Route116_Text_Pair1LoseB:
+	.string "ETHAN: Aww, we got dusted!$"
+
+Route116_Text_Pair1PostA:
+	.string "CLARK: Sandstorms wear down anyone\n"
+	.string "who isn't ready for them.$"
+
+Route116_Text_Pair1PostB:
+	.string "ETHAN: Next time I'm bringing\n"
+	.string "goggles.$"
+
+Route116_Text_Pair2IntroA:
+	.string "DIANA: Brr! Did it just start\n"
+	.string "hailing?$"
+
+Route116_Text_Pair2IntroB:
+	.string "CHLOE: That's us! Let's see how you\n"
+	.string "handle the cold!$"
+
+Route116_Text_Pair2LoseA:
+	.string "DIANA: We got snowed under…$"
+
+Route116_Text_Pair2LoseB:
+	.string "CHLOE: Totally wiped out!$"
+
+Route116_Text_Pair2PostA:
+	.string "DIANA: My SNOVER makes it hail the\n"
+	.string "moment it comes out.$"
+
+Route116_Text_Pair2PostB:
+	.string "CHLOE: Hail plus SLUSH RUSH is our\n"
+	.string "favorite trick.$"
+
+Route116_Text_Pair3IntroA:
+	.string "PRESTON: We've been expecting you.\n"
+	.string "Our minds are already linked.$"
+
+Route116_Text_Pair3IntroB:
+	.string "TASHA: Hehehe… Everything's about to\n"
+	.string "get turned upside down…$"
+
+Route116_Text_Pair3LoseA:
+	.string "PRESTON: I didn't foresee that…$"
+
+Route116_Text_Pair3LoseB:
+	.string "TASHA: The spirits are displeased…$"
+
+Route116_Text_Pair3PostA:
+	.string "PRESTON: In TRICK ROOM, the slowest\n"
+	.string "POKéMON strike first.$"
+
+Route116_Text_Pair3PostB:
+	.string "TASHA: Sweet dreams turn into\n"
+	.string "nightmares so easily… Hehehe.$"
+
+Route116_Text_Pair4IntroA:
+	.string "COLE: You've beaten everyone on this\n"
+	.string "route so far. Not bad.$"
+
+Route116_Text_Pair4IntroB:
+	.string "MAYA: Let's see how you do against\n"
+	.string "real teamwork.$"
+
+Route116_Text_Pair4LoseA:
+	.string "COLE: You read every move we made.$"
+
+Route116_Text_Pair4LoseB:
+	.string "MAYA: That's some serious skill.$"
+
+Route116_Text_Pair4PostA:
+	.string "COLE: No tricks, just good POKéMON\n"
+	.string "covering each other.$"
+
+Route116_Text_Pair4PostB:
+	.string "MAYA: Double battles are all about\n"
+	.string "your partner. Remember that.$"
+
+Route116_Text_RoxanneSidneyTalk:
+	.string "ROXANNE: …so the tunnel work really is\n"
+	.string "scaring off the wild POKéMON.\p"
+	.string "SIDNEY: Told you. Somebody had to come\n"
+	.string "see it for themselves.\p"
+	.string "ROXANNE: Oh! A challenger? You came all\n"
+	.string "the way out here to find me?\p"
+	.string "I'm sorry for leaving the GYM. I'll head\n"
+	.string "back to RUSTBORO right away.\p"
+	.string "SIDNEY: Go on, ROXANNE. I'll keep this\n"
+	.string "one busy.$"
+
+Route116_Text_SidneyChallenge:
+	.string "SIDNEY: So you're the kid tearing\n"
+	.string "through every TRAINER on this route.\p"
+	.string "Before you go knocking on ROXANNE's\n"
+	.string "door, let's see if you've really got it.$"
+
+Route116_Text_SidneyDefeat:
+	.string "Heh! Now that's what I call a battle!$"
+
+Route116_Text_SidneyAfter:
+	.string "SIDNEY: Alright, you've got guts.\p"
+	.string "ROXANNE's waiting for you in RUSTBORO.\n"
+	.string "Go give her a good fight.$"
+
+Route116_Text_SidneyPost:
+	.string "SIDNEY: What are you still doing here?\n"
+	.string "ROXANNE's GYM is back in RUSTBORO.$"

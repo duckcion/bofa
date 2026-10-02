@@ -6,6 +6,7 @@ RustboroCity_Mart_EventScript_Clerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
+	goto_if_set FLAG_BADGE02_GET, RustboroCity_Mart_EventScript_PokemartBadge2
 	goto_if_unset FLAG_MET_DEVON_EMPLOYEE, RustboroCity_Mart_EventScript_PokemartBasic
 	goto_if_set FLAG_MET_DEVON_EMPLOYEE, RustboroCity_Mart_EventScript_PokemartExpanded
 	end
@@ -40,7 +41,6 @@ RustboroCity_Mart_EventScript_PokemartExpanded::
 	.align 2
 RustboroCity_Mart_Pokemart_Expanded:
 	.2byte ITEM_POKE_BALL
-	.2byte ITEM_TIMER_BALL
 	.2byte ITEM_REPEAT_BALL
 	.2byte ITEM_POTION
 	.2byte ITEM_SUPER_POTION
@@ -84,3 +84,27 @@ RustboroCity_Mart_Text_GettingEscapeRopeJustInCase:
 	.string "I just need to use it to get back to\n"
 	.string "the entrance.$"
 
+@ BOFA: Great Balls and Timer Balls join the stock once the player has Badge 2.
+RustboroCity_Mart_EventScript_PokemartBadge2::
+	pokemart RustboroCity_Mart_Pokemart_Badge2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+RustboroCity_Mart_Pokemart_Badge2:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_REPEL
+	.2byte ITEM_X_SPEED
+	.2byte ITEM_X_ATTACK
+	.2byte ITEM_X_DEFENSE
+	.2byte ITEM_RARE_CANDY
+	pokemartlistend

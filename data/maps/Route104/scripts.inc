@@ -1,6 +1,6 @@
 @ NOTE: Route 104's sail to Dewford script references local IDs from Dewford's map.
 @  These are labeled in DewfordTown/scripts.inc
-.set LOCALID_RIVAL, 34
+.set LOCALID_RIVAL, 33
 
 Route104_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route104_OnFrame
@@ -262,16 +262,16 @@ Route104_EventScript_ExpertF::
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_CHESTO_BERRY_ROUTE_104, Route104_EventScript_ReceivedBerry
-	msgbox Route104_Text_PlantBerriesInSoilTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_CHESTO_BERRY
+	msgbox Route104_Text_ExpertBlackBelt, MSGBOX_DEFAULT
+	giveitem ITEM_BLACK_BELT
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_CHESTO_BERRY_ROUTE_104
-	msgbox Route104_Text_TrainersOftenMakeMonHoldBerries, MSGBOX_DEFAULT
+	msgbox Route104_Text_ExpertBlackBeltAfter, MSGBOX_DEFAULT
 	release
 	end
 
 Route104_EventScript_ReceivedBerry::
-	msgbox Route104_Text_TrainersOftenMakeMonHoldBerries, MSGBOX_DEFAULT
+	msgbox Route104_Text_ExpertBlackBeltAfter, MSGBOX_DEFAULT
 	release
 	end
 
@@ -996,7 +996,9 @@ Route104_EventScript_Mia::
 
 Route104_EventScript_Darian::
 	trainerbattle_single TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat
-	msgbox Route104_Text_DarianPostBattle, MSGBOX_AUTOCLOSE
+	lock
+	faceplayer
+	goto Route104_EventScript_Darian_Gift
 	end
 
 Route104_Text_BrineyLivesInSeasideCottage:
@@ -1205,6 +1207,8 @@ Route104_EventScript_Split1Norman::
 	goto_if_not_defeated TRAINER_GRUNT_ROUTE_104_MAGMA, Route104_EventScript_Split1NormanBusy
 	goto_if_not_defeated TRAINER_GRUNT_ROUTE_104_AQUA, Route104_EventScript_Split1NormanBusy
 	msgbox Route104_Text_Split1NormanQuest, MSGBOX_DEFAULT
+	msgbox Route104_Text_Split1NormanGreatBalls, MSGBOX_DEFAULT
+	giveitem ITEM_GREAT_BALL, 5
 	closemessage
 	setvar VAR_SPLIT1_STATE, 1
 	fadescreen FADE_TO_BLACK
@@ -1265,3 +1269,61 @@ Route104_Text_Split1NormanQuest:
 Route104_EventScript_OpenPetalburgWoods::
 	setflag FLAG_PETALBURG_WOODS_UNLOCKED
 	return
+
+@ Route 104 North: Aroma Lady (uses the woman at (16,22) that previously had no script)
+Route104_EventScript_AromaLadyFlora::
+	trainerbattle_single TRAINER_ROUTE104_AROMA_LADY, Route104_Text_FloraIntro, Route104_Text_FloraDefeat
+	msgbox Route104_Text_FloraPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route104_Text_FloraIntro:
+	.string "My flowers love the sunshine,\n"
+	.string "and so do my POKéMON!$"
+
+Route104_Text_FloraDefeat:
+	.string "Oh dear, my petals are wilting…$"
+
+Route104_Text_FloraPostBattle:
+	.string "A sunny day makes every flower\n"
+	.string "bloom a little brighter.$"
+
+Route104_EventScript_Darian_Gift::
+	goto_if_set FLAG_RECEIVED_MYSTIC_WATER_DARIAN, Route104_EventScript_Darian_GiftDone
+	msgbox Route104_EventScript_Darian_Text_GiftIntro, MSGBOX_DEFAULT
+	giveitem ITEM_MYSTIC_WATER
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_MYSTIC_WATER_DARIAN
+	msgbox Route104_EventScript_Darian_Text_GiftAfter, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_Darian_GiftDone::
+	msgbox Route104_EventScript_Darian_Text_GiftDone, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_Darian_Text_GiftIntro:
+	.string "Not bad! You fish for battles like\n"
+	.string "a pro.\p"
+	.string "Here, take this. Water-type moves get\n"
+	.string "stronger when a POKéMON holds it.$"
+
+Route104_EventScript_Darian_Text_GiftAfter:
+	.string "That's MYSTIC WATER. Give it to your\n"
+	.string "best Water-type.$"
+
+Route104_EventScript_Darian_Text_GiftDone:
+	.string "The fish are biting today. Water-type\n"
+	.string "POKéMON love MYSTIC WATER.$"
+
+Route104_Text_Split1NormanGreatBalls:
+	.string "Oh, and take these GREAT BALLS.\n"
+	.string "You can't buy them around here yet.$"
+
+Route104_Text_ExpertBlackBelt:
+	.string "Hm! You have the eyes of a fighter.\n"
+	.string "Take this BLACK BELT.$"
+
+Route104_Text_ExpertBlackBeltAfter:
+	.string "A POKéMON holding a BLACK BELT hits\n"
+	.string "harder with FIGHTING-type moves.$"

@@ -47,9 +47,9 @@ SPLIT1_TRAINERS = [
      "note": "Gym Ace Trainer. Girafarig intentionally has three moves."},
     {"order": 16, "from_id": "TRAINER_NORMAN_1", "loc": "PetalburgCity_Gym", "status": "REQUIRED"},
     # Optional: Viridian Forest
-    {"order": 20, "from_id": "TRAINER_VIRIDIAN_FOREST_1", "loc": "ViridianForest_Optional", "status": "Opt-in",
+    {"order": 11.1, "from_id": "TRAINER_VIRIDIAN_FOREST_1", "loc": "ViridianForest_Optional", "status": "Opt-in",
      "note": "Bug Catcher. Team finalized."},
-    {"order": 21, "from_id": "TRAINER_VIRIDIAN_FOREST_3", "loc": "ViridianForest_Optional", "status": "Opt-in",
+    {"order": 11.2, "from_id": "TRAINER_VIRIDIAN_FOREST_3", "loc": "ViridianForest_Optional", "status": "Opt-in",
      "note": "Gen 1 specialist. Beedrill intentionally has only Leech Life + Poison Sting."},
 ]
 
@@ -89,14 +89,26 @@ GIFTS = {
     "johto_gift_note": "Free gift - choose one (not a trade). Littleroot Town Starter Room, after the Pokédex.",
 }
 
+# NPC gifts and rewards (the doc generator only sees item balls, hidden items and marts).
 NEW_ITEMS = [
     # item, method, map, split, note
-    ("Everstone", "Item Ball", "PetalburgCoast", "Split 1",
-     "Replaces the Oval Stone; Norman's quest item."),
-    ("HM Rock Smash", "Gift (end of forest)", "ViridianForest", "Split 1",
-     "Optional; shares its flag with the Mauville City gift, so it is only given once."),
+    ("HM Rock Smash", "NPC gift (end of forest)", "ViridianForest", "Split 1", "Shares its flag with the Mauville gift."),
+    ("Mystic Water", "NPC gift (Fisherman Darian, after battle)", "Route104", "Split 1", "Route 104 South"),
+    ("Great Ball x5", "NPC gift (Norman, with the Everstone quest)", "Route104", "Split 1", "Route 104 South"),
+    ("Miracle Seed", "NPC gift (Picnicker Maisie, after battle)", "TrainerGrove", "Split 1", ""),
+    ("Silk Scarf", "NPC gift (Gentleman)", "PetalburgCity", "Split 1", "Explains type-boosting held items"),
+    ("Focus Sash", "NPC gift (Wally runs up on first entering Petalburg)", "PetalburgCity", "Split 1",
+     "The only Focus Sash in Splits 1-2"),
+    ("TM Protect x1", "Gym reward (Norman)", "PetalburgCity_Gym", "Split 1", "Only TM given as a single copy"),
+    ("Charcoal", "NPC gift (camper boy)", "PetalburgWoods", "Split 2", ""),
+    ("Black Belt", "NPC gift (Expert)", "Route104", "Split 2", "Route 104 North"),
+    ("Magnet", "NPC gift (Devon employee)", "RustboroCity_DevonCorp_1F", "Split 2", ""),
+    ("TM68 Wing Attack x2", "NPC gift (boy)", "RustboroCity", "Split 2", "New BOFA TM"),
+    ("Hard Stone", "NPC gift (tunneler)", "Route116_TunnelersRestHouse", "Split 2", ""),
+    ("Twisted Spoon", "NPC gift (Gym guide)", "RustboroCity_Gym", "Split 2", ""),
+    ("TM Rock Tomb x2", "Gym reward (Roxanne)", "RustboroCity_Gym", "Split 2", ""),
 ]
-REMOVED_ITEMS = [("Oval Stone", "PetalburgCoast")]
+REMOVED_ITEMS = []
 
 # Still open, or places the build differs from the original plan.
 FLAGS = [
@@ -123,11 +135,57 @@ SPLIT2_PROGRESSION = [
     (3, "Route 104 (north)", "Path to Rustboro", "Existing trainers (unchanged)", "-", "In ROM"),
     (4, "Rustboro City", "NPC blocks the gym door (27,19): Roxanne went to Route 116", "-",
      "Blocker steps aside to (28,20) once FLAG_ROUTE116_ROXANNE_FOUND is set", PLAN_TAG),
-    (5, "Route 116 (east end)", "Meet Roxanne by the Rusturf Tunnel entrance; she heads back to her gym",
-     "Existing trainers (unchanged)", "Trigger line x=43, y=9-13 sets FLAG_ROUTE116_ROXANNE_FOUND; "
-     "Rusturf Tunnel stays optional", PLAN_TAG),
+    (5, "Route 116", "Four double battles, each against two trainers, on unavoidable trigger lines",
+     "Clark & Ethan (x=9), Diana & Chloe (x=21), Preston & Tasha (x=31), Cole & Maya (x=37); all Lv20",
+     "Old Route 116 trainers removed", PLAN_TAG),
+    (5.5, "Route 116 (east end)", "Roxanne and Sidney talking; Roxanne heads back, Sidney battles",
+     "Sidney (Lv22, Lunatone Lv24)", "Beating Sidney (line x=43) sets FLAG_ROUTE116_ROXANNE_FOUND; Rusturf Tunnel stays optional",
+     PLAN_TAG),
     (6, "Rustboro Gym", "Gym trainers + Roxanne -> Badge 2", "Existing (unchanged)", "FLAG_BADGE02_GET", "In ROM"),
 ]
 
 # Trainers whose map objects were removed; their data is unused, so the docs skip them.
-REMOVED_FROM_MAP = ["TRAINER_LYLE", "TRAINER_VIRIDIAN_FOREST_2", "TRAINER_TRAINERGROVET4", "TRAINER_PETALBURGCOAST_1"]
+REMOVED_FROM_MAP = ["TRAINER_LYLE", "TRAINER_IVAN", "TRAINER_JOEY", "TRAINER_JOSE", "TRAINER_JANICE",
+                    "TRAINER_KAREN_1", "TRAINER_JERRY_1", "TRAINER_SARAH", "TRAINER_DAWSON", "TRAINER_JOHNSON",
+                    "TRAINER_DEVAN", "TRAINER_VIRIDIAN_FOREST_2", "TRAINER_TRAINERGROVET4", "TRAINER_PETALBURGCOAST_1"]
+
+# Play order for the Split 2 trainer sheet (trainer ID -> position); others follow by location.
+SPLIT2_ORDER = {
+    "TRAINER_JAMES_1": 1, "TRAINER_GRUNT_PETALBURG_WOODS": 2, "TRAINER_GRUNT_PETALBURG_WOODS_2": 3,
+    "TRAINER_GRUNT_PETALBURG_WOODS_3": 4, "TRAINER_WINSTON_1": 5, "TRAINER_ROUTE104_AROMA_LADY": 6,
+    "TRAINER_GINA_AND_MIA_1": 7, "TRAINER_HALEY_1": 8,
+    "TRAINER_CLARK": 9, "TRAINER_ROUTE116_ETHAN": 10, "TRAINER_ROUTE116_DIANA": 11, "TRAINER_ROUTE116_CHLOE": 12,
+    "TRAINER_ROUTE116_PRESTON": 13, "TRAINER_ROUTE116_TASHA": 14, "TRAINER_ROUTE116_COLE": 15,
+    "TRAINER_ROUTE116_MAYA": 16, "TRAINER_SIDNEY_ROUTE116": 17,
+    "TRAINER_JOSH": 18, "TRAINER_TOMMY": 19, "TRAINER_MARC": 20, "TRAINER_ROXANNE_1": 21,
+}
+SPLIT2_NOTES = {
+    "TRAINER_JAMES_1": "Wildlife Expert. Mandatory (sight line can't be avoided).",
+    "TRAINER_GRUNT_PETALBURG_WOODS": "Aqua Grunt #1 - the idealist. Mandatory.",
+    "TRAINER_GRUNT_PETALBURG_WOODS_2": "Aqua Grunt #2 - the pragmatist. Mandatory. Trubbish leads for Toxic Spikes.",
+    "TRAINER_GRUNT_PETALBURG_WOODS_3": "Aqua Grunt #3 - the hardliner. Mandatory.",
+    "TRAINER_WINSTON_1": "Mandatory (by the woods exit). Persian intentionally knows only Pay Day.",
+    "TRAINER_ROUTE104_AROMA_LADY": "Mandatory (by the woods exit). Cherubi leads; Petilil's Hidden Power is Fire (IVs).",
+    "TRAINER_GINA_AND_MIA_1": "Double battle, mandatory. Plusle + Blitzle lead (Discharge into Motor Drive).",
+    "TRAINER_HALEY_1": "Strongest Route 104 North trainer, mandatory. Munchlax last (Belly Drum + Gluttony + Salac).",
+    "TRAINER_CLARK": "Route 116 double #1 (Sand) with Camper Ethan - trigger line x=9. Mandatory.",
+    "TRAINER_ROUTE116_ETHAN": "Route 116 double #1 (Sand) with Hiker Clark.",
+    "TRAINER_ROUTE116_DIANA": "Route 116 double #2 (Hail) with Skier Chloe - trigger line x=21. Mandatory.",
+    "TRAINER_ROUTE116_CHLOE": "Route 116 double #2 (Hail). Skier is a new class; uses the Lass sprite (no Skier art).",
+    "TRAINER_ROUTE116_PRESTON": "Route 116 double #3 (Trick Room) with Hex Maniac Tasha - trigger line x=31. Mandatory.",
+    "TRAINER_ROUTE116_TASHA": "Route 116 double #3 (Trick Room). Parasect Fake Out + Spore support.",
+    "TRAINER_ROUTE116_COLE": "Route 116 double #4 (Balanced) with Ace Trainer Maya - trigger line x=37. Mandatory.",
+    "TRAINER_ROUTE116_MAYA": "Route 116 double #4 (Balanced).",
+    "TRAINER_SIDNEY_ROUTE116": "Route 116 boss after the Roxanne/Sidney scene (x=43). Beating him opens Rustboro Gym.",
+    "TRAINER_JOSH": "Rustboro Gym trainer #1.",
+    "TRAINER_TOMMY": "Rustboro Gym trainer #2. Sudowoodo intentionally has two moves.",
+    "TRAINER_MARC": "Rustboro Gym trainer #3 (sand). Crustle leads and knows only Sandstorm.",
+    "TRAINER_ROXANNE_1": "Gym Leader. Barbaracle Lv26 is the ace.",
+}
+
+# Visit order used to sort the Item / TM location tabs (map name prefixes; first match wins).
+CHRONO_MAPS = {
+    "Split 1": ["LittlerootTown", "StarterRoom", "Route101", "OldaleTown", "Route103", "Route102", "PetalburgCity_Mart",
+                "PetalburgCity", "Route104", "TrainerGrove", "PetalburgCoast", "ViridianForest", "PetalburgCity_Gym"],
+    "Split 2": ["PetalburgWoods", "Route104", "RustboroCity_Gym", "RustboroCity", "Route116", "RusturfTunnel"],
+}

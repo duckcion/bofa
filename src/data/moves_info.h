@@ -6585,17 +6585,18 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = COMPOUND_STRING("Memento"),
         .description = COMPOUND_STRING(
-            "The user faints and lowers\n"
-            "the foe's abilities."),
-        .effect = EFFECT_MEMENTO,
+            "Inflicts severe damage but\n"
+            "makes the user faint."),
+        // BOFA: a 255 BP Special "Dark Explosion" against one target.
+        .effect = EFFECT_EXPLOSION,
         .power = 255,
         .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_STATUS,
-        .zMove = { .effect = Z_EFFECT_RESTORE_REPLACEMENT_HP },
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .parentalBondBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_GREAT_APPEAL_BUT_NO_MORE_MOVES,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = 0,

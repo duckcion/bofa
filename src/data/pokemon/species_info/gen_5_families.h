@@ -705,7 +705,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     [SPECIES_PATRAT] =
     {
         .baseHP        = 51,
-        .baseAttack    = 55,
+        .baseAttack    = 65,
         .baseDefense   = 52,
         .baseSpeed     = 57,
         .baseSpAttack  = 38,

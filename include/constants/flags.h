@@ -61,27 +61,27 @@
 #define FLAG_PETALBURG_COAST_CORPHISH    0x2F // Split 1: one-time beach Corphish on Petalburg Coast
 #define FLAG_ROUTE116_ROXANNE_FOUND    0x30 // Split 2: reached the end of Route 116 by Rusturf Tunnel and met Roxanne; opens Rustboro Gym
 #define FLAG_HIDE_ROUTE_116_ROXANNE    0x31 // Split 2: Roxanne by Rusturf Tunnel, hidden once she heads back to her gym
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
-#define FLAG_UNUSED_0x039    0x39 // Unused Flag
-#define FLAG_UNUSED_0x03A    0x3A // Unused Flag
-#define FLAG_UNUSED_0x03B    0x3B // Unused Flag
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
-#define FLAG_UNUSED_0x03E    0x3E // Unused Flag
-#define FLAG_UNUSED_0x03F    0x3F // Unused Flag
-#define FLAG_UNUSED_0x040    0x40 // Unused Flag
-#define FLAG_UNUSED_0x041    0x41 // Unused Flag
-#define FLAG_UNUSED_0x042    0x42 // Unused Flag
-#define FLAG_UNUSED_0x043    0x43 // Unused Flag
-#define FLAG_UNUSED_0x044    0x44 // Unused Flag
-#define FLAG_UNUSED_0x045    0x45 // Unused Flag
-#define FLAG_UNUSED_0x046    0x46 // Unused Flag
+#define FLAG_RECEIVED_MYSTIC_WATER_DARIAN    0x32 // Splits 1-2 item pass
+#define FLAG_RECEIVED_SILK_SCARF_PETALBURG    0x33 // Splits 1-2 item pass
+#define FLAG_RECEIVED_FOCUS_SASH_WALLY    0x34 // Splits 1-2 item pass
+#define FLAG_RECEIVED_MIRACLE_SEED_GROVE    0x35 // Splits 1-2 item pass
+#define FLAG_RECEIVED_MAGNET_DEVON    0x36 // Splits 1-2 item pass
+#define FLAG_RECEIVED_HARD_STONE_TUNNELER    0x37 // Splits 1-2 item pass
+#define FLAG_RECEIVED_TWISTED_SPOON_GYM    0x38 // Splits 1-2 item pass
+#define FLAG_RECEIVED_TM_WING_ATTACK_RUSTBORO    0x39 // Splits 1-2 item pass
+#define FLAG_ITEM_ROUTE_103_ULTRA_BALL    0x3A // Splits 1-2 item pass
+#define FLAG_ITEM_PETALBURG_COAST_QUICK_BALL    0x3B // Splits 1-2 item pass
+#define FLAG_ITEM_PETALBURG_COAST_LAGGING_TAIL    0x3C // Splits 1-2 item pass
+#define FLAG_ITEM_PETALBURG_COAST_TM_WATER_PULSE    0x3D // Splits 1-2 item pass
+#define FLAG_ITEM_VIRIDIAN_FOREST_FOCUS_BAND    0x3E // Splits 1-2 item pass
+#define FLAG_ITEM_ROUTE_104_TM_BULLET_SEED    0x3F // Splits 1-2 item pass
+#define FLAG_ITEM_ROUTE_104_TM_THIEF    0x40 // Splits 1-2 item pass
+#define FLAG_ITEM_ROUTE_116_SOFT_SAND    0x41 // Splits 1-2 item pass
+#define FLAG_ITEM_ROUTE_116_TM_GRASS_KNOT    0x42 // Splits 1-2 item pass
+#define FLAG_ITEM_RUSTURF_TUNNEL_SHELL_BELL    0x43 // Splits 1-2 item pass
+#define FLAG_ITEM_PETALBURG_WOODS_POISON_BARB    0x44 // Splits 1-2 item pass
+#define FLAG_ITEM_PETALBURG_WOODS_TM_STRUGGLE_BUG    0x45 // Splits 1-2 item pass
+#define FLAG_RECEIVED_CHARCOAL_PETALBURG_WOODS    0x46 // Splits 1-2 item pass
 #define FLAG_UNUSED_0x047    0x47 // Unused Flag
 #define FLAG_UNUSED_0x048    0x48 // Unused Flag
 #define FLAG_UNUSED_0x049    0x49 // Unused Flag
@@ -663,12 +663,12 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_110_SWAMPERTITE               (FLAG_HIDDEN_ITEMS_START + 0x74)
 #define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_SCEPTILITE           (FLAG_HIDDEN_ITEMS_START + 0x75)
 #define FLAG_HIDDEN_ITEM_ROUTE_112_BLAZIKENITE               (FLAG_HIDDEN_ITEMS_START + 0x76)
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
+#define FLAG_HIDDEN_ITEM_TRAINER_GROVE_QUICK_CLAW  (FLAG_HIDDEN_ITEMS_START + 0x77)
+#define FLAG_HIDDEN_ITEM_PETALBURG_COAST_HEART_SCALE  (FLAG_HIDDEN_ITEMS_START + 0x78)
+#define FLAG_HIDDEN_ITEM_VIRIDIAN_FOREST_CHILAN_BERRY  (FLAG_HIDDEN_ITEMS_START + 0x79)
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_SILVER_POWDER  (FLAG_HIDDEN_ITEMS_START + 0x7A)
+#define FLAG_HIDDEN_ITEM_RUSTURF_TUNNEL_SPELL_TAG  (FLAG_HIDDEN_ITEMS_START + 0x7B)
+#define FLAG_HIDDEN_ITEM_RUSTBORO_GYM_RARE_CANDY  (FLAG_HIDDEN_ITEMS_START + 0x7C)
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag
 #define FLAG_UNUSED_0x272  0x272 // Unused Flag
 #define FLAG_UNUSED_0x273  0x273 // Unused Flag

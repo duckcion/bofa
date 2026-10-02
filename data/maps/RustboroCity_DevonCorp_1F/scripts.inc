@@ -16,6 +16,7 @@ RustboroCity_DevonCorp_1F_EventScript_BlockStairs::
 RustboroCity_DevonCorp_1F_EventScript_Employee::
 	lock
 	faceplayer
+	goto_if_unset FLAG_RECEIVED_MAGNET_DEVON, RustboroCity_DevonCorp_1F_EventScript_Employee_Gift
 	goto_if_set FLAG_RETURNED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_GoodsRecovered
 	goto_if_set FLAG_DEVON_GOODS_STOLEN, RustboroCity_DevonCorp_1F_EventScript_RobberWasntBright
 	msgbox RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct, MSGBOX_DEFAULT
@@ -144,3 +145,32 @@ RustboroCity_DevonCorp_1F_Text_ProductDisplay:
 	.string "tools for POKéMON TRAINERS, including\l"
 	.string "POKé BALLS and POKéNAV systems.”$"
 
+
+RustboroCity_DevonCorp_1F_EventScript_Employee_Gift::
+	goto_if_set FLAG_RECEIVED_MAGNET_DEVON, RustboroCity_DevonCorp_1F_EventScript_Employee_GiftDone
+	msgbox RustboroCity_DevonCorp_1F_EventScript_Employee_Text_GiftIntro, MSGBOX_DEFAULT
+	giveitem ITEM_MAGNET
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_MAGNET_DEVON
+	msgbox RustboroCity_DevonCorp_1F_EventScript_Employee_Text_GiftAfter, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_DevonCorp_1F_EventScript_Employee_GiftDone::
+	msgbox RustboroCity_DevonCorp_1F_EventScript_Employee_Text_GiftDone, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_DevonCorp_1F_EventScript_Employee_Text_GiftIntro:
+	.string "Welcome to DEVON! We build everything\n"
+	.string "from shoes to POKéNAVS.\p"
+	.string "Here's a sample from our engineering\n"
+	.string "floor: a MAGNET.$"
+
+RustboroCity_DevonCorp_1F_EventScript_Employee_Text_GiftAfter:
+	.string "It powers up ELECTRIC-type moves.\n"
+	.string "Not bad for a free sample, huh?$"
+
+RustboroCity_DevonCorp_1F_EventScript_Employee_Text_GiftDone:
+	.string "DEVON's engineers use MAGNETS in\n"
+	.string "almost everything they build.$"

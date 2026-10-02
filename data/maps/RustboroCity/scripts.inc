@@ -1020,7 +1020,9 @@ RustboroCity_Movement_RivalApproachPlayer7:
 	step_end
 
 RustboroCity_EventScript_Boy1::
-	msgbox RustboroCity_Text_YouCanHave2On2Battle, MSGBOX_NPC
+	lock
+	faceplayer
+	goto RustboroCity_EventScript_Boy1_Gift
 	end
 
 RustboroCity_Text_WeShortenItToDevon:
@@ -1410,3 +1412,32 @@ RustboroCity_Text_Split2GymOpen:
 	.string "going back to their GYM.\p"
 	.string "What a concept.\p"
 	.string "Go on in.$"
+
+RustboroCity_EventScript_Boy1_Gift::
+	goto_if_set FLAG_RECEIVED_TM_WING_ATTACK_RUSTBORO, RustboroCity_EventScript_Boy1_GiftDone
+	msgbox RustboroCity_EventScript_Boy1_Text_GiftIntro, MSGBOX_DEFAULT
+	giveitem ITEM_TM_WING_ATTACK, 2
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_TM_WING_ATTACK_RUSTBORO
+	msgbox RustboroCity_EventScript_Boy1_Text_GiftAfter, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_EventScript_Boy1_GiftDone::
+	msgbox RustboroCity_EventScript_Boy1_Text_GiftDone, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_EventScript_Boy1_Text_GiftIntro:
+	.string "I watch the bird POKéMON fly over\n"
+	.string "RUSTBORO every day.\p"
+	.string "Here, take these. They teach WING\n"
+	.string "ATTACK!$"
+
+RustboroCity_EventScript_Boy1_Text_GiftAfter:
+	.string "I got two, so you can teach it to\n"
+	.string "two POKéMON.$"
+
+RustboroCity_EventScript_Boy1_Text_GiftDone:
+	.string "Bird POKéMON are so cool when they\n"
+	.string "swoop in with WING ATTACK!$"

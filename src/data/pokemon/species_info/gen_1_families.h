@@ -5295,6 +5295,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_FAMILY_ODDISH
     [SPECIES_ODDISH] =
     {
+        .itemCommon = ITEM_SUN_STONE,
+        .itemRare = ITEM_SUN_STONE,
         .baseHP        = 45,
         .baseAttack    = 50,
         .baseDefense   = 55,
@@ -5305,7 +5307,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .catchRate = 255,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 64 : 78,
         .evYield_SpAttack = 1,
-        .itemRare = ITEM_ABSORB_BULB,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,

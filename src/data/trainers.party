@@ -231,9 +231,50 @@ Music: Aqua
 Double Battle: No
 AI: Smart Trainer
 
-Poochyena
-Level: 9
+Lotad @ Damp Rock
+Level: 17
+Ability: Rain Dish
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Rain Dance
+- Giga Drain
+- Scald
+- Leech Seed
+
+Buizel @ Mystic Water
+Level: 17
+Ability: Swift Swim
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Aqua Jet
+- Waterfall
+- Ice Fang
+- Rock Smash
+
+Ducklett @ Oran Berry
+Level: 17
+Ability: Hydration
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Scald
+- Air Slash
+- Icy Wind
+- Roost
+
+Whirlipede @ Poison Barb
+Level: 17
+Ability: Poison Point
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Poison Tail
+- Bug Bite
+- Rock Slide
+- Protect
+
+Clauncher @ Mystic Water
+Level: 17
+Ability: Mega Launcher
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Water Pulse
+- Aura Sphere
+- Ice Beam
+- Aqua Jet
 
 === TRAINER_MARCEL ===
 Name: MARCEL
@@ -2623,9 +2664,38 @@ Items: Full Restore
 Double Battle: No
 AI: Smart Trainer
 
-Zigzagoon @ Nugget
-Level: 7
+Persian @ Amulet Coin
+Level: 18
+Ability: Technician
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Pay Day
+
+Combusken @ Charcoal
+Level: 18
+Ability: Speed Boost
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Bulk Up
+- Flame Charge
+- Double Kick
+- Quick Attack
+
+Roselia @ Black Sludge
+Level: 18
+Ability: Natural Cure
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Giga Drain
+- Sludge Bomb
+- Leech Seed
+- Stun Spore
+
+Onix @ Hard Stone
+Level: 18
+Ability: Sturdy
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Rock Slide
+- Bulldoze
+- Dragon Tail
+- Explosion
 
 === TRAINER_MOLLIE ===
 Name: MOLLIE
@@ -4894,41 +4964,59 @@ Items: Super Potion / Super Potion
 Double Battle: No
 AI: Smart Trainer
 
-Geodude @ Hard Stone
-Level: 20
+Nosepass @ Smooth Rock
+Level: 24
+Ability: Sturdy
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stealth Rock
+- Rock Slide
+- Explosion
+- Volt Switch
+
+Archen @ Flying Gem
+Level: 24
+Ability: Defeatist
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Acrobatics
+- Rock Slide
+- U-turn
+- Endeavor
+
+Gabite @ Eviolite
+Level: 24
 Ability: Rough Skin
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Rock Throw
-- Dig
-- Headbutt
-- Karate Chop
+- Earthquake
+- Dragon Claw
+- Flamethrower
+- Crunch
 
-Geodude @ Rocky Helmet
-Level: 21
-Ability: Rough Skin
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Rock Throw
-- Mud Bomb
-- Headbutt
-- Self-Destruct
-
-Aron @ Life Orb
-Level: 22
-Ability: Rock Head
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Iron Head
-- Headbutt
-- Take Down
-- Flash Cannon
-
-Nosepass @ Wide Lens
-Level: 23
+Magcargo @ Charcoal
+Level: 25
 Ability: Solid Rock
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Flamethrower
+- Ancient Power
+- Earth Power
+- Recover
+
+Gligar @ Eviolite
+Level: 25
+Ability: Hyper Cutter
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Swords Dance
+- Earthquake
+- Aerial Ace
 - Rock Slide
-- Iron Head
-- Seismic Toss
-- Headbutt
+
+Barbaracle @ Rindo Berry
+Level: 26
+Ability: Tough Claws
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hone Claws
+- Razor Shell
+- Rock Slide
+- Shadow Claw
 
 === TRAINER_BRAWLY_1 ===
 Name: BRAWLY
@@ -5101,7 +5189,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Knock Off
 - Bulk Up
 
-Slaking @ Sitrus Berry
+Slaking @ Lum Berry
 Level: 16
 Ability: Slow Start
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
@@ -6159,31 +6247,41 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Geodude @ Hard Stone
-Level: 18
-Ability: Rough Skin
+Boldore @ Hard Stone
+Level: 22
+Ability: Sturdy
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Rock Throw
-- Headbutt
-- Karate Chop
-- Dig
-
-Geodude @ Rocky Helmet
-Level: 18
-Ability: Rough Skin
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Rock Throw
-- Mud Bomb
-- Headbutt
-- Self-Destruct
-
-Nosepass @ Sitrus Berry
-Level: 18
-Ability: Solid Rock
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Headbutt
 - Rock Slide
-- Seismic Toss
+- Bulldoze
+- Rock Blast
+- Protect
+
+Golbat @ Oran Berry
+Level: 22
+Ability: Inner Focus
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Wing Attack
+- Poison Fang
+- Bite
+- Heat Wave
+
+Amaura @ Never-Melt Ice
+Level: 22
+Ability: Refrigerate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Ancient Power
+- Aurora Beam
+- Return
+- Round
+
+Lairon @ Eviolite
+Level: 22
+Ability: Rock Head
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Slide
+- Iron Head
+- Bulldoze
+- Roar
 
 === TRAINER_TOMMY ===
 Name: TOMMY
@@ -6195,32 +6293,48 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Geodude @ Hard Stone
-Level: 19
-Ability: Rough Skin
+Omanyte @ Mystic Water
+Level: 22
+Ability: Swift Swim
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Rock Throw
-- Headbutt
-- Karate Chop
-- Dig
+- Ancient Power
+- Water Pulse
+- Mud Shot
+- Protect
 
-Geodude @ Rocky Helmet
-Level: 19
-Ability: Rough Skin
+Anorith @ Silver Powder
+Level: 22
+Ability: Battle Armor
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Rock Throw
-- Mud Bomb
-- Headbutt
-- Self-Destruct
-
-Nosepass @ Sitrus Berry
-Level: 19
-Ability: Solid Rock
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Headbutt
 - Rock Slide
-- Seismic Toss
-- Iron Head
+- X-Scissor
+- Aqua Jet
+- Metal Claw
+
+Yanma @ Oran Berry
+Level: 22
+Ability: Speed Boost
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Air Cutter
+- Bug Buzz
+- Ancient Power
+- Detect
+
+Sudowoodo @ Sitrus Berry
+Level: 22
+Ability: Rock Head
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Wood Hammer
+- Rock Slide
+
+Tyrunt @ Hard Stone
+Level: 22
+Ability: Strong Jaw
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Tomb
+- Bite
+- Dragon Tail
+- Fire Fang
 
 === TRAINER_JOEY ===
 Name: JOEY
@@ -9054,13 +9168,30 @@ Music: Twins
 Double Battle: Yes
 AI: Smart Trainer
 
-Seedot
-Level: 6
+Plusle @ Electric Gem
+Level: 18
+Ability: Plus
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Discharge
+- Helping Hand
+- Grass Knot
 
-Lotad
-Level: 6
+Blitzle @ Focus Sash
+Level: 18
+Ability: Motor Drive
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Spark
+- Flame Charge
+- Stomp
+
+Minun @ Magnet
+Level: 18
+Ability: Minus
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Discharge
+- Follow Me
+- Thunder Wave
+- Light Screen
 
 === TRAINER_MIU_AND_YUKI ===
 Name: MIU & YUKI
@@ -10809,32 +10940,47 @@ Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Geodude @ Hard Stone
-Level: 20
-Ability: Rough Skin
+Crustle @ Smooth Rock
+Level: 22
+Ability: Sturdy
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Rock Throw
-- Headbutt
-- Karate Chop
-- Dig
+- Sandstorm
 
-Geodude @ Rocky Helmet
-Level: 20
-Ability: Rough Skin
+Cacturne @ Sitrus Berry
+Level: 22
+Ability: Sand Veil
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Rock Throw
-- Mud Bomb
-- Headbutt
-- Self-Destruct
+- Needle Arm
+- Feint Attack
+- Sucker Punch
+- Leech Seed
 
-Nosepass @ Sitrus Berry
-Level: 20
-Ability: Solid Rock
+Lileep @ Sitrus Berry
+Level: 22
+Ability: Storm Drain
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Headbutt
+- Ancient Power
+- Mega Drain
+- Acid
+- Recover
+
+Sandslash @ Soft Sand
+Level: 22
+Ability: Sand Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bulldoze
 - Rock Slide
-- Seismic Toss
-- Iron Head
+- Slash
+- X-Scissor
+
+Skarmory @ Sharp Beak
+Level: 22
+Ability: Keen Eye
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Aerial Ace
+- Steel Wing
+- Rock Slide
+- Spikes
 
 === TRAINER_BRENDEN ===
 Name: BRENDEN
@@ -11366,13 +11512,50 @@ Music: Female
 Double Battle: No
 AI: Smart Trainer
 
-Lotad
-Level: 6
+Flaaffy @ Magnet
+Level: 19
+Ability: Static
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Shock Wave
+- Power Gem
+- Thunder Wave
+- Cotton Spore
 
-Shroomish
-Level: 6
+Haunter @ Spell Tag
+Level: 19
+Ability: Levitate
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Shadow Ball
+- Sludge Bomb
+- Confuse Ray
+- Will-O-Wisp
+
+Kirlia @ Twisted Spoon
+Level: 19
+Ability: Trace
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Psybeam
+- Draining Kiss
+- Magical Leaf
+- Memento
+
+Piloswine @ Soft Sand
+Level: 19
+Ability: Thick Fat
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Ice Shard
+- Bulldoze
+- Rock Slide
+- Take Down
+
+Munchlax @ Salac Berry
+Level: 19
+Ability: Gluttony
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Belly Drum
+- Body Slam
+- Rock Tomb
+- Bite
 
 === TRAINER_JANICE ===
 Name: JANICE
@@ -11687,20 +11870,48 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JAMES_1 ===
 Name: JAMES
-Class: Bug Catcher
-Pic: Bug Catcher
+Class: Expert
+Pic: Expert M
 Gender: Male
-Music: Male
+Music: Hiker
 Double Battle: No
 AI: Smart Trainer
 
-Nincada
-Level: 6
+Skiddo @ Oran Berry
+Level: 17
+Ability: Sap Sipper
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Seed Bomb
+- Leech Seed
+- Bulldoze
+- Rock Slide
 
-Nincada
-Level: 6
+Nincada @ Soft Sand
+Level: 17
+Ability: Compound Eyes
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- X-Scissor
+- Dig
+- Aerial Ace
+- Metal Claw
+
+Hoothoot @ Oran Berry
+Level: 17
+Ability: Insomnia
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Air Slash
+- Psybeam
+- Hypnosis
+- Reflect
+
+Kecleon @ Sitrus Berry
+Level: 17
+Ability: Color Change
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Shadow Sneak
+- Rock Smash
+- Feint Attack
+- Ice Punch
 
 === TRAINER_JAMES_2 ===
 Name: JAMES
@@ -11880,9 +12091,32 @@ Music: Hiker
 Double Battle: No
 AI: Smart Trainer
 
-Geodude
-Level: 8
+Hippopotas @ Smooth Rock
+Level: 20
+Ability: Sand Stream
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Bulldoze
+- Rock Slide
+- Yawn
+- Protect
+
+Maractus @ Oran Berry
+Level: 20
+Ability: Storm Drain
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Mega Drain
+- Mud Shot
+- Leech Seed
+- Pin Missile
+
+Darumaka @ Sitrus Berry
+Level: 20
+Ability: Hustle
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Belly Drum
+- Fire Punch
+- Rock Slide
+- Protect
 
 === TRAINER_ERIC ===
 Name: ERIC
@@ -18500,10 +18734,41 @@ Music: Aqua
 Double Battle: No
 AI: Smart Trainer
 
-Poochyena
-Level: 9
+Trubbish @ Oran Berry
+Level: 18
+Ability: Aftermath
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Toxic Spikes
+- Sludge Bomb
+- Acid Spray
+- Protect
 
+Slowpoke @ Eviolite
+Level: 18
+Ability: Regenerator
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Scald
+- Psyshock
+- Slack Off
+- Yawn
+
+Ferroseed @ Oran Berry
+Level: 18
+Ability: Iron Barbs
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Leech Seed
+- Gyro Ball
+- Protect
+- Bullet Seed
+
+Frillish @ Sitrus Berry
+Level: 18
+Ability: Water Absorb
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Scald
+- Hex
+- Will-O-Wisp
+- Recover
 
 === TRAINER_GRUNT_PETALBURG_WOODS_3 ===
 Name: GRUNT
@@ -18514,6 +18779,371 @@ Music: Aqua
 Double Battle: No
 AI: Smart Trainer
 
-Poochyena
-Level: 9
+Qwilfish @ Black Sludge
+Level: 18
+Ability: Intimidate
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Waterfall
+- Poison Jab
+- Aqua Jet
+- Thunder Wave
+
+Scraggy @ Eviolite
+Level: 18
+Ability: Moxie
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Drain Punch
+- Crunch
+- Fake Out
+- Rock Slide
+
+Skrelp @ Oran Berry
+Level: 18
+Ability: Poison Point
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Sludge Bomb
+- Scald
+- Icy Wind
+- Thunderbolt
+
+Magneton @ Magnet
+Level: 18
+Ability: Sturdy
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Shock Wave
+- Mirror Shot
+- Thunder Wave
+- Sonic Boom
+
+Murkrow @ Scope Lens
+Level: 18
+Ability: Super Luck
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Wing Attack
+- Night Slash
+- Sucker Punch
+- Confuse Ray
+
+=== TRAINER_ROUTE104_AROMA_LADY ===
+Name: FLORA
+Class: Aroma Lady
+Pic: Aroma Lady
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Smart Trainer
+
+Cherubi @ Heat Rock
+Level: 18
+Ability: Chlorophyll
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Sunny Day
+- Magical Leaf
+- Weather Ball
+- Morning Sun
+
+Petilil @ Miracle Seed
+Level: 18
+Ability: Chlorophyll
+IVs: 1 HP / 1 Atk / 1 Def / 0 SpA / 1 SpD / 0 Spe
+- Giga Drain
+- Sleep Powder
+- Hidden Power
+- Growth
+
+Combee @ Silver Powder
+Level: 18
+Ability: Hustle
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Bug Bite
+- Air Cutter
+- Tailwind
+- Endeavor
+
+Spritzee @ Oran Berry
+Level: 18
+Ability: Aroma Veil
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Draining Kiss
+- Psybeam
+- Calm Mind
+- Sweet Kiss
+
+Swirlix @ Sitrus Berry
+Level: 18
+Ability: Unburden
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Draining Kiss
+- Energy Ball
+- Flamethrower
+- Cotton Spore
+
+=== TRAINER_ROUTE116_ETHAN ===
+Name: ETHAN
+Class: Camper
+Pic: Camper
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Smart Trainer
+
+Drilbur @ Soft Sand
+Level: 20
+Ability: Sand Rush
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Dig
+- Rock Slide
+- X-Scissor
+- Hone Claws
+
+Sigilyph @ Oran Berry
+Level: 20
+Ability: Magic Guard
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Psybeam
+- Air Cutter
+- Tailwind
+- Light Screen
+
+=== TRAINER_ROUTE116_DIANA ===
+Name: DIANA
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Music: Girl
+Double Battle: No
+AI: Smart Trainer
+
+Snover @ Icy Rock
+Level: 20
+Ability: Snow Warning
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Icy Wind
+- Magical Leaf
+- Leech Seed
+- Protect
+
+Vanillite @ Focus Sash
+Level: 20
+Ability: Snow Cloak
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Blizzard
+- Icy Wind
+- Acid Armor
+- Protect
+
+Spheal @ Eviolite
+Level: 20
+Ability: Thick Fat
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Aurora Beam
+- Water Pulse
+- Yawn
+- Protect
+
+=== TRAINER_ROUTE116_CHLOE ===
+Name: CHLOE
+Class: Skier
+Pic: Lass
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Smart Trainer
+
+Cubchoo @ Never-Melt Ice
+Level: 20
+Ability: Slush Rush
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Ice Punch
+- Aqua Jet
+- Rock Smash
+- Protect
+
+Porygon2 @ Chople Berry
+Level: 20
+Ability: Thick Fat
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Psybeam
+- Tri Attack
+- Icy Wind
+- Recover
+
+=== TRAINER_ROUTE116_PRESTON ===
+Name: PRESTON
+Class: Psychic
+Pic: Psychic M
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Smart Trainer
+
+Duosion @ Eviolite
+Level: 20
+Ability: Magic Guard
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Trick Room
+- Psybeam
+- Helping Hand
+- Recover
+
+Drowzee @ Twisted Spoon
+Level: 20
+Ability: Bad Dreams
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Hypnosis
+- Dream Eater
+- Zen Headbutt
+- Drain Punch
+
+=== TRAINER_ROUTE116_TASHA ===
+Name: TASHA
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Music: Suspicious
+Double Battle: No
+AI: Smart Trainer
+
+Parasect @ Sitrus Berry
+Level: 20
+Ability: Effect Spore
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Fake Out
+- Seed Bomb
+- Leech Life
+- Spore
+
+Lampent @ Charcoal
+Level: 20
+Ability: Flash Fire
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Flame Burst
+- Hex
+- Will-O-Wisp
+- Protect
+
+=== TRAINER_ROUTE116_COLE ===
+Name: COLE
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Cool
+Double Battle: No
+AI: Smart Trainer
+
+Pawniard @ Eviolite
+Level: 20
+Ability: Defiant
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Sucker Punch
+- Metal Claw
+- Low Sweep
+- Protect
+
+Klang @ Eviolite
+Level: 20
+Ability: Clear Body
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Gear Grind
+- Rock Slide
+- Volt Switch
+- Protect
+
+Misdreavus @ Spell Tag
+Level: 20
+Ability: Levitate
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Shadow Ball
+- Icy Wind
+- Will-O-Wisp
+- Protect
+
+=== TRAINER_ROUTE116_MAYA ===
+Name: MAYA
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Music: Cool
+Double Battle: No
+AI: Smart Trainer
+
+Timburr @ Sitrus Berry
+Level: 20
+Ability: Guts
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Drain Punch
+- Mach Punch
+- Rock Slide
+- Knock Off
+
+Doduo @ Sharp Beak
+Level: 20
+Ability: Early Bird
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Drill Peck
+- Quick Attack
+- Jump Kick
+- Protect
+
+=== TRAINER_SIDNEY_ROUTE116 ===
+Name: SIDNEY
+Class: Elite Four
+Pic: Elite Four Sidney
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Smart Trainer
+
+Mightyena @ Sitrus Berry
+Level: 22
+Ability: Intimidate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Crunch
+- Rock Smash
+- Swagger
+- Roar
+
+Vullaby @ Eviolite
+Level: 22
+Ability: Overcoat
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Pluck
+- Foul Play
+- Roost
+- Toxic
+
+Deino @ Wide Lens
+Level: 22
+Ability: Hustle
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bite
+- Dragon Breath
+- Earth Power
+- Flamethrower
+
+Krokorok @ Soft Sand
+Level: 22
+Ability: Intimidate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bulldoze
+- Crunch
+- Rock Tomb
+- Taunt
+
+Scraggy @ Eviolite
+Level: 22
+Ability: Moxie
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Drain Punch
+- Crunch
+- Fake Out
+- Rock Tomb
+
+Lunatone @ Sitrus Berry
+Level: 24
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Ancient Power
+- Psybeam
+- Aurora Beam
+- Cosmic Power
