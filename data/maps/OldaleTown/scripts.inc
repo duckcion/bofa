@@ -399,3 +399,29 @@ OldaleTown_Text_TownSign:
 	.string "OLDALE TOWN\n"
 	.string "“Where things start off scarce.”$"
 
+OldaleTown_EventScript_GoodRodFisherman::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_GOOD_ROD, OldaleTown_EventScript_ReceivedGoodRod
+	msgbox OldaleTown_Text_TakeThisGoodRod, MSGBOX_DEFAULT
+	giveitem ITEM_GOOD_ROD
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_GOOD_ROD
+	msgbox OldaleTown_Text_GoodRodExplain, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_EventScript_ReceivedGoodRod::
+	msgbox OldaleTown_Text_GoodRodExplain, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Text_TakeThisGoodRod:
+	.string "Starting out on your journey, kid?\p"
+	.string "Then you'll want one of these.\n"
+	.string "Here, take my spare GOOD ROD!$"
+
+OldaleTown_Text_GoodRodExplain:
+	.string "Face any water and use the GOOD ROD.\p"
+	.string "Every town and route has its own fish,\n"
+	.string "so try your luck everywhere you go!$"

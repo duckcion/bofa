@@ -92,6 +92,7 @@ GIFTS = {
 # NPC gifts and rewards (the doc generator only sees item balls, hidden items and marts).
 NEW_ITEMS = [
     # item, method, map, split, note
+    ("Good Rod", "NPC gift (Fisherman)", "OldaleTown", "Split 1", "Shares its flag with the Route 118 gift."),
     ("HM Rock Smash", "NPC gift (end of forest)", "ViridianForest", "Split 1", "Shares its flag with the Mauville gift."),
     ("Mystic Water", "NPC gift (Fisherman Darian, after battle)", "Route104", "Split 1", "Route 104 South"),
     ("Great Ball x5", "NPC gift (Norman, with the Everstone quest)", "Route104", "Split 1", "Route 104 South"),
