@@ -4806,13 +4806,17 @@ Route105_Text_TessPostBattle::
 	.string "I'll train it up properly soon.$"
 
 Route106_Text_MiloIntro::
-	.string "Hey, wanna battle real quick?$"
+	.string "You made it through GRANITE CAVE?\n"
+	.string "Then you're ready for a real test\l"
+	.string "before DEWFORD. Show me!$"
 
 Route106_Text_MiloDefeated::
-	.string "Whoa, guess I need more practice.$"
+	.string "Hah! You read every one of my\n"
+	.string "POKéMON. Impressive.$"
 
 Route106_Text_MiloPostBattle::
-	.string "Catch you around!$"
+	.string "BRAWLY hits even harder than I do.\n"
+	.string "Rest up in DEWFORD first.$"
 
 GraniteShore_Text_DeaconIntro::
 	.string "Whoa, a trainer! Let's go!$"
