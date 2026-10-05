@@ -136,6 +136,32 @@
       "trainer_sight_or_berry_tree_id": "ITEM_DUSK_STONE",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_WRAITHWOOD_DUSK_STONE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 3,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_SACHET",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_WRAITHWOOD_SACHET"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 22,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_WHIPPED_DREAM",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_WRAITHWOOD_WHIPPED_DREAM"
     }
   ],
   "warp_events": [

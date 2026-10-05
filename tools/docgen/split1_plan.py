@@ -220,7 +220,10 @@ CHRONO_MAPS = {
 }
 
 # Wild-encounter maps whose split the generic split model can't infer (new/custom maps)
-ENCOUNTER_SPLIT = {"MAP_TRAINER_GROVE": "Split 1", "MAP_PETALBURG_COAST": "Split 1", "MAP_LOST_CAVE": "Split 2"}
+ENCOUNTER_SPLIT = {"MAP_TRAINER_GROVE": "Split 1", "MAP_PETALBURG_COAST": "Split 1", "MAP_LOST_CAVE": "Split 2",
+                   "MAP_RUSTURF_TUNNEL": "Split 2", "MAP_WRAITHWOOD_FOREST": "Split 3", "MAP_HOLLOWBROOK": "Split 3",
+                   "MAP_GRANITE_CAVE_B2F": "Split 3", "MAP_GRANITE_CAVE_B1F": "Split 3", "MAP_GRANITE_CAVE_1F": "Split 3",
+                   "MAP_GRANITE_CAVE_STEVENS_ROOM": "Split 3", "MAP_DEWFORD_TOWN": "Split 3", "MAP_ROUTE106": "Split 3"}
 
 
 # ---------------------------------------------------------------- fight order, Splits 1-3

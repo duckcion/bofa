@@ -15,7 +15,11 @@ static const struct CustomLandRates sCustomLandRates[] =
     { MAP_LOST_CAVE,                 { 15, 15, 13, 12, 12, 9, 7, 6, 6, 5, 0, 0 } },
     { MAP_ROUTE116,                  { 18, 16, 14, 12, 12, 10, 8, 5, 5, 0, 0, 0 } },
     { MAP_GRANITE_CAVE_1F,           { 18, 17, 15, 12, 10, 10, 7, 5, 4, 2, 0, 0 } },
-    { MAP_GRANITE_CAVE_B1F,          { 18, 17, 15, 12, 10, 10, 7, 5, 4, 2, 0, 0 } },
-    { MAP_GRANITE_CAVE_B2F,          { 18, 17, 15, 12, 10, 10, 7, 5, 4, 2, 0, 0 } },
+    { MAP_GRANITE_CAVE_B1F,          { 20, 20, 14, 12, 10, 8, 6, 5, 3, 2, 0, 0 } },
+    { MAP_GRANITE_CAVE_B2F,          { 20, 20, 14, 12, 10, 8, 6, 5, 3, 2, 0, 0 } },
     { MAP_GRANITE_CAVE_STEVENS_ROOM, { 18, 17, 15, 12, 10, 10, 7, 5, 4, 2, 0, 0 } },
+    { MAP_RUSTURF_TUNNEL,             { 20, 20, 12, 10, 10, 8, 7, 5, 5, 3, 0, 0 } },
+    { MAP_WRAITHWOOD_FOREST,          { 17, 15, 14, 12, 10, 9, 8, 7, 6, 2, 0, 0 } },
+    { MAP_HOLLOWBROOK,                { 14, 14, 14, 12, 11, 10, 9, 8, 5, 3, 0, 0 } },
+    { MAP_DEWFORD_TOWN,               { 18, 15, 15, 12, 10, 8, 7, 6, 5, 4, 0, 0 } },
 };
