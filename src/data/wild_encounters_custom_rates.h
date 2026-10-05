@@ -10,6 +10,7 @@ struct CustomLandRates
 
 static const struct CustomLandRates sCustomLandRates[] =
 {
+    { MAP_PETALBURG_WOODS,           { 20, 17, 15, 12, 10, 8, 6, 5, 4, 3, 0, 0 } },
     { MAP_RUSTBORO_CITY,             { 20, 20, 15, 15, 10, 8, 5, 3, 2, 2, 0, 0 } },
     { MAP_LOST_CAVE,                 { 15, 15, 13, 12, 12, 9, 7, 6, 6, 5, 0, 0 } },
     { MAP_ROUTE116,                  { 18, 16, 14, 12, 12, 10, 8, 5, 5, 0, 0, 0 } },

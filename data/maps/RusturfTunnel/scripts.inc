@@ -5,6 +5,7 @@
 .equ LOCALID_WANDA, 10
 
 RusturfTunnel_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, RusturfTunnel_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, RusturfTunnel_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, RusturfTunnel_OnFrame
 	.byte 0
@@ -13,6 +14,15 @@ RusturfTunnel_OnFrame:
 	map_script_2 VAR_RUSTURF_TUNNEL_STATE, 4, RusturfTunnel_EventScript_ClearTunnelScene
 	map_script_2 VAR_RUSTURF_TUNNEL_STATE, 5, RusturfTunnel_EventScript_ClearTunnelScene
 	.2byte 0
+
+@ The doorway the Aqua grunt escapes through only opens once he's been beaten.
+RusturfTunnel_OnLoad:
+	call_if_defeated TRAINER_GRUNT_RUSTURF_TUNNEL, RusturfTunnel_EventScript_OpenGruntDoorway
+	end
+
+RusturfTunnel_EventScript_OpenGruntDoorway::
+	setmetatile 4, 0, 0x214, FALSE
+	return
 
 RusturfTunnel_OnTransition:
 	call_if_eq VAR_RUSTURF_TUNNEL_STATE, 2, RusturfTunnel_EventScript_SetAquaGruntAndPeekoPos
@@ -308,12 +318,14 @@ RusturfTunnel_EventScript_Grunt::
 	playbgm MUS_ENCOUNTER_AQUA, FALSE
 	msgbox RusturfTunnel_Text_GruntIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_GRUNT_RUSTURF_TUNNEL, RusturfTunnel_Text_GruntDefeat
-	msgbox RusturfTunnel_Text_GruntTakePackage, MSGBOX_DEFAULT
-	giveitem ITEM_DEVON_PARTS
+	msgbox RusturfTunnel_Text_GruntDontChaseMe, MSGBOX_DEFAULT
 	closemessage
+	setmetatile 4, 0, 0x214, FALSE
+	special DrawWholeMapView
 	applymovement OBJ_EVENT_ID_PLAYER, RusturfTunnel_Movement_PushPlayerAsideForGrunt
-	applymovement LOCALID_GRUNT, RusturfTunnel_Movement_GruntEscape
-	waitmovement 0
+	call_if_eq VAR_RUSTURF_TUNNEL_STATE, 3, RusturfTunnel_EventScript_GruntEscapeFrom14
+	call_if_ne VAR_RUSTURF_TUNNEL_STATE, 3, RusturfTunnel_EventScript_GruntEscapeFrom13
+	playse SE_EXIT
 	removeobject LOCALID_GRUNT
 	delay 50
 	addobject LOCALID_BRINEY
@@ -530,4 +542,40 @@ RusturfTunnel_Text_MikePostBattle:
 	.string "They halted development here to\n"
 	.string "protect POKéMON, right?\l"
 	.string "There's a feel-good story!$"
+
+@ The grunt runs west along the tunnel, up the side passage and out through the doorway at (4,0).
+RusturfTunnel_EventScript_GruntEscapeFrom14::
+	applymovement LOCALID_GRUNT, RusturfTunnel_Movement_GruntRunToDoorway14
+	waitmovement 0
+	return
+
+RusturfTunnel_EventScript_GruntEscapeFrom13::
+	applymovement LOCALID_GRUNT, RusturfTunnel_Movement_GruntRunToDoorway13
+	waitmovement 0
+	return
+
+RusturfTunnel_Movement_GruntRunToDoorway14:
+	walk_fast_left
+RusturfTunnel_Movement_GruntRunToDoorway13:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_up
+	step_end
+
+RusturfTunnel_Text_GruntDontChaseMe:
+	.string "Bah! Keep your stupid bird!\p"
+	.string "And don't you dare chase me, kid!\n"
+	.string "Where I'm going is none of your\l"
+	.string "business!$"
 

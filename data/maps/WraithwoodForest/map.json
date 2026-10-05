@@ -78,15 +78,15 @@
       "x": 8,
       "y": 28,
       "elevation": 0,
-      "dest_map": "MAP_GRANITE_CAVE_B2F",
-      "dest_warp_id": "5"
+      "dest_map": "MAP_RUSTURF_TUNNEL",
+      "dest_warp_id": "3"
     },
     {
       "x": 9,
       "y": 28,
       "elevation": 0,
-      "dest_map": "MAP_GRANITE_CAVE_B2F",
-      "dest_warp_id": "5"
+      "dest_map": "MAP_RUSTURF_TUNNEL",
+      "dest_warp_id": "3"
     },
     {
       "x": 12,
@@ -103,10 +103,6 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

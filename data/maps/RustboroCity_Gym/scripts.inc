@@ -17,7 +17,15 @@ RustboroCity_Gym_EventScript_RoxanneDefeated::
 	msgbox RustboroCity_Gym_Text_StoneBadgeInfoTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_RUSTBORO_GYM
 	setflag FLAG_BADGE02_GET
-	setvar VAR_RUSTBORO_CITY_STATE, 1
+	@ BOFA: no Devon Goods theft. Team Aqua now holds Peeko in Rusturf Tunnel; Briney waits on Route 116.
+	setvar VAR_RUSTBORO_CITY_STATE, 3
+	setvar VAR_RUSTURF_TUNNEL_STATE, 2
+	setvar VAR_ROUTE116_STATE, 1
+	clearflag FLAG_HIDE_ROUTE_116_MR_BRINEY
+	clearflag FLAG_HIDE_RUSTURF_TUNNEL_PEEKO
+	clearflag FLAG_HIDE_RUSTURF_TUNNEL_AQUA_GRUNT
+	setflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
+	setflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
 	addvar VAR_PETALBURG_GYM_STATE, 1
 	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers

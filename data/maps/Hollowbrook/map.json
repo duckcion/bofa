@@ -52,8 +52,8 @@
       "x": 9,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_HOLLOWBROOK_SHACK",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_GRANITE_CAVE_B2F",
+      "dest_warp_id": "5"
     },
     {
       "x": 11,
@@ -70,10 +70,6 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

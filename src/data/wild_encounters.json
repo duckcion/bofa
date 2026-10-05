@@ -2033,7 +2033,22 @@
               {
                 "min_level": 11,
                 "max_level": 11,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 12,
+                "max_level": 12,
                 "species": "SPECIES_VENIPEDE"
+              },
+              {
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_DUSTOX"
+              },
+              {
+                "min_level": 12,
+                "max_level": 12,
+                "species": "SPECIES_FOONGUS"
               },
               {
                 "min_level": 11,
@@ -2043,47 +2058,32 @@
               {
                 "min_level": 12,
                 "max_level": 12,
-                "species": "SPECIES_PARAS"
+                "species": "SPECIES_KARRABLAST"
+              },
+              {
+                "min_level": 12,
+                "max_level": 12,
+                "species": "SPECIES_SHELMET"
+              },
+              {
+                "min_level": 12,
+                "max_level": 12,
+                "species": "SPECIES_PINECO"
               },
               {
                 "min_level": 11,
                 "max_level": 11,
-                "species": "SPECIES_NINCADA"
+                "species": "SPECIES_COMBEE"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_PINECO"
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_COMBEE"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_FOONGUS"
-              },
-              {
-                "min_level": 12,
-                "max_level": 12,
-                "species": "SPECIES_KARRABLAST"
-              },
-              {
-                "min_level": 12,
-                "max_level": 12,
-                "species": "SPECIES_SHELMET"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_FOONGUS"
-              },
-              {
-                "min_level": 12,
-                "max_level": 12,
-                "species": "SPECIES_KARRABLAST"
-              },
-              {
-                "min_level": 12,
-                "max_level": 12,
-                "species": "SPECIES_SHELMET"
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_COMBEE"
               }
             ]
           }
