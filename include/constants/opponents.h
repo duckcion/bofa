@@ -898,6 +898,11 @@
 #define TRAINER_ROUTE116_COLE                   891
 #define TRAINER_ROUTE116_MAYA                   892
 #define TRAINER_SIDNEY_ROUTE116                 893
+#define TRAINER_WRAITHWOOD_GRUNT_1              894
+#define TRAINER_WRAITHWOOD_GRUNT_2              895
+#define TRAINER_WRAITHWOOD_GRUNT_3              896
+#define TRAINER_WRAITHWOOD_GRUNT_4              897
+#define TRAINER_ARCHIE_WRAITHWOOD               898
 
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, trainer ID space is capped by MAX_TRAINERS_COUNT
@@ -908,7 +913,7 @@
 //       (336 new free slots: 864-1199). This DOES shift every flag number after TRAINER_FLAGS_END and grows the save block by
 //       ~42 bytes, so any existing save files / savestates from before this change are no longer compatible -- start a fresh save.
 
-#define TRAINERS_COUNT                      894
+#define TRAINERS_COUNT                      899
 #define MAX_TRAINERS_COUNT                  1200
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
 

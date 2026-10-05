@@ -4,6 +4,8 @@
 // must be edited. Content below is a raw passthrough block.
 
 raw `
+.set LOCALID_ARCHIE, 5
+
 WraithwoodForest_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, WraithwoodForest_OnTransition
 	.byte 0
@@ -149,5 +151,114 @@ WraithwoodForest_Text_RufusRegister:
 
 WraithwoodForest_Text_RufusRematchIntro:
 	.string "RUFUS: Fancy another round?$"
+
+@ ---- Split 3: Team Aqua in Wraithwood (Grunt #5 not designed yet)
+WraithwoodForest_EventScript_Grunt1::
+	trainerbattle_single TRAINER_WRAITHWOOD_GRUNT_1, WraithwoodForest_Text_Grunt1Intro, WraithwoodForest_Text_Grunt1Defeat
+	msgbox WraithwoodForest_Text_Grunt1Post, MSGBOX_AUTOCLOSE
+	end
+
+WraithwoodForest_EventScript_Grunt2::
+	trainerbattle_single TRAINER_WRAITHWOOD_GRUNT_2, WraithwoodForest_Text_Grunt2Intro, WraithwoodForest_Text_Grunt2Defeat
+	msgbox WraithwoodForest_Text_Grunt2Post, MSGBOX_AUTOCLOSE
+	end
+
+WraithwoodForest_EventScript_Grunt3::
+	trainerbattle_single TRAINER_WRAITHWOOD_GRUNT_3, WraithwoodForest_Text_Grunt3Intro, WraithwoodForest_Text_Grunt3Defeat
+	msgbox WraithwoodForest_Text_Grunt3Post, MSGBOX_AUTOCLOSE
+	end
+
+WraithwoodForest_EventScript_Grunt4::
+	trainerbattle_single TRAINER_WRAITHWOOD_GRUNT_4, WraithwoodForest_Text_Grunt4Intro, WraithwoodForest_Text_Grunt4Defeat
+	msgbox WraithwoodForest_Text_Grunt4Post, MSGBOX_AUTOCLOSE
+	end
+
+@ Archie stands in the north exit; stepping onto either exit tile starts the battle.
+WraithwoodForest_EventScript_ArchieTrigger::
+	goto_if_defeated TRAINER_ARCHIE_WRAITHWOOD, WraithwoodForest_EventScript_ArchieEnd
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	goto WraithwoodForest_EventScript_ArchieBattle
+
+WraithwoodForest_EventScript_Archie::
+	lockall
+	faceplayer
+WraithwoodForest_EventScript_ArchieBattle::
+	playbgm MUS_ENCOUNTER_AQUA, FALSE
+	msgbox WraithwoodForest_Text_ArchieIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_ARCHIE_WRAITHWOOD, WraithwoodForest_Text_ArchieDefeat
+	msgbox WraithwoodForest_Text_ArchiePost, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_ARCHIE
+	setflag FLAG_HIDE_WRAITHWOOD_ARCHIE
+	fadescreen FADE_FROM_BLACK
+	releaseall
+	end
+
+WraithwoodForest_EventScript_ArchieEnd::
+	end
+
+WraithwoodForest_Text_Grunt1Intro:
+	.string "Lost, kid? This forest swallows\n"
+	.string "people whole. Team Aqua's business\l"
+	.string "here is none of yours!$"
+
+WraithwoodForest_Text_Grunt1Defeat:
+	.string "Tch… you're not just lost.$"
+
+WraithwoodForest_Text_Grunt1Post:
+	.string "The boss is up ahead. You really\n"
+	.string "want to meet him? Your funeral.$"
+
+WraithwoodForest_Text_Grunt2Intro:
+	.string "Feel that drizzle? Out here the\n"
+	.string "rain answers to Team Aqua!$"
+
+WraithwoodForest_Text_Grunt2Defeat:
+	.string "My storm… washed out?!$"
+
+WraithwoodForest_Text_Grunt2Post:
+	.string "Rain or no rain, the sea will take\n"
+	.string "this land back someday.$"
+
+WraithwoodForest_Text_Grunt3Intro:
+	.string "Nobody leaves this clearing once\n"
+	.string "I've got them. Nobody!$"
+
+WraithwoodForest_Text_Grunt3Defeat:
+	.string "You slipped right through my trap…$"
+
+WraithwoodForest_Text_Grunt3Post:
+	.string "Fine, go on. Archie will deal with\n"
+	.string "you himself.$"
+
+WraithwoodForest_Text_Grunt4Intro:
+	.string "Walls up, kid! Let's see you break\n"
+	.string "through Team Aqua's defenses!$"
+
+WraithwoodForest_Text_Grunt4Defeat:
+	.string "Our screens… shattered…$"
+
+WraithwoodForest_Text_Grunt4Post:
+	.string "Hollowbrook's just past the boss.\n"
+	.string "If you get that far.$"
+
+WraithwoodForest_Text_ArchieIntro:
+	.string "ARCHIE: So you're the one who tore\n"
+	.string "through my crew back there.\p"
+	.string "All life was born in the sea, and\n"
+	.string "to the sea it should return.\p"
+	.string "Let me show you the strength of\n"
+	.string "the ocean!$"
+
+WraithwoodForest_Text_ArchieDefeat:
+	.string "ARCHIE: Ha! You've got the spirit\n"
+	.string "of a rogue wave!$"
+
+WraithwoodForest_Text_ArchiePost:
+	.string "ARCHIE: Remember my name, kid.\n"
+	.string "Team Aqua isn't finished with you.$"
 
 `

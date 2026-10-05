@@ -5,6 +5,7 @@
 .set LOCALID_GRUNT, 10
 .set LOCALID_RIVAL, 14
 .set LOCALID_SCIENTIST, 15
+.set LOCALID_EXP_SHARE_MAN, 19
 
 RustboroCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_OnTransition
@@ -16,6 +17,7 @@ RustboroCity_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_HideMapNamePopup
 	call_if_set FLAG_ROUTE116_ROXANNE_FOUND, RustboroCity_EventScript_Split2MoveGymBlocker
+	call_if_unset FLAG_RECEIVED_EXP_SHARE, RustboroCity_EventScript_QueueExpShare
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	goto_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_PositionScientistForExit
 	end
@@ -34,6 +36,7 @@ RustboroCity_EventScript_HideMapNamePopup::
 	return
 
 RustboroCity_OnFrame:
+	map_script_2 VAR_TEMP_9, 1, RustboroCity_EventScript_ExpShareArrival
 	map_script_2 VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_ScientistAddMatchCall
 	.2byte 0
 
@@ -1443,3 +1446,51 @@ RustboroCity_EventScript_Boy1_Text_GiftAfter:
 RustboroCity_EventScript_Boy1_Text_GiftDone:
 	.string "Bird POKéMON are so cool when they\n"
 	.string "swoop in with WING ATTACK!$"
+
+@ BOFA: the EXP Share comes from a man by the south entrance the first time you arrive.
+RustboroCity_EventScript_QueueExpShare::
+	setvar VAR_TEMP_9, 1
+	return
+
+RustboroCity_EventScript_ExpShareArrival::
+	lockall
+	setvar VAR_TEMP_9, 0
+	playse SE_PIN
+	applymovement LOCALID_EXP_SHARE_MAN, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox RustboroCity_Text_ExpShareIntro, MSGBOX_DEFAULT
+	giveitem ITEM_EXP_SHARE
+	goto_if_eq VAR_RESULT, FALSE, RustboroCity_EventScript_ExpShareRelease
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox RustboroCity_Text_ExpShareExplain, MSGBOX_DEFAULT
+RustboroCity_EventScript_ExpShareRelease::
+	releaseall
+	end
+
+RustboroCity_EventScript_ExpShareMan::
+	lock
+	faceplayer
+	goto_if_unset FLAG_RECEIVED_EXP_SHARE, RustboroCity_EventScript_ExpShareRetry
+	msgbox RustboroCity_Text_ExpShareExplain, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_EventScript_ExpShareRetry::
+	msgbox RustboroCity_Text_ExpShareIntro, MSGBOX_DEFAULT
+	giveitem ITEM_EXP_SHARE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox RustboroCity_Text_ExpShareExplain, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_Text_ExpShareIntro:
+	.string "Hey there! First time in RUSTBORO?\p"
+	.string "I picked up a spare one of these,\n"
+	.string "and you look like you could use it.$"
+
+RustboroCity_Text_ExpShareExplain:
+	.string "A POKéMON holding the EXP. SHARE\n"
+	.string "gets EXP even if it doesn't battle.\p"
+	.string "Great for raising a new team member!$"
+

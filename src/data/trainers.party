@@ -391,10 +391,55 @@ Music: Aqua
 Double Battle: No
 AI: Smart Trainer
 
-Poochyena
-Level: 11
+Trubbish @ Focus Sash
+Level: 26
+Ability: Aftermath
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-Nature: Adamant
+Nature: Bold
+- Toxic Spikes
+- Sludge Bomb
+- Rock Blast
+- Explosion
+
+Simipour @ Mystic Water
+Level: 26
+Ability: Torrent
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Timid
+- Water Pulse
+- Icy Wind
+- Grass Knot
+- Taunt
+
+Umbreon @ Leftovers
+Level: 26
+Ability: Synchronize
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Careful
+- Foul Play
+- Moonlight
+- Toxic
+- Protect
+
+Emolga @ Sitrus Berry
+Level: 26
+Ability: Motor Drive
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Timid
+- Discharge
+- Air Slash
+- Encore
+- U-turn
+
+Fraxure @ Dragon Fang
+Level: 26
+Ability: Mold Breaker
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Jolly
+- Dragon Claw
+- Dual Chop
+- Rock Tomb
+- Dragon Dance
 
 === TRAINER_GRUNT_WEATHER_INST_1 ===
 Name: GRUNT
@@ -19581,32 +19626,62 @@ Nature: Rash
 
 === TRAINER_ROUTE106_1 ===
 Name: MILO
-Class: Youngster
-Pic: Youngster
+Class: Cooltrainer
+Pic: Cooltrainer M
 Gender: Male
-Music: Male
+Music: Cool
 Double Battle: No
 AI: Smart Trainer
 
-Geodude @ Hard Stone
-Level: 25
-Ability: Rough Skin
+Grovyle @ Grass Gem
+Level: 30
+Ability: Unburden
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Jolly
+- Leaf Blade
+- Acrobatics
+- Rock Slide
+- Swords Dance
+
+Wailmer @ Eviolite
+Level: 30
+Ability: Water Veil
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Modest
+- Surf
+- Ice Beam
+- Body Slam
+- Rest
+
+Kadabra @ Twisted Spoon
+Level: 30
+Ability: Magic Guard
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Timid
+- Psychic
+- Signal Beam
+- Charge Beam
+- Recover
+
+Fletchinder @ Charcoal
+Level: 30
+Ability: Gale Wings
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
-- Rock Throw
-- Headbutt
-- Karate Chop
-- Dig
+- Acrobatics
+- Flame Charge
+- Roost
+- Steel Wing
 
-Aron @ Metal Coat
-Level: 25
-Ability: Rock Head
+Mime Jr. @ Eviolite
+Level: 36
+Ability: Filter
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-Nature: Naughty
-- Iron Head
-- Headbutt
-- Take Down
-- Flash Cannon
+Nature: Timid
+- Psychic
+- Dazzling Gleam
+- Encore
+- Teeter Dance
 
 === TRAINER_GRANITESHORE_1 ===
 Name: DEACON
@@ -21177,3 +21252,307 @@ Nature: Modest
 - Psybeam
 - Aurora Beam
 - Cosmic Power
+
+=== TRAINER_WRAITHWOOD_GRUNT_1 ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Smart Trainer
+
+Sneasel @ Focus Sash
+Level: 27
+Ability: Inner Focus
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Jolly
+- Fake Out
+- Ice Punch
+- Feint Attack
+- Taunt
+
+Palpitoad @ Rindo Berry
+Level: 27
+Ability: Water Absorb
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Modest
+- Scald
+- Earth Power
+- Sludge Bomb
+- Icy Wind
+
+Yanma @ Sharp Beak
+Level: 27
+Ability: Speed Boost
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Modest
+- Air Slash
+- Bug Buzz
+- Giga Drain
+- Protect
+
+Sealeo @ Sitrus Berry
+Level: 27
+Ability: Thick Fat
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Modest
+- Whirlpool
+- Aurora Beam
+- Body Slam
+- Encore
+
+Magmar @ Charcoal
+Level: 27
+Ability: Flame Body
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Timid
+- Flamethrower
+- Psychic
+- Mach Punch
+- Confuse Ray
+
+=== TRAINER_WRAITHWOOD_GRUNT_2 ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt F
+Gender: Female
+Music: Aqua
+Double Battle: No
+AI: Smart Trainer
+
+Pelipper @ Damp Rock
+Level: 27
+Ability: Drizzle
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Bold
+- Scald
+- Air Slash
+- Roost
+- U-turn
+
+Marshtomp @ Rindo Berry
+Level: 27
+Ability: Torrent
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Adamant
+- Aqua Tail
+- Bulldoze
+- Rock Slide
+- Ice Punch
+
+Lombre @ Mystic Water
+Level: 27
+Ability: Swift Swim
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Modest
+- Surf
+- Giga Drain
+- Ice Beam
+- Fake Out
+
+Flaaffy @ Magnet
+Level: 27
+Ability: Static
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Modest
+- Thunder
+- Power Gem
+- Thunder Wave
+- Signal Beam
+
+Sliggoo @ Bright Powder
+Level: 27
+Ability: Hydration
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Calm
+- Dragon Pulse
+- Thunder
+- Rest
+- Acid Spray
+
+=== TRAINER_WRAITHWOOD_GRUNT_3 ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Smart Trainer
+
+Qwilfish @ Sitrus Berry
+Level: 27
+Ability: Intimidate
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Jolly
+- Waterfall
+- Poison Jab
+- Spikes
+- Taunt
+
+Dugtrio @ Soft Sand
+Level: 27
+Ability: Arena Trap
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Jolly
+- Earthquake
+- Rock Slide
+- Sucker Punch
+- Aerial Ace
+
+Wobbuffet @ Leftovers
+Level: 27
+Ability: Shadow Tag
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Calm
+- Counter
+- Mirror Coat
+
+Electabuzz @ Magnet
+Level: 27
+Ability: Static
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Timid
+- Thunderbolt
+- Low Kick
+- Signal Beam
+- Light Screen
+
+Drowzee @ Eviolite
+Level: 27
+Ability: Bad Dreams
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Calm
+- Hypnosis
+- Dream Eater
+- Psychic
+- Substitute
+
+=== TRAINER_WRAITHWOOD_GRUNT_4 ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt F
+Gender: Female
+Music: Aqua
+Double Battle: No
+AI: Smart Trainer
+
+Ledian @ Light Clay
+Level: 27
+Ability: Prankster
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Timid
+- Reflect
+- Light Screen
+- Mach Punch
+- Air Slash
+
+Gurdurr @ Flame Orb
+Level: 27
+Ability: Guts
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Adamant
+- Bulk Up
+- Drain Punch
+- Mach Punch
+- Rock Slide
+
+Duosion @ Twisted Spoon
+Level: 27
+Ability: Magic Guard
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Modest
+- Psychic
+- Recover
+- Signal Beam
+- Calm Mind
+
+Octillery @ Scope Lens
+Level: 25
+Ability: Sniper
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Modest
+- Octazooka
+- Ice Beam
+- Flamethrower
+- Energy Ball
+
+Wartortle @ Mystic Water
+Level: 27
+Ability: Torrent
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Modest
+- Water Pulse
+- Ice Beam
+- Aura Sphere
+- Yawn
+
+=== TRAINER_ARCHIE_WRAITHWOOD ===
+Name: ARCHIE
+Class: Aqua Leader
+Pic: Aqua Leader Archie
+Gender: Male
+Music: Aqua
+Items: Super Potion / Super Potion
+Double Battle: No
+AI: Smart Trainer
+
+Magneton @ Shuca Berry
+Level: 28
+Ability: Magnet Pull
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Modest
+- Thunderbolt
+- Flash Cannon
+- Thunder Wave
+- Volt Switch
+
+Heracross @ Flame Orb
+Level: 28
+Ability: Guts
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Jolly
+- Brick Break
+- Megahorn
+- Rock Slide
+- Facade
+
+Lanturn @ Leftovers
+Level: 28
+Ability: Volt Absorb
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Calm
+- Scald
+- Thunderbolt
+- Ice Beam
+- Thunder Wave
+
+Delibird @ Expert Belt
+Level: 28
+Ability: Adaptability
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Jolly
+- Ice Punch
+- Drill Peck
+- Brick Break
+- Fake Out
+
+Tentacruel @ Black Sludge
+Level: 28
+Ability: Liquid Ooze
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Timid
+- Scald
+- Sludge Bomb
+- Rapid Spin
+- Protect
+
+Sharpedo @ Life Orb
+Level: 29
+Ability: Speed Boost
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Adamant
+- Protect
+- Crunch
+- Waterfall
+- Ice Fang
