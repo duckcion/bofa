@@ -221,3 +221,77 @@ CHRONO_MAPS = {
 
 # Wild-encounter maps whose split the generic split model can't infer (new/custom maps)
 ENCOUNTER_SPLIT = {"MAP_TRAINER_GROVE": "Split 1", "MAP_PETALBURG_COAST": "Split 1", "MAP_LOST_CAVE": "Split 2"}
+
+
+# ---------------------------------------------------------------- fight order, Splits 1-3
+# (trainer ID, map folder, status, battle format, note). Format: Single / Double / Tag (2 trainers) / Tag with partner.
+# The docs build the Split 1-3 trainer tabs from this list, in this order. Only trainers placed on the maps belong here.
+_RIVAL_NOTE = "Rival battle in front of the gym. Team depends on your starter; May's teams mirror Brendan's."
+FIGHT_ORDER = {
+    "Split 1": [
+        ("TRAINER_CALVIN_1", "Route102", "REQUIRED", "Single", None),
+        ("TRAINER_RICK", "Route102", "REQUIRED", "Single", None),
+        ("TRAINER_TIANA", "Route102", "REQUIRED", "Single", None),
+        ("TRAINER_ALLEN", "Route102", "REQUIRED", "Single", None),
+        ("TRAINER_DARIAN", "Route104", "REQUIRED", "Single", "Route 104 South"),
+        ("TRAINER_BILLY", "Route104", "REQUIRED", "Single", "Route 104 South"),
+        ("TRAINER_GRUNT_ROUTE_104_MAGMA", "Route104", "REQUIRED", "Single", "Route 104 South"),
+        ("TRAINER_GRUNT_ROUTE_104_AQUA", "Route104", "REQUIRED", "Single", "Route 104 South"),
+        ("TRAINER_TRAINERGROVET1", "TrainerGrove", "REQUIRED", "Single", None),
+        ("TRAINER_TRAINERGROVET3", "TrainerGrove", "REQUIRED", "Single", None),
+        ("TRAINER_TRAINERGROVET2", "TrainerGrove", "REQUIRED", "Single", None),
+        ("TRAINER_VIRIDIAN_FOREST_1", "ViridianForest", "Opt-in", "Single", "Optional"),
+        ("TRAINER_VIRIDIAN_FOREST_3", "ViridianForest", "Opt-in", "Single", "Optional"),
+        ("TRAINER_BRENDAN_PETALBURG_TREECKO", "PetalburgCity", "REQUIRED", "Single", _RIVAL_NOTE + " (Treecko)"),
+        ("TRAINER_BRENDAN_PETALBURG_TORCHIC", "PetalburgCity", "REQUIRED", "Single", _RIVAL_NOTE + " (Torchic)"),
+        ("TRAINER_BRENDAN_PETALBURG_MUDKIP", "PetalburgCity", "REQUIRED", "Single", _RIVAL_NOTE + " (Mudkip)"),
+        ("TRAINER_RANDALL", "PetalburgCity_Gym", "REQUIRED", "Single", None),
+        ("TRAINER_ALEXIA", "PetalburgCity_Gym", "REQUIRED", "Single", None),
+        ("TRAINER_JODY", "PetalburgCity_Gym", "REQUIRED", "Single", None),
+        ("TRAINER_NORMAN_1", "PetalburgCity_Gym", "REQUIRED", "Single", "Gym Leader - Badge 1"),
+    ],
+    "Split 2": [
+        ("TRAINER_JAMES_1", "PetalburgWoods", "REQUIRED", "Single", None),
+        ("TRAINER_GRUNT_PETALBURG_WOODS", "PetalburgWoods", "REQUIRED", "Single", "Aqua Grunt 1 (idealist)"),
+        ("TRAINER_GRUNT_PETALBURG_WOODS_2", "PetalburgWoods", "REQUIRED", "Single", "Aqua Grunt 2 (pragmatist)"),
+        ("TRAINER_GRUNT_PETALBURG_WOODS_3", "PetalburgWoods", "REQUIRED", "Single", "Aqua Grunt 3 (hardliner)"),
+        ("TRAINER_WINSTON_1", "Route104", "REQUIRED", "Single", "Route 104 North"),
+        ("TRAINER_ROUTE104_AROMA_LADY", "Route104", "REQUIRED", "Single", "Route 104 North"),
+        ("TRAINER_GINA_AND_MIA_1", "Route104", "REQUIRED", "Double", "Route 104 North"),
+        ("TRAINER_HALEY_1", "Route104", "REQUIRED", "Single", "Route 104 North"),
+        ("TRAINER_CLARK", "Route116", "REQUIRED", "Tag (2 trainers)", "Double battle with Camper Ethan"),
+        ("TRAINER_ROUTE116_ETHAN", "Route116", "REQUIRED", "Tag (2 trainers)", "Double battle with Hiker Clark"),
+        ("TRAINER_ROUTE116_DIANA", "Route116", "REQUIRED", "Tag (2 trainers)", "Double battle with Skier Chloe"),
+        ("TRAINER_ROUTE116_CHLOE", "Route116", "REQUIRED", "Tag (2 trainers)", "Double battle with Picnicker Diana"),
+        ("TRAINER_ROUTE116_PRESTON", "Route116", "REQUIRED", "Tag (2 trainers)", "Double battle with Hex Maniac Tasha"),
+        ("TRAINER_ROUTE116_TASHA", "Route116", "REQUIRED", "Tag (2 trainers)", "Double battle with Psychic Preston"),
+        ("TRAINER_ROUTE116_COLE", "Route116", "REQUIRED", "Tag (2 trainers)", "Double battle with Cooltrainer Maya"),
+        ("TRAINER_ROUTE116_MAYA", "Route116", "REQUIRED", "Tag (2 trainers)", "Double battle with Cooltrainer Cole"),
+        ("TRAINER_SIDNEY_ROUTE116", "Route116", "REQUIRED", "Single", "Beating Sidney opens Rustboro Gym"),
+        ("TRAINER_JOSH", "RustboroCity_Gym", "REQUIRED", "Single", None),
+        ("TRAINER_TOMMY", "RustboroCity_Gym", "REQUIRED", "Single", None),
+        ("TRAINER_MARC", "RustboroCity_Gym", "REQUIRED", "Single", None),
+        ("TRAINER_ROXANNE_1", "RustboroCity_Gym", "REQUIRED", "Single", "Gym Leader - Badge 2"),
+    ],
+    "Split 3": [
+        ("TRAINER_GRUNT_RUSTURF_TUNNEL", "RusturfTunnel", "REQUIRED", "Single", None),
+        ("TRAINER_WRAITHWOOD_GRUNT_1", "WraithwoodForest", "Forces on sight", "Single", "Aqua Grunt 1"),
+        ("TRAINER_WRAITHWOOD_GRUNT_2", "WraithwoodForest", "Forces on sight", "Single", "Aqua Grunt 2 (rain team)"),
+        ("TRAINER_WRAITHWOOD_GRUNT_3", "WraithwoodForest", "Forces on sight", "Single", "Aqua Grunt 3 (trap / control)"),
+        ("TRAINER_WRAITHWOOD_GRUNT_4", "WraithwoodForest", "Forces on sight", "Single", "Aqua Grunt 4 (screens). Aqua Grunt 5 not designed yet."),
+        ("TRAINER_ARCHIE_WRAITHWOOD", "WraithwoodForest", "REQUIRED", "Single", "Blocks the exit to Hollowbrook"),
+        ("TRAINER_ANSEL", "GraniteCave_B2F", "Forces on sight", "Single", "Fossil Expert"),
+        ("TRAINER_DALTON", "GraniteCave_B1F", "Forces on sight", "Double", "Cave Researcher"),
+        ("TRAINER_ROUTE106_1", "Route106", "Forces on sight", "Single", "Last overworld trainer before Dewford"),
+        ("TRAINER_LAURA", "DewfordTown_Gym", "REQUIRED", "Single", "Gym Trainer 1"),
+        ("TRAINER_BRENDEN", "DewfordTown_Gym", "REQUIRED", "Single", "Gym Trainer 2"),
+        ("TRAINER_CRISTIAN", "DewfordTown_Gym", "REQUIRED", "Single", "Gym Trainer 3"),
+        ("TRAINER_JOCELYN", "DewfordTown_Gym", "REQUIRED", "Single", "Gym Trainer 4"),
+        ("TRAINER_BRAWLY_1", "DewfordTown_Gym", "REQUIRED", "Tag with partner",
+         "You + Rival vs Brawly + Phoebe; you pick 3. Rival: Greninja, Chesnaught, Delphox (Lv36). Badge 3"),
+        ("TRAINER_PHOEBE_DEWFORD", "DewfordTown_Gym", "REQUIRED", "Tag with partner", "Brawly's tag partner"),
+    ],
+}
+# Trainers still in the data but not on any map any more (scripts left over); the docs skip them.
+REMOVED_FROM_MAP += ["TRAINER_DESMOND", "TRAINER_OTTOLINE", "TRAINER_RUFUS", "TRAINER_MORTIMER", "TRAINER_PRUDENCE",
+                     "TRAINER_PERCY", "TRAINER_TAKAO", "TRAINER_LILITH", "TRAINER_ELLIOT_1", "TRAINER_CINDY_1"]

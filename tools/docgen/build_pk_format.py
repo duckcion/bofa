@@ -437,21 +437,32 @@ for _s in ["Split 1", "Split 2", "Split 3", "Split 4", "Split 5", "Split 6", "Sp
     _d = rd(_s).dropna(subset=["Trainer ID"])
     ALL_TRAINER_NAMES.update(zip(_d["Trainer ID"].astype(str), _d["Trainer"].astype(str)))
 
+_REMATCH_TIER = {}
+for _m in re.finditer(r"REMATCH\(([^)]*)\)", open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..",
+                                                          "src", "battle_setup.c"), encoding="utf-8").read()):
+    _ids = [x.strip() for x in _m.group(1).split(",")][:-1]
+    for _k, _tid in enumerate(_ids[1:], 1):
+        if _tid != _ids[0]:
+            _REMATCH_TIER.setdefault(_tid, _k)
+
 def trainer_title(t):
     name = str(t["Trainer"]).title()
     cls = "" if blank(t["Class"]) else str(t["Class"])
     title = f"{cls} {name}".strip()
     tid = str(t["Trainer ID"])
-    m = re.search(r"_(\d+)$", tid)
-    # only a rematch if the _1 entry is the same trainer (TRAINER_VIRIDIAN_FOREST_2 is not)
-    if m and m.group(1) != "1" and ALL_TRAINER_NAMES.get(tid[:m.start()] + "_1") == str(t["Trainer"]):
-        title += f" (Rematch {int(m.group(1)) - 1})"
+    if tid in _REMATCH_TIER:          # only trainers in the game's rematch table
+        title += f" (Rematch {_REMATCH_TIER[tid]})"
     return title
 
 def trainer_subtitle(t):
     bits = []
-    if str(t["Format"]) == "Double":
+    fmt = str(t["Format"])
+    if fmt == "Double":
         bits.append("DOUBLE BATTLE")
+    elif fmt.startswith("Tag"):
+        bits.append("TAG BATTLE" + (" (with partner)" if "partner" in fmt else " (two trainers)"))
+    if t.get("Weather"):
+        bits.append(str(t["Weather"]))
     mand = str(t["Mandatory?"])
     if mand.startswith("REQUIRED"):
         bits.append("Mandatory")
@@ -672,6 +683,37 @@ loaded["Split 2"] = sorted(loaded["Split 2"], key=lambda t: (plan.SPLIT2_ORDER.g
                                                             loc_key(t["Location"]), str(t["Trainer ID"])))
 for i, t in enumerate(loaded["Split 2"]):
     t["Order"] = i
+
+# ---- Splits 1-3: exactly the trainers on the maps, in fight order (split1_plan.FIGHT_ORDER)
+import json as _json
+def map_battle_weather(folder):
+    try:
+        w = _json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "maps",
+                                         folder, "map.json"), encoding="utf-8")).get("weather", "")
+    except OSError:
+        return None
+    if "FOG" in w: return "Map fog: Misty Terrain all battle"
+    if "RAIN" in w or "THUNDER" in w: return "Map weather: Rain"
+    if "DROUGHT" in w: return "Map weather: Harsh sunlight"
+    if "SANDSTORM" in w: return "Map weather: Sandstorm"
+    if "SNOW" in w: return "Map weather: Snow"
+    return None
+placed = set()
+for sname, order in plan.FIGHT_ORDER.items():
+    out = []
+    for i, (tid, folder, status, fmt, note) in enumerate(order):
+        src = by_id.get(tid)
+        if src is None:
+            print("FIGHT_ORDER: no data for", tid); continue
+        t = dict(src)
+        t.update({"Location": folder, "Split": sname, "Order": i, "Note": note, "Format": fmt,
+                  "Mandatory?": status, "Weather": map_battle_weather(folder), "Trainer Items": None})
+        out.append(t); placed.add(tid)
+    loaded[sname] = out
+for sname in split_sheets:
+    if sname not in plan.FIGHT_ORDER and sname != "Boss Battles":
+        loaded[sname] = [t for t in loaded[sname]
+                         if str(t["Trainer ID"]) not in placed and str(t["Trainer ID"]) not in plan.REMOVED_FROM_MAP]
 
 for s in split_sheets:
     write_split(s, loaded[s])
