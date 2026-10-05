@@ -824,6 +824,7 @@ def planned_tm_locs():
         ("HM06", "Rock Smash", "NPC gift (end of forest)", "ViridianForest", "Split 1", "Shares its flag with the Mauville gift"),
         ("TM17", "Protect", "Gym reward (Norman), x1", "PetalburgCity_Gym", "Split 1", "Only single-copy TM"),
         ("TM09", "Bullet Seed", "NPC gift (boy), x2", "Route104", "Split 1", "North end of Route 104 South"),
+        ("HM01", "Cut", "NPC gift (the Cutter, in his house)", "RustboroCity_CuttersHouse", "Split 2", "Usable with Badge 1"),
         ("TM68", "Wing Attack", "NPC gift (Trainer School student), x2", "RustboroCity_PokemonSchool", "Split 2", "New BOFA TM"),
         ("TM39", "Rock Tomb", "Gym reward (Roxanne), x2", "RustboroCity_Gym", "Split 2", ""))])
     return chrono_sort(pd.concat([add, df], ignore_index=True))
