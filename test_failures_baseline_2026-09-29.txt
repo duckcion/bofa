@@ -1,0 +1,89 @@
+  FAILED tests:
+(Gulp Missile) Transformed Cramorant Gulping lowers defense but is prevented by stat reduction preventing abilities 3/3: FAIL
+(TERA) Double Shock does not remove the user's Electric type while Terastallized, and changes STAB modifier depending on when it is used: ERROR
+(Z-MOVE) Z-Copycat raises the user's accuracy by one stage and copies the last used non-status move as a Z-Move: FAIL
+(Z-MOVE) Z-Moves do not retain priority: FAIL
+(Z-MOVE) Z-Sleep Talk turns Weather Ball into Breakneck Blitz even under rain: FAIL
+- Tests FAILED :         93    Add TESTS='X' to run tests with the defined prefix.
+A spread move will do correct damage to the second mon if the first target faints from first hit of the spread move: FAIL
+AI chooses moves with secondary effect that have a 100% chance to trigger 1/2: FAIL
+AI sees increased base power of Wake Up Slap 2/2: FAIL
+AI will choose Thunderbolt then Surf 2/3 times if the opposing mon has Volt Absorb (3/3): FAIL
+AI will only choose Surf 1/3 times if the opposing mon has Volt Absorb (3/3): FAIL
+AI_FLAG_DOUBLE_ACE_POKEMON: Ace mons won't be switched in even if they are the best candidates: FAIL
+AI_FLAG_SEQUENCE_SWITCHING: AI will always switch after a KO in exactly party order 2/2: ERROR
+AI_FLAG_SEQUENCE_SWITCHING: AI will always switch into lowest party index after U-Turn, Parting Shot, Baton Pass, and Chilly Reception 2/8: ERROR
+AI_FLAG_SMART_MON_CHOICES: Post-KO switches factor in Trick Room for revenge killing: FAIL
+AI_FLAG_SMART_SWITCHING: AI will switch out if it has an absorber but current mon has SE move 33% of the time (2/2): FAIL
+AI_FLAG_SMART_SWITCHING: AI will switch out if it has an absorber: FAIL
+After You calculates correct turn order if only one pokemon is left on the opposing side: FAIL
+Baddy Bad sets up Reflect when it was succesful 1/2: FAIL
+Baton Pass used after Memento works correctly: FAIL
+Bide deals twice the taken damage over two turns: FAIL
+Body Press uses physical defense stat of target 2/2: FAIL
+Chilly Reception switches the user out, even if the weather does not change: FAIL
+Clear Body, Full Metal Body, and White Smoke don't prevent Speed reduction from paralysis 1/3: ERROR
+Clear Body, Full Metal Body, and White Smoke don't prevent Topsy-Turvy 1/3: FAIL
+Clear Body, Full Metal Body, and White Smoke don't prevent receiving negative stat changes from Baton Pass 1/3: FAIL
+Clear Body, Full Metal Body, and White Smoke prevent intimidate 1/3: ERROR
+Color Change changes the type when a Pokemon is hit by Future Sight: ERROR
+Comatose may be suppressed if pokemon transformed into a pokemon with Comatose ability and was under the effects of Gastro Acid 1/4: FAIL
+Contrary raises a stat after using a move which would normally lower it: Growl 2/2: FAIL
+Court Change swaps entry hazards used by the opponent: FAIL
+Court Change swaps entry hazards used by the player: FAIL
+Court Change used by the opponent swaps Mist, Safeguard, Aurora Veil, Reflect, Light Screen, Tailwind: FAIL
+Court Change used by the player swaps Mist, Safeguard, Aurora Veil, Reflect, Light Screen, Tailwind: FAIL
+Covert Cloak does not block self-targeting effects, primary or secondary 2/4: FAIL
+Damage calculation matches Gen5+ (Marshadow vs Mawile) 1/16: FAIL
+Damage calculation matches Gen5+ (Muscle Band, crit) 1/16: FAIL
+Damage calculation matches Gen5+ 1/16: FAIL
+Damage calculation: Combined pledge move 1/16: FAIL
+Desolate Land blocks damaging Water-type moves and prints the message only once with moves hitting multiple targets: FAIL
+Desolate Land blocks damaging Water-type moves: FAIL
+Disguised Mimikyu blocks a move after getting Gastro Acid Batton Passed: FAIL
+Disguised Mimikyu will lose 1/8 of its max HP upon changing to its busted form: FAIL
+Double Shock user loses its Electric-type: ERROR
+Download doesn't activate if target hasn't been sent out yet 2/2: FAIL
+Drizzle fails if Desolate Land is active 2/2: FAIL
+Embargo doesn't prevent Primal Reversion: FAIL
+Forecast transforms Castform in primal weather 1/2: FAIL
+Freeze Frost restores stat changes when it was succesful 1/2: FAIL
+Glitzy Glow sets up Light Screen when it was succesful 1/2: FAIL
+Hail fails if Desolate Land or Primordial Sea are active 2/3: FAIL
+Hyper Cutter doesn't prevent receiving negative Attack stage changes from Baton Pass: FAIL
+Ice Face is restored if hail or snow begins while Noice Face Eiscue is out 1/2: ERROR
+Intimidate and Eject Button force the opponent to Attack: FAIL
+Item descriptions fit on Bag and Shop Screen: Approaches the foe unawares� This attack never misses� (640/640): FAIL
+Last Respects power is multiplied by the amount of fainted mon in the user's side - Opponent 3/3: FAIL
+Last Respects power is multiplied by the amount of fainted mon in the user's side - Player 3/3: FAIL
+Magician does not get self-damage recoil after stealing Life Orb: FAIL
+Parental Bond Snore strikes twice while asleep: FAIL
+Prankster-affected moves called via Assist don't affect Dark-type Pokémon: FAIL
+Prankster-affected moves called via Instruct do not affect Dark-type Pokémon: FAIL
+Prankster-affected moves don't affect Dark-type Pokémon after they switch-in: FAIL
+Prankster-affected moves don't affect Dark-type Pokémon: FAIL
+Prankster-affected moves which are reflected by Magic Coat can affect Dark-type Pokémon, unless the Pokémon that bounced the move also has Prankster 1/2: FAIL
+Primal reversion and other switch-in effects trigger for all battlers if multiple fainted the previous turn: FAIL
+Primal reversion triggers for all battlers if multiple fainted the previous turn: FAIL
+Primal reversion triggers for multiple battlers if multiple fainted the previous turn: FAIL
+Primordial Sea blocks damaging Fire-type moves and prints the message only once with moves hitting multiple targets: FAIL
+Primordial Sea blocks damaging Fire-type moves: FAIL
+Quash calculates correct turn order if only one pokemon is left on the opposing side: FAIL
+Refresh does not cure sleep when used by Sleep Talk: FAIL
+Role Play and Doodle fail if target's ability can't be copied' 15/21: ERROR
+Role Play fails if user's ability can't be suppressed 2/16: FAIL
+Roost, if used by a Mystery/Flying type, treats the user as a Mystery/Mystery type until the end of the turn 10/18: FAIL
+Sappy Seed is not going to seed the target if it fails: FAIL
+Scale Shot decreases defense and increases speed after killing opposing with less then 4 hits 1/2: FAIL
+Sheer Force only boosts the damage of moves it's supposed to boost 1 41/141: FAIL
+Shield Dust does not block self-targeting effects, primary or secondary 2/4: FAIL
+Snowscape fails if Desolate Land or Primordial Sea are active 2/3: FAIL
+Sunny Day fails if Primordial Sea is active 2/2: FAIL
+Supersweet Syrup can not further lower opponents evasion if it is at minimum stages: ERROR
+Tailwind affects partner on first turn: FAIL
+Tailwind applies for 4 turns: FAIL
+Take Heart cures sleep when used by Sleep Talk: FAIL
+Toxic cannot miss if used by a Poison-type 1/2: FAIL
+Trainer Class Balls apply to the entire party: FAIL
+Turn order is determined randomly if priority and Speed tie [doubles] 1/1 (24/24): FAIL
+Weather Ball doubles its power and turns to a Fire-type move in Sunlight 2/2: FAIL
