@@ -192,3 +192,57 @@ Hollowbrook_Text_PrudenceRegister:
 Hollowbrook_Text_PrudenceRematchIntro:
 # 102 "data/maps/Hollowbrook/scripts.pory"
 	.string "PRUDENCE: Back for more webs?$"
+# 103 "data/maps/Hollowbrook/scripts.pory"
+
+# 104 "data/maps/Hollowbrook/scripts.pory"
+Hollowbrook_EventScript_LumBerryWoman::
+# 105 "data/maps/Hollowbrook/scripts.pory"
+	lock
+# 106 "data/maps/Hollowbrook/scripts.pory"
+	faceplayer
+# 107 "data/maps/Hollowbrook/scripts.pory"
+	goto_if_set FLAG_RECEIVED_HOLLOWBROOK_LUM_BERRIES, Hollowbrook_EventScript_LumBerryWomanDone
+# 108 "data/maps/Hollowbrook/scripts.pory"
+	msgbox Hollowbrook_Text_LumBerryIntro, MSGBOX_DEFAULT
+# 109 "data/maps/Hollowbrook/scripts.pory"
+	giveitem ITEM_LUM_BERRY, 5
+# 110 "data/maps/Hollowbrook/scripts.pory"
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+# 111 "data/maps/Hollowbrook/scripts.pory"
+	setflag FLAG_RECEIVED_HOLLOWBROOK_LUM_BERRIES
+# 112 "data/maps/Hollowbrook/scripts.pory"
+	msgbox Hollowbrook_Text_LumBerryAfter, MSGBOX_DEFAULT
+# 113 "data/maps/Hollowbrook/scripts.pory"
+	release
+# 114 "data/maps/Hollowbrook/scripts.pory"
+	end
+# 115 "data/maps/Hollowbrook/scripts.pory"
+
+# 116 "data/maps/Hollowbrook/scripts.pory"
+Hollowbrook_EventScript_LumBerryWomanDone::
+# 117 "data/maps/Hollowbrook/scripts.pory"
+	msgbox Hollowbrook_Text_LumBerryAfter, MSGBOX_DEFAULT
+# 118 "data/maps/Hollowbrook/scripts.pory"
+	release
+# 119 "data/maps/Hollowbrook/scripts.pory"
+	end
+# 120 "data/maps/Hollowbrook/scripts.pory"
+
+# 121 "data/maps/Hollowbrook/scripts.pory"
+Hollowbrook_Text_LumBerryIntro:
+# 122 "data/maps/Hollowbrook/scripts.pory"
+	.string "You came through WRAITHWOOD?\n"
+# 123 "data/maps/Hollowbrook/scripts.pory"
+	.string "You poor thing, you look worn out.\p"
+# 124 "data/maps/Hollowbrook/scripts.pory"
+	.string "Here, take these. They grow in my\n"
+# 125 "data/maps/Hollowbrook/scripts.pory"
+	.string "garden and cure just about anything.$"
+# 126 "data/maps/Hollowbrook/scripts.pory"
+
+# 127 "data/maps/Hollowbrook/scripts.pory"
+Hollowbrook_Text_LumBerryAfter:
+# 128 "data/maps/Hollowbrook/scripts.pory"
+	.string "A LUM BERRY cures any status\n"
+# 129 "data/maps/Hollowbrook/scripts.pory"
+	.string "problem the moment it strikes.$"

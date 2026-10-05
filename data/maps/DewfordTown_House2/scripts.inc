@@ -4,7 +4,7 @@ DewfordTown_House2_MapScripts::
 DewfordTown_House2_EventScript_Man::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_SILK_SCARF, DewfordTown_House2_EventScript_ExplainSilkScarf
+	goto DewfordTown_House2_EventScript_ExplainSilkScarf   @ BOFA: no second Silk Scarf
 	msgbox DewfordTown_House2_Text_WantYouToHaveSilkScarf, MSGBOX_DEFAULT
 	giveitem ITEM_SILK_SCARF
 	goto_if_eq VAR_RESULT, FALSE, DewfordTown_House2_EventScript_NoRoomForScarf

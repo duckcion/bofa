@@ -108,6 +108,10 @@ NEW_ITEMS = [
     ("Occa + Passho + Rindo Berry", "NPC gift (hiker, all three at once)", "RustboroCity_House1", "Split 2", "House next to the Gym"),
     ("TM68 Wing Attack x2", "NPC gift (Trainer School student)", "RustboroCity_PokemonSchool", "Split 2", "New BOFA TM"),
     ("TM Rock Tomb x2", "Gym reward (Roxanne)", "RustboroCity_Gym", "Split 2", ""),
+    ("RageCandyBar", "Dropped by the Aqua grunt as he flees", "RusturfTunnel", "Split 3", "Converted Shoal Shell"),
+    ("Lum Berry x5", "NPC gift (old woman)", "Hollowbrook", "Split 3", ""),
+    ("HM05 Flash", "NPC gift (hiker)", "GraniteCave_1F", "Split 3", ""),
+    ("TM Brick Break x2", "Gym reward (Brawly + Phoebe tag battle)", "DewfordTown_Gym", "Split 3", ""),
 ]
 REMOVED_ITEMS = []
 
@@ -209,8 +213,9 @@ SPLIT2_NOTES = {
 CHRONO_MAPS = {
     "Split 1": ["LittlerootTown", "StarterRoom", "Route101", "OldaleTown", "Route103", "Route102", "PetalburgCity_Mart",
                 "PetalburgCity", "Route104", "TrainerGrove", "PetalburgCoast", "ViridianForest", "PetalburgCity_Gym"],
-    "Split 2": ["PetalburgWoods", "LostCave", "Route104", "RustboroCity_Gym", "RustboroCity", "Route116", "RusturfTunnel",
-                "Route115"],
+    "Split 2": ["PetalburgWoods", "LostCave", "Route104", "RustboroCity_Gym", "RustboroCity", "Route116", "Route115"],
+    "Split 3": ["RusturfTunnel", "WraithwoodForest", "Hollowbrook", "GraniteCave_B2F", "GraniteCave_B1F", "GraniteCave_1F",
+                "GraniteCave_StevensRoom", "Route106", "DewfordTown", "GraniteShore", "DewfordTown_Gym"],
 }
 
 # Wild-encounter maps whose split the generic split model can't infer (new/custom maps)

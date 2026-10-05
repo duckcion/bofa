@@ -100,4 +100,32 @@ Hollowbrook_Text_PrudenceRegister:
 
 Hollowbrook_Text_PrudenceRematchIntro:
 	.string "PRUDENCE: Back for more webs?$"
+
+Hollowbrook_EventScript_LumBerryWoman::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_HOLLOWBROOK_LUM_BERRIES, Hollowbrook_EventScript_LumBerryWomanDone
+	msgbox Hollowbrook_Text_LumBerryIntro, MSGBOX_DEFAULT
+	giveitem ITEM_LUM_BERRY, 5
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_HOLLOWBROOK_LUM_BERRIES
+	msgbox Hollowbrook_Text_LumBerryAfter, MSGBOX_DEFAULT
+	release
+	end
+
+Hollowbrook_EventScript_LumBerryWomanDone::
+	msgbox Hollowbrook_Text_LumBerryAfter, MSGBOX_DEFAULT
+	release
+	end
+
+Hollowbrook_Text_LumBerryIntro:
+	.string "You came through WRAITHWOOD?\n"
+	.string "You poor thing, you look worn out.\p"
+	.string "Here, take these. They grow in my\n"
+	.string "garden and cure just about anything.$"
+
+Hollowbrook_Text_LumBerryAfter:
+	.string "A LUM BERRY cures any status\n"
+	.string "problem the moment it strikes.$"
+
 `
