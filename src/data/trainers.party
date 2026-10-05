@@ -4973,24 +4973,6 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Explosion
 - Volt Switch
 
-Archen @ Flying Gem
-Level: 24
-Ability: Defeatist
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Acrobatics
-- Rock Slide
-- U-turn
-- Endeavor
-
-Gabite @ Eviolite
-Level: 24
-Ability: Rough Skin
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Earthquake
-- Dragon Claw
-- Flamethrower
-- Crunch
-
 Magcargo @ Charcoal
 Level: 25
 Ability: Solid Rock
@@ -5008,6 +4990,24 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Earthquake
 - Aerial Ace
 - Rock Slide
+
+Anorith
+Level: 24
+Ability: Battle Armor
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Slide
+- X-Scissor
+- Aqua Jet
+- Aerial Ace
+
+Gabite @ Eviolite
+Level: 24
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Dragon Claw
+- Flamethrower
+- Crunch
 
 Barbaracle @ Rindo Berry
 Level: 26

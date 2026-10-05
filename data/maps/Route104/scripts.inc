@@ -262,16 +262,16 @@ Route104_EventScript_ExpertF::
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_CHESTO_BERRY_ROUTE_104, Route104_EventScript_ReceivedBerry
-	msgbox Route104_Text_ExpertBlackBelt, MSGBOX_DEFAULT
-	giveitem ITEM_BLACK_BELT
+	msgbox Route104_Text_ExpertChestoBerry, MSGBOX_DEFAULT
+	giveitem ITEM_CHESTO_BERRY
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_CHESTO_BERRY_ROUTE_104
-	msgbox Route104_Text_ExpertBlackBeltAfter, MSGBOX_DEFAULT
+	msgbox Route104_Text_ExpertChestoBerryAfter, MSGBOX_DEFAULT
 	release
 	end
 
 Route104_EventScript_ReceivedBerry::
-	msgbox Route104_Text_ExpertBlackBeltAfter, MSGBOX_DEFAULT
+	msgbox Route104_Text_ExpertChestoBerryAfter, MSGBOX_DEFAULT
 	release
 	end
 
@@ -332,7 +332,7 @@ Route104_EventScript_Boy2::
 	faceplayer
 	goto_if_set FLAG_RECEIVED_TM_BULLET_SEED, Route104_EventScript_ReceivedBulletSeed
 	msgbox Route104_Text_LikeFillingMouthWithSeedsTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_TM_BULLET_SEED
+	giveitem ITEM_TM_BULLET_SEED, 2
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM_BULLET_SEED
 	release
@@ -1327,3 +1327,11 @@ Route104_Text_ExpertBlackBelt:
 Route104_Text_ExpertBlackBeltAfter:
 	.string "A POKéMON holding a BLACK BELT hits\n"
 	.string "harder with FIGHTING-type moves.$"
+
+Route104_Text_ExpertChestoBerry:
+	.string "Plant BERRIES in soft soil and they\n"
+	.string "grow back. Here, start with this!$"
+
+Route104_Text_ExpertChestoBerryAfter:
+	.string "TRAINERS often have their POKéMON\n"
+	.string "hold BERRIES. They can turn a battle.$"

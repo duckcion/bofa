@@ -69,7 +69,9 @@
     F(FOUL_PLAY) \
     F(VOLT_SWITCH) \
     F(STRUGGLE_BUG) \
-    F(WING_ATTACK)
+    F(WING_ATTACK) \
+    F(WORK_UP) \
+    F(FLAME_CHARGE)
 
 #define FOREACH_HM(F) \
     F(CUT) \

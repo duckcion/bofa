@@ -1098,6 +1098,40 @@ static const struct InGameTrade sIngameTrades[] =
         .otGender = FEMALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_NONE
+    },
+    [INGAME_TRADE_GEODUDE] =
+    {
+        .nickname = _("GEODUDE"),
+        .species = SPECIES_GEODUDE,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 30412,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x9D, // Relaxed (0x9D % 25 == 7)
+        .heldItem = ITEM_NONE,
+        .mailNum = -1,
+        .otName = _("DUSTIN"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_NONE,
+        .level = 5
+    },
+    [INGAME_TRADE_RHYHORN] =
+    {
+        .nickname = _("RHYHORN"),
+        .species = SPECIES_RHYHORN,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 30412,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x9D, // Relaxed (0x9D % 25 == 7)
+        .heldItem = ITEM_NONE,
+        .mailNum = -1,
+        .otName = _("DUSTIN"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_NONE,
+        .level = 5
     }
 };
 

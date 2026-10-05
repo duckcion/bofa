@@ -349,3 +349,31 @@ RustboroCity_PokemonSchool_Text_ScottMetAlreadyStoneBadge:
 	.string "It's hard to tell what you're like as\n"
 	.string "a TRAINER from a LEAGUE BADGE.$"
 
+RustboroCity_PokemonSchool_EventScript_WingAttackKid::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_TM_WING_ATTACK_RUSTBORO, RustboroCity_PokemonSchool_EventScript_WingAttackKidDone
+	msgbox RustboroCity_PokemonSchool_Text_WingAttackIntro, MSGBOX_DEFAULT
+	giveitem ITEM_TM_WING_ATTACK, 2
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_TM_WING_ATTACK_RUSTBORO
+	msgbox RustboroCity_PokemonSchool_Text_WingAttackAfter, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_PokemonSchool_EventScript_WingAttackKidDone::
+	msgbox RustboroCity_PokemonSchool_Text_WingAttackAfter, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_PokemonSchool_Text_WingAttackIntro:
+	.string "My report is on attacking from the\n"
+	.string "air!\p"
+	.string "A FLYING-type move hits GRASS,\n"
+	.string "BUG and FIGHTING types super hard.\p"
+	.string "I made spares for the class. Here,\n"
+	.string "take two WING ATTACK TMs!$"
+
+RustboroCity_PokemonSchool_Text_WingAttackAfter:
+	.string "Swoop in from above, and ROCK\n"
+	.string "types are the only thing to fear!$"

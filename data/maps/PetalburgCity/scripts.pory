@@ -1014,4 +1014,62 @@ PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "talented TRAINERS.\p"
 	.string "I'm sorry to have taken your time.$"
 
+@ Rock trader: any Pokémon for Geodude or Rhyhorn (50/50, Lv5, Relaxed, perfect IVs). Once only.
+PetalburgCity_EventScript_RockTrader::
+	lock
+	faceplayer
+	goto_if_set FLAG_PETALBURG_NPC_TRADE_COMPLETED, PetalburgCity_EventScript_RockTraderDone
+	msgbox PetalburgCity_Text_RockTraderOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, PetalburgCity_EventScript_RockTraderDecline
+	special ChoosePartyMon
+	waitstate
+	copyvar VAR_0x800A, VAR_0x8004
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, PetalburgCity_EventScript_RockTraderDecline
+	copyvar VAR_0x8005, VAR_0x800A
+	specialvar VAR_RESULT, GetTradeSpecies
+	goto_if_eq VAR_RESULT, SPECIES_NONE, PetalburgCity_EventScript_RockTraderDecline
+	setvar VAR_0x8004, INGAME_TRADE_GEODUDE
+	random 2
+	goto_if_eq VAR_RESULT, 0, PetalburgCity_EventScript_RockTraderDoTrade
+	setvar VAR_0x8004, INGAME_TRADE_RHYHORN
+PetalburgCity_EventScript_RockTraderDoTrade::
+	copyvar VAR_0x8005, VAR_0x800A
+	special CreateInGameTradePokemon
+	special DoInGameTradeScene
+	waitstate
+	setflag FLAG_PETALBURG_NPC_TRADE_COMPLETED
+	msgbox PetalburgCity_Text_RockTraderThanks, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_EventScript_RockTraderDecline::
+	msgbox PetalburgCity_Text_RockTraderDecline, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_EventScript_RockTraderDone::
+	msgbox PetalburgCity_Text_RockTraderDone, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_Text_RockTraderOffer:
+	.string "I've got two tough rock POKéMON\n"
+	.string "in my bag, and I can't decide which\l"
+	.string "one to part with.\p"
+	.string "Give me any POKéMON and I'll let\n"
+	.string "fate pick which one you get.\p"
+	.string "Only one trade, mind you.\n"
+	.string "Want to do it?$"
+
+PetalburgCity_Text_RockTraderThanks:
+	.string "Rock types laugh off NORMAL moves.\n"
+	.string "Your dad's GYM won't know what hit it!$"
+
+PetalburgCity_Text_RockTraderDecline:
+	.string "No? Suit yourself.$"
+
+PetalburgCity_Text_RockTraderDone:
+	.string "Treat that POKéMON well.\n"
+	.string "It's as hard-headed as I am!$"
+
 `

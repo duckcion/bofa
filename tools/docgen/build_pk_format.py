@@ -679,6 +679,13 @@ for s in split_sheets:
 # ================================================================ Encounters (grid per map/method)
 wild = rd("Wild Encounters")
 wild["Map"] = wild["Map"].fillna("MAP_NO_MAP_ASSIGNED")
+for mp, sp in plan.ENCOUNTER_SPLIT.items():
+    wild.loc[wild["Map"] == mp, "Split"] = sp
+# per-map land rates (BOFA engine override), read from the same header the game uses
+CUSTOM_LAND = {m.group(1): [int(v) for v in m.group(2).split(",")]
+               for m in re.finditer(r"\{\s*(MAP_\w+),\s*\{([\d,\s]+)\}\s*\}",
+                                    open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..",
+                                                      "src", "data", "wild_encounters_custom_rates.h"), encoding="utf-8").read())}
 RATES = {
     "Land": [20, 20, 10, 10, 10, 10, 5, 5, 4, 4, 1, 1],
     "Water": [60, 30, 5, 4, 1],
@@ -706,7 +713,7 @@ for _, w in wild.iterrows():
     if key not in groups:
         groups[key] = {"split": w["Split"], "rate": w["Encounter Rate"], "mons": {}}
         order.append(key)
-    rates = RATES.get(method, [])
+    rates = CUSTOM_LAND.get(w["Map"], RATES["Land"]) if method == "Land" else RATES.get(method, [])
     pct = rates[slot] if slot < len(rates) else 0
     g = groups[key]["mons"].setdefault(w["Species"], [pct and 0, 999, 0])
     g[0] += pct
@@ -816,7 +823,8 @@ def planned_tm_locs():
                         for t, mv, how, mp, sp, note in (
         ("HM06", "Rock Smash", "NPC gift (end of forest)", "ViridianForest", "Split 1", "Shares its flag with the Mauville gift"),
         ("TM17", "Protect", "Gym reward (Norman), x1", "PetalburgCity_Gym", "Split 1", "Only single-copy TM"),
-        ("TM68", "Wing Attack", "NPC gift, x2", "RustboroCity", "Split 2", "New BOFA TM"),
+        ("TM09", "Bullet Seed", "NPC gift (boy), x2", "Route104", "Split 1", "North end of Route 104 South"),
+        ("TM68", "Wing Attack", "NPC gift (Trainer School student), x2", "RustboroCity_PokemonSchool", "Split 2", "New BOFA TM"),
         ("TM39", "Rock Tomb", "Gym reward (Roxanne), x2", "RustboroCity_Gym", "Split 2", ""))])
     return chrono_sort(pd.concat([add, df], ignore_index=True))
 

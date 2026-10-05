@@ -55,6 +55,15 @@ Commands (type in the Scripting console):
                                      text out; clipboard is a bonus if your
                                      mGBA build has it.
     exportmon(slot)               -- export a single party slot the same way
+    heal(slot)                    -- restore one party mon to full HP and cure status
+    healall()                     -- heal(slot) for the whole party
+
+HP/status edits change the PARTY copy. Use them outside battle (or before
+sending a mon in); a mon already out in battle keeps its in-battle HP/status.
+
+gSpeciesInfo lives in ROM and moves whenever game data changes size, so the
+script finds it at load time by searching the ROM for Bulbasaur/Ivysaur/
+Venusaur names 260 bytes apart. The hardcoded value below is only a fallback.
 
 Known limitation: species names are read directly from the ROM (works for
 every species bofa has, vanilla or newly added). Move names use a hardcoded
@@ -71,7 +80,7 @@ local ADDR = {
     gEnemyParty       = 0x020358ec,
     gEnemyPartyCount  = 0x02035692,
     gBattleWeather    = 0x02000754,
-    gSpeciesInfoBase  = 0x08ce19a0,
+    gSpeciesInfoBase  = 0x08ce6100,   -- fallback; located at load time (see locateSpeciesInfo)
 }
 
 local PARTY_MON_SIZE = 100
@@ -296,6 +305,50 @@ local function readMon(baseAddr, slot)
     return mon
 end
 
+-- Gen 3 charmap -> ASCII (enough for species names)
+local function decodeChar(b)
+    if b >= 0xBB and b <= 0xD4 then return string.char(65 + b - 0xBB) end   -- A-Z
+    if b >= 0xD5 and b <= 0xEE then return string.char(97 + b - 0xD5) end   -- a-z
+    if b >= 0xA1 and b <= 0xAA then return string.char(48 + b - 0xA1) end   -- 0-9
+    local special = { [0x00]=" ", [0xAB]="!", [0xAC]="?", [0xAD]=".", [0xAE]="-",
+                      [0xB4]="'", [0xB5]="M", [0xB6]="F", [0xB8]=",", [0xBA]="/",
+                      [0xF0]=":", [0x1B]="e" }
+    return special[b] or "?"
+end
+
+local function encodeName(str)
+    local out = {}
+    for i = 1, #str do
+        local c = str:byte(i)
+        if c >= 65 and c <= 90 then out[#out+1] = string.char(0xBB + c - 65)
+        elseif c >= 97 and c <= 122 then out[#out+1] = string.char(0xD5 + c - 97) end
+    end
+    out[#out+1] = string.char(0xFF)
+    return table.concat(out)
+end
+
+local function locateSpeciesInfo()
+    local bulba, ivy, venu = encodeName("Bulbasaur"), encodeName("Ivysaur"), encodeName("Venusaur")
+    local CHUNK, OVERLAP = 0x10000, 16
+    local romStart, romEnd = 0x08000000, 0x0A000000
+    for addr = romStart, romEnd - 1, CHUNK do
+        local ok, data = pcall(function() return emu:readRange(addr, CHUNK + OVERLAP) end)
+        if not ok or data == nil then break end
+        local pos = 1
+        while true do
+            local i = data:find(bulba, pos, true)
+            if not i then break end
+            local nameAddr = addr + i - 1
+            if emu:readRange(nameAddr + SPECIES_INFO_STRIDE, #ivy) == ivy
+               and emu:readRange(nameAddr + 2 * SPECIES_INFO_STRIDE, #venu) == venu then
+                return nameAddr - SPECIES_INFO_STRIDE - SPECIES_NAME_OFFSET
+            end
+            pos = i + 1
+        end
+    end
+    return nil
+end
+
 local function getSpeciesName(id)
     if id == 0 then return "None" end
     local nameAddr = ADDR.gSpeciesInfoBase + id * SPECIES_INFO_STRIDE + SPECIES_NAME_OFFSET
@@ -310,8 +363,8 @@ local function getSpeciesName(id)
     local out = {}
     for i = 1, #bytes do
         local b = bytes:byte(i)
-        if b == 0xFF or b == 0x00 then break end
-        out[#out+1] = string.char(b)
+        if b == 0xFF then break end
+        out[#out+1] = decodeChar(b)
     end
     return table.concat(out)
 end
@@ -449,4 +502,25 @@ function printparty()
     end
 end
 
-console:log("bofa_kaizo_tools.lua loaded. Try: printparty(), exportparty(), sethp(1,1), setstatus(1,'burn'), setweather('rain')")
+function heal(slot)
+    local addr = partyAddr(ADDR.gPlayerParty, slot)
+    emu:write16(addr + OFF_HP, emu:read16(addr + OFF_MAXHP))
+    emu:write32(addr + OFF_STATUS, 0)
+    console:log(string.format("Healed slot %d (full HP, no status)", slot))
+end
+
+function healall()
+    for slot = 1, emu:read8(ADDR.gPlayerPartyCount) do heal(slot) end
+end
+
+do
+    local found = locateSpeciesInfo()
+    if found then
+        ADDR.gSpeciesInfoBase = found
+        console:log(string.format("gSpeciesInfo found at 0x%08X", found))
+    else
+        console:log(string.format("gSpeciesInfo search failed; using fallback 0x%08X (names may be wrong)", ADDR.gSpeciesInfoBase))
+    end
+end
+
+console:log("bofa_kaizo_tools.lua loaded. Try: printparty(), exportparty(), sethp(1,1), setstatus(1,'burn'), setweather('rain'), heal(1), healall()")

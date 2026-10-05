@@ -811,15 +811,26 @@ def main():
                         "31 all" if str(g.get("hpIv")) == "31" else (g.get("hpIv") or "default"),
                         "", ", ".join(pretty_const(m, "MOVE_") for m in mv), "-",
                         STATUS_IMPLEMENTED])
+    NATURES = ["Hardy", "Lonely", "Brave", "Adamant", "Naughty", "Bold", "Docile", "Relaxed", "Impish", "Lax",
+               "Timid", "Hasty", "Serious", "Jolly", "Naive", "Modest", "Mild", "Quiet", "Bashful", "Rash",
+               "Calm", "Gentle", "Sassy", "Careful", "Quirky"]
+    species_by_const = {t["const"]: pretty_const(t.get("species"), "SPECIES_") for t in trades}
     for t in trades:
         locs = [m for m, consts in trade_locs.items() if t["const"] in consts]
-        gt_rows.append(["In-game Trade", pretty_const(t.get("species"), "SPECIES_"), "-",
+        note = f"Nickname {t.get('nickname')}, OT {t.get('otName')}"
+        # a script that references several trade IDs picks one of them at random
+        others = sorted({c for m in locs for c in trade_locs[m]} - {t["const"]})
+        if others:
+            note += "; random 50/50 with " + ", ".join(species_by_const.get(c, c) for c in others) + ", once only"
+        req = t.get("requestedSpecies")
+        nature = NATURES[t["personality"] % 25] if t.get("personality") is not None else "-"
+        gt_rows.append(["In-game Trade", pretty_const(t.get("species"), "SPECIES_"),
+                        t.get("level") or "Same as given",
                         ", ".join(locs) or "UNVERIFIED (no script reference)",
                         item_split(locs[0]) if locs else "Unassigned",
-                        "-", t.get("abilityNum") or "", t.get("ivs") or "",
-                        pretty_const(t.get("heldItem"), "ITEM_"),
-                        f"Nickname {t.get('nickname')}, OT {t.get('otName')}",
-                        pretty_const(t.get("requestedSpecies"), "SPECIES_") or "-",
+                        nature, t.get("abilityNum") or "", t.get("ivs") or "",
+                        pretty_const(t.get("heldItem"), "ITEM_"), note,
+                        "Any Pokemon" if req in (None, "SPECIES_NONE") else pretty_const(req, "SPECIES_"),
                         STATUS_IMPLEMENTED])
     ws = wb.create_sheet("Gifts & Trades")
     write_sheet(ws, "Gift Pokemon & In-Game Trades", gt_headers, gt_rows,

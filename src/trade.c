@@ -161,6 +161,7 @@ struct InGameTrade {
     u8 otGender;
     u8 sheen;
     u16 requestedSpecies;
+    u8 level; // 0 = same level as the Pokémon the player gives
 };
 
 static EWRAM_DATA u8 *sMenuTextTileBuffer = NULL;
@@ -4528,7 +4529,7 @@ static void BufferInGameTradeMonName(void)
 static void CreateInGameTradePokemonInternal(u8 whichPlayerMon, u8 whichInGameTrade)
 {
     const struct InGameTrade *inGameTrade = &sIngameTrades[whichInGameTrade];
-    u8 level = GetMonData(&gPlayerParty[whichPlayerMon], MON_DATA_LEVEL);
+    u8 level = inGameTrade->level ? inGameTrade->level : GetMonData(&gPlayerParty[whichPlayerMon], MON_DATA_LEVEL);
 
     struct Mail mail;
     u8 metLocation = METLOC_IN_GAME_TRADE;

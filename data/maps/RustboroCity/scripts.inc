@@ -1020,9 +1020,7 @@ RustboroCity_Movement_RivalApproachPlayer7:
 	step_end
 
 RustboroCity_EventScript_Boy1::
-	lock
-	faceplayer
-	goto RustboroCity_EventScript_Boy1_Gift
+	msgbox RustboroCity_Text_YouCanHave2On2Battle, MSGBOX_NPC
 	end
 
 RustboroCity_Text_WeShortenItToDevon:
@@ -1303,6 +1301,10 @@ RustboroCity_Text_YouCanHave2On2Battle:
 	.string "could beat two TRAINERS by yourself?$"
 
 RustboroCity_EventScript_StoneCollector::
+	msgbox RustboroCity_Text_StoneCollectorIntro, MSGBOX_NPC
+	end
+
+RustboroCity_EventScript_StoneCollectorUnused::
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_EVOLUTION_STONE, RustboroCity_EventScript_StoneCollectorDone

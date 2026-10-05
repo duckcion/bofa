@@ -2028,3 +2028,119 @@ PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "talented TRAINERS.\p"
 # 1015 "data/maps/PetalburgCity/scripts.pory"
 	.string "I'm sorry to have taken your time.$"
+# 1016 "data/maps/PetalburgCity/scripts.pory"
+
+# 1017 "data/maps/PetalburgCity/scripts.pory"
+@ Rock trader: any Pokémon for Geodude or Rhyhorn (50/50, Lv5, Relaxed, perfect IVs). Once only.
+# 1018 "data/maps/PetalburgCity/scripts.pory"
+PetalburgCity_EventScript_RockTrader::
+# 1019 "data/maps/PetalburgCity/scripts.pory"
+	lock
+# 1020 "data/maps/PetalburgCity/scripts.pory"
+	faceplayer
+# 1021 "data/maps/PetalburgCity/scripts.pory"
+	goto_if_set FLAG_PETALBURG_NPC_TRADE_COMPLETED, PetalburgCity_EventScript_RockTraderDone
+# 1022 "data/maps/PetalburgCity/scripts.pory"
+	msgbox PetalburgCity_Text_RockTraderOffer, MSGBOX_YESNO
+# 1023 "data/maps/PetalburgCity/scripts.pory"
+	goto_if_eq VAR_RESULT, NO, PetalburgCity_EventScript_RockTraderDecline
+# 1024 "data/maps/PetalburgCity/scripts.pory"
+	special ChoosePartyMon
+# 1025 "data/maps/PetalburgCity/scripts.pory"
+	waitstate
+# 1026 "data/maps/PetalburgCity/scripts.pory"
+	copyvar VAR_0x800A, VAR_0x8004
+# 1027 "data/maps/PetalburgCity/scripts.pory"
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, PetalburgCity_EventScript_RockTraderDecline
+# 1028 "data/maps/PetalburgCity/scripts.pory"
+	copyvar VAR_0x8005, VAR_0x800A
+# 1029 "data/maps/PetalburgCity/scripts.pory"
+	specialvar VAR_RESULT, GetTradeSpecies
+# 1030 "data/maps/PetalburgCity/scripts.pory"
+	goto_if_eq VAR_RESULT, SPECIES_NONE, PetalburgCity_EventScript_RockTraderDecline
+# 1031 "data/maps/PetalburgCity/scripts.pory"
+	setvar VAR_0x8004, INGAME_TRADE_GEODUDE
+# 1032 "data/maps/PetalburgCity/scripts.pory"
+	random 2
+# 1033 "data/maps/PetalburgCity/scripts.pory"
+	goto_if_eq VAR_RESULT, 0, PetalburgCity_EventScript_RockTraderDoTrade
+# 1034 "data/maps/PetalburgCity/scripts.pory"
+	setvar VAR_0x8004, INGAME_TRADE_RHYHORN
+# 1035 "data/maps/PetalburgCity/scripts.pory"
+PetalburgCity_EventScript_RockTraderDoTrade::
+# 1036 "data/maps/PetalburgCity/scripts.pory"
+	copyvar VAR_0x8005, VAR_0x800A
+# 1037 "data/maps/PetalburgCity/scripts.pory"
+	special CreateInGameTradePokemon
+# 1038 "data/maps/PetalburgCity/scripts.pory"
+	special DoInGameTradeScene
+# 1039 "data/maps/PetalburgCity/scripts.pory"
+	waitstate
+# 1040 "data/maps/PetalburgCity/scripts.pory"
+	setflag FLAG_PETALBURG_NPC_TRADE_COMPLETED
+# 1041 "data/maps/PetalburgCity/scripts.pory"
+	msgbox PetalburgCity_Text_RockTraderThanks, MSGBOX_DEFAULT
+# 1042 "data/maps/PetalburgCity/scripts.pory"
+	release
+# 1043 "data/maps/PetalburgCity/scripts.pory"
+	end
+# 1044 "data/maps/PetalburgCity/scripts.pory"
+
+# 1045 "data/maps/PetalburgCity/scripts.pory"
+PetalburgCity_EventScript_RockTraderDecline::
+# 1046 "data/maps/PetalburgCity/scripts.pory"
+	msgbox PetalburgCity_Text_RockTraderDecline, MSGBOX_DEFAULT
+# 1047 "data/maps/PetalburgCity/scripts.pory"
+	release
+# 1048 "data/maps/PetalburgCity/scripts.pory"
+	end
+# 1049 "data/maps/PetalburgCity/scripts.pory"
+
+# 1050 "data/maps/PetalburgCity/scripts.pory"
+PetalburgCity_EventScript_RockTraderDone::
+# 1051 "data/maps/PetalburgCity/scripts.pory"
+	msgbox PetalburgCity_Text_RockTraderDone, MSGBOX_DEFAULT
+# 1052 "data/maps/PetalburgCity/scripts.pory"
+	release
+# 1053 "data/maps/PetalburgCity/scripts.pory"
+	end
+# 1054 "data/maps/PetalburgCity/scripts.pory"
+
+# 1055 "data/maps/PetalburgCity/scripts.pory"
+PetalburgCity_Text_RockTraderOffer:
+# 1056 "data/maps/PetalburgCity/scripts.pory"
+	.string "I've got two tough rock POKéMON\n"
+# 1057 "data/maps/PetalburgCity/scripts.pory"
+	.string "in my bag, and I can't decide which\l"
+# 1058 "data/maps/PetalburgCity/scripts.pory"
+	.string "one to part with.\p"
+# 1059 "data/maps/PetalburgCity/scripts.pory"
+	.string "Give me any POKéMON and I'll let\n"
+# 1060 "data/maps/PetalburgCity/scripts.pory"
+	.string "fate pick which one you get.\p"
+# 1061 "data/maps/PetalburgCity/scripts.pory"
+	.string "Only one trade, mind you.\n"
+# 1062 "data/maps/PetalburgCity/scripts.pory"
+	.string "Want to do it?$"
+# 1063 "data/maps/PetalburgCity/scripts.pory"
+
+# 1064 "data/maps/PetalburgCity/scripts.pory"
+PetalburgCity_Text_RockTraderThanks:
+# 1065 "data/maps/PetalburgCity/scripts.pory"
+	.string "Rock types laugh off NORMAL moves.\n"
+# 1066 "data/maps/PetalburgCity/scripts.pory"
+	.string "Your dad's GYM won't know what hit it!$"
+# 1067 "data/maps/PetalburgCity/scripts.pory"
+
+# 1068 "data/maps/PetalburgCity/scripts.pory"
+PetalburgCity_Text_RockTraderDecline:
+# 1069 "data/maps/PetalburgCity/scripts.pory"
+	.string "No? Suit yourself.$"
+# 1070 "data/maps/PetalburgCity/scripts.pory"
+
+# 1071 "data/maps/PetalburgCity/scripts.pory"
+PetalburgCity_Text_RockTraderDone:
+# 1072 "data/maps/PetalburgCity/scripts.pory"
+	.string "Treat that POKéMON well.\n"
+# 1073 "data/maps/PetalburgCity/scripts.pory"
+	.string "It's as hard-headed as I am!$"

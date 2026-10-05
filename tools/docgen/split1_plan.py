@@ -94,6 +94,7 @@ NEW_ITEMS = [
     # item, method, map, split, note
     ("Good Rod", "NPC gift (Fisherman)", "OldaleTown", "Split 1", "Shares its flag with the Route 118 gift."),
     ("HM Rock Smash", "NPC gift (end of forest)", "ViridianForest", "Split 1", "Shares its flag with the Mauville gift."),
+    ("TM Bullet Seed x2", "NPC gift (boy)", "Route104", "Split 1", "North end of Route 104 South"),
     ("Mystic Water", "NPC gift (Fisherman Darian, after battle)", "Route104", "Split 1", "Route 104 South"),
     ("Great Ball x5", "NPC gift (Norman, with the Everstone quest)", "Route104", "Split 1", "Route 104 South"),
     ("Miracle Seed", "NPC gift (Picnicker Maisie, after battle)", "TrainerGrove", "Split 1", ""),
@@ -102,11 +103,10 @@ NEW_ITEMS = [
      "The only Focus Sash in Splits 1-2"),
     ("TM Protect x1", "Gym reward (Norman)", "PetalburgCity_Gym", "Split 1", "Only TM given as a single copy"),
     ("Charcoal", "NPC gift (camper boy)", "PetalburgWoods", "Split 2", ""),
-    ("Black Belt", "NPC gift (Expert)", "Route104", "Split 2", "Route 104 North"),
-    ("Magnet", "NPC gift (Devon employee)", "RustboroCity_DevonCorp_1F", "Split 2", ""),
-    ("TM68 Wing Attack x2", "NPC gift (boy)", "RustboroCity", "Split 2", "New BOFA TM"),
-    ("Hard Stone", "NPC gift (tunneler)", "Route116_TunnelersRestHouse", "Split 2", ""),
-    ("Twisted Spoon", "NPC gift (Gym guide)", "RustboroCity_Gym", "Split 2", ""),
+    ("Black Belt", "NPC gift (Cooltrainer Cole, after the double battle)", "Route116", "Split 2", "Cave-side end of Route 116"),
+    ("Shiny Stone OR Moon Stone", "NPC choice (one only)", "LostCave", "Split 2", "Deepest point of Lost Cave"),
+    ("Occa + Passho + Rindo Berry", "NPC gift (hiker, all three at once)", "RustboroCity_House1", "Split 2", "House next to the Gym"),
+    ("TM68 Wing Attack x2", "NPC gift (Trainer School student)", "RustboroCity_PokemonSchool", "Split 2", "New BOFA TM"),
     ("TM Rock Tomb x2", "Gym reward (Roxanne)", "RustboroCity_Gym", "Split 2", ""),
 ]
 REMOVED_ITEMS = []
@@ -188,5 +188,9 @@ SPLIT2_NOTES = {
 CHRONO_MAPS = {
     "Split 1": ["LittlerootTown", "StarterRoom", "Route101", "OldaleTown", "Route103", "Route102", "PetalburgCity_Mart",
                 "PetalburgCity", "Route104", "TrainerGrove", "PetalburgCoast", "ViridianForest", "PetalburgCity_Gym"],
-    "Split 2": ["PetalburgWoods", "Route104", "RustboroCity_Gym", "RustboroCity", "Route116", "RusturfTunnel"],
+    "Split 2": ["PetalburgWoods", "LostCave", "Route104", "RustboroCity_Gym", "RustboroCity", "Route116", "RusturfTunnel",
+                "Route115"],
 }
+
+# Wild-encounter maps whose split the generic split model can't infer (new/custom maps)
+ENCOUNTER_SPLIT = {"MAP_TRAINER_GROVE": "Split 1", "MAP_PETALBURG_COAST": "Split 1", "MAP_LOST_CAVE": "Split 2"}

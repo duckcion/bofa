@@ -7,9 +7,7 @@ Route116_TunnelersRestHouse_OnTransition:
 	end
 
 Route116_TunnelersRestHouse_EventScript_Tunneler1::
-	lock
-	faceplayer
-	goto Route116_TunnelersRestHouse_EventScript_Tunneler1_Gift
+	msgbox Route116_TunnelersRestHouse_Text_WeHadToStopBoring, MSGBOX_NPC
 	end
 
 Route116_TunnelersRestHouse_EventScript_Tunneler2::

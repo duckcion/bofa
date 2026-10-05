@@ -82,15 +82,15 @@
 #define FLAG_ITEM_PETALBURG_WOODS_POISON_BARB    0x44 // Splits 1-2 item pass
 #define FLAG_ITEM_PETALBURG_WOODS_TM_STRUGGLE_BUG    0x45 // Splits 1-2 item pass
 #define FLAG_RECEIVED_CHARCOAL_PETALBURG_WOODS    0x46 // Splits 1-2 item pass
-#define FLAG_UNUSED_0x047    0x47 // Unused Flag
-#define FLAG_UNUSED_0x048    0x48 // Unused Flag
-#define FLAG_UNUSED_0x049    0x49 // Unused Flag
-#define FLAG_UNUSED_0x04A    0x4A // Unused Flag
-#define FLAG_UNUSED_0x04B    0x4B // Unused Flag
-#define FLAG_UNUSED_0x04C    0x4C // Unused Flag
-#define FLAG_UNUSED_0x04D    0x4D // Unused Flag
-#define FLAG_UNUSED_0x04E    0x4E // Unused Flag
-#define FLAG_UNUSED_0x04F    0x4F // Unused Flag
+#define FLAG_PETALBURG_NPC_TRADE_COMPLETED    0x47
+#define FLAG_ITEM_TRAINER_GROVE_TM_WORK_UP    0x48
+#define FLAG_ITEM_GRANITE_CAVE_B2F_LEAF_STONE    0x49
+#define FLAG_ITEM_GRANITE_CAVE_B1F_SHELL_BELL    0x4A
+#define FLAG_ITEM_GRANITE_CAVE_B2F_TM_FLAME_CHARGE    0x4B
+#define FLAG_ITEM_GRANITE_CAVE_B2F_TM_AURORA_BEAM    0x4C
+#define FLAG_RECEIVED_LOST_CAVE_STONE    0x4D
+#define FLAG_RECEIVED_RUSTBORO_RESIST_BERRIES    0x4E
+#define FLAG_RECEIVED_ROUTE116_BLACK_BELT    0x4F
 
 // Scripts
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50
@@ -98,8 +98,8 @@
 #define FLAG_RESCUED_BIRCH                       0x52
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
-#define FLAG_UNUSED_0x054                    0x54  // Unused Flag
-#define FLAG_UNUSED_0x055                    0x55  // Unused Flag
+#define FLAG_ITEM_ROUTE_116_NORMAL_GEM       0x54
+#define FLAG_ITEM_ROUTE_115_TM_SHOCK_WAVE    0x55
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
 #define FLAG_MET_RIVAL_MOM                   0x57
@@ -120,7 +120,7 @@
 #define FLAG_MOSSDEEP_GYM_SWITCH_3           0x66 //
 #define FLAG_MOSSDEEP_GYM_SWITCH_4           0x67 //
 
-#define FLAG_UNUSED_0x068                    0x68  // Unused Flag
+#define FLAG_ITEM_ROUTE_115_SOFT_SAND        0x68
 
 #define FLAG_OCEANIC_MUSEUM_MET_REPORTER     0x69
 #define FLAG_RECEIVED_HM_STRENGTH            0x6A

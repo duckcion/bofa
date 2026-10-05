@@ -2075,7 +2075,7 @@ static u8 CalcBerryYield(struct BerryTree *tree)
     return result;
 }
 
-// BOFA: the six basic berries are effectively unlimited (~900 per tree); everything else gives 255.
+// BOFA: the six basic berries are effectively unlimited (~900 per tree); Sitrus gives 5; everything else gives 255.
 static u16 GetBerryCountByBerryTreeId(u8 id)
 {
     switch (BerryTypeToItemId(GetBerryTypeByBerryTreeId(id)))
@@ -2087,6 +2087,8 @@ static u16 GetBerryCountByBerryTreeId(u8 id)
     case ITEM_PERSIM_BERRY:
     case ITEM_ASPEAR_BERRY:
         return 900;
+    case ITEM_SITRUS_BERRY:
+        return 5;
     default:
         return 255;
     }

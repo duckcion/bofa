@@ -552,7 +552,20 @@ Route116_EventScript_Pair4::
 
 Route116_EventScript_Pair4A::
 	goto_if_not_defeated TRAINER_ROUTE116_COLE, Route116_EventScript_Pair4
-	msgbox Route116_Text_Pair4PostA, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_ROUTE116_BLACK_BELT, Route116_EventScript_Pair4ABlackBeltDone
+	msgbox Route116_Text_Pair4ABlackBelt, MSGBOX_DEFAULT
+	giveitem ITEM_BLACK_BELT
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_ROUTE116_BLACK_BELT
+	msgbox Route116_Text_Pair4PostA, MSGBOX_DEFAULT
+	release
+	end
+
+Route116_EventScript_Pair4ABlackBeltDone::
+	msgbox Route116_Text_Pair4PostA, MSGBOX_DEFAULT
+	release
 	end
 
 Route116_EventScript_Pair4B::
@@ -707,3 +720,7 @@ Route116_Text_SidneyAfter:
 Route116_Text_SidneyPost:
 	.string "SIDNEY: What are you still doing here?\n"
 	.string "ROXANNE's GYM is back in RUSTBORO.$"
+
+Route116_Text_Pair4ABlackBelt:
+	.string "COLE: You hit like a FIGHTING type.\n"
+	.string "This BLACK BELT suits you better.$"

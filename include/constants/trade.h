@@ -12,6 +12,8 @@
 #define INGAME_TRADE_CHIKORITA 4
 #define INGAME_TRADE_CYNDAQUIL 5
 #define INGAME_TRADE_TOTODILE 6
+#define INGAME_TRADE_GEODUDE 7
+#define INGAME_TRADE_RHYHORN 8
 
 // Return values for CanTradeSelectedMon and CanSpinTradeMon
 #define CAN_TRADE_MON              0

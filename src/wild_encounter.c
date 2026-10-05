@@ -70,6 +70,7 @@ EWRAM_DATA bool8 gIsSurfingEncounter = 0;
 EWRAM_DATA u8 gChainFishingDexNavStreak = 0;
 
 #include "data/wild_encounters.h"
+#include "data/wild_encounters_custom_rates.h"
 
 static const struct WildPokemon sWildFeebas = {20, 25, SPECIES_FEEBAS};
 
@@ -185,12 +186,39 @@ static void FeebasSeedRng(u16 seed)
     sFeebasRngValue = seed;
 }
 
+// BOFA: returns the custom slot index for the current map, or -1 if the map uses the standard rates
+static s32 ChooseCustomLandSlot(void)
+{
+    u32 i, slot, rand, total;
+    u16 map = gSaveBlock1Ptr->location.mapNum | (gSaveBlock1Ptr->location.mapGroup << 8);
+
+    for (i = 0; i < ARRAY_COUNT(sCustomLandRates); i++)
+    {
+        if (sCustomLandRates[i].map != map)
+            continue;
+        rand = Random() % 100;
+        total = 0;
+        for (slot = 0; slot < LAND_WILD_COUNT; slot++)
+        {
+            total += sCustomLandRates[i].rates[slot];
+            if (rand < total)
+                return slot;
+        }
+        return 0;
+    }
+    return -1;
+}
+
 // LAND_WILD_COUNT
 static u8 ChooseWildMonIndex_Land(void)
 {
     u8 wildMonIndex = 0;
     bool8 swap = FALSE;
     u8 rand = Random() % ENCOUNTER_CHANCE_LAND_MONS_TOTAL;
+    s32 customSlot = ChooseCustomLandSlot();
+
+    if (customSlot >= 0)
+        return customSlot;   // custom tables don't use the lure slot swap
 
     if (rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_0)
         wildMonIndex = 0;

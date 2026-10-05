@@ -539,6 +539,8 @@ def ingame_trades():
             "heldItem": g(r"\.heldItem\s*=\s*(ITEM_[A-Z0-9_]+)"),
             "requestedSpecies": g(r"\.requestedSpecies\s*=\s*(SPECIES_[A-Z0-9_]+)"),
             "otName": g(r'\.otName\s*=\s*_\("([^"]*)"\)'),
+            "level": g(r"\.level\s*=\s*(\d+)"),
+            "personality": g(r"\.personality\s*=\s*(0x[0-9A-Fa-f]+|\d+)", lambda v: int(v, 0)),
         })
     return rows
 

@@ -12304,64 +12304,20 @@ F_TRAINER_FEMALE |
             },
             {
 #line 4976
-            .species = SPECIES_ARCHEN,
+            .species = SPECIES_MAGCARGO,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 4976
-            .heldItem = ITEM_FLYING_GEM,
+            .heldItem = ITEM_CHARCOAL,
 #line 4979
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 4978
-            .ability = ABILITY_DEFEATIST,
-#line 4977
-            .lvl = 24,
-            .nature = NATURE_HARDY,
-            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
-            .moves = {
-#line 4980
-                MOVE_ACROBATICS,
-                MOVE_ROCK_SLIDE,
-                MOVE_U_TURN,
-                MOVE_ENDEAVOR,
-            },
-            },
-            {
-#line 4985
-            .species = SPECIES_GABITE,
-            .gender = TRAINER_MON_RANDOM_GENDER,
-#line 4985
-            .heldItem = ITEM_EVIOLITE,
-#line 4988
-            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-#line 4987
-            .ability = ABILITY_ROUGH_SKIN,
-#line 4986
-            .lvl = 24,
-            .nature = NATURE_HARDY,
-            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
-            .moves = {
-#line 4989
-                MOVE_EARTHQUAKE,
-                MOVE_DRAGON_CLAW,
-                MOVE_FLAMETHROWER,
-                MOVE_CRUNCH,
-            },
-            },
-            {
-#line 4994
-            .species = SPECIES_MAGCARGO,
-            .gender = TRAINER_MON_RANDOM_GENDER,
-#line 4994
-            .heldItem = ITEM_CHARCOAL,
-#line 4997
-            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-#line 4996
             .ability = ABILITY_SOLID_ROCK,
-#line 4995
+#line 4977
             .lvl = 25,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
-#line 4998
+#line 4980
                 MOVE_FLAMETHROWER,
                 MOVE_ANCIENT_POWER,
                 MOVE_EARTH_POWER,
@@ -12369,25 +12325,67 @@ F_TRAINER_FEMALE |
             },
             },
             {
-#line 5003
+#line 4985
             .species = SPECIES_GLIGAR,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 4985
+            .heldItem = ITEM_EVIOLITE,
+#line 4988
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 4987
+            .ability = ABILITY_HYPER_CUTTER,
+#line 4986
+            .lvl = 25,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 4989
+                MOVE_SWORDS_DANCE,
+                MOVE_EARTHQUAKE,
+                MOVE_AERIAL_ACE,
+                MOVE_ROCK_SLIDE,
+            },
+            },
+            {
+#line 4994
+            .species = SPECIES_ANORITH,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 4997
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 4996
+            .ability = ABILITY_BATTLE_ARMOR,
+#line 4995
+            .lvl = 24,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 4998
+                MOVE_ROCK_SLIDE,
+                MOVE_X_SCISSOR,
+                MOVE_AQUA_JET,
+                MOVE_AERIAL_ACE,
+            },
+            },
+            {
+#line 5003
+            .species = SPECIES_GABITE,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 5003
             .heldItem = ITEM_EVIOLITE,
 #line 5006
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 5005
-            .ability = ABILITY_HYPER_CUTTER,
+            .ability = ABILITY_ROUGH_SKIN,
 #line 5004
-            .lvl = 25,
+            .lvl = 24,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 5007
-                MOVE_SWORDS_DANCE,
                 MOVE_EARTHQUAKE,
-                MOVE_AERIAL_ACE,
-                MOVE_ROCK_SLIDE,
+                MOVE_DRAGON_CLAW,
+                MOVE_FLAMETHROWER,
+                MOVE_CRUNCH,
             },
             },
             {

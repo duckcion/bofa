@@ -79,3 +79,34 @@ RustboroCity_House1_Text_AllSortsOfPlaces:
 	.string "I find that fascinating, so I go to all\n"
 	.string "sorts of places.$"
 
+RustboroCity_House1_EventScript_ResistBerries::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_RUSTBORO_RESIST_BERRIES, RustboroCity_House1_EventScript_ResistBerriesDone
+	msgbox RustboroCity_House1_Text_ResistBerriesIntro, MSGBOX_DEFAULT
+	checkitemspace ITEM_OCCA_BERRY, 1
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_OCCA_BERRY
+	giveitem ITEM_PASSHO_BERRY
+	giveitem ITEM_RINDO_BERRY
+	setflag FLAG_RECEIVED_RUSTBORO_RESIST_BERRIES
+	msgbox RustboroCity_House1_Text_ResistBerriesAfter, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_House1_EventScript_ResistBerriesDone::
+	msgbox RustboroCity_House1_Text_ResistBerriesAfter, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_House1_Text_ResistBerriesIntro:
+	.string "Heading to the GYM? My hike took me\n"
+	.string "past some rare berry bushes.\p"
+	.string "A POKéMON holding one takes less\n"
+	.string "damage from a super-effective hit.\p"
+	.string "One each for FIRE, WATER and GRASS.\n"
+	.string "Use them wisely!$"
+
+RustboroCity_House1_Text_ResistBerriesAfter:
+	.string "They only work once, so save them\n"
+	.string "for the battle that matters.$"
