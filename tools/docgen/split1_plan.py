@@ -106,7 +106,7 @@ NEW_ITEMS = [
     ("Black Belt", "NPC gift (Cooltrainer Cole, after the double battle)", "Route116", "Split 2", "Cave-side end of Route 116"),
     ("Shiny Stone OR Moon Stone", "NPC choice (one only)", "LostCave", "Split 2", "Deepest point of Lost Cave"),
     ("Occa + Passho + Rindo Berry", "NPC gift (hiker, all three at once)", "RustboroCity_House1", "Split 2", "House next to the Gym"),
-    ("HM01 Cut", "NPC gift (the Cutter, in his house)", "RustboroCity_CuttersHouse", "Split 2", "Opens the Cut trees in Petalburg Woods and Route 104"),
+    ("HM01 Cut", "NPC gift (the Cutter, in his house)", "RustboroCity_CuttersHouse", "Split 2", "Clears the small trees in Petalburg Woods and Route 104 (needs Badge 1)"),
     ("TM68 Wing Attack x2", "NPC gift (Trainer School student)", "RustboroCity_PokemonSchool", "Split 2", "New BOFA TM"),
     ("TM Rock Tomb x2", "Gym reward (Roxanne)", "RustboroCity_Gym", "Split 2", ""),
     ("RageCandyBar", "Dropped by the Aqua grunt as he flees", "RusturfTunnel", "Split 3", "Converted Shoal Shell"),
