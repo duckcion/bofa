@@ -6,7 +6,7 @@ ASSUMPTIONS
     ASSUME(gItemsInfo[ITEM_ROWAP_BERRY].holdEffect == HOLD_EFFECT_ROWAP_BERRY);
 }
 
-SINGLE_BATTLE_TEST("Rowap Berry causes the attacker to lose 1/8 of its max HP if a special move was used")
+SINGLE_BATTLE_TEST("Rowap Berry causes the attacker to lose 1/6 of its max HP if a special move was used")
 {
     s16 damage;
     u16 move;
@@ -36,7 +36,7 @@ SINGLE_BATTLE_TEST("Rowap Berry causes the attacker to lose 1/8 of its max HP if
         }
     } THEN {
         if (move == MOVE_SWIFT)
-            EXPECT_EQ(player->maxHP / 8, damage);
+            EXPECT_EQ(player->maxHP / 6, damage);
     }
 }
 

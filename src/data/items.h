@@ -1202,15 +1202,14 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Lava Cookie"),
         .price = (I_PRICE >= GEN_7) ? 350 : 200,
+        .holdEffect = HOLD_EFFECT_CURE_STATUS,
         .description = COMPOUND_STRING(
             "A local specialty\n"
-            "that heals all\n"
-            "status problems."),
+            "that cures status\n"
+            "when held."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-        .battleUsage = EFFECT_ITEM_CURE_STATUS,
-        .effect = gItemEffect_FullHeal,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 30,
         .iconPic = gItemIcon_LavaCookie,
         .iconPalette = gItemIconPalette_LavaCookieAndLetter,
@@ -1221,12 +1220,14 @@ const struct Item gItemsInfo[] =
         .name = _("Old Gateau"),
         .pluralName = _("Old Gateaux"),
         .price = (I_PRICE >= GEN_7) ? 350 : 200,
-        .description = sFullHealDesc,
+        .holdEffect = HOLD_EFFECT_CURE_STATUS,
+        .description = COMPOUND_STRING(
+            "A hidden specialty\n"
+            "that cures status\n"
+            "when held."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-        .battleUsage = EFFECT_ITEM_CURE_STATUS,
-        .effect = gItemEffect_FullHeal,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 30,
         .iconPic = gItemIcon_OldGateau,
         .iconPalette = gItemIconPalette_OldGateau,
@@ -2724,13 +2725,15 @@ const struct Item gItemsInfo[] =
 
     [ITEM_SHOAL_SALT] =
     {
-        .name = _("Shoal Salt"),
+        .name = _("Berserk Gene"),
         .pluralName = _("Shoal Salt"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_ENTRY_STAT_UP,
+        .holdEffectParam = STAT_ATK,
         .description = COMPOUND_STRING(
-            "Salt obtained from\n"
-            "deep inside the\n"
-            "Shoal Cave."),
+            "Raises Attack by\n"
+            "one stage when\n"
+            "the holder enters."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -2741,12 +2744,14 @@ const struct Item gItemsInfo[] =
 
     [ITEM_SHOAL_SHELL] =
     {
-        .name = _("Shoal Shell"),
+        .name = _("RageCandyBar"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_RESTORE_HP,
+        .holdEffectParam = 100,
         .description = COMPOUND_STRING(
-            "A seashell found\n"
-            "deep inside the\n"
-            "Shoal Cave."),
+            "A hold item that\n"
+            "restores 100 HP\n"
+            "below half HP."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -4458,7 +4463,7 @@ const struct Item gItemsInfo[] =
         .name = _("Flame Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4477,7 +4482,7 @@ const struct Item gItemsInfo[] =
         .name = _("Splash Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4496,7 +4501,7 @@ const struct Item gItemsInfo[] =
         .name = _("Zap Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of Elec-\n"
@@ -4515,7 +4520,7 @@ const struct Item gItemsInfo[] =
         .name = _("Meadow Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4534,7 +4539,7 @@ const struct Item gItemsInfo[] =
         .name = _("Icicle Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4553,7 +4558,7 @@ const struct Item gItemsInfo[] =
         .name = _("Fist Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of Fight-\n"
@@ -4572,7 +4577,7 @@ const struct Item gItemsInfo[] =
         .name = _("Toxic Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4591,7 +4596,7 @@ const struct Item gItemsInfo[] =
         .name = _("Earth Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4610,7 +4615,7 @@ const struct Item gItemsInfo[] =
         .name = _("Sky Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4629,7 +4634,7 @@ const struct Item gItemsInfo[] =
         .name = _("Mind Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of Psy\n"
@@ -4648,7 +4653,7 @@ const struct Item gItemsInfo[] =
         .name = _("Insect Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4667,7 +4672,7 @@ const struct Item gItemsInfo[] =
         .name = _("Stone Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4686,7 +4691,7 @@ const struct Item gItemsInfo[] =
         .name = _("Spooky Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4705,7 +4710,7 @@ const struct Item gItemsInfo[] =
         .name = _("Draco Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4724,7 +4729,7 @@ const struct Item gItemsInfo[] =
         .name = _("Dread Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4743,7 +4748,7 @@ const struct Item gItemsInfo[] =
         .name = _("Iron Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -4762,7 +4767,7 @@ const struct Item gItemsInfo[] =
         .name = _("Pixie Plate"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_PLATE,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "A tablet that ups\n"
             "the power of\n"
@@ -7216,7 +7221,7 @@ const struct Item gItemsInfo[] =
         .name = _("Lax Incense"),
         .price = (I_PRICE >= GEN_7) ? 5000 : 9600,
         .holdEffect = HOLD_EFFECT_EVASION_UP,
-        .holdEffectParam = 10,
+        .holdEffectParam = 11,
         .description = COMPOUND_STRING(
             "A hold item that\n"
             "slightly lowers the\n"
@@ -8178,7 +8183,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Bright Powder"),
         .price = (I_PRICE >= GEN_9) ? 30000 : ((I_PRICE >= GEN_7) ? 4000 : 10),
         .holdEffect = HOLD_EFFECT_EVASION_UP,
-        .holdEffectParam = 10,
+        .holdEffectParam = 11,
         .description = COMPOUND_STRING(
             "A hold item that\n"
             "casts a glare to\n"
@@ -10151,12 +10156,12 @@ const struct Item gItemsInfo[] =
         .name = _("Ganlon Berry"),
         .pluralName = _("Ganlon Berries"),
         .price = (I_BERRY_PRICE >= GEN_8) ? 80 : 20,
-        .holdEffect = HOLD_EFFECT_DEFENSE_UP,
-        .holdEffectParam = 4,
+        .holdEffect = HOLD_EFFECT_ENTRY_STAT_UP,
+        .holdEffectParam = STAT_DEF,
         .description = COMPOUND_STRING(
-            "A hold item that\n"
-            "raises Defense in\n"
-            "a pinch."),
+            "Raises Defense by\n"
+            "one stage when\n"
+            "the holder enters."),
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -10208,12 +10213,12 @@ const struct Item gItemsInfo[] =
         .name = _("Apicot Berry"),
         .pluralName = _("Apicot Berries"),
         .price = (I_BERRY_PRICE >= GEN_8) ? 80 : 20,
-        .holdEffect = HOLD_EFFECT_SP_DEFENSE_UP,
-        .holdEffectParam = 4,
+        .holdEffect = HOLD_EFFECT_ENTRY_STAT_UP,
+        .holdEffectParam = STAT_SPDEF,
         .description = COMPOUND_STRING(
-            "A hold item that\n"
-            "raises Sp. Def in\n"
-            "a pinch."),
+            "Raises Sp. Def by\n"
+            "one stage when\n"
+            "the holder enters."),
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -12336,12 +12341,14 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Town Map"),
         .price = 0,
+        .holdEffect = HOLD_EFFECT_TOWN_MAP,
+        .flingPower = 120,
         .description = COMPOUND_STRING(
-            "Can be viewed\n"
-            "anytime. Shows your\n"
-            "present location."),
+            "Shows your\n"
+            "location. Fling it\n"
+            "or let it be eaten."),
         .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TownMap,
         .iconPic = gItemIcon_TownMap,

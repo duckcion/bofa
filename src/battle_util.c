@@ -3964,7 +3964,7 @@ bool32 TryChangeBattleWeather(u32 battler, u32 weatherEnumId, bool32 viaAbility)
     {
         gBattleWeather = (sWeatherFlagsInfo[weatherEnumId][0]);
         if (GetBattlerHoldEffect(battler, TRUE) == sWeatherFlagsInfo[weatherEnumId][2])
-            gWishFutureKnock.weatherDuration = 8;
+            gWishFutureKnock.weatherDuration = 12; // BOFA: weather rocks add 7 turns
         else
             gWishFutureKnock.weatherDuration = 5;
         return TRUE;
@@ -6984,6 +6984,29 @@ static u8 DamagedStatBoostBerryEffect(u32 battler, u8 statId, u8 category)
     return 0;
 }
 
+// BOFA: Berserk Gene / Ganlon / Apicot raise a stat by 1 when the holder enters, then are used up.
+static u32 TryHandleEntryStatItem(u32 battler, u32 statId, u32 itemId, enum ItemEffect caseID)
+{
+    if (!CompareStat(battler, statId, MAX_STAT_STAGE, CMP_LESS_THAN))
+        return 0;
+    BufferStatChange(battler, statId, STRINGID_STATROSE);
+    gLastUsedItem = itemId;
+    gEffectBattler = gBattleScripting.battler = battler;
+    SET_STATCHANGER(statId, 1, FALSE);
+    gBattleScripting.animArg1 = STAT_ANIM_PLUS1 + statId;
+    gBattleScripting.animArg2 = 0;
+    if (caseID == ITEMEFFECT_ON_SWITCH_IN_FIRST_TURN || caseID == ITEMEFFECT_NORMAL)
+    {
+        BattleScriptExecute(BattleScript_BerryStatRaiseEnd2);
+    }
+    else
+    {
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_BerryStatRaiseRet;
+    }
+    return ITEM_STATS_CHANGE;
+}
+
 u32 TryHandleSeed(u32 battler, u32 terrainFlag, u32 statId, u32 itemId, enum ItemEffect caseID)
 {
     if (gFieldStatuses & terrainFlag && CompareStat(battler, statId, MAX_STAT_STAGE, CMP_LESS_THAN))
@@ -7682,6 +7705,9 @@ u32 ItemBattleEffects(enum ItemEffect caseID, u32 battler, bool32 moveTurn)
                     effect = ITEM_STATS_CHANGE;
                 }
                 break;
+            case HOLD_EFFECT_ENTRY_STAT_UP:
+                effect = TryHandleEntryStatItem(battler, GetBattlerHoldEffectParam(battler), gLastUsedItem, caseID);
+                break;
             case HOLD_EFFECT_SEEDS:
                 switch (GetBattlerHoldEffectParam(battler))
                 {
@@ -8195,7 +8221,7 @@ u32 ItemBattleEffects(enum ItemEffect caseID, u32 battler, bool32 moveTurn)
                  && IS_MOVE_PHYSICAL(gCurrentMove)
                  && GetBattlerAbility(gBattlerAttacker) != ABILITY_MAGIC_GUARD)
                 {
-                    gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 8;
+                    gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 6; // BOFA: Jaboca/Rowap 1/6
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     if (GetBattlerAbility(battler) == ABILITY_RIPEN)
@@ -8215,7 +8241,7 @@ u32 ItemBattleEffects(enum ItemEffect caseID, u32 battler, bool32 moveTurn)
                  && IS_MOVE_SPECIAL(gCurrentMove)
                  && GetBattlerAbility(gBattlerAttacker) != ABILITY_MAGIC_GUARD)
                 {
-                    gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 8;
+                    gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 6; // BOFA: Jaboca/Rowap 1/6
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     if (GetBattlerAbility(battler) == ABILITY_RIPEN)

@@ -370,6 +370,7 @@ extern const u8 BattleScript_ToxicOrb[];
 extern const u8 BattleScript_FlameOrb[];
 extern const u8 BattleScript_MoveEffectIncinerate[];
 extern const u8 BattleScript_MoveEffectBugBite[];
+extern const u8 BattleScript_TownMapPlucked[];
 extern const u8 BattleScript_IllusionOff[];
 extern const u8 BattleScript_DancerActivates[];
 extern const u8 BattleScript_AftermathDmg[];

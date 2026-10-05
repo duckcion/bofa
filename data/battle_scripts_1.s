@@ -765,6 +765,7 @@ BattleScript_EffectFling::
 	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_POISON_POWER, BattleScript_FlingPoisonBarb
 	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_TOXIC_ORB, BattleScript_FlingToxicOrb
 	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_RESTORE_STATS, BattleScript_FlingWhiteHerb
+	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_TOWN_MAP, BattleScript_FlingTownMap
 	goto BattleScript_FlingEnd
 BattleScript_EffectFlingConsumeBerry:
 	savebattleritem BS_TARGET
@@ -788,6 +789,24 @@ BattleScript_FlingBlockedByShieldDust::
 	printstring STRINGID_ITEMWASUSEDUP
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_FlingEnd
+
+@ BOFA: a flung Town Map thaws a frozen target
+BattleScript_FlingTownMap:
+	jumpifstatus BS_TARGET, STATUS1_FREEZE | STATUS1_FROSTBITE, BattleScript_FlingTownMapThaw
+	goto BattleScript_FlingEnd
+BattleScript_FlingTownMapThaw:
+	curestatus BS_TARGET
+	updatestatusicon BS_TARGET
+	copybyte sBATTLER, gBattlerTarget
+	printstring STRINGID_PKMNSTATUSNORMAL
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_FlingEnd
+
+BattleScript_TownMapPlucked::
+	updatestatusicon BS_ATTACKER
+	printstring STRINGID_PKMNSTATUSNORMAL
+	waitmessage B_WAIT_TIME_LONG
+	return
 
 BattleScript_FlingFlameOrb:
 	seteffectsecondary MOVE_EFFECT_BURN

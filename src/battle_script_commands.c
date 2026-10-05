@@ -3756,6 +3756,26 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                 }
                 break;
             case MOVE_EFFECT_BUG_BITE:
+                // BOFA: plucking a Town Map takes it and cures the attacker's status
+                if (ItemId_GetHoldEffect(gBattleMons[gEffectBattler].item) == HOLD_EFFECT_TOWN_MAP
+                    && battlerAbility != ABILITY_STICKY_HOLD)
+                {
+                    gLastUsedItem = gBattleMons[gEffectBattler].item;
+                    gBattleMons[gEffectBattler].item = 0;
+                    CheckSetUnburden(gEffectBattler);
+                    BtlController_EmitSetMonData(gEffectBattler, BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gBattleMons[gEffectBattler].item), &gBattleMons[gEffectBattler].item);
+                    MarkBattlerForControllerExec(gEffectBattler);
+                    if (gBattleMons[gBattlerAttacker].status1 & STATUS1_ANY)
+                    {
+                        gBattleMons[gBattlerAttacker].status1 = 0;
+                        BtlController_EmitSetMonData(gBattlerAttacker, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerAttacker].status1), &gBattleMons[gBattlerAttacker].status1);
+                        MarkBattlerForControllerExec(gBattlerAttacker);
+                        gBattleScripting.battler = gBattlerAttacker;
+                        BattleScriptPush(gBattlescriptCurrInstr + 1);
+                        gBattlescriptCurrInstr = BattleScript_TownMapPlucked;
+                    }
+                    break;
+                }
                 if (ItemId_GetPocket(gBattleMons[gEffectBattler].item) == POCKET_BERRIES
                     && battlerAbility != ABILITY_STICKY_HOLD)
                 {

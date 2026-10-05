@@ -327,6 +327,8 @@ RusturfTunnel_EventScript_Grunt::
 	call_if_ne VAR_RUSTURF_TUNNEL_STATE, 3, RusturfTunnel_EventScript_GruntEscapeFrom13
 	playse SE_EXIT
 	removeobject LOCALID_GRUNT
+	msgbox RusturfTunnel_Text_GruntDroppedSomething, MSGBOX_DEFAULT
+	finditem ITEM_SHOAL_SHELL
 	delay 50
 	addobject LOCALID_BRINEY
 	applymovement LOCALID_BRINEY, RusturfTunnel_Movement_BrineyApproachPeeko1
@@ -579,3 +581,6 @@ RusturfTunnel_Text_GruntDontChaseMe:
 	.string "Where I'm going is none of your\l"
 	.string "business!$"
 
+RusturfTunnel_Text_GruntDroppedSomething:
+	.string "The GRUNT dropped something in\n"
+	.string "his hurry to escape!$"
