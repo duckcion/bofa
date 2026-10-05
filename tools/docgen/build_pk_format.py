@@ -962,8 +962,116 @@ for rr, it in enumerate(items, 2):
 ws.freeze_panes = "B2"
 ws.auto_filter.ref = f"A1:F{len(items)+1}"
 
-plain_sheet("Item Locations", "Item Locations", drop=("Status", "Item Const", "Flag"),
-            keep=lambda df: df["Item"].astype(str) != "0", df=planned_item_locs())
+# ---- Item Locations in the Platinum Kaizo checklist format:
+#      area header rows in play order; Item | Location | Requirements | Obtained?
+import glob, json
+REPO_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
+def ball_quantities():
+    q = {}
+    for f in glob.glob(os.path.join(REPO_ROOT, "data", "maps", "*", "map.json")):
+        mp = os.path.basename(os.path.dirname(f))
+        try:
+            j = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        for o in j.get("object_events", []):
+            if o.get("script") == "Common_EventScript_FindItem":
+                q[(mp, o["x"], o["y"])] = max(1, int(o.get("movement_range_x") or 1))
+    return q
+
+def requirement_from_note(note):
+    note = "" if pd.isna(note) else str(note)
+    low = note.lower()
+    if "surf" in low: return "Surf"
+    if "cut tree" in low: return "Cut"
+    if "rusturf tunnel" in low: return "After Rusturf Tunnel"
+    if "badge" in low: return note.replace("Only sold after ", "")
+    return ""
+
+def location_text(method, coords, note):
+    method = str(method); coords = "" if pd.isna(coords) or str(coords) in ("-", "nan") else str(coords)
+    note = "" if pd.isna(note) else str(note)
+    m = re.match(r"(NPC gift|NPC choice|Gym reward|Dropped by)\s*\(?(.*?)\)?$", method)
+    if method.startswith("Item Ball"): text = f"Item ball at {coords}" if coords else "Item ball"
+    elif method.startswith("Hidden"): text = f"At {coords} (hidden)" if coords else "(hidden)"
+    elif method.startswith("NPC gift"): text = "From " + method[len("NPC gift"):].strip(" ()")
+    elif method.startswith("Gym reward"): text = "From " + method[len("Gym reward"):].strip(" ()")
+    elif method.startswith("NPC choice"): text = "NPC choice " + method[len("NPC choice"):].strip()
+    elif method.startswith("Berry"): text = f"Berry tree at {coords}" if coords else "Berry tree"
+    else: text = method + (f" at {coords}" if coords else "")
+    if note and not requirement_from_note(note) and note not in text and "flag" not in note.lower():
+        text += f" ({note})"
+    return text
+
+_TM_ORDER = re.findall(r"F\((\w+)\)", open(os.path.join(REPO_ROOT, "include", "constants", "tms_hms.h"), encoding="utf-8").read())
+_HM_START = _TM_ORDER.index("CUT") if "CUT" in _TM_ORDER else len(_TM_ORDER)
+def tm_name(name):
+    """'TM Bullet Seed x2' / 'TM68 Wing Attack x2' / 'HM Rock Smash' -> 'TM09 - Bullet Seed x2' style."""
+    m = re.match(r"^(TM|HM)(\d*)\s+(?!-)(.+?)(\s+x\d+)?$", name)
+    if not m: return name
+    kind, num, move, qty = m.group(1), m.group(2), m.group(3), m.group(4) or ""
+    key = re.sub(r"[^A-Z0-9]+", "_", move.upper()).strip("_")
+    if not num and key in _TM_ORDER:
+        i = _TM_ORDER.index(key)
+        num = f"{i + 1:02d}" if i < _HM_START else f"{i - _HM_START + 1:02d}"
+        kind = "TM" if i < _HM_START else "HM"
+    return f"{kind}{num} - {move}{qty}"
+
+def area_of(mp):
+    return pretty_loc(str(mp)).split(" - ")[0]
+
+items = planned_item_locs()
+items = items[items["Item"].astype(str) != "0"]
+tms = planned_tm_locs()
+tms = tms[~tms["Method"].astype(str).str.startswith(("NPC gift", "Gym reward"))]
+tms = tms.assign(Item=tms["TM/HM"].astype(str) + " - " + tms["Move Taught"].astype(str))[["Item", "Method", "Map", "Split", "Note", "Coords"]]
+allrows = chrono_sort(pd.concat([items, tms], ignore_index=True))
+qty = ball_quantities()
+
+rows = []      # (kind, values)
+cur_split = cur_area = None
+marts = {}
+for _, r in allrows.iterrows():
+    split, mp = str(r["Split"]), r["Map"]
+    area = area_of(mp)
+    if split != cur_split:
+        rows.append(("split", split)); cur_split = split; cur_area = None
+    if area != cur_area:
+        rows.append(("area", area)); cur_area = area
+    method = str(r["Method"])
+    if method.startswith(("Mart", "Purchased")):
+        key = (split, area, pretty_loc(str(mp)))
+        if key not in marts:
+            marts[key] = []
+            rows.append(("mart", key))
+        marts[key].append(str(r["Item"]) + (" (after Badge 2)" if "Badge 2" in str(r.get("Note", "")) else ""))
+        continue
+    name = tm_name(str(r["Item"]))
+    m = re.match(r"\((\d+),\s*(\d+)\)", str(r.get("Coords", "")))
+    if m and method.startswith("Item Ball"):
+        n = qty.get((str(mp), int(m.group(1)), int(m.group(2))), 1)
+        if n > 1 and not re.search(r"x\d+$", name): name += f" x{n}"
+    rows.append(("item", [name, location_text(method, r.get("Coords"), r.get("Note")), requirement_from_note(r.get("Note")), "☐"]))
+
+ws = wb.create_sheet("Item Locations")
+header_row(ws, 1, ["Item", "Location", "Requirements", "Obtained?"], [30, 62, 24, 11])
+F_SPLIT = PatternFill("solid", fgColor="D9D9D9")
+F_AREA = PatternFill("solid", fgColor="F3F3F3")
+rr = 2
+for kind, v in rows:
+    if kind == "split":
+        for c in range(1, 5): body_cell(ws, rr, c, v if c == 1 else "", fill=F_SPLIT, align=LEFT)
+    elif kind == "area":
+        for c in range(1, 5): body_cell(ws, rr, c, v if c == 1 else "", fill=F_AREA, align=LEFT)
+    elif kind == "mart":
+        split, area, where = v
+        body_cell(ws, rr, 1, "Mart stock", align=LEFT)
+        body_cell(ws, rr, 2, f"{where}: " + ", ".join(marts[v]), align=LEFT)
+        body_cell(ws, rr, 3, "", align=LEFT); body_cell(ws, rr, 4, "", align=LEFT)
+    else:
+        for c, val in enumerate(v, 1): body_cell(ws, rr, c, val, align=LEFT)
+    rr += 1
+ws.freeze_panes = "A2"
 plain_sheet("Balance Issues", "Balance Issues")
 plain_sheet("Change Log", "Change Log", drop=("Implementation Status",))
 
