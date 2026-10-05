@@ -5583,32 +5583,35 @@ Items: Super Potion / Super Potion
 Double Battle: No
 AI: Smart Trainer
 
-Machop
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Machamp @ Lum Berry
+Level: 33
+Ability: No Guard
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
-- Karate Chop
-- Low Kick
-- Seismic Toss
-- Bulk Up
+- Dynamic Punch
+- Rock Slide
+- Bullet Punch
+- Wide Guard
 
-Meditite
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-Nature: Impish
-- Focus Punch
-- Light Screen
-- Reflect
-- Bulk Up
+Hawlucha @ Fighting Gem
+Level: 33
+Ability: Unburden
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Jolly
+- Brick Break
+- Acrobatics
+- Rock Slide
+- Protect
 
-Makuhita @ Sitrus Berry
-Level: 19
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Hariyama @ Flame Orb
+Level: 35
+Ability: Guts
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
-- Arm Thrust
-- Vital Throw
-- Reversal
-- Bulk Up
+- Close Combat
+- Knock Off
+- Rock Slide
+- Bullet Punch
 
 === TRAINER_WATTSON_1 ===
 Name: WATTSON
@@ -9085,10 +9088,45 @@ Music: Intense
 Double Battle: No
 AI: Smart Trainer
 
-Meditite
-Level: 13
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+Escavalier @ Occa Berry
+Level: 31
+Ability: Swarm
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
+- Megahorn
+- Iron Head
+- Drill Run
+- Knock Off
+
+Misdreavus @ Spell Tag
+Level: 31
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Timid
+- Shadow Ball
+- Psychic
+- Will-O-Wisp
+- Pain Split
+
+Metang @ Metal Coat
+Level: 31
+Ability: Clear Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Adamant
+- Meteor Mash
+- Zen Headbutt
+- Bullet Punch
+- Brick Break
+
+Scrafty @ Chople Berry
+Level: 31
+Ability: Moxie
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Adamant
+- Work Up
+- Drain Punch
+- Crunch
+- Ice Punch
 
 === TRAINER_LAURA ===
 Name: LAURA
@@ -9099,10 +9137,45 @@ Music: Intense
 Double Battle: No
 AI: Smart Trainer
 
-Meditite
-Level: 13
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Mienfoo @ Focus Sash
+Level: 30
+Ability: Regenerator
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Jolly
+- Fake Out
+- Drain Punch
+- U-turn
+- Knock Off
+
+Quilladin @ Eviolite
+Level: 30
+Ability: Bulletproof
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Impish
+- Seed Bomb
+- Brick Break
+- Rock Slide
+- Leech Seed
+
+Lairon @ Shuca Berry
+Level: 30
+Ability: Rock Head
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
+- Iron Head
+- Rock Slide
+- Bulldoze
+- Double-Edge
+
+Throh @ Sitrus Berry
+Level: 30
+Ability: Guts
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Careful
+- Brick Break
+- Rock Tomb
+- Payback
+- Ice Punch
 
 === TRAINER_CYNDY_1 ===
 Name: CYNDY
@@ -12199,10 +12272,65 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Machop
-Level: 13
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Meditite @ Focus Sash
+Level: 29
+Ability: Pure Power
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Jolly
+- Fake Out
+- Drain Punch
+- Zen Headbutt
+- Thunder Punch
+
+Tangela @ Eviolite
+Level: 29
+Ability: Regenerator
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Bold
+- Giga Drain
+- Sleep Powder
+- Ancient Power
+- Leech Seed
+
+Manectric @ Magnet
+Level: 29
+Ability: Lightning Rod
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Timid
+- Thunderbolt
+- Flamethrower
+- Volt Switch
+- Thunder Wave
+
+Pignite @ Charcoal
+Level: 29
+Ability: Thick Fat
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
+- Fire Punch
+- Brick Break
+- Head Smash
+- Sucker Punch
+
+Chimecho @ Twisted Spoon
+Level: 29
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Modest
+- Psychic
+- Signal Beam
+- Energy Ball
+- Recover
+
+Croconaw @ Mystic Water
+Level: 29
+Ability: Torrent
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Adamant
+- Vice Grip
+- Ice Punch
+- Crunch
+- Dragon Dance
 
 === TRAINER_LILITH ===
 Name: LILITH
@@ -12227,10 +12355,45 @@ Music: Intense
 Double Battle: No
 AI: Smart Trainer
 
-Makuhita
-Level: 13
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-Nature: Adamant
+Hitmonchan @ Expert Belt
+Level: 30
+Ability: Iron Fist
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Jolly
+- Mach Punch
+- Ice Punch
+- Thunder Punch
+- Fire Punch
+
+Clefable @ Chesto Berry
+Level: 30
+Ability: Magic Guard
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Bold
+- Metronome
+- Metronome
+- Metronome
+- Metronome
+
+Beedrill @ Scope Lens
+Level: 30
+Ability: Sniper
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Jolly
+- Twineedle
+- Poison Jab
+- Drill Run
+- Focus Energy
+
+Absol @ Focus Sash
+Level: 29
+Ability: Super Luck
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Relaxed
+- Swords Dance
+- Aerial Ace
+- Feint Attack
+- Aura Sphere
 
 === TRAINER_SYLVIA ===
 Name: SYLVIA
@@ -20034,83 +20197,121 @@ Nature: Naughty
 
 === TRAINER_DALTON ===
 Name: DALTON
-Class: Black Belt
-Pic: Black Belt
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
 Gender: Male
-Music: Male
-Items: Potion
-Double Battle: No
+Music: Cool
+Double Battle: Yes
 AI: Smart Trainer
 
-Makuhita @ Black Belt
-Level: 25
-Ability: Guts
+Ninetales @ Charcoal
+Level: 29
+Ability: Flash Fire
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-Nature: Adamant
-- Take Down
-- Seismic Toss
-- Submission
-- Smelling Salts
+Nature: Timid
+- Flamethrower
+- Energy Ball
+- Will-O-Wisp
+- Protect
 
-Aron @ Life Orb
-Level: 25
-Ability: Rock Head
+Hitmontop @ Eject Button
+Level: 29
+Ability: Intimidate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-Nature: Naughty
-- Iron Head
-- Headbutt
-- Take Down
-- Flash Cannon
+Nature: Careful
+- Fake Out
+- Close Combat
+- Rock Slide
+- Helping Hand
 
-Geodude @ Bright Powder
-Level: 25
-Ability: Rough Skin
+Pyroar @ Expert Belt
+Level: 29
+Ability: Unnerve
+IVs: 31 HP / 30 Atk / 31 Def / 30 SpA / 31 SpD / 31 Spe
+Nature: Timid
+- Heat Wave
+- Dark Pulse
+- Hidden Power
+- Protect
+
+Bellossom @ Sitrus Berry
+Level: 29
+Ability: Chlorophyll
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-Nature: Adamant
-- Rock Throw
-- Headbutt
-- Karate Chop
-- Dig
+Nature: Bold
+- Giga Drain
+- Sludge Bomb
+- Sleep Powder
+- Helping Hand
+
+Monferno @ Expert Belt
+Level: 29
+Ability: Iron Fist
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Jolly
+- Fire Punch
+- Mach Punch
+- Thunder Punch
+- Rock Slide
 
 === TRAINER_ANSEL ===
 Name: ANSEL
-Class: Hiker
-Pic: Hiker
+Class: Ruin Maniac
+Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
-Items: Potion
 Double Battle: No
 AI: Smart Trainer
 
-Aron @ Focus Sash
-Level: 27
+Shieldon @ Leftovers
+Level: 29
+Ability: Sturdy
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Impish
+- Rock Tomb
+- Iron Head
+- Toxic
+- Stealth Rock
+
+Cranidos @ Muscle Band
+Level: 29
+Ability: Mold Breaker
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Jolly
+- Head Smash
+- Zen Headbutt
+- Fire Punch
+- Rock Polish
+
+Relicanth @ Rindo Berry
+Level: 29
 Ability: Rock Head
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-Nature: Naughty
-- Iron Head
-- Headbutt
-- Take Down
-- Flash Cannon
-
-Nosepass @ Sitrus Berry
-Level: 26
-Ability: Solid Rock
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-Nature: Naughty
+Nature: Adamant
 - Rock Slide
-- Seismic Toss
-- Iron Head
-- Power Gem
+- Waterfall
+- Earthquake
+- Yawn
 
-Roggenrola @ Sitrus Berry
-Level: 27
-Ability: Sand Force
+Archen @ Flying Gem
+Level: 29
+Ability: Defeatist
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-Nature: Naughty
-- Smack Down
-- Iron Defense
-- Headbutt
-- Mud-Slap
+Nature: Jolly
+- Acrobatics
+- Rock Slide
+- U-turn
+- Quick Attack
+
+Aurorus @ Never-Melt Ice
+Level: 29
+Ability: Refrigerate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Modest
+- Aurora Beam
+- Ancient Power
+- Earth Power
+- Thunder Wave
 
 === TRAINER_GRUNT_ROUTE_104_MAGMA ===
 Name: GRUNT
@@ -21556,3 +21757,43 @@ Nature: Adamant
 - Crunch
 - Waterfall
 - Ice Fang
+
+=== TRAINER_PHOEBE_DEWFORD ===
+Name: PHOEBE
+Class: Elite Four
+Pic: Elite Four Phoebe
+Gender: Female
+Music: Elite Four
+Items: Super Potion / Super Potion
+Double Battle: No
+AI: Smart Trainer
+
+Gengar @ Life Orb
+Level: 33
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Timid
+- Shadow Ball
+- Sludge Bomb
+- Thunderbolt
+- Protect
+
+Trevenant @ Sitrus Berry
+Level: 33
+Ability: Harvest
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Adamant
+- Horn Leech
+- Shadow Claw
+- Will-O-Wisp
+- Protect
+
+Chandelure @ Expert Belt
+Level: 35
+Ability: Flash Fire
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Modest
+- Shadow Ball
+- Flamethrower
+- Energy Ball
+- Psychic

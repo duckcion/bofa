@@ -145,8 +145,8 @@ SPLIT2_PROGRESSION = [
     (6, "Rustboro Gym", "Gym trainers + Roxanne -> Badge 2", "Existing (unchanged)", "FLAG_BADGE02_GET", "In ROM"),
 ]
 
-# Split 3: structure only (teams, Pokemon counts, levels not designed yet). Tentative Brawly level cap: Lv34.
-SPLIT3_LEVEL_CAP = "Lv34 (tentative)"
+# Split 3. Level cap Lv35.
+SPLIT3_LEVEL_CAP = "Lv35"
 SPLIT3_PROGRESSION = [
     (1, "Rusturf Tunnel", "Opening Aqua battle; grunt escapes through the doorway, Briney collects Peeko",
      "1 Team Aqua Grunt (Lv26: Trubbish, Simipour, Umbreon, Emolga, Fraxure)", "Doorway at (4,0) opens once the grunt is beaten", "In ROM"),
@@ -157,13 +157,13 @@ SPLIT3_PROGRESSION = [
     (3, "Hollowbrook", "Safe town/breather: NPCs, lore, healing, items, trades/gifts, exploration",
      "None", "Cave door (9,1) leads into Granite Cave B2F", "In ROM"),
     (4, "Granite Cave", "Two distinctive battles; no Team Aqua",
-     "Fossil Expert (singles), Cave Researcher (doubles, real doubles synergy)", "B2F ladder from Hollowbrook; exit 1F to Route 106",
-     "Planned; ROM still has Percy/Dalton/Ansel"),
+     "Fossil Expert Ansel (B2F, singles, Lv29), Cave Researcher Dalton (B1F, doubles, Lv29)", "B2F ladder from Hollowbrook; exit 1F to Route 106",
+     "In ROM"),
     (5, "Route 106 (path into Dewford)", "Final overworld checkpoint before Dewford",
      "Cooltrainer Milo (Lv30: Grovyle, Wailmer, Kadabra, Fletchinder; Mime Jr. Lv36)", "-", "In ROM (swimmers in the water remain for Surf)"),
     (6, "Dewford Town", "Safe hub", "None", "-", "In ROM"),
-    (7, "Dewford Gym", "Gym gauntlet; four mechanically distinct trainers", "4 Gym trainers + Brawly (final boss, cap Lv34)",
-     "FLAG_BADGE03_GET", "Planned; ROM has 6 Gym trainers"),
+    (7, "Dewford Gym", "Gym gauntlet; four mechanically distinct trainers", "Laura, Brenden, Cristian, Jocelyn; then Player + Rival vs Brawly + Phoebe tag battle (3 each; cap Lv35)",
+     "FLAG_BADGE03_GET", "In ROM"),
 ]
 
 # Trainers whose map objects were removed; their data is unused, so the docs skip them.

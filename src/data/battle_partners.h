@@ -103,3 +103,177 @@
             },
         },
     },
+#line 45
+    [PARTNER_RIVAL_BRENDAN] =
+    {
+#line 46
+        .trainerName = _("BRENDAN"),
+#line 47
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 48
+        .trainerPic = TRAINER_BACK_PIC_BRENDAN,
+        .encounterMusic_gender = 
+#line 50
+            TRAINER_ENCOUNTER_MUSIC_MALE,
+        .partySize = 3,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 52
+            .species = SPECIES_GRENINJA,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 52
+            .heldItem = ITEM_LIFE_ORB,
+#line 56
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 53
+            .ability = ABILITY_PROTEAN,
+#line 55
+            .lvl = 36,
+#line 54
+            .nature = NATURE_NAIVE,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 57
+                MOVE_WATERFALL,
+                MOVE_DARK_PULSE,
+                MOVE_ICE_BEAM,
+                MOVE_EXTRASENSORY,
+            },
+            },
+            {
+#line 62
+            .species = SPECIES_CHESNAUGHT,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 62
+            .heldItem = ITEM_LEFTOVERS,
+#line 66
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 63
+            .ability = ABILITY_BULLETPROOF,
+#line 65
+            .lvl = 36,
+#line 64
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 67
+                MOVE_SEED_BOMB,
+                MOVE_DRAIN_PUNCH,
+                MOVE_ROCK_SLIDE,
+                MOVE_SPIKY_SHIELD,
+            },
+            },
+            {
+#line 72
+            .species = SPECIES_DELPHOX,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 72
+            .heldItem = ITEM_EXPERT_BELT,
+#line 76
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 73
+            .ability = ABILITY_MAGICIAN,
+#line 75
+            .lvl = 36,
+#line 74
+            .nature = NATURE_TIMID,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 77
+                MOVE_FLAMETHROWER,
+                MOVE_PSYCHIC,
+                MOVE_SHADOW_BALL,
+                MOVE_DAZZLING_GLEAM,
+            },
+            },
+        },
+    },
+#line 82
+    [PARTNER_RIVAL_MAY] =
+    {
+#line 83
+        .trainerName = _("MAY"),
+#line 84
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 85
+        .trainerPic = TRAINER_BACK_PIC_MAY,
+        .encounterMusic_gender = 
+#line 86
+F_TRAINER_FEMALE | 
+#line 87
+            TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .partySize = 3,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 89
+            .species = SPECIES_GRENINJA,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 89
+            .heldItem = ITEM_LIFE_ORB,
+#line 93
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 90
+            .ability = ABILITY_PROTEAN,
+#line 92
+            .lvl = 36,
+#line 91
+            .nature = NATURE_NAIVE,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 94
+                MOVE_WATERFALL,
+                MOVE_DARK_PULSE,
+                MOVE_ICE_BEAM,
+                MOVE_EXTRASENSORY,
+            },
+            },
+            {
+#line 99
+            .species = SPECIES_CHESNAUGHT,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 99
+            .heldItem = ITEM_LEFTOVERS,
+#line 103
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 100
+            .ability = ABILITY_BULLETPROOF,
+#line 102
+            .lvl = 36,
+#line 101
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 104
+                MOVE_SEED_BOMB,
+                MOVE_DRAIN_PUNCH,
+                MOVE_ROCK_SLIDE,
+                MOVE_SPIKY_SHIELD,
+            },
+            },
+            {
+#line 109
+            .species = SPECIES_DELPHOX,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 109
+            .heldItem = ITEM_EXPERT_BELT,
+#line 113
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 110
+            .ability = ABILITY_MAGICIAN,
+#line 112
+            .lvl = 36,
+#line 111
+            .nature = NATURE_TIMID,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 114
+                MOVE_FLAMETHROWER,
+                MOVE_PSYCHIC,
+                MOVE_SHADOW_BALL,
+                MOVE_DAZZLING_GLEAM,
+            },
+            },
+        },
+    },

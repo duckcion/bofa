@@ -21,13 +21,13 @@ GraniteCave_B2F_EventScript_Ansel::
 	end
 
 GraniteCave_B2F_Text_AnselIntro:
-	.string "ANSEL: You feel that weird chill too?\n"
-	.string "Let's battle, it'll warm us up!$"
+	.string "These POKéMON ruled the world\n"
+	.string "long before ours. Feel their weight!$"
 
 GraniteCave_B2F_Text_AnselDefeat:
-	.string "ANSEL: Brrr… beaten AND cold.$"
+	.string "Extinct… all over again…$"
 
 GraniteCave_B2F_Text_AnselPostBattle:
-	.string "ANSEL: WRAITHWOOD FOREST is just\n"
-	.string "through there.$"
+	.string "Fossils turn up all over this cave.\n"
+	.string "Keep your eyes on the walls.$"
 

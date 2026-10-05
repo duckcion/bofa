@@ -41,3 +41,77 @@ EVs: 252 Atk / 252 SpA / 6 SpD
 - Protect
 - Solar Beam
 - Dragon Claw
+
+=== PARTNER_RIVAL_BRENDAN ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+
+Greninja @ Life Orb
+Ability: Protean
+Naive Nature
+Level: 36
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Waterfall
+- Dark Pulse
+- Ice Beam
+- Extrasensory
+
+Chesnaught @ Leftovers
+Ability: Bulletproof
+Adamant Nature
+Level: 36
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Seed Bomb
+- Drain Punch
+- Rock Slide
+- Spiky Shield
+
+Delphox @ Expert Belt
+Ability: Magician
+Timid Nature
+Level: 36
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Flamethrower
+- Psychic
+- Shadow Ball
+- Dazzling Gleam
+
+=== PARTNER_RIVAL_MAY ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+
+Greninja @ Life Orb
+Ability: Protean
+Naive Nature
+Level: 36
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Waterfall
+- Dark Pulse
+- Ice Beam
+- Extrasensory
+
+Chesnaught @ Leftovers
+Ability: Bulletproof
+Adamant Nature
+Level: 36
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Seed Bomb
+- Drain Punch
+- Rock Slide
+- Spiky Shield
+
+Delphox @ Expert Belt
+Ability: Magician
+Timid Nature
+Level: 36
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Flamethrower
+- Psychic
+- Shadow Ball
+- Dazzling Gleam

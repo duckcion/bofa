@@ -10,18 +10,22 @@ GraniteCave_B1F_SetHoleWarp:
 	end
 
 GraniteCave_B1F_EventScript_Dalton::
-	trainerbattle_single TRAINER_DALTON, GraniteCave_B1F_Text_DaltonIntro, GraniteCave_B1F_Text_DaltonDefeat
+	trainerbattle_double TRAINER_DALTON, GraniteCave_B1F_Text_DaltonIntro, GraniteCave_B1F_Text_DaltonDefeat, GraniteCave_B1F_Text_DaltonNeedTwoMons
 	msgbox GraniteCave_B1F_Text_DaltonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 GraniteCave_B1F_Text_DaltonIntro:
-	.string "DALTON: Training in the dark builds\n"
-	.string "focus! Or so I keep telling myself.$"
+	.string "I study how cave POKéMON work\n"
+	.string "together. Let me show you a pair\l"
+	.string "that covers every gap!$"
 
 GraniteCave_B1F_Text_DaltonDefeat:
-	.string "DALTON: Knocked flat in the dark…$"
+	.string "My data never predicted you…$"
 
 GraniteCave_B1F_Text_DaltonPostBattle:
-	.string "DALTON: Mind the holes in the floor\n"
-	.string "up ahead.$"
+	.string "Two POKéMON who cover each other\n"
+	.string "beat two strong ones. Usually.$"
 
+GraniteCave_B1F_Text_DaltonNeedTwoMons:
+	.string "My research needs a double battle.\n"
+	.string "Come back with two POKéMON.$"

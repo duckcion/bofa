@@ -1,8 +1,12 @@
+.set LOCALID_PHOEBE, 7
+.set LOCALID_RIVAL, 8
+
 DewfordTown_Gym_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_Gym_OnTransition
 	.byte 0
 
 DewfordTown_Gym_OnTransition:
+	call Common_EventScript_SetupRivalGfxId
 	call DewfordTown_Gym_EventScript_SetFlashLevel
 	end
 
@@ -11,11 +15,9 @@ DewfordTown_Gym_EventScript_SetFlashLevel::
 	call DewfordTown_Gym_EventScript_CountTrainersDefeated
 	copyvar VAR_0x8001, VAR_0x8000
 	goto_if_eq VAR_0x8000, 0, DewfordTown_Gym_EventScript_SetFlashLevel7
-	goto_if_eq VAR_0x8000, 1, DewfordTown_Gym_EventScript_SetFlashLevel6
-	goto_if_eq VAR_0x8000, 2, DewfordTown_Gym_EventScript_SetFlashLevel5
-	goto_if_eq VAR_0x8000, 3, DewfordTown_Gym_EventScript_SetFlashLevel4
-	goto_if_eq VAR_0x8000, 4, DewfordTown_Gym_EventScript_SetFlashLevel3
-	goto_if_eq VAR_0x8000, 5, DewfordTown_Gym_EventScript_SetFlashLevel2
+	goto_if_eq VAR_0x8000, 1, DewfordTown_Gym_EventScript_SetFlashLevel5
+	goto_if_eq VAR_0x8000, 2, DewfordTown_Gym_EventScript_SetFlashLevel4
+	goto_if_eq VAR_0x8000, 3, DewfordTown_Gym_EventScript_SetFlashLevel2
 	goto DewfordTown_Gym_EventScript_SetFlashLevel1
 
 DewfordTown_Gym_EventScript_SetLightsOn::
@@ -57,12 +59,10 @@ DewfordTown_Gym_EventScript_BrightenRoom::
 	nop1
 	goto_if_eq VAR_0x8000, VAR_0x8001, DewfordTown_Gym_EventScript_NoLightChange
 	copyvar VAR_0x8001, VAR_0x8000
-	goto_if_eq VAR_0x8000, 1, DewfordTown_Gym_EventScript_AnimateFlash1Trainer
-	goto_if_eq VAR_0x8000, 2, DewfordTown_Gym_EventScript_AnimateFlash2Trainers
-	goto_if_eq VAR_0x8000, 3, DewfordTown_Gym_EventScript_AnimateFlash3Trainers
-	goto_if_eq VAR_0x8000, 4, DewfordTown_Gym_EventScript_AnimateFlash4Trainers
-	goto_if_eq VAR_0x8000, 5, DewfordTown_Gym_EventScript_AnimateFlash5Trainers
-	goto_if_eq VAR_0x8000, 6, DewfordTown_Gym_EventScript_AnimateFlash6Trainers
+	goto_if_eq VAR_0x8000, 1, DewfordTown_Gym_EventScript_AnimateFlash2Trainers
+	goto_if_eq VAR_0x8000, 2, DewfordTown_Gym_EventScript_AnimateFlash3Trainers
+	goto_if_eq VAR_0x8000, 3, DewfordTown_Gym_EventScript_AnimateFlash5Trainers
+	goto_if_eq VAR_0x8000, 4, DewfordTown_Gym_EventScript_AnimateFlash6Trainers
 
 DewfordTown_Gym_EventScript_NoLightChange::
 	return
@@ -112,8 +112,6 @@ DewfordTown_Gym_EventScript_AnimateFlashFullBrightness::
 
 DewfordTown_Gym_EventScript_CountTrainersDefeated::
 	setvar VAR_0x8000, 0
-	goto_if_not_defeated TRAINER_TAKAO, DewfordTown_Gym_EventScript_CheckJocelyn
-	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_CheckJocelyn::
 	goto_if_not_defeated TRAINER_JOCELYN, DewfordTown_Gym_EventScript_CheckLaura
 	addvar VAR_0x8000, 1
@@ -127,15 +125,62 @@ DewfordTown_Gym_EventScript_CheckCristian::
 	goto_if_not_defeated TRAINER_CRISTIAN, DewfordTown_Gym_EventScript_CheckLilith
 	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_CheckLilith::
-	goto_if_not_defeated TRAINER_LILITH, DewfordTown_Gym_EventScript_StopCountingTrainers
-	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_StopCountingTrainers::
 	return
 
+@ BOFA Split 3 finale: Player + Rival vs Brawly + Phoebe (tag battle, 3 Pokémon each).
 DewfordTown_Gym_EventScript_Brawly::
-	trainerbattle_single TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
+	lockall
+	goto_if_defeated TRAINER_BRAWLY_1, DewfordTown_Gym_EventScript_BrawlyAfterTag
+	msgbox DewfordTown_Gym_Text_TagIntro, MSGBOX_DEFAULT
+	msgbox DewfordTown_Gym_Text_TagReady, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, DewfordTown_Gym_EventScript_TagNotReady
+	special SavePlayerParty
+	fadescreen FADE_TO_BLACK
+	special ChooseHalfPartyForBattle
+	waitstate
+	goto_if_ne VAR_RESULT, 0, DewfordTown_Gym_EventScript_DoTagBattle
+	special LoadPlayerParty
+DewfordTown_Gym_EventScript_TagNotReady::
+	msgbox DewfordTown_Gym_Text_TagComeBack, MSGBOX_DEFAULT
+	releaseall
+	end
+
+DewfordTown_Gym_EventScript_DoTagBattle::
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, DewfordTown_Gym_EventScript_TagWithMay
+	multi_2_vs_2 TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyDefeat, TRAINER_PHOEBE_DEWFORD, DewfordTown_Gym_Text_PhoebeDefeat, PARTNER_RIVAL_BRENDAN
+	goto DewfordTown_Gym_EventScript_TagResult
+DewfordTown_Gym_EventScript_TagWithMay::
+	multi_2_vs_2 TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyDefeat, TRAINER_PHOEBE_DEWFORD, DewfordTown_Gym_Text_PhoebeDefeat, PARTNER_RIVAL_MAY
+DewfordTown_Gym_EventScript_TagResult::
+	switch VAR_RESULT
+	case 1, DewfordTown_Gym_EventScript_TagWon
+	fadescreen FADE_TO_BLACK
+	special SetCB2WhiteOut
+	waitstate
+
+DewfordTown_Gym_EventScript_TagWon::
+	settrainerflag TRAINER_BRAWLY_1
+	settrainerflag TRAINER_PHOEBE_DEWFORD
+	msgbox DewfordTown_Gym_Text_TagAfterBattle, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_PHOEBE
+	removeobject LOCALID_RIVAL
+	setflag FLAG_HIDE_DEWFORD_GYM_PHOEBE
+	setflag FLAG_HIDE_DEWFORD_GYM_RIVAL
+	fadescreen FADE_FROM_BLACK
+	goto DewfordTown_Gym_EventScript_BrawlyDefeated
+
+DewfordTown_Gym_EventScript_Rival::
+	lock
+	faceplayer
+	msgbox DewfordTown_Gym_Text_RivalWaiting, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_Gym_EventScript_BrawlyAfterTag::
 	goto_if_unset FLAG_RECEIVED_TM_BULK_UP, DewfordTown_Gym_EventScript_GiveBrickBreak2
 	msgbox DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_DEFAULT
 	release
@@ -461,3 +506,37 @@ DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons:
 	.string "that can battle.\p"
 	.string "I'm sorry, but I'd like you to come back\n"
 	.string "with at least two POKéMON.$"
+
+DewfordTown_Gym_Text_TagIntro:
+	.string "BRAWLY: Hey! Glad you made it.\n"
+	.string "Meet PHOEBE. She trains with the\l"
+	.string "ghosts out on MT. PYRE.\p"
+	.string "PHOEBE: Ehehe, BRAWLY said there'd\n"
+	.string "be a fun challenger today.\p"
+	.string "{RIVAL}: Two against one? No way.\n"
+	.string "I'm fighting with you!\p"
+	.string "BRAWLY: Ha! Even better.\n"
+	.string "Two on two, the way waves crash!$"
+
+DewfordTown_Gym_Text_TagReady:
+	.string "Pick three POKéMON for the tag\n"
+	.string "battle. Ready?$"
+
+DewfordTown_Gym_Text_TagComeBack:
+	.string "BRAWLY: Take your time. We'll be\n"
+	.string "right here.$"
+
+DewfordTown_Gym_Text_PhoebeDefeat:
+	.string "PHOEBE: Wow! You two are really\n"
+	.string "in sync.$"
+
+DewfordTown_Gym_Text_TagAfterBattle:
+	.string "PHOEBE: That was so much fun!\n"
+	.string "Come find me again someday.\p"
+	.string "{RIVAL}: Not bad, partner.\n"
+	.string "Next time, though, I'm beating you.$"
+
+DewfordTown_Gym_Text_RivalWaiting:
+	.string "{RIVAL}: BRAWLY's teamed up with\n"
+	.string "PHOEBE? Then I'm teaming up with you.\l"
+	.string "Talk to BRAWLY when you're ready.$"
