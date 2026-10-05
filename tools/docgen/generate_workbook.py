@@ -817,7 +817,7 @@ def main():
     species_by_const = {t["const"]: pretty_const(t.get("species"), "SPECIES_") for t in trades}
     for t in trades:
         locs = [m for m, consts in trade_locs.items() if t["const"] in consts]
-        note = f"Nickname {t.get('nickname')}, OT {t.get('otName')}"
+        note = (", ".join(t["moves"]) + "; " if t.get("moves") else "") + f"Nickname {t.get('nickname')}, OT {t.get('otName')}"
         # a script that references several trade IDs picks one of them at random
         others = sorted({c for m in locs for c in trade_locs[m]} - {t["const"]})
         if others:

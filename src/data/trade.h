@@ -1132,6 +1132,24 @@ static const struct InGameTrade sIngameTrades[] =
         .sheen = 10,
         .requestedSpecies = SPECIES_NONE,
         .level = 5
+    },
+    [INGAME_TRADE_SKORUPI] =
+    {
+        .nickname = _("SKORUPI"),
+        .species = SPECIES_SKORUPI,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 48219,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0xA3, // Jolly (0xA3 % 25 == 13)
+        .heldItem = ITEM_NONE,
+        .mailNum = -1,
+        .otName = _("CASPIAN"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_NONE,
+        .level = 20,
+        .moves = {MOVE_POISON_JAB, MOVE_LEECH_LIFE, MOVE_BITE, MOVE_SLASH},
     }
 };
 

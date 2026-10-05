@@ -25,7 +25,7 @@ GraniteShore_EventScript_RancherAndy::
 # 18 "data/maps/GraniteShore/scripts.pory"
 	copyvar VAR_0x8008, VAR_RESULT
 # 19 "data/maps/GraniteShore/scripts.pory"
-	givemon SPECIES_DWEBBLE, 20, nature=NATURE_ADAMANT, abilityNum=0, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_ROCK_BLAST, move2=MOVE_STRUGGLE_BUG, move3=MOVE_BUG_BITE, move4=MOVE_X_SCISSOR
+	givemon SPECIES_DWEBBLE, 20, nature=NATURE_ADAMANT, abilityNum=0, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_ROCK_BLAST, move2=MOVE_BUG_BITE, move3=MOVE_PIN_MISSILE, move4=MOVE_PROTECT
 # 20 "data/maps/GraniteShore/scripts.pory"
 	msgbox GraniteShore_Text_RancherAndyDwebble, MSGBOX_DEFAULT
 # 21 "data/maps/GraniteShore/scripts.pory"

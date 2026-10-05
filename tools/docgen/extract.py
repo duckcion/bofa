@@ -540,6 +540,7 @@ def ingame_trades():
             "requestedSpecies": g(r"\.requestedSpecies\s*=\s*(SPECIES_[A-Z0-9_]+)"),
             "otName": g(r'\.otName\s*=\s*_\("([^"]*)"\)'),
             "level": g(r"\.level\s*=\s*(\d+)"),
+            "moves": [m.replace("_", " ").title() for m in re.findall(r"MOVE_(\w+)", (re.search(r"\.moves\s*=\s*\{([^}]*)\}", block) or [None, ""])[1])],
             "personality": g(r"\.personality\s*=\s*(0x[0-9A-Fa-f]+|\d+)", lambda v: int(v, 0)),
         })
     return rows

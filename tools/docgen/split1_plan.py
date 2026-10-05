@@ -145,6 +145,26 @@ SPLIT2_PROGRESSION = [
     (6, "Rustboro Gym", "Gym trainers + Roxanne -> Badge 2", "Existing (unchanged)", "FLAG_BADGE02_GET", "In ROM"),
 ]
 
+# Split 3: structure only (teams, Pokemon counts, levels not designed yet). Tentative Brawly level cap: Lv34.
+SPLIT3_LEVEL_CAP = "Lv34 (tentative)"
+SPLIT3_PROGRESSION = [
+    (1, "Rusturf Tunnel", "Opening Aqua battle; grunt escapes through the doorway, Briney collects Peeko",
+     "1 Team Aqua Grunt", "Doorway at (4,0) opens once the grunt is beaten", "Route in ROM; team TBD"),
+    (2, "Wraithwood Forest", "Major Team Aqua section and mid-split boss; wild Ghost types start here",
+     "5 Team Aqua Grunts + Archie", "Entering sets FLAG_CLEARED_WRAITHWOOD_ROUTE (Briney can sail)",
+     "Planned; ROM still has Desmond/Ottoline/Rufus"),
+    (3, "Hollowbrook", "Safe town/breather: NPCs, lore, healing, items, trades/gifts, exploration",
+     "None", "Cave door (9,1) leads into Granite Cave B2F", "Planned; ROM still has Mortimer/Prudence"),
+    (4, "Granite Cave", "Two distinctive battles; no Team Aqua",
+     "Fossil Expert (singles), Cave Researcher (doubles, real doubles synergy)", "B2F ladder from Hollowbrook; exit 1F to Route 106",
+     "Planned; ROM still has Percy/Dalton/Ansel"),
+    (5, "Route 106 (path into Dewford)", "Final overworld checkpoint before Dewford",
+     "1 regular trainer, diverse non-monotype team", "-", "Planned; ROM still has Elliot/Milo + swimmers"),
+    (6, "Dewford Town", "Safe hub", "None", "-", "In ROM"),
+    (7, "Dewford Gym", "Gym gauntlet; four mechanically distinct trainers", "4 Gym trainers + Brawly (final boss, cap Lv34)",
+     "FLAG_BADGE03_GET", "Planned; ROM has 6 Gym trainers"),
+]
+
 # Trainers whose map objects were removed; their data is unused, so the docs skip them.
 REMOVED_FROM_MAP = ["TRAINER_LYLE", "TRAINER_IVAN", "TRAINER_JOEY", "TRAINER_JOSE", "TRAINER_JANICE",
                     "TRAINER_KAREN_1", "TRAINER_JERRY_1", "TRAINER_SARAH", "TRAINER_DAWSON", "TRAINER_JOHNSON",

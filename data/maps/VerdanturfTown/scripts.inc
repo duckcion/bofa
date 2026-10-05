@@ -125,3 +125,55 @@ VerdanturfTown_Text_RusturfTunnelSign:
 	.string "“The tunnel project has been\n"
 	.string "canceled.”$"
 
+@ Skorupi trader: any Pokémon for his Skorupi (Lv20, Jolly, perfect IVs, fixed moves). Once only.
+VerdanturfTown_EventScript_SkorupiTrader::
+	lock
+	faceplayer
+	goto_if_set FLAG_VERDANTURF_NPC_TRADE_COMPLETED, VerdanturfTown_EventScript_SkorupiTraderDone
+	msgbox VerdanturfTown_Text_SkorupiTraderOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VerdanturfTown_EventScript_SkorupiTraderDecline
+	special ChoosePartyMon
+	waitstate
+	copyvar VAR_0x800A, VAR_0x8004
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, VerdanturfTown_EventScript_SkorupiTraderDecline
+	copyvar VAR_0x8005, VAR_0x800A
+	specialvar VAR_RESULT, GetTradeSpecies
+	goto_if_eq VAR_RESULT, SPECIES_NONE, VerdanturfTown_EventScript_SkorupiTraderDecline
+	setvar VAR_0x8004, INGAME_TRADE_SKORUPI
+	copyvar VAR_0x8005, VAR_0x800A
+	special CreateInGameTradePokemon
+	special DoInGameTradeScene
+	waitstate
+	setflag FLAG_VERDANTURF_NPC_TRADE_COMPLETED
+	msgbox VerdanturfTown_Text_SkorupiTraderThanks, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_EventScript_SkorupiTraderDecline::
+	msgbox VerdanturfTown_Text_SkorupiTraderDecline, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_EventScript_SkorupiTraderDone::
+	msgbox VerdanturfTown_Text_SkorupiTraderDone, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_Text_SkorupiTraderOffer:
+	.string "I raised a SKORUPI from a nest out\n"
+	.string "in the forest. Armored shell, thick\l"
+	.string "as bark.\p"
+	.string "It's outgrowing my care, though.\n"
+	.string "Trade me any POKéMON for it?$"
+
+VerdanturfTown_Text_SkorupiTraderThanks:
+	.string "Keep it fed and it'll grow into\n"
+	.string "something fierce. Mind its tail!$"
+
+VerdanturfTown_Text_SkorupiTraderDecline:
+	.string "Suit yourself. Come back if you\n"
+	.string "change your mind.$"
+
+VerdanturfTown_Text_SkorupiTraderDone:
+	.string "How's that SKORUPI treating you?$"
+

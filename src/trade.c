@@ -162,6 +162,7 @@ struct InGameTrade {
     u8 sheen;
     u16 requestedSpecies;
     u8 level; // 0 = same level as the Pokémon the player gives
+    u16 moves[MAX_MON_MOVES]; // all MOVE_NONE = level-up moves
 };
 
 static EWRAM_DATA u8 *sMenuTextTileBuffer = NULL;
@@ -4570,6 +4571,12 @@ static void CreateInGameTradePokemonInternal(u8 whichPlayerMon, u8 whichInGameTr
         {
             SetMonData(pokemon, MON_DATA_HELD_ITEM, &inGameTrade->heldItem);
         }
+    }
+    if (inGameTrade->moves[0] != MOVE_NONE)
+    {
+        u32 i;
+        for (i = 0; i < MAX_MON_MOVES; i++)
+            SetMonMoveSlot(pokemon, inGameTrade->moves[i], i);
     }
     CalculateMonStats(&gEnemyParty[0]);
 }

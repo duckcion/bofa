@@ -498,7 +498,7 @@ def write_split(name, trainers):
     c.font = Font(name=FONT, size=10, color=MUTED)
     c.alignment = LEFT
     ws.merge_cells("E3:Q3")
-    c = ws.cell(3, 5, "Nature defaults to Hardy and ability to slot 1 unless the trainer file sets them.")
+    c = ws.cell(3, 5, "Every trainer Pokémon has a role-based nature; ability is slot 1 unless the trainer file sets it.")
     c.font = Font(name=FONT, size=10, color=MUTED)
     c.alignment = LEFT
 
@@ -848,6 +848,8 @@ prog = pd.DataFrame(plan.PROGRESSION, columns=["Step", "Area", "What Happens", "
 plain_sheet(None, "Split 1 Progression", df=prog, widths=[6, 34, 60, 46, 60, 34])
 prog2 = pd.DataFrame(plan.SPLIT2_PROGRESSION, columns=["Step", "Area", "What Happens", "Trainers", "Gate / Event", "Status"])
 plain_sheet(None, "Split 2 Progression", df=prog2, widths=[6, 30, 60, 60, 70, 28])
+prog3 = pd.DataFrame(plan.SPLIT3_PROGRESSION, columns=["Step", "Area", "What Happens", "Trainers", "Gate / Event", "Status"])
+plain_sheet(None, "Split 3 Progression", df=prog3, widths=[6, 30, 60, 52, 56, 40])
 
 # Split 1 plan check: counts audit + contradictions
 ws = wb.create_sheet("Split 1 Plan Check")
@@ -988,6 +990,7 @@ DESC = {
     "Split 1": "Restructured Split 1 in play order (in ROM, not playtested): 16 mandatory battles + 2 optional Viridian Forest trainers",
     "Split 1 Progression": "Step-by-step Split 1 route, gates and story flags",
     "Split 2 Progression": "Split 2 route and gates (woods open after Badge 1, Roxanne found on Route 116); teams not redesigned yet",
+    "Split 3 Progression": "Split 3 route and trainer structure (Rusturf -> Wraithwood -> Hollowbrook -> Granite Cave -> Dewford); Brawly cap Lv34 tentative; teams TBD",
     "Split 1 Plan Check": "Trainer counts per area and every open decision (read this first)",
     "Items": "Every Gen 1-6 item: pocket, price, fling power, description and where to find it",
 }
