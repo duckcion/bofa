@@ -1023,13 +1023,20 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 LittlerootTown_EventScript_SuppliesMan::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_STARTER_SUPPLIES, LittlerootTown_EventScript_SuppliesManAlready
+	goto_if_set FLAG_RECEIVED_STARTER_SUPPLIES, LittlerootTown_EventScript_SuppliesManMore
 	msgbox LittlerootTown_Text_SuppliesManIntro, MSGBOX_DEFAULT
 	giveitem ITEM_RARE_CANDY, 900
 	giveitem ITEM_MAX_REPEL, 900
 	giveitem ITEM_FULL_RESTORE, 900
 	giveitem ITEM_ESCAPE_ROPE, 900
 	setflag FLAG_RECEIVED_STARTER_SUPPLIES
+LittlerootTown_EventScript_SuppliesManMore::
+	goto_if_set FLAG_RECEIVED_STARTER_SUPPLIES_2, LittlerootTown_EventScript_SuppliesManAlready
+	giveitem ITEM_MAX_POTION, 900
+	giveitem ITEM_MAX_REVIVE, 900
+	giveitem ITEM_FULL_HEAL, 900
+	giveitem ITEM_MAX_ELIXIR, 900
+	setflag FLAG_RECEIVED_STARTER_SUPPLIES_2
 	msgbox LittlerootTown_Text_SuppliesManGiven, MSGBOX_DEFAULT
 	release
 	end

@@ -176,7 +176,9 @@ SPLIT3_PROGRESSION = [
 # Trainers whose map objects were removed; their data is unused, so the docs skip them.
 REMOVED_FROM_MAP = ["TRAINER_LYLE", "TRAINER_IVAN", "TRAINER_JOEY", "TRAINER_JOSE", "TRAINER_JANICE",
                     "TRAINER_KAREN_1", "TRAINER_JERRY_1", "TRAINER_SARAH", "TRAINER_DAWSON", "TRAINER_JOHNSON",
-                    "TRAINER_DEVAN", "TRAINER_VIRIDIAN_FOREST_2", "TRAINER_TRAINERGROVET4", "TRAINER_PETALBURGCOAST_1"]
+                    "TRAINER_DEVAN", "TRAINER_VIRIDIAN_FOREST_2", "TRAINER_TRAINERGROVET4", "TRAINER_PETALBURGCOAST_1",
+                    "TRAINER_DAISY", "TRAINER_AMY_AND_LIV_1", "TRAINER_ANDREW", "TRAINER_MIGUEL_1", "TRAINER_RHETT",
+                    "TRAINER_MARCOS", "TRAINER_NOB_1", "TRAINER_CYNDY_1", "TRAINER_HECTOR", "TRAINER_MARLENE", "TRAINER_MIKE_2"]
 
 # Play order for the Split 2 trainer sheet (trainer ID -> position); others follow by location.
 SPLIT2_ORDER = {

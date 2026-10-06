@@ -104,7 +104,9 @@
       "flag": "FLAG_ITEM_TRAINER_GROVE_TM_WORK_UP"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+
+  ],
   "coord_events": [
     {
       "type": "trigger",
