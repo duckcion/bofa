@@ -297,7 +297,7 @@ WraithwoodForest_Text_RufusRematchIntro:
 # 154 "data/maps/WraithwoodForest/scripts.pory"
 
 # 155 "data/maps/WraithwoodForest/scripts.pory"
-@ ---- Split 3: Team Aqua in Wraithwood (Grunt #5 not designed yet)
+@ ---- Split 3: Team Aqua in Wraithwood (4 grunts, then Archie)
 # 156 "data/maps/WraithwoodForest/scripts.pory"
 WraithwoodForest_EventScript_Grunt1::
 # 157 "data/maps/WraithwoodForest/scripts.pory"

@@ -14,7 +14,7 @@ static const struct CustomLandRates sCustomLandRates[] =
     { MAP_RUSTBORO_CITY,             { 20, 20, 15, 15, 10, 8, 5, 3, 2, 2, 0, 0 } },
     { MAP_LOST_CAVE,                 { 15, 15, 13, 12, 12, 9, 7, 6, 6, 5, 0, 0 } },
     { MAP_ROUTE116,                  { 18, 16, 14, 12, 12, 10, 8, 5, 5, 0, 0, 0 } },
-    { MAP_GRANITE_CAVE_1F,           { 18, 17, 15, 12, 10, 10, 7, 5, 4, 2, 0, 0 } },
+    { MAP_GRANITE_CAVE_1F,           { 20, 20, 14, 12, 10, 8, 6, 5, 3, 2, 0, 0 } },
     { MAP_GRANITE_CAVE_B1F,          { 20, 20, 14, 12, 10, 8, 6, 5, 3, 2, 0, 0 } },
     { MAP_GRANITE_CAVE_B2F,          { 20, 20, 14, 12, 10, 8, 6, 5, 3, 2, 0, 0 } },
     { MAP_GRANITE_CAVE_STEVENS_ROOM, { 18, 15, 13, 12, 11, 9, 6, 6, 4, 3, 2, 1 } },

@@ -306,6 +306,7 @@ PlayersHouse_1F_Movement_MomReturnToSeatFemale:
 PlayersHouse_1F_EventScript_Mom::
 	lock
 	faceplayer
+	call_if_set FLAG_SYS_POKEDEX_GET, PlayersHouse_1F_EventScript_MomPokedexGifts
 	goto_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
 	goto_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
 	goto_if_set FLAG_HAS_MATCH_CALL, PlayersHouse_1F_EventScript_TryRegisterMom
@@ -678,3 +679,22 @@ PlayersHouse_1F_Movement_PlayerApproachTVForLatiFemale:
 EventScript_RunningShoesManual::
 	msgbox PlayersHouse_1F_Text_RunningShoesManual, MSGBOX_SIGN
 	end
+
+@ BOFA: once you have the Pokédex, Mom hands over the Town Map and an Old Gateau (once).
+PlayersHouse_1F_EventScript_MomPokedexGifts::
+	goto_if_set FLAG_RECEIVED_MOM_POKEDEX_GIFTS, PlayersHouse_1F_EventScript_MomPokedexGiftsDone
+	msgbox PlayersHouse_1F_Text_MomPokedexGifts, MSGBOX_DEFAULT
+	giveitem ITEM_TOWN_MAP
+	giveitem ITEM_OLD_GATEAU
+	setflag FLAG_RECEIVED_MOM_POKEDEX_GIFTS
+PlayersHouse_1F_EventScript_MomPokedexGiftsDone::
+	return
+
+PlayersHouse_1F_Text_MomPokedexGifts:
+	.string "MOM: PROF. BIRCH gave you a POKéDEX?\n"
+	.string "Then you'll be traveling far!\p"
+	.string "Take this TOWN MAP so you don't get\n"
+	.string "lost, and a little OLD GATEAU too.\p"
+	.string "Let one of your POKéMON hold it.\n"
+	.string "It'll perk them right up in a pinch!$"
+
