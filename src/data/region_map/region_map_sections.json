@@ -1790,6 +1790,14 @@
       "y": 0,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_GRANITE_CAVE_STEVENS_ROOM",
+      "name": "STEVEN'S ROOM",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
     }
   ]
 }
