@@ -168,7 +168,7 @@ SPLIT3_PROGRESSION = [
      "In ROM"),
     (5, "Route 106 (path into Dewford)", "Final overworld checkpoint before Dewford",
      "Cooltrainer Milo (Lv30: Grovyle, Wailmer, Kadabra, Fletchinder; Mime Jr. Lv36)", "-", "In ROM (swimmers in the water remain for Surf)"),
-    (6, "Dewford Town", "Safe hub", "None", "-", "In ROM"),
+    (6, "Dewford Town", "Safe hub; Mr. Briney waits at the dock: after the Route 106 trainer, talk to him to unlock the ferry to Route 104 (both ways); Slateport opens after Brawly", "None", "-", "In ROM"),
     (7, "Dewford Gym", "Gym gauntlet; four mechanically distinct trainers", "Laura, Brenden, Cristian, Jocelyn; then Player + Rival vs Brawly + Phoebe tag battle (3 each; cap Lv35)",
      "FLAG_BADGE03_GET", "In ROM"),
 ]

@@ -680,7 +680,7 @@
 #define FLAG_ITEM_WRAITHWOOD_SACHET 0x279
 #define FLAG_ITEM_WRAITHWOOD_WHIPPED_DREAM 0x27A
 #define FLAG_RECEIVED_MOM_POKEDEX_GIFTS 0x27B
-#define FLAG_UNUSED_0x27C  0x27C // Unused Flag
+#define FLAG_BRINEY_FERRY_UNLOCKED 0x27C // BOFA: talked to Mr. Briney in Dewford after beating the Route 106 trainer
 #define FLAG_UNUSED_0x27D  0x27D // Unused Flag
 #define FLAG_UNUSED_0x27E  0x27E // Unused Flag
 #define FLAG_UNUSED_0x27F  0x27F // Unused Flag

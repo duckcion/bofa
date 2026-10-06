@@ -25,10 +25,7 @@ Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos::
 Route104_MrBrineysHouse_EventScript_Briney::
 	lock
 	faceplayer
-	goto_if_unset FLAG_CLEARED_WRAITHWOOD_ROUTE, Route104_MrBrineysHouse_EventScript_NotYetReadyToSail
-	call_if_unset FLAG_MR_BRINEY_SAILING_INTRO, Route104_MrBrineysHouse_EventScript_SailingIntro
-	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, Route104_MrBrineysHouse_EventScript_SailBothDeliveries
-	goto_if_unset FLAG_DELIVERED_DEVON_GOODS, Route104_MrBrineysHouse_EventScript_SailDeliverPackage
+	goto_if_unset FLAG_BRINEY_FERRY_UNLOCKED, Route104_MrBrineysHouse_EventScript_NotYetReadyToSail
 	goto Route104_MrBrineysHouse_EventScript_WhereAreWeBound
 	end
 
@@ -104,11 +101,10 @@ Route104_MrBrineysHouse_EventScript_Peeko::
 	end
 
 Route104_MrBrineysHouse_Text_NotYetReadyToSail:
-	.string "MR. BRINEY: Ol' PEEKO and I aren't\n"
-	.string "sailing anywhere just yet, matey.\p"
-	.string "There's strange goings-on up around\n"
-	.string "RUSTBORO way. Best sort that out\l"
-	.string "before we set sail for DEWFORD.$"
+	.string "MR. BRINEY: Ol' PEEKO and I will be\n"
+	.string "sailing out to DEWFORD soon, matey.\p"
+	.string "If you make it there on your own,\n"
+	.string "come find me at the dock!$"
 
 Route104_MrBrineysHouse_Text_WaitUpPeeko:
 	.string "MR. BRINEY: Hold on, lass!\n"

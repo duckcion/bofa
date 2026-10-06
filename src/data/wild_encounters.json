@@ -9429,6 +9429,71 @@
         {
           "map": "MAP_PETALBURG_CITY",
           "base_label": "gPetalburgCity",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SPHEAL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SHELLOS"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_BIBAREL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CROAGUNK"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_STUNFISK"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_FROAKIE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_BIBAREL"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_FROAKIE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SPHEAL"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_OSHAWOTT"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_OSHAWOTT"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_OSHAWOTT"
+              }
+            ]
+          },
           "water_mons": {
             "encounter_rate": 1,
             "mons": [
@@ -9511,71 +9576,6 @@
                 "min_level": 40,
                 "max_level": 45,
                 "species": "SPECIES_CORPHISH"
-              }
-            ]
-          },
-          "land_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SPHEAL"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SHELLOS"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_BIBAREL"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_CROAGUNK"
-              },
-              {
-                "min_level": 6,
-                "max_level": 6,
-                "species": "SPECIES_STUNFISK"
-              },
-              {
-                "min_level": 6,
-                "max_level": 6,
-                "species": "SPECIES_FROAKIE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_BIBAREL"
-              },
-              {
-                "min_level": 6,
-                "max_level": 6,
-                "species": "SPECIES_FROAKIE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SPHEAL"
-              },
-              {
-                "min_level": 6,
-                "max_level": 6,
-                "species": "SPECIES_OSHAWOTT"
-              },
-              {
-                "min_level": 6,
-                "max_level": 6,
-                "species": "SPECIES_OSHAWOTT"
-              },
-              {
-                "min_level": 6,
-                "max_level": 6,
-                "species": "SPECIES_OSHAWOTT"
               }
             ]
           }

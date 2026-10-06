@@ -7,8 +7,8 @@
 .equ LOCALID_BOAT_R109, 1
 .equ LOCALID_BRINEY_R109, 2
 
-.equ LOCALID_BOAT_R104, 7
-.equ LOCALID_BRINEY_R104, 8
+.equ LOCALID_BOAT_R104, 6
+.equ LOCALID_BRINEY_R104, 7
 
 DewfordTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_OnTransition
@@ -16,12 +16,32 @@ DewfordTown_MapScripts::
 
 DewfordTown_OnTransition:
 	setflag FLAG_VISITED_DEWFORD_TOWN
+	call_if_unset FLAG_BRINEY_FERRY_UNLOCKED, DewfordTown_EventScript_BrineyWaitsInDewford
 	end
+
+@ BOFA: until the ferry is unlocked, Mr. Briney and his boat wait at Dewford's dock
+DewfordTown_EventScript_BrineyWaitsInDewford::
+	clearflag FLAG_HIDE_MR_BRINEY_DEWFORD_TOWN
+	clearflag FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN
+	setflag FLAG_HIDE_ROUTE_104_MR_BRINEY
+	setflag FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT
+	setflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
+	setflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
+	setflag FLAG_HIDE_ROUTE_109_MR_BRINEY
+	setflag FLAG_HIDE_ROUTE_109_MR_BRINEY_BOAT
+	setvar VAR_BRINEY_LOCATION, 2
+	return
 
 DewfordTown_EventScript_Briney::
 	lock
 	faceplayer
-	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_ReturnToPetalburgPrompt
+	goto_if_not_defeated TRAINER_ROUTE106_1, DewfordTown_EventScript_BrineyNotYet
+	goto_if_set FLAG_BRINEY_FERRY_UNLOCKED, DewfordTown_EventScript_BrineySailMenu
+	setflag FLAG_BRINEY_FERRY_UNLOCKED
+	setflag FLAG_MR_BRINEY_SAILING_INTRO
+	msgbox DewfordTown_Text_BrineyFerryIntro, MSGBOX_DEFAULT
+DewfordTown_EventScript_BrineySailMenu::
+	goto_if_unset FLAG_BADGE03_GET, DewfordTown_EventScript_ReturnToPetalburgPrompt
 	message DewfordTown_Text_WhereAreWeBound
 	waitmessage
 	multichoicedefault 21, 6, MULTI_BRINEY_ON_DEWFORD, 2, FALSE
@@ -55,7 +75,11 @@ DewfordTown_EventScript_CancelSailSelect::
 DewfordTown_EventScript_ReturnToPetalburgPrompt::
 	msgbox DewfordTown_Text_SetSailBackToPetalburg, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, DewfordTown_EventScript_SailBackToPetalburg
-	msgbox DewfordTown_Text_GoDeliverIllBeWaiting, MSGBOX_DEFAULT
+	goto DewfordTown_EventScript_CancelSailSelect
+	end
+
+DewfordTown_EventScript_BrineyNotYet::
+	msgbox DewfordTown_Text_BrineyNotYet, MSGBOX_DEFAULT
 	release
 	end
 
@@ -177,8 +201,7 @@ DewfordTown_EventScript_SailToSlateport::
 	clearflag FLAG_HIDE_ROUTE_109_MR_BRINEY_BOAT
 	setflag FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN
 	hideobjectat LOCALID_BOAT_DEWFORD, MAP_DEWFORD_TOWN
-	call_if_unset FLAG_DELIVERED_DEVON_GOODS, DewfordTown_EventScript_LandedSlateportDeliverGoods
-	call_if_set FLAG_DELIVERED_DEVON_GOODS, DewfordTown_EventScript_LandedSlateport
+	call DewfordTown_EventScript_LandedSlateport
 	closemessage
 	copyvar VAR_BRINEY_LOCATION, VAR_0x8008
 	resetobjectsubpriority OBJ_EVENT_ID_PLAYER, MAP_DEWFORD_TOWN
@@ -659,10 +682,24 @@ Route104_Text_LandedInDewfordDeliverLetter:
 	.string "LETTER to, who was it now, STEVEN!$"
 
 DewfordTown_Text_SetSailBackToPetalburg:
-	.string "MR. BRINEY: Have you delivered your\n"
-	.string "LETTER?\p"
-	.string "Or were you meaning to sail back to\n"
-	.string "PETALBURG?$"
+	.string "MR. BRINEY: Ahoy!\n"
+	.string "Shall we sail back to ROUTE 104?$"
+
+DewfordTown_Text_BrineyNotYet:
+	.string "MR. BRINEY: Ahoy there!\n"
+	.string "PEEKO and I came out to DEWFORD.\p"
+	.string "There's a tough TRAINER out on\n"
+	.string "ROUTE 106. Show him what you've got,\l"
+	.string "then come see me about a ride.$"
+
+DewfordTown_Text_BrineyFerryIntro:
+	.string "MR. BRINEY: You beat that TRAINER on\n"
+	.string "ROUTE 106? Gahahaha! Fine work!\p"
+	.string "From now on, I'll sail you between\n"
+	.string "DEWFORD and ROUTE 104 whenever\l"
+	.string "you like.\p"
+	.string "Earn DEWFORD's GYM BADGE and I'll\n"
+	.string "take you as far as SLATEPORT, too!$"
 
 DewfordTown_Text_PetalburgWereSettingSail2:
 	.string "MR. BRINEY: PETALBURG it is, then!\p"
