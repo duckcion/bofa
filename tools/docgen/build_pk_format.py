@@ -692,7 +692,7 @@ def map_battle_weather(folder):
                                          folder, "map.json"), encoding="utf-8")).get("weather", "")
     except OSError:
         return None
-    if "FOG" in w: return "Map fog: Misty Terrain all battle"
+    if "FOG" in w: return None   # fog is visual only (B_OVERWORLD_FOG = GEN_7)
     if "RAIN" in w or "THUNDER" in w: return "Map weather: Rain"
     if "DROUGHT" in w: return "Map weather: Harsh sunlight"
     if "SANDSTORM" in w: return "Map weather: Sandstorm"
