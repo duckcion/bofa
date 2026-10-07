@@ -83,6 +83,11 @@ legend { font-weight: 700; padding: 0 6px; }
 .sides { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .sides .side { display: grid; gap: 3px; }
 .sides .side button { width: 100%; }
+.fgroup { display: grid; gap: 2px; margin-bottom: 4px; }
+.fgroup .tag, .side .tag { text-align: center; }
+.spikes { display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 2px; align-items: center; font-size: 11px; }
+.spikes button { padding: 2px 0; }
+.order { margin-top: 8px; text-align: center; font-size: 12px; border-top: 1px solid var(--line); padding-top: 6px; }
 textarea { width: 100%; min-height: 10em; resize: vertical; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 4px; font: 11px/1.3 var(--font-num); padding: 6px; }
 .btnrow { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; margin-top: 6px; }
 .note { font-size: 11px; color: var(--muted); margin-top: 4px; }
@@ -219,7 +224,15 @@ function calcStats(set) {
   return st;
 }
 function abilityOf(set) { return set.ability || ABIL.get(SPECIES.get(set.species).abilities[0]) || ""; }
-function holdOf(set) { const it = ITEMS.get(set.item); return it ? it.hold : "NONE"; }
+function holdOf(set) {
+  if (state.field.magicRoom) return "NONE"; // Magic Room: held items have no effect
+  const it = ITEMS.get(set.item); return it ? it.hold : "NONE";
+}
+function sideOf(set) { return set.side || 0; }
+function isGrounded(set) {
+  if (state.field.gravity || holdOf(set) === "IRON_BALL") return true;
+  return !isType(set, "Flying") && abilityOf(set) !== "Levitate" && holdOf(set) !== "AIR_BALLOON";
+}
 function typesOf(set) { const t = SPECIES.get(set.species).types; return t[0] === t[1] ? [t[0]] : t.slice(); }
 function isType(set, t) { return typesOf(set).includes(t); }
 function curHP(set) { return Math.max(0, Math.min(set.stats[0], Math.round(set.stats[0] * set.hpPct / 100))); }
@@ -234,9 +247,17 @@ function speedOf(set, field, side) {
   if (ab === "Quick Feet" && set.status !== "Healthy") m = uqMul(m, UQ(1.5));
   if (holdOf(set) === "CHOICE_SCARF") m = uqMul(m, UQ(1.5));
   if (["IRON_BALL", "MACHO_BRACE", "POWER_ITEM"].includes(holdOf(set))) m = uqMul(m, UQ(0.5));
+  if ((field.sides[side ?? sideOf(set)] || {}).tailwind) m = uqMul(m, UQ(2));
   s = uqInt(m, s);
   if (set.status === "Paralyzed" && ab !== "Quick Feet") s = Math.floor(s / 4); // Gen 6: speed x0.25
   return s;
+}
+
+// who moves first (same priority): Trick Room reverses the order
+function movesFirst(a, b, field) {
+  const sa = speedOf(a, field, sideOf(a)), sb = speedOf(b, field, sideOf(b));
+  if (sa === sb) return 0;
+  return (field.trickRoom ? sa < sb : sa > sb) ? 1 : -1;
 }
 
 // ============================================================ type effectiveness
@@ -250,13 +271,14 @@ function effectiveness(move, moveType, atk, def, field) {
   const moldBreaker = ["Mold Breaker", "Teravolt", "Turboblaze"].includes(atkAb);
   for (const t of typesOf(def)) {
     let m = typeMod(moveType, t);
-    if (m === 0 && t === "Ghost" && (moveType === "Normal" || moveType === "Fighting") && (atkAb === "Scrappy" || def.foresight)) m = 1;
+    if (m === 0 && t === "Ghost" && (moveType === "Normal" || moveType === "Fighting") && (atkAb === "Scrappy" || (field.sides[sideOf(def)] || {}).foresight)) m = 1;
+    if (m === 0 && t === "Flying" && moveType === "Ground" && field.gravity) m = 1;
     if (move.effect === "SUPER_EFFECTIVE_ON_ARG" && t === "Water") m = 2;  // Freeze-Dry
     if (move.effect === "TWO_TYPED_MOVE") m *= typeMod("Flying", t);       // Flying Press
     if (m === 0 && holdOf(def) === "RING_TARGET") m = 1;
     mult = uqMul(mult, UQ(m));
   }
-  if (moveType === "Ground" && !moldBreaker && (defAb === "Levitate" || holdOf(def) === "AIR_BALLOON")) mult = 0;
+  if (moveType === "Ground" && !field.gravity && ((!moldBreaker && defAb === "Levitate") || holdOf(def) === "AIR_BALLOON")) mult = 0;
   if (!moldBreaker && defAb === "Wonder Guard" && mult <= UQ(1) && move.cat !== "Status") mult = 0;
   return mult;
 }
@@ -321,7 +343,7 @@ function basePower(move, atk, def, field, side, hitNo) {
     case "STORED_POWER": bp += 20 * atk.boosts.slice(1).reduce((a, b) => a + Math.max(0, b), 0); break;
     case "ELECTRO_BALL": { const r = Math.floor(speedOf(atk, field) / Math.max(1, speedOf(def, field))); bp = [40, 60, 80, 120, 150][Math.min(r, 4)]; break; }
     case "GYRO_BALL": bp = Math.min(150, Math.floor(25 * speedOf(def, field) / Math.max(1, speedOf(atk, field))) + 1); break;
-    case "PAYBACK": if (speedOf(atk, field) < speedOf(def, field)) bp *= 2; break;
+    case "PAYBACK": if (movesFirst(atk, def, field) < 0) bp *= 2; break;
     case "HIDDEN_POWER": bp = 60; break;
     case "MAGNITUDE": bp = 70; break;
     case "PRESENT": bp = 80; break;
@@ -343,6 +365,14 @@ function powerAfterMods(move, mt, atk, def, field, side, hitNo) {
   }
   if (field.sides[side].helpingHand) m = uqMul(m, UQ(1.5));
   if (hold === "GEMS" && it && TYPES[it.sid - 1] === mt.type) m = uqMul(m, pct(it.param));
+  const terr = field.terrain;
+  if (terr === "Grassy" && mt.type === "Grass" && isGrounded(atk)) m = uqMul(m, UQ(1.5));
+  if (terr === "Misty" && mt.type === "Dragon" && isGrounded(def)) m = uqMul(m, UQ(0.5));
+  if (terr === "Electric" && mt.type === "Electric" && isGrounded(atk)) m = uqMul(m, UQ(1.5));
+  if (terr === "Psychic" && mt.type === "Psychic" && isGrounded(atk)) m = uqMul(m, UQ(1.5));
+  if (terr === "Grassy" && (move.effect === "EARTHQUAKE" || move.effect === "MAGNITUDE")) m = uqMul(m, UQ(0.5));
+  if (mt.type === "Electric" && field.mudSport) m = uqMul(m, UQ(0.33));
+  if (mt.type === "Fire" && field.waterSport) m = uqMul(m, UQ(0.33));
   switch (ab) {
     case "Technician": if (bp <= 60) m = uqMul(m, UQ(1.5)); break;
     case "Flare Boost": if (atk.status === "Burned" && spec) m = uqMul(m, UQ(1.5)); break;
@@ -351,7 +381,7 @@ function powerAfterMods(move, mt, atk, def, field, side, hitNo) {
     case "Iron Fist": if (move.punch) m = uqMul(m, UQ(1.2)); break;
     case "Sheer Force": if (move.secondary) m = uqMul(m, UQ(1.3)); break;
     case "Sand Force": if (["Steel", "Rock", "Ground"].includes(mt.type) && field.weather === "Sand") m = uqMul(m, UQ(1.3)); break;
-    case "Analytic": if (speedOf(atk, field) < speedOf(def, field)) m = uqMul(m, UQ(1.3)); break;
+    case "Analytic": if (movesFirst(atk, def, field) < 0) m = uqMul(m, UQ(1.3)); break;
     case "Tough Claws": if (move.contact) m = uqMul(m, UQ(1.3)); break;
     case "Strong Jaw": if (move.bite) m = uqMul(m, UQ(1.5)); break;
     case "Mega Launcher": if (move.pulse) m = uqMul(m, UQ(1.5)); break;
@@ -410,12 +440,15 @@ function attackStat(move, mt, atk, def, field, crit) {
   if (hold === "LIGHT_BALL" && sp.startsWith("Pikachu")) m = uqMulHD(m, UQ(2));
   if (hold === "CHOICE_BAND" && phys) m = uqMulHD(m, UQ(1.5));
   if (hold === "CHOICE_SPECS" && !phys) m = uqMulHD(m, UQ(1.5));
+  if ((field.sides[sideOf(atk)] || {}).flowerGift && field.weather === "Sun" && phys) m = uqMulHD(m, UQ(1.5));
   return uqInt(m, stat);
 }
 
 function defenseStat(move, mt, atk, def, field, crit) {
   const usesDef = move.effect === "PSYSHOCK" || move.cat === "Physical";
-  let stat = usesDef ? def.stats[2] : def.stats[4];
+  // Wonder Room swaps the raw Defense and Sp. Def stats (stages stay put)
+  const rawDef = field.wonderRoom ? def.stats[4] : def.stats[2], rawSpd = field.wonderRoom ? def.stats[2] : def.stats[4];
+  let stat = usesDef ? rawDef : rawSpd;
   let stg = (usesDef ? def.boosts[2] : def.boosts[4]) + 6;
   if (crit && stg > 6) stg = 6;
   if (abilityOf(atk) === "Unaware" || move.ignoreDefStages) stg = 6;
@@ -430,6 +463,7 @@ function defenseStat(move, mt, atk, def, field, crit) {
   if (hold === "ASSAULT_VEST" && !usesDef) m = uqMulHD(m, UQ(1.5));
   if (hold === "SOUL_DEW" && (sp.name === "Latias" || sp.name === "Latios") && !usesDef) m = uqMulHD(m, UQ(1.5));
   if (isType(def, "Rock") && field.weather === "Sand" && !usesDef) m = uqMulHD(m, UQ(1.5));
+  if ((field.sides[sideOf(def)] || {}).flowerGift && field.weather === "Sun" && !usesDef) m = uqMulHD(m, UQ(1.5));
   return Math.max(1, uqInt(m, stat));
 }
 
@@ -470,8 +504,9 @@ function hitRolls(move, atk, def, field, side, crit, hitNo) {
   const dit = ITEMS.get(def.item);
   if (dhold === "RESIST_BERRY" && dit && TYPES[dit.param - 1] === mt.type && (mt.type === "Normal" || eff >= UQ(2)))
     defItemMod = defAb === "Ripen" ? UQ(0.25) : UQ(0.5);
-  if (def.stats[5] <= atk.stats[5]) mods.push(atkAbMod, defAbMod, atkItemMod, defItemMod);
-  else mods.push(defAbMod, atkAbMod, defItemMod, atkItemMod);
+  const friendGuard = field.doubles && (field.sides[sideOf(def)] || {}).friendGuard ? UQ(0.75) : UQ(1);
+  if (def.stats[5] <= atk.stats[5]) mods.push(atkAbMod, defAbMod, friendGuard, atkItemMod, defItemMod);
+  else mods.push(defAbMod, friendGuard, atkAbMod, defItemMod, atkItemMod);
   let other = UQ(1);
   for (const x of mods) other = uqMulHD(x, other);
   const stab = (mt.type !== "???" && isType(atk, mt.type)) ? (ab === "Adaptability" ? UQ(2) : UQ(1.5)) : UQ(1);
@@ -491,6 +526,8 @@ function hitRolls(move, atk, def, field, side, crit, hitNo) {
 // full move result: rolls (ascending) for one use of the move, plus extra info
 function calcMove(move, atk, def, field, side, crit) {
   if (!move || move.cat === "Status") return null;
+  if ((field.sides[sideOf(def)] || {}).protect && move.name !== "Feint")
+    return { rolls: Array(16).fill(0), eff: 0, note: "Blocked by Protect", hits: 1 };
   const L = atk.level;
   const fixed = v => ({ rolls: Array(16).fill(v), fixed: true });
   const mt0 = moveTypeOf(move, atk, field);
@@ -521,6 +558,61 @@ function calcMove(move, atk, def, field, side, crit) {
   const rolls = one.rolls.slice().reverse().map(d => d * hits);
   return { rolls, eff: one.eff, mt: one.mt, hits, multi, perHit: hits > 1 ? [one.rolls.slice().reverse()] : null, note: one.note,
            power: one.power, A: one.A, Dv: one.Dv };
+}
+
+// entry hazards and end-of-turn HP change for the defender (EK-style KO text)
+function hazardsAndChip(def, field) {
+  const fs = field.sides[sideOf(def)] || {}, max = def.stats[0], ab = abilityOf(def), hold = holdOf(def);
+  const out = { hazard: 0, hazardNames: [], eot: 0, eotNames: [] };
+  if (ab !== "Magic Guard") {
+    if (fs.stealthRock) {
+      let e = 1; for (const t of typesOf(def)) e *= typeMod("Rock", t);
+      out.hazard += Math.floor(max * e / 8); out.hazardNames.push("Stealth Rock");
+    }
+    if (fs.spikes && isGrounded(def)) {
+      out.hazard += Math.floor(max / [0, 8, 6, 4][fs.spikes]); out.hazardNames.push(fs.spikes + (fs.spikes > 1 ? " layers" : " layer") + " of Spikes");
+    }
+    const sandImmune = ["Rock", "Ground", "Steel"].some(t => isType(def, t)) || ["Sand Veil", "Sand Rush", "Sand Force", "Overcoat"].includes(ab);
+    const hailImmune = isType(def, "Ice") || ["Ice Body", "Snow Cloak", "Overcoat"].includes(ab);
+    if (field.weather === "Sand" && !sandImmune) { out.eot -= Math.floor(max / 16); out.eotNames.push("sandstorm damage"); }
+    if (field.weather === "Hail" && !hailImmune) { out.eot -= Math.floor(max / 16); out.eotNames.push("hail damage"); }
+    if (fs.leechSeed && !isType(def, "Grass")) { out.eot -= Math.floor(max / 8); out.eotNames.push("Leech Seed damage"); }
+    if (def.status === "Burned") { out.eot -= Math.floor(max / 8); out.eotNames.push("burn damage"); }
+    if (def.status === "Poisoned" && ab !== "Poison Heal") { out.eot -= Math.floor(max / 8); out.eotNames.push("poison damage"); }
+    if (def.status === "Badly Poisoned" && ab !== "Poison Heal") { out.eot -= Math.floor(max / 16); out.eotNames.push("toxic damage"); }
+    if (hold === "BLACK_SLUDGE" && !isType(def, "Poison")) { out.eot -= Math.floor(max / 8); out.eotNames.push("Black Sludge damage"); }
+  }
+  if (hold === "LEFTOVERS" || (hold === "BLACK_SLUDGE" && isType(def, "Poison"))) { out.eot += Math.floor(max / 16); out.eotNames.push(ITEMS.get(def.item).name + " recovery"); }
+  if (ab === "Rain Dish" && field.weather === "Rain") { out.eot += Math.floor(max / 16); out.eotNames.push("Rain Dish recovery"); }
+  if (ab === "Ice Body" && field.weather === "Hail") { out.eot += Math.floor(max / 16); out.eotNames.push("Ice Body recovery"); }
+  return out;
+}
+
+function koText(rolls, def, field) {
+  const c = hazardsAndChip(def, field);
+  const start = curHP(def) - c.hazard;
+  const max = def.stats[0];
+  let dist = new Map([[start, 1]]);
+  for (let n = 1; n <= 4; n++) {
+    const next = new Map();
+    let ko = 0;
+    for (const [hp, p] of dist) for (const r of rolls) {
+      const left = hp - r, q = p / 16;
+      if (left <= 0) { ko += q; continue; }
+      const after = Math.min(max, left + c.eot);
+      if (after <= 0 && n < 4) ko += q; else next.set(after, (next.get(after) || 0) + q);
+    }
+    if (ko > 0) {
+      const pctKo = Math.round(ko * 1000) / 10;
+      const label = n === 1 ? "OHKO" : n + "HKO";
+      const extras = c.hazardNames.concat(n > 1 ? c.eotNames : []);
+      const after = extras.length ? " after " + extras.join(" and ") : "";
+      return (pctKo >= 100 ? `guaranteed ${label}` : `${pctKo}% chance to ${label}`) + after;
+    }
+    dist = next;
+    if (!dist.size) break;
+  }
+  return null;
 }
 
 // chance to KO in n uses (16 equally likely rolls per use)
@@ -583,7 +675,7 @@ function makeSet(o) {
     ability: o.ability || ABIL.get(sp.abilities[0]) || "", item: o.item || 0,
     ivs: (o.ivs || [31, 31, 31, 31, 31, 31]).slice(), evs: (o.evs || [0, 0, 0, 0, 0, 0]).slice(),
     moves: (o.moves || []).slice(0, 4), status: o.status || "Healthy", hpPct: o.hpPct ?? 100,
-    boosts: [0, 0, 0, 0, 0, 0], uid: o.uid || Math.random().toString(36).slice(2, 9),
+    boosts: [0, 0, 0, 0, 0, 0], uid: o.uid || Math.random().toString(36).slice(2, 9), side: o.side || 0,
   };
   while (s.moves.length < 4) s.moves.push(0);
   s.stats = calcStats(s);
@@ -592,7 +684,7 @@ function makeSet(o) {
 function trainerSet(t, i) {
   const m = t.mons[i];
   return makeSet({ species: m.species, level: m.level, nature: m.nature, ability: m.ability ? ABIL.get(m.ability) : "",
-                   item: m.item, ivs: m.ivs, evs: m.evs, moves: m.moves });
+                   item: m.item, ivs: m.ivs, evs: m.evs, moves: m.moves, side: 1 });
 }
 
 const saved = load();
@@ -602,7 +694,7 @@ const state = {
   box: (saved.box && saved.box.length ? saved.box : EXAMPLE.map(makeSet)),
   trash: saved.trash || [],
   trainerIdx: Math.min(saved.trainer || 0, D.trainers.length - 1),
-  field: Object.assign({ doubles: false, weather: "None", sides: [{}, {}] }, saved.field || {}),
+  field: Object.assign({ doubles: false, weather: "None", terrain: "None", sides: [{}, {}] }, saved.field || {}),
   fainted: new Set(),
   foeIdx: 0,
   sel: [0, 0],          // selected move per side
@@ -730,17 +822,34 @@ function syncBack(side) {
 function renderField() {
   const f = state.field, root = $("field");
   root.querySelectorAll(":scope > :not(legend)").forEach(n => n.remove());
-  const tog = (label, on, fn, id) => { const b = el("button", { id, class: on ? "on" : "", "aria-pressed": !!on }, label); b.addEventListener("click", () => { fn(); save(); renderAll(); }); return b; };
-  root.append(el("div", { class: "toggles" },
-    tog("Singles", !f.doubles, () => f.doubles = false, "f-singles"), tog("Doubles", f.doubles, () => f.doubles = true, "f-doubles")));
-  root.append(el("div", { class: "toggles" }, ...["None", "Sun", "Rain", "Sand", "Hail"].map(w => tog(w, f.weather === w, () => f.weather = w, "f-w-" + w))));
+  const tog = (label, on, fn, id, title) => { const b = el("button", { id, class: on ? "on" : "", "aria-pressed": !!on, title }, label); b.addEventListener("click", () => { fn(); save(); renderAll(); }); return b; };
+  const group = (label, ...kids) => el("div", { class: "fgroup" }, el("span", { class: "tag" }, label), el("div", { class: "toggles" }, ...kids));
+  root.append(group("Format", tog("Singles", !f.doubles, () => f.doubles = false, "f-singles"), tog("Doubles", f.doubles, () => f.doubles = true, "f-doubles")));
+  root.append(group("Weather", ...["None", "Sun", "Rain", "Sand", "Hail"].map(w => tog(w, f.weather === w, () => f.weather = w, "f-w-" + w))));
+  root.append(group("Terrain", ...["None", "Electric", "Grassy", "Misty", "Psychic"].map(t => tog(t, (f.terrain || "None") === t, () => f.terrain = t, "f-t-" + t))));
+  root.append(group("Field", ...[["Trick Room", "trickRoom", "Slower Pokemon move first (lasts the whole battle in BOFA)"], ["Gravity", "gravity", "Ground moves hit Flying types and Levitate"],
+      ["Magic Room", "magicRoom", "Held items have no effect"], ["Wonder Room", "wonderRoom", "Defense and Sp. Def are swapped"],
+      ["Mud Sport", "mudSport", "Electric moves deal about a third of the damage"], ["Water Sport", "waterSport", "Fire moves deal about a third of the damage"]]
+    .map(([l, k, t]) => tog(l, f[k], () => f[k] = !f[k], "f-" + k, t))));
   const side = s => {
     const o = f.sides[s];
-    return el("div", { class: "side" }, el("span", { class: "tag" }, s === 0 ? "Your side" : "Foe side"),
-      ...[["Reflect", "reflect"], ["Light Screen", "lightScreen"], ["Helping Hand", "helpingHand"], ["Switching Out", "switching"]]
+    const spikes = el("div", { class: "spikes" }, el("span", {}, "Spikes"),
+      ...[0, 1, 2, 3].map(n => tog(String(n), (o.spikes || 0) === n, () => o.spikes = n, `f-${s}-spikes${n}`)));
+    return el("div", { class: "side" }, el("span", { class: "tag" }, s === 0 ? "Your side" : "Foe side"), spikes,
+      ...[["Stealth Rock", "stealthRock"], ["Reflect", "reflect"], ["Light Screen", "lightScreen"], ["Protect", "protect"],
+          ["Leech Seed", "leechSeed"], ["Foresight", "foresight"], ["Helping Hand", "helpingHand"], ["Tailwind", "tailwind"],
+          ["Friend Guard", "friendGuard"], ["Flower Gift", "flowerGift"], ["Switching Out", "switching"]]
         .map(([l, k]) => tog(l, o[k], () => o[k] = !o[k], `f-${s}-${k}`)));
   };
   root.append(el("div", { class: "sides" }, side(0), side(1)));
+  // turn order readout
+  const a = state.p[0], b = state.p[1];
+  if (a && b) {
+    const sa = speedOf(a, f, 0), sb = speedOf(b, f, 1), first = movesFirst(a, b, f);
+    const na = SPECIES.get(a.species).name, nb = SPECIES.get(b.species).name;
+    root.append(el("div", { class: "order" }, el("span", { class: "num" }, `${na} ${sa} · ${nb} ${sb}`), el("br"),
+      first === 0 ? "Speed tie: random order" : `${first > 0 ? na : nb} moves first` + (f.trickRoom ? " (Trick Room)" : "")));
+  }
 }
 
 // ============================================================ results
@@ -794,7 +903,7 @@ function renderResults() {
   const atkKey = m.cat === "Physical" ? 1 : 3, defKey = (m.cat === "Physical" || m.effect === "PSYSHOCK") ? 2 : 4;
   const evTxt = (s, k) => `${s.evs[k] ? s.evs[k] + " " : ""}${STAT_NAMES[k]}`;
   const itemTxt = s => s.item ? ITEMS.get(s.item).name + " " : "";
-  const ko = koChance(r.rolls, hp, 4) || "not a KO within 4 hits";
+  const ko = koText(r.rolls, def, state.field) || "not a KO within 4 hits";
   const line = `Lv ${atk.level} ${boost(atk, atkKey)}${evTxt(atk, atkKey)} ${itemTxt(atk)}${SPECIES.get(atk.species).name} ${m.name}` +
     `${atk.crit && atk.crit[i] ? " (critical hit)" : ""} vs. Lv ${def.level} ${def.evs[0] ? def.evs[0] + " HP / " : ""}${boost(def, defKey)}${evTxt(def, defKey)} ${itemTxt(def)}${SPECIES.get(def.species).name}` +
     `${state.field.weather !== "None" ? " in " + state.field.weather : ""}: ${r.rolls[0]}-${r.rolls[15]} (${fmtPct(r.rolls[0], max)} - ${fmtPct(r.rolls[15], max)}%) -- `;
