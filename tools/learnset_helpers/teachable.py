@@ -52,6 +52,12 @@ with open("./src/pokemon.c", "r") as file:
 # BOFA: weather-setting moves are not teachable by any Pokemon
 banned_moves = ["MOVE_RAIN_DANCE", "MOVE_SUNNY_DAY", "MOVE_SANDSTORM", "MOVE_HAIL",
                 "MOVE_SNOWSCAPE", "MOVE_CHILLY_RECEPTION"]
+# BOFA: strong setup moves are not learnable from TMs or tutors (trainer sets can still use them)
+BOFA_BANNED_SETUP = ["MOVE_SWORDS_DANCE", "MOVE_DRAGON_DANCE", "MOVE_QUIVER_DANCE", "MOVE_SHELL_SMASH",
+                     "MOVE_NASTY_PLOT", "MOVE_TAIL_GLOW", "MOVE_GEOMANCY", "MOVE_BELLY_DRUM", "MOVE_SHIFT_GEAR",
+                     "MOVE_CALM_MIND", "MOVE_BULK_UP", "MOVE_COIL", "MOVE_AGILITY", "MOVE_ROCK_POLISH",
+                     "MOVE_COTTON_GUARD"]
+banned_moves += BOFA_BANNED_SETUP
 
 # get compatibility from jsons
 def construct_compatibility_dict(force_custom_check):

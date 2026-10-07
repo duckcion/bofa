@@ -122,7 +122,7 @@ textarea { width: 100%; min-height: 10em; resize: vertical; background: var(--pa
 
 <div class="top">
   <h1>BOFA Damage Calc</h1>
-  <small>Numbers from the BOFA ROM build · Gen 6 mechanics with Platinum Kaizo move changes · trainers from Splits 1–3</small>
+  <small>Numbers from the BOFA ROM build · Gen 6 mechanics (2x crits) with Platinum Kaizo move changes · trainers from Splits 1–3</small>
 </div>
 
 <section class="results" aria-label="Move results">
@@ -504,7 +504,7 @@ function hitRolls(move, atk, def, field, side, crit, hitNo) {
   const w = field.weather;
   if ((w === "Rain" && mt.type === "Water") || (w === "Sun" && mt.type === "Fire")) base = uqInt(UQ(1.5), base);
   if ((w === "Rain" && mt.type === "Fire") || (w === "Sun" && mt.type === "Water")) base = uqInt(UQ(0.5), base);
-  if (crit) base = uqInt(UQ(1.5), base);
+  if (crit) base = uqInt(UQ(2), base);  // BOFA: crits deal 2x (B_CRIT_MULTIPLIER GEN_5)
   // "other" modifiers
   const hold = holdOf(atk), dhold = holdOf(def), ab = abilityOf(atk);
   const fs = field.sides[1 - side];
@@ -706,14 +706,12 @@ function trainerSet(t, i) {
 }
 
 const saved = load();
-const EXAMPLE = [{ species: (SPECIES_BY_NAME.get("marshtomp") || D.species[0]).id, level: 16, nature: "Adamant", ivs: [31,31,31,31,31,31],
-                   moves: ["Water Gun", "Mud Shot", "Rock Tomb", "Protect"].map(n => (MOVE_BY_NAME.get(norm(n)) || {}).id || 0) }];
 const PARTY_MAX = 6;
 // older saves had one list: its first six become the party
 const savedParty = saved.party || (saved.box || []).slice(0, PARTY_MAX);
 const savedBox = saved.party ? (saved.box || []) : (saved.box || []).slice(PARTY_MAX);
 const state = {
-  party: savedParty.length || savedBox.length ? savedParty : EXAMPLE.map(e => makeSet(Object.assign({ uid: "example" }, e))),
+  party: savedParty.filter(p => p.uid !== "example"),  // no default Pokemon; older saves' placeholder is dropped
   box: savedBox,
   trash: saved.trash || [],
   trainerIdx: Math.min(saved.trainer || 0, D.trainers.length - 1),
@@ -729,8 +727,8 @@ state.box = state.box.map(makeSet);
 state.trash = state.trash.map(makeSet);
 const mine = () => state.party.concat(state.box);
 function loadFirstMine() {
-  if (!mine().length) state.party.push(makeSet(EXAMPLE[0]));
   const f = mine()[0];
+  if (!f) { state.p[0] = null; return; }
   state.p[0] = makeSet(f); state.p[0].uid = f.uid;
 }
 state.p = [null, null];
@@ -766,6 +764,20 @@ function renderPanel(side) {
   const root = $(side === 0 ? "p1" : "p2");
   const set = state.p[side];
   root.querySelectorAll(":scope > :not(legend)").forEach(n => n.remove());
+  if (!set && side === 0) {
+    // empty side: type a species to add it to your party (or import your team)
+    const add = el("input", { type: "text", list: "dl-species", placeholder: "Type a Pokémon to add it", "aria-label": "Add a Pokémon" });
+    add.addEventListener("change", () => {
+      const s = SPECIES_BY_NAME.get(norm(add.value));
+      if (!s) return;
+      const made = makeSet({ species: s.id, level: 5 });
+      (state.party.length < PARTY_MAX ? state.party : state.box).push(made);
+      state.p[0] = makeSet(made); state.p[0].uid = made.uid;
+      save(); renderAll();
+    });
+    root.append(add, el("p", { class: "muted" }, "Or paste your team into Import / Export."));
+    return;
+  }
   if (!set) { root.append(el("p", { class: "muted" }, "Pick a trainer below.")); return; }
   const sp = SPECIES.get(set.species);
   const upd = () => { set.stats = calcStats(set); syncBack(side); renderAll(); };
@@ -844,7 +856,7 @@ function renderPanel(side) {
 
 // write panel edits back to the box entry it came from
 function syncBack(side) {
-  if (side !== 0) return;
+  if (side !== 0 || !state.p[0]) return;
   for (const list of [state.party, state.box]) {
     const i = list.findIndex(b => b.uid === state.p[0].uid);
     if (i >= 0) { list[i] = Object.assign(makeSet(state.p[0]), { uid: state.p[0].uid }); save(); renderBox(); break; }
@@ -1065,7 +1077,6 @@ function msg(t) { $("ioMsg").textContent = t; }
 $("importBtn").addEventListener("click", () => {
   const { sets, errors } = parseSets($("io").value);
   if (!sets.length) { msg(errors[0] ? errors[0] + ". Nothing imported." : "Paste sets first, then press Import."); return; }
-  state.party = state.party.filter(p => p.uid !== "example");  // drop the placeholder
   let full = 0;
   for (const s of sets) {
     const list = [state.party, state.box].find(l => l.some(b => b.species === s.species && norm(b.nick) === norm(s.nick)));
@@ -1092,7 +1103,7 @@ $("exportParty").addEventListener("click", () => {
   $("io").value = ["=== Party ===", ...state.party.map(exportSet)].join("\n\n");
   msg(state.party.length ? `Party exported (${state.party.length}).` : "Party is empty.");
 });
-$("exportP1").addEventListener("click", () => { $("io").value = exportSet(state.p[0]); msg("Your Pokémon exported to the text box."); });
+$("exportP1").addEventListener("click", () => { if (!state.p[0]) { msg("No Pokémon loaded."); return; } $("io").value = exportSet(state.p[0]); msg("Your Pokémon exported to the text box."); });
 $("exportP2").addEventListener("click", () => { if (state.p[1]) { $("io").value = exportSet(state.p[1]); msg("Foe exported to the text box."); } });
 document.addEventListener("keydown", e => {
   if ((e.key === "Delete") && document.activeElement === document.body && state.p[0]) moveTo(state.p[0].uid, "trash");

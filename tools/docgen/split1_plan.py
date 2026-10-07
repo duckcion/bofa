@@ -73,7 +73,7 @@ PROGRESSION = [
      "Norman checks all four, then sets VAR_SPLIT1_STATE = 1 and leaves", PLAN_TAG),
     (7, "Trainer Grove", "Path to the Everstone", "3 (Hiker Rocco, Camper Grant, Picnicker Maisie)",
      "Entrance turns the player back while VAR_SPLIT1_STATE = 0", PLAN_TAG),
-    (8, "Petalburg Coast (your \"Shoal Cave\")", "Everstone item ball, one-time Corphish Lv11, "
+    (8, "Petalburg Coast (your \"Shoal Cave\")", "Everstone item ball, Good Rod fishing from the south beach, "
      "fisherman points to Viridian Forest once you have the stone", "None (Ronnie removed)",
      "Returning to Petalburg with the stone sets VAR_SPLIT1_STATE = 2", PLAN_TAG),
     (9, "Viridian Forest (optional)", "2 trainers, new wild table (Kanto bugs, Pidgey, rare Pikachu), "
@@ -98,8 +98,6 @@ GIFT_POKEMON = [
      "Random", "Chikorita: Overgrow / Cyndaquil: Blaze / Totodile: Torrent", "Random", "-", "Level-up moves", "Free gift, choose one. Evolves at Lv16"),
     ("Split 1", "Petalburg City", "Trade with Dustin (rock trader)", "Any Pokemon", "Geodude or Rhyhorn (50/50)", 5,
      "Relaxed", "Geodude: Rock Head / Rhyhorn: Lightning Rod", "31 all", "-", "Level-up moves", "Random which one you get; once only. Nicknamed, OT DUSTIN"),
-    ("Split 1", "Petalburg Coast", "One-time wild battle (Corphish in the open)", "Nothing (catch it)", "Corphish", 11,
-     "Random", "Adaptability / Hyper Cutter", "Random", "-", "Level-up moves", "Battle disappears once beaten or caught"),
     ("Split 2", "Rustboro City (house)", "Trade with Kobe", "Ralts", "Seedot", "Same as the Ralts you give",
      "Relaxed", "Chlorophyll", "5/4/5/4/4/4", "Chesto Berry", "Level-up moves", "Nickname DOTS, OT KOBE"),
     ("Split 2", "Rustboro City (Devon Corp 2F)", "Revived fossil from the scientist", "Root Fossil or Claw Fossil", "Lileep or Anorith", 20,

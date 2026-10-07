@@ -1036,6 +1036,7 @@ LittlerootTown_EventScript_SuppliesManMore::
 	giveitem ITEM_MAX_REVIVE, 900
 	giveitem ITEM_FULL_HEAL, 900
 	giveitem ITEM_MAX_ELIXIR, 900
+	giveitem ITEM_POKE_BALL, 20
 	setflag FLAG_RECEIVED_STARTER_SUPPLIES_2
 	msgbox LittlerootTown_Text_SuppliesManGiven, MSGBOX_DEFAULT
 	release

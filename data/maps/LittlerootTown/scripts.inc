@@ -2075,58 +2075,60 @@ LittlerootTown_EventScript_SuppliesManMore::
 # 1038 "data/maps/LittlerootTown/scripts.pory"
 	giveitem ITEM_MAX_ELIXIR, 900
 # 1039 "data/maps/LittlerootTown/scripts.pory"
-	setflag FLAG_RECEIVED_STARTER_SUPPLIES_2
+	giveitem ITEM_POKE_BALL, 20
 # 1040 "data/maps/LittlerootTown/scripts.pory"
-	msgbox LittlerootTown_Text_SuppliesManGiven, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_STARTER_SUPPLIES_2
 # 1041 "data/maps/LittlerootTown/scripts.pory"
-	release
+	msgbox LittlerootTown_Text_SuppliesManGiven, MSGBOX_DEFAULT
 # 1042 "data/maps/LittlerootTown/scripts.pory"
-	end
-# 1043 "data/maps/LittlerootTown/scripts.pory"
-
-# 1044 "data/maps/LittlerootTown/scripts.pory"
-LittlerootTown_EventScript_SuppliesManAlready::
-# 1045 "data/maps/LittlerootTown/scripts.pory"
-	msgbox LittlerootTown_Text_SuppliesManAlready, MSGBOX_DEFAULT
-# 1046 "data/maps/LittlerootTown/scripts.pory"
 	release
-# 1047 "data/maps/LittlerootTown/scripts.pory"
+# 1043 "data/maps/LittlerootTown/scripts.pory"
 	end
+# 1044 "data/maps/LittlerootTown/scripts.pory"
+
+# 1045 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_EventScript_SuppliesManAlready::
+# 1046 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_Text_SuppliesManAlready, MSGBOX_DEFAULT
+# 1047 "data/maps/LittlerootTown/scripts.pory"
+	release
 # 1048 "data/maps/LittlerootTown/scripts.pory"
-
+	end
 # 1049 "data/maps/LittlerootTown/scripts.pory"
-LittlerootTown_Text_SuppliesManIntro:
+
 # 1050 "data/maps/LittlerootTown/scripts.pory"
-	.string "Hey, you're just starting out, right?\p"
+LittlerootTown_Text_SuppliesManIntro:
 # 1051 "data/maps/LittlerootTown/scripts.pory"
-	.string "Here, take these supplies. You'll\n"
+	.string "Hey, you're just starting out, right?\p"
 # 1052 "data/maps/LittlerootTown/scripts.pory"
-	.string "need them out there.$"
+	.string "Here, take these supplies. You'll\n"
 # 1053 "data/maps/LittlerootTown/scripts.pory"
-
+	.string "need them out there.$"
 # 1054 "data/maps/LittlerootTown/scripts.pory"
-LittlerootTown_Text_SuppliesManGiven:
-# 1055 "data/maps/LittlerootTown/scripts.pory"
-	.string "Good luck on your journey!$"
-# 1056 "data/maps/LittlerootTown/scripts.pory"
 
+# 1055 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_Text_SuppliesManGiven:
+# 1056 "data/maps/LittlerootTown/scripts.pory"
+	.string "Good luck on your journey!$"
 # 1057 "data/maps/LittlerootTown/scripts.pory"
-LittlerootTown_Text_SuppliesManAlready:
+
 # 1058 "data/maps/LittlerootTown/scripts.pory"
-	.string "Take care of that stock I gave you.\n"
+LittlerootTown_Text_SuppliesManAlready:
 # 1059 "data/maps/LittlerootTown/scripts.pory"
+	.string "Take care of that stock I gave you.\n"
+# 1060 "data/maps/LittlerootTown/scripts.pory"
 	.string "I don't have any more to spare!$"
 
 LittlerootTown_EventScript_NewSign::
-# 1064 "data/maps/LittlerootTown/scripts.pory"
-	lockall
 # 1065 "data/maps/LittlerootTown/scripts.pory"
-	msgbox LittlerootTown_EventScript_NewSign_Text_0
+	lockall
 # 1066 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_EventScript_NewSign_Text_0
+# 1067 "data/maps/LittlerootTown/scripts.pory"
 	releaseall
 	return
 
 
 LittlerootTown_EventScript_NewSign_Text_0:
-# 1065 "data/maps/LittlerootTown/scripts.pory"
+# 1066 "data/maps/LittlerootTown/scripts.pory"
 	.string "Nick Fat$"

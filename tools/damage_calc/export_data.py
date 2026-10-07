@@ -105,13 +105,18 @@ species_src = {}
 for path in sorted(os.listdir(os.path.join(ROOT, "src/data/pokemon/species_info"))):
     src = rd("src/data/pokemon/species_info/" + path)
     # forms built from macros (VIVILLON_MISC_INFO(...), SPEWPA_SPECIES_INFO(...)): expand the macro body
-    macros = {mm.group(1): mm.group(2) for mm in re.finditer(r"^#define (\w+)\([^)]*\)((?:.*\\\n)*.*)", src, re.M)}
+    macros = {mm.group(1): ([p.strip() for p in mm.group(2).split(",") if p.strip()], mm.group(3))
+              for mm in re.finditer(r"^#define (\w+)\(([^)]*)\)((?:.*\\\n)*.*)", src, re.M)}
     entries = [(m.group(1), m.group(2)) for m in re.finditer(r"^    \[(SPECIES_\w+)\] =\n    \{\n(.*?)^    \},", src, re.S | re.M)]
     entries += [(m.group(1), m.group(2)) for m in re.finditer(r"^    \[(SPECIES_\w+)\]\s*=\s*(\w+\([^)]*\)),", src, re.M)]
     for sname, body in entries:
-        for mac in re.findall(r"\b(\w+)\(", body):
+        for mac, args in re.findall(r"\b(\w+)\(([^()]*)\)", body):
             if mac in macros:
-                body += macros[mac]
+                params, mbody = macros[mac]
+                # fill in the macro's arguments (gMonIcon_Vivillon ##form -> gMonIcon_VivillonPolar)
+                for p, a in zip(params, [x.strip() for x in args.split(",")]):
+                    mbody = re.sub(r"\b%s\b" % re.escape(p), a, mbody)
+                body += re.sub(r"\s*##\s*", "", mbody)
         g = lambda pat: (re.search(pat, body).group(1) if re.search(pat, body) else None)
         species_src[sname] = {
             "natdex": g(r"\.natDexNum = (NATIONAL_DEX_\w+)"),
@@ -119,7 +124,7 @@ for path in sorted(os.listdir(os.path.join(ROOT, "src/data/pokemon/species_info"
             "icon": g(r"\.iconSprite = (gMonIcon_\w+)"),
             "evolves": bool(re.search(r"\.evolutions = EVOLUTION\(", body)),
         }
-icon_paths = dict(re.findall(r"const u8 (gMonIcon_\w+)\[\] = INCBIN_U8\(\"(graphics/pokemon/[^\"]+?)/icon\.4bpp\"\)",
+icon_paths = dict(re.findall(r"const u8 (gMonIcon_\w+)\[\] = INCBIN_U8\(\s*\"(graphics/pokemon/[^\"]+?)/icon\.4bpp\"\)",
                              rd("src/data/graphics/pokemon.h")))
 
 base_by_dex = {}
@@ -295,12 +300,20 @@ for atk in range(1, n):
 try:
     from PIL import Image
     ids = sorted(species)
+    missing_icons = []
     cols = 32
     sheet = Image.new("RGBA", (cols * 32, ((len(ids) + cols - 1) // cols) * 32), (0, 0, 0, 0))
     for k, sid in enumerate(ids):
         path = icon_paths.get(species[sid]["icon"] or "")
+        if not path:  # forms without their own icon use the base form's
+            base = base_by_dex.get(species[sid]["dex"])
+            path = icon_paths.get((species_src.get(base) or {}).get("icon") or "")
+        if not path:  # e.g. Arceus forms point at per-type icons that only exist with unique form icons enabled
+            stem = re.sub(r"[A-Z][a-z]+$", "", species[sid]["icon"] or "") or ("gMonIcon_" + re.sub(r"[^A-Za-z]", "", species[sid]["name"].split("-")[0]))
+            path = next((icon_paths[k] for k in sorted(icon_paths) if k.startswith(stem)), None)
         species[sid]["icon"] = k
         if not path or not os.path.exists(os.path.join(ROOT, path, "icon.png")):
+            missing_icons.append(species[sid]["name"])
             continue
         im = Image.open(os.path.join(ROOT, path, "icon.png"))
         if im.mode == "P":
@@ -308,6 +321,7 @@ try:
         im = im.convert("RGBA").crop((0, 0, 32, 32))
         sheet.paste(im, ((k % cols) * 32, (k // cols) * 32))
     sheet.save(os.path.join(OUT, "icons.png"), optimize=True)
+    print("species without an icon:", missing_icons or "none")
 except ImportError:
     print("Pillow missing: icons.png not written")
 

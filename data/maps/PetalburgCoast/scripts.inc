@@ -43,60 +43,26 @@ PetalburgCoast_EventScript_HintViridian::
 # 22 "data/maps/PetalburgCoast/scripts.pory"
 
 # 23 "data/maps/PetalburgCoast/scripts.pory"
-@ One-time beach encounter.
-# 24 "data/maps/PetalburgCoast/scripts.pory"
-PetalburgCoast_EventScript_Corphish::
-# 25 "data/maps/PetalburgCoast/scripts.pory"
-	lock
-# 26 "data/maps/PetalburgCoast/scripts.pory"
-	faceplayer
-# 27 "data/maps/PetalburgCoast/scripts.pory"
-	setwildbattle SPECIES_CORPHISH, 11
-# 28 "data/maps/PetalburgCoast/scripts.pory"
-	waitse
-# 29 "data/maps/PetalburgCoast/scripts.pory"
-	playmoncry SPECIES_CORPHISH, CRY_MODE_ENCOUNTER
-# 30 "data/maps/PetalburgCoast/scripts.pory"
-	delay 40
-# 31 "data/maps/PetalburgCoast/scripts.pory"
-	waitmoncry
-# 32 "data/maps/PetalburgCoast/scripts.pory"
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-# 33 "data/maps/PetalburgCoast/scripts.pory"
-	dowildbattle
-# 34 "data/maps/PetalburgCoast/scripts.pory"
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-# 35 "data/maps/PetalburgCoast/scripts.pory"
-	removeobject VAR_LAST_TALKED
-# 36 "data/maps/PetalburgCoast/scripts.pory"
-	setflag FLAG_PETALBURG_COAST_CORPHISH
-# 37 "data/maps/PetalburgCoast/scripts.pory"
-	release
-# 38 "data/maps/PetalburgCoast/scripts.pory"
-	end
-# 39 "data/maps/PetalburgCoast/scripts.pory"
-
-# 40 "data/maps/PetalburgCoast/scripts.pory"
 PetalburgCoast_Text_HintBeforeStone:
-# 41 "data/maps/PetalburgCoast/scripts.pory"
+# 24 "data/maps/PetalburgCoast/scripts.pory"
 	.string "Something shiny washed up north of\n"
-# 42 "data/maps/PetalburgCoast/scripts.pory"
+# 25 "data/maps/PetalburgCoast/scripts.pory"
 	.string "here. Could be what you're after.$"
-# 43 "data/maps/PetalburgCoast/scripts.pory"
+# 26 "data/maps/PetalburgCoast/scripts.pory"
 
-# 44 "data/maps/PetalburgCoast/scripts.pory"
+# 27 "data/maps/PetalburgCoast/scripts.pory"
 PetalburgCoast_Text_HintViridian:
-# 45 "data/maps/PetalburgCoast/scripts.pory"
+# 28 "data/maps/PetalburgCoast/scripts.pory"
 	.string "I heard you're planning to challenge\n"
-# 46 "data/maps/PetalburgCoast/scripts.pory"
+# 29 "data/maps/PetalburgCoast/scripts.pory"
 	.string "NORMAN!\p"
-# 47 "data/maps/PetalburgCoast/scripts.pory"
+# 30 "data/maps/PetalburgCoast/scripts.pory"
 	.string "You might want to explore VIRIDIAN\n"
-# 48 "data/maps/PetalburgCoast/scripts.pory"
+# 31 "data/maps/PetalburgCoast/scripts.pory"
 	.string "FOREST first, off ROUTE 103 north\l"
-# 49 "data/maps/PetalburgCoast/scripts.pory"
+# 32 "data/maps/PetalburgCoast/scripts.pory"
 	.string "of OLDALE TOWN.\p"
-# 50 "data/maps/PetalburgCoast/scripts.pory"
+# 33 "data/maps/PetalburgCoast/scripts.pory"
 	.string "There's something there that could\n"
-# 51 "data/maps/PetalburgCoast/scripts.pory"
+# 34 "data/maps/PetalburgCoast/scripts.pory"
 	.string "help you in his GYM.$"

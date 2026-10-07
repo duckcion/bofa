@@ -20,23 +20,6 @@ PetalburgCoast_EventScript_HintViridian::
 	release
 	end
 
-@ One-time beach encounter.
-PetalburgCoast_EventScript_Corphish::
-	lock
-	faceplayer
-	setwildbattle SPECIES_CORPHISH, 11
-	waitse
-	playmoncry SPECIES_CORPHISH, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	dowildbattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	removeobject VAR_LAST_TALKED
-	setflag FLAG_PETALBURG_COAST_CORPHISH
-	release
-	end
-
 PetalburgCoast_Text_HintBeforeStone:
 	.string "Something shiny washed up north of\n"
 	.string "here. Could be what you're after.$"

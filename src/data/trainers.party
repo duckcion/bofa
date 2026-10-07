@@ -2923,14 +2923,14 @@ Double Battle: No
 AI: Basic Trainer
 
 Persian @ Amulet Coin
-Level: 18
+Level: 19
 Ability: Technician
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Jolly
 - Pay Day
 
 Combusken @ Charcoal
-Level: 18
+Level: 19
 Ability: Speed Boost
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -2940,7 +2940,7 @@ Nature: Adamant
 - Quick Attack
 
 Roselia @ Black Sludge
-Level: 18
+Level: 19
 Ability: Natural Cure
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Modest
@@ -2950,7 +2950,7 @@ Nature: Modest
 - Stun Spore
 
 Onix @ Hard Stone
-Level: 18
+Level: 19
 Ability: Sturdy
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -5525,7 +5525,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Machamp @ Lum Berry
-Level: 33
+Level: 34
 Ability: No Guard
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -5535,7 +5535,7 @@ Nature: Adamant
 - Wide Guard
 
 Hawlucha @ Fighting Gem
-Level: 33
+Level: 34
 Ability: Unburden
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Jolly
@@ -5545,7 +5545,7 @@ Nature: Jolly
 - Protect
 
 Hariyama @ Flame Orb
-Level: 35
+Level: 36
 Ability: Guts
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -6811,7 +6811,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Hoothoot @ Oran Berry
-Level: 7
+Level: 8
 Ability: Insomnia
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Careful
@@ -6821,7 +6821,7 @@ Nature: Careful
 - Reflect
 
 Nidoran-F @ Poison Barb
-Level: 7
+Level: 8
 Ability: Poison Point
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -6831,7 +6831,7 @@ Nature: Adamant
 - Tail Whip
 
 Pancham @ Black Belt
-Level: 8
+Level: 9
 Ability: Iron Fist
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -6841,7 +6841,7 @@ Nature: Adamant
 - Tackle
 
 Electrike @ Magnet
-Level: 8
+Level: 9
 Ability: Static
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Rash
@@ -10152,7 +10152,7 @@ Double Battle: Yes
 AI: Basic Trainer
 
 Plusle @ Electric Gem
-Level: 18
+Level: 19
 Ability: Plus
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Timid
@@ -10161,7 +10161,7 @@ Nature: Timid
 - Grass Knot
 
 Blitzle @ Focus Sash
-Level: 18
+Level: 19
 Ability: Motor Drive
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -10170,7 +10170,7 @@ Nature: Adamant
 - Stomp
 
 Minun @ Magnet
-Level: 18
+Level: 19
 Ability: Minus
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Timid
@@ -12841,7 +12841,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Flaaffy @ Magnet
-Level: 19
+Level: 20
 Ability: Static
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Modest
@@ -12851,7 +12851,7 @@ Nature: Modest
 - Cotton Spore
 
 Haunter @ Spell Tag
-Level: 19
+Level: 20
 Ability: Levitate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Timid
@@ -12861,7 +12861,7 @@ Nature: Timid
 - Will-O-Wisp
 
 Kirlia @ Twisted Spoon
-Level: 19
+Level: 20
 Ability: Trace
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Modest
@@ -12871,7 +12871,7 @@ Nature: Modest
 - Memento
 
 Piloswine @ Soft Sand
-Level: 19
+Level: 20
 Ability: Thick Fat
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -12881,7 +12881,7 @@ Nature: Adamant
 - Take Down
 
 Munchlax @ Salac Berry
-Level: 19
+Level: 20
 Ability: Gluttony
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -15091,18 +15091,8 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Poliwag @ Oran Berry
-Level: 7
-Ability: Water Absorb
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-Nature: Bold
-- Bubble Beam
-- Hypnosis
-- Icy Wind
-- Encore
-
 Dwebble @ Oran Berry
-Level: 7
+Level: 8
 Ability: Sturdy
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -15111,8 +15101,18 @@ Nature: Adamant
 - Sand Attack
 - Stealth Rock
 
+Poliwag @ Oran Berry
+Level: 8
+Ability: Water Absorb
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Nature: Bold
+- Bubble Beam
+- Hypnosis
+- Icy Wind
+- Encore
+
 Finneon @ Mystic Water
-Level: 7
+Level: 8
 Ability: Swift Swim
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Modest
@@ -15122,7 +15122,7 @@ Nature: Modest
 - Attract
 
 Corphish @ Oran Berry
-Level: 8
+Level: 9
 Ability: Adaptability
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Naughty
@@ -19475,7 +19475,6 @@ Nature: Adamant
 - Rock Slide
 - Metal Claw
 - Bulldoze
-- Protect
 
 === TRAINER_TRAINERGROVET2 ===
 Name: MAISIE
@@ -20171,7 +20170,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Vulpix @ Heat Rock
-Level: 9
+Level: 10
 Ability: Drought
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Modest
@@ -20181,7 +20180,7 @@ Nature: Modest
 - Confuse Ray
 
 Numel @ Oran Berry
-Level: 9
+Level: 10
 Ability: Simple
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -20191,7 +20190,7 @@ Nature: Adamant
 - Tackle
 
 Skorupi @ Poison Barb
-Level: 9
+Level: 10
 Ability: Battle Armor
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -20201,7 +20200,7 @@ Nature: Adamant
 - Rock Tomb
 
 Houndour @ Charcoal
-Level: 9
+Level: 11
 Ability: Flash Fire
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Mild
@@ -20211,7 +20210,7 @@ Nature: Mild
 - Pursuit
 
 Sandile @ Soft Sand
-Level: 9
+Level: 10
 Ability: Intimidate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -20230,7 +20229,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Wingull @ Damp Rock
-Level: 9
+Level: 10
 Ability: Drizzle
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Rash
@@ -20240,7 +20239,7 @@ Nature: Rash
 - Quick Attack
 
 Croagunk @ Black Sludge
-Level: 9
+Level: 10
 Ability: Dry Skin
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -20250,7 +20249,7 @@ Nature: Adamant
 - Sucker Punch
 
 Koffing @ Oran Berry
-Level: 9
+Level: 10
 Ability: Levitate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Naughty
@@ -20260,7 +20259,7 @@ Nature: Naughty
 - Assurance
 
 Helioptile @ Magnet
-Level: 9
+Level: 10
 Ability: Dry Skin
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Modest
@@ -20270,7 +20269,7 @@ Nature: Modest
 - Mud-Slap
 
 Carvanha @ Mystic Water
-Level: 9
+Level: 11
 Ability: Speed Boost
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
@@ -20961,7 +20960,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Cherubi @ Heat Rock
-Level: 18
+Level: 19
 Ability: Chlorophyll
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Modest
@@ -20971,7 +20970,7 @@ Nature: Modest
 - Morning Sun
 
 Petilil @ Miracle Seed
-Level: 18
+Level: 19
 Ability: Chlorophyll
 IVs: 1 HP / 1 Atk / 1 Def / 0 SpA / 1 SpD / 0 Spe
 Nature: Modest
@@ -20981,7 +20980,7 @@ Nature: Modest
 - Growth
 
 Combee @ Silver Powder
-Level: 18
+Level: 19
 Ability: Hustle
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Naughty
@@ -20991,7 +20990,7 @@ Nature: Naughty
 - Endeavor
 
 Spritzee @ Oran Berry
-Level: 18
+Level: 19
 Ability: Aroma Veil
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Modest
@@ -21001,7 +21000,7 @@ Nature: Modest
 - Sweet Kiss
 
 Swirlix @ Sitrus Berry
-Level: 18
+Level: 19
 Ability: Unburden
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Modest
