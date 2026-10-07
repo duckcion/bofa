@@ -766,7 +766,7 @@ for _, w in wild.iterrows():
 # encounter per row; methods run down the left and line up across the locations in a band.
 METHOD_ORDER = ["Land", "Water", "Good Rod", "Super Rod", "Rock Smash"]  # no Old Rod in BOFA
 METHOD_LABEL = {"Land": "Grass / Cave", "Water": "Surf"}
-PER_BAND = 6
+PER_BAND = 10000  # all locations side by side in one row; only methods stack
 maps = []
 for key in order:
     if key[0] not in [m for m, _ in maps]:
