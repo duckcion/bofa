@@ -328,7 +328,7 @@ function exportparty()
         local m = readMon(partyAddr(slot), true)
         if m.species ~= 0 and m.isEgg == 0 then chunks[#chunks+1] = monText(m) end
     end
-    local text = table.concat(chunks, "\n\n")
+    local text = "=== Party ===\n\n" .. table.concat(chunks, "\n\n")
     out(text)
     writeFile(text)
     return text
@@ -342,7 +342,8 @@ function exportmon(slot)
 end
 
 function exportall()
-    local chunks = { exportparty() }
+    local chunks = { exportparty(), "=== Box ===" }
+    out("\n=== Box ===")
     local storage = emu:read32(ADDR.gPokemonStoragePtr)
     if storage ~= 0 then
         for i = 0, TOTAL_BOXES * IN_BOX - 1 do

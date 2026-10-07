@@ -104,6 +104,8 @@ textarea { width: 100%; min-height: 10em; resize: vertical; background: var(--pa
 .slot.fainted { opacity: .35; }
 .slot.fainted::after { content: "KO"; position: absolute; left: 2px; top: 0; font: 700 9px var(--font-num); color: var(--hot); }
 .trash { min-height: 36px; border: 1px dashed var(--line); border-radius: 5px; padding: 2px; }
+.party { min-height: 36px; }
+.slot.empty { width: 34px; height: 30px; border: 1px dashed var(--line); cursor: default; }
 .drop { outline: 2px dashed var(--accent); }
 .guide .g { display: grid; grid-template-columns: 34px 1fr auto; gap: 6px; align-items: center; padding: 3px 0; border-bottom: 1px solid var(--soft); }
 .guide .g.first b { color: var(--accent); }
@@ -139,9 +141,14 @@ textarea { width: 100%; min-height: 10em; resize: vertical; background: var(--pa
       <div class="note">Your tag partner's team. Click one to load it on your side and see its ranges; click a box Pokémon to switch back.</div>
     </fieldset>
     <fieldset>
-      <legend>Team / Box</legend>
+      <legend>Party</legend>
+      <div class="box party" id="party6" aria-label="Party (up to 6)"></div>
+      <div class="btnrow"><button id="exportParty">Export party</button></div>
+    </fieldset>
+    <fieldset>
+      <legend>Box</legend>
       <div class="box" id="box" aria-label="Box"></div>
-      <div class="note">Click to load into Your Pokémon. Drag onto the trash, or select and press Delete, to remove.</div>
+      <div class="note">Click a Pokémon to load it. Drag between Party, Box and Trash, or right-click to move it between Party and Box. Delete sends the selected Pokémon to the trash.</div>
       <h4 style="margin:10px 0 4px">Trash</h4>
       <div class="box trash" id="trash" aria-label="Trash"></div>
       <div class="btnrow">
@@ -156,7 +163,7 @@ textarea { width: 100%; min-height: 10em; resize: vertical; background: var(--pa
     <fieldset id="field"><legend>Field</legend></fieldset>
     <fieldset>
       <legend>Import / Export</legend>
-      <textarea id="io" spellcheck="false" placeholder="Paste exportparty() / exportall() output from bofa_kaizo_tools.lua, or Showdown sets."></textarea>
+      <textarea id="io" spellcheck="false" placeholder="Paste exportparty() / exportall() output from bofa_kaizo_tools.lua, or Showdown sets. Sync replaces your party and box; Import adds to them."></textarea>
       <div class="btnrow">
         <button id="importBtn">Import</button>
         <button id="syncBtn">Sync</button>
@@ -677,7 +684,7 @@ function aiDamage(move, atk, def, field, side) {
 // ============================================================ state
 const STORE = "bofa-calc-v1";
 function load() { try { return JSON.parse(localStorage.getItem(STORE)) || {}; } catch (e) { return {}; } }
-function save() { try { localStorage.setItem(STORE, JSON.stringify({ box: state.box, trash: state.trash, trainer: state.trainerIdx, field: state.field })); } catch (e) {} }
+function save() { try { localStorage.setItem(STORE, JSON.stringify({ party: state.party, box: state.box, trash: state.trash, trainer: state.trainerIdx, field: state.field })); } catch (e) {} }
 
 function makeSet(o) {
   const sp = SPECIES.get(o.species) || D.species[0];
@@ -701,8 +708,13 @@ function trainerSet(t, i) {
 const saved = load();
 const EXAMPLE = [{ species: (SPECIES_BY_NAME.get("marshtomp") || D.species[0]).id, level: 16, nature: "Adamant", ivs: [31,31,31,31,31,31],
                    moves: ["Water Gun", "Mud Shot", "Rock Tomb", "Protect"].map(n => (MOVE_BY_NAME.get(norm(n)) || {}).id || 0) }];
+const PARTY_MAX = 6;
+// older saves had one list: its first six become the party
+const savedParty = saved.party || (saved.box || []).slice(0, PARTY_MAX);
+const savedBox = saved.party ? (saved.box || []) : (saved.box || []).slice(PARTY_MAX);
 const state = {
-  box: (saved.box && saved.box.length ? saved.box : EXAMPLE.map(makeSet)),
+  party: savedParty.length || savedBox.length ? savedParty : EXAMPLE.map(e => makeSet(Object.assign({ uid: "example" }, e))),
+  box: savedBox,
   trash: saved.trash || [],
   trainerIdx: Math.min(saved.trainer || 0, D.trainers.length - 1),
   field: Object.assign({ doubles: false, weather: "None", terrain: "None", sides: [{}, {}] }, saved.field || {}),
@@ -712,10 +724,17 @@ const state = {
   sel: [0, 0],          // selected move per side
   showSide: 0,
 };
+state.party = state.party.map(makeSet);
 state.box = state.box.map(makeSet);
 state.trash = state.trash.map(makeSet);
-state.p = [makeSet(state.box[0]), null];
-state.p[0].uid = state.box[0].uid;
+const mine = () => state.party.concat(state.box);
+function loadFirstMine() {
+  if (!mine().length) state.party.push(makeSet(EXAMPLE[0]));
+  const f = mine()[0];
+  state.p[0] = makeSet(f); state.p[0].uid = f.uid;
+}
+state.p = [null, null];
+loadFirstMine();
 
 // ============================================================ rendering helpers
 const $ = id => document.getElementById(id);
@@ -826,8 +845,10 @@ function renderPanel(side) {
 // write panel edits back to the box entry it came from
 function syncBack(side) {
   if (side !== 0) return;
-  const i = state.box.findIndex(b => b.uid === state.p[0].uid);
-  if (i >= 0) { state.box[i] = Object.assign(makeSet(state.p[0]), { uid: state.p[0].uid }); save(); renderBox(); }
+  for (const list of [state.party, state.box]) {
+    const i = list.findIndex(b => b.uid === state.p[0].uid);
+    if (i >= 0) { list[i] = Object.assign(makeSet(state.p[0]), { uid: state.p[0].uid }); save(); renderBox(); break; }
+  }
 }
 
 // ============================================================ field
@@ -935,34 +956,38 @@ function renderResults() {
   if (r.note) d.append(el("div", { class: "rolls" }, r.note));
 }
 
-// ============================================================ box / trash
+// ============================================================ party / box / trash
 let dragUid = null;
+const ZONES = { party6: () => state.party, box: () => state.box, trash: () => state.trash };
 function renderBox() {
-  const mk = (list, where) => {
-    const root = $(where);
+  const mk = where => {
+    const list = ZONES[where](), root = $(where);
     root.innerHTML = "";
-    list.forEach((s, i) => {
+    list.forEach(s => {
       const b = el("button", { class: "slot" + (state.p[0] && s.uid === state.p[0].uid ? " sel" : ""), draggable: "true",
         title: `${SPECIES.get(s.species).name} Lv ${s.level}`, "aria-label": `${SPECIES.get(s.species).name} level ${s.level}` },
         icon(s.species), el("span", { class: "lv" }, s.level));
-      b.addEventListener("click", () => { if (where === "box") { state.p[0] = makeSet(s); state.p[0].uid = s.uid; renderAll(); } });
-      b.addEventListener("keydown", e => { if (e.key === "Delete" || e.key === "Backspace") { moveTo(s.uid, where === "box" ? "trash" : "box"); } });
+      b.addEventListener("click", () => { if (where !== "trash") { state.p[0] = makeSet(s); state.p[0].uid = s.uid; renderAll(); } });
+      b.addEventListener("contextmenu", e => { e.preventDefault(); if (where !== "trash") moveTo(s.uid, where === "party6" ? "box" : "party6"); });
+      b.addEventListener("keydown", e => { if (e.key === "Delete" || e.key === "Backspace") moveTo(s.uid, where === "trash" ? "box" : "trash"); });
       b.addEventListener("dragstart", e => { dragUid = s.uid; e.dataTransfer.setData("text/plain", s.uid); });
       root.append(b);
     });
+    if (where === "party6") for (let k = list.length; k < PARTY_MAX; k++) root.append(el("span", { class: "slot empty", "aria-hidden": "true" }));
   };
-  mk(state.box, "box"); mk(state.trash, "trash");
+  Object.keys(ZONES).forEach(mk);
 }
 function moveTo(uid, dest) {
-  const from = dest === "trash" ? state.box : state.trash, to = dest === "trash" ? state.trash : state.box;
-  const i = from.findIndex(s => s.uid === uid);
-  if (i < 0) return;
-  to.push(from.splice(i, 1)[0]);
-  if (!state.box.length) state.box.push(makeSet(EXAMPLE[0]));
-  if (dest === "trash" && state.p[0] && state.p[0].uid === uid) { state.p[0] = makeSet(state.box[0]); state.p[0].uid = state.box[0].uid; }
+  const from = Object.values(ZONES).map(f => f()).find(l => l.some(s => s.uid === uid));
+  const to = ZONES[dest]();
+  if (!from || from === to) return;
+  if (to === state.party && state.party.length >= PARTY_MAX) { msg("Party is full (6). Move one to the box first."); return; }
+  to.push(from.splice(from.findIndex(s => s.uid === uid), 1)[0]);
+  if (dest === "trash" && state.p[0] && state.p[0].uid === uid) loadFirstMine();
+  if (!mine().length) loadFirstMine();
   save(); renderAll();
 }
-["box", "trash"].forEach(id => {
+Object.keys(ZONES).forEach(id => {
   const z = $(id);
   z.addEventListener("dragover", e => { e.preventDefault(); z.classList.add("drop"); });
   z.addEventListener("dragleave", () => z.classList.remove("drop"));
@@ -970,7 +995,7 @@ function moveTo(uid, dest) {
 });
 $("emptyTrash").addEventListener("click", () => { state.trash = []; save(); renderBox(); });
 $("restoreTrash").addEventListener("click", () => { state.box.push(...state.trash); state.trash = []; save(); renderBox(); });
-$("clearBox").addEventListener("click", () => { state.trash.push(...state.box); state.box = [makeSet(EXAMPLE[0])]; state.p[0] = makeSet(state.box[0]); state.p[0].uid = state.box[0].uid; save(); renderAll(); });
+$("clearBox").addEventListener("click", () => { state.trash.push(...state.party, ...state.box); state.party = []; state.box = []; loadFirstMine(); save(); renderAll(); });
 
 // ============================================================ import / export (Showdown format, as bofa_kaizo_tools.lua exports)
 function parseSets(textIn) {
@@ -978,13 +1003,18 @@ function parseSets(textIn) {
   // a chunk that starts with a detail line (stray blank line inside a set) belongs to the set before it
   const detail = /^(-|Ability:|Level:|EVs:|IVs:|Tera|Shiny:|Happiness:|\w+ Nature)/i;
   const blocks = [];
-  for (const chunk of textIn.replace(/\r/g, "").split(/\n\s*\n/)) {
+  // "=== Party ===" / "=== Box ===" lines (exportparty / exportall) say where the following sets go
+  const zoned = textIn.replace(/\r/g, "").replace(/^[ \t]*=+[ \t]*(party|box|pc)\b[^\n]*$/gim, (_, z) => `\n\n@@zone:${z.toLowerCase() === "party" ? "party" : "box"}\n\n`);
+  let zone = null;
+  for (const chunk of zoned.split(/\n\s*\n/)) {
     const first = chunk.trim().split("\n")[0] || "";
+    if (first.startsWith("@@zone:")) { zone = first.slice(7); continue; }
+    if (!first) continue;
     const looksLikeSet = /^\s*(Ability|Level|IVs|EVs):|Nature\s*$|^\s*-/im.test(chunk);
-    if (blocks.length && (detail.test(first.trim()) || !looksLikeSet)) blocks[blocks.length - 1] += "\n" + chunk;
-    else blocks.push(chunk);
+    if (blocks.length && (detail.test(first.trim()) || !looksLikeSet)) blocks[blocks.length - 1].text += "\n" + chunk;
+    else blocks.push({ text: chunk, zone });
   }
-  for (const block of blocks) {
+  for (const { text: block, zone: blockZone } of blocks) {
     // undo console line-wrapping: a line that doesn't start a field continues the one before it
     const joined = [];
     for (const raw of block.split("\n")) {
@@ -1016,7 +1046,9 @@ function parseSets(textIn) {
       else if ((m = l.match(/^(\w+) Nature/i))) o.nature = m[1][0].toUpperCase() + m[1].slice(1).toLowerCase();
       else if ((m = l.match(/^-\s*(.+)$/))) { const mv = MOVE_BY_NAME.get(norm(m[1].replace(/\[.*\]/, ""))); if (mv) o.moves.push(mv.id); else errors.push(`Unknown move "${m[1]}"`); }
     }
-    sets.push(makeSet(o));
+    const made = makeSet(o);
+    made.zone = blockZone;
+    sets.push(made);
   }
   return { sets, errors };
 }
@@ -1033,21 +1065,32 @@ function msg(t) { $("ioMsg").textContent = t; }
 $("importBtn").addEventListener("click", () => {
   const { sets, errors } = parseSets($("io").value);
   if (!sets.length) { msg(errors[0] ? errors[0] + ". Nothing imported." : "Paste sets first, then press Import."); return; }
-  if (state.box.length === 1 && state.box[0].uid === (EXAMPLE.uid || state.box[0].uid) && !saved.box) state.box = [];
+  state.party = state.party.filter(p => p.uid !== "example");  // drop the placeholder
+  let full = 0;
   for (const s of sets) {
-    const i = state.box.findIndex(b => b.species === s.species && norm(b.nick) === norm(s.nick));
-    if (i >= 0) { s.uid = state.box[i].uid; state.box[i] = s; } else state.box.push(s);
+    const list = [state.party, state.box].find(l => l.some(b => b.species === s.species && norm(b.nick) === norm(s.nick)));
+    if (list) { const i = list.findIndex(b => b.species === s.species && norm(b.nick) === norm(s.nick)); s.uid = list[i].uid; list[i] = s; }
+    else if (s.zone === "party" && state.party.length < PARTY_MAX) state.party.push(s);
+    else { if (s.zone === "party") full++; state.box.push(s); }
   }
   state.p[0] = makeSet(sets[0]); state.p[0].uid = sets[0].uid;
   save(); renderAll();
-  msg(`Imported ${sets.length} Pokémon.` + (errors.length ? " Skipped: " + errors.join("; ") : ""));
+  msg(`Imported ${sets.length} Pokémon.` + (full ? ` Party was full, ${full} went to the box.` : "") + (errors.length ? " Skipped: " + errors.join("; ") : ""));
 });
 $("syncBtn").addEventListener("click", () => {
   const { sets, errors } = parseSets($("io").value);
   if (!sets.length) { msg(errors[0] ? errors[0] + ". Box not changed." : "Paste your full party/PC export, then press Sync."); return; }
-  state.box = sets; state.p[0] = makeSet(sets[0]); state.p[0].uid = sets[0].uid;
+  // with Party/Box markers each set goes where it is in game; a plain list of up to 6 is a party
+  const marked = sets.some(s => s.zone);
+  state.party = (marked ? sets.filter(s => s.zone === "party") : sets.length <= PARTY_MAX ? sets : []).slice(0, PARTY_MAX);
+  state.box = sets.filter(s => !state.party.includes(s));
+  state.p[0] = makeSet(sets[0]); state.p[0].uid = sets[0].uid;
   save(); renderAll();
-  msg(`Box synced: ${sets.length} Pokémon.` + (errors.length ? " Skipped: " + errors.join("; ") : ""));
+  msg(`Synced: ${state.party.length} in party, ${state.box.length} in box.` + (errors.length ? " Skipped: " + errors.join("; ") : ""));
+});
+$("exportParty").addEventListener("click", () => {
+  $("io").value = ["=== Party ===", ...state.party.map(exportSet)].join("\n\n");
+  msg(state.party.length ? `Party exported (${state.party.length}).` : "Party is empty.");
 });
 $("exportP1").addEventListener("click", () => { $("io").value = exportSet(state.p[0]); msg("Your Pokémon exported to the text box."); });
 $("exportP2").addEventListener("click", () => { if (state.p[1]) { $("io").value = exportSet(state.p[1]); msg("Foe exported to the text box."); } });
