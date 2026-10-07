@@ -964,7 +964,15 @@ $("clearBox").addEventListener("click", () => { state.trash.push(...state.box); 
 // ============================================================ import / export (Showdown format, as bofa_kaizo_tools.lua exports)
 function parseSets(textIn) {
   const sets = [], errors = [];
-  for (const block of textIn.replace(/\r/g, "").split(/\n\s*\n/)) {
+  // a chunk that starts with a detail line (stray blank line inside a set) belongs to the set before it
+  const detail = /^(-|Ability:|Level:|EVs:|IVs:|Tera|Shiny:|Happiness:|\w+ Nature)/i;
+  const blocks = [];
+  for (const chunk of textIn.replace(/\r/g, "").split(/\n\s*\n/)) {
+    const first = chunk.trim().split("\n")[0] || "";
+    if (blocks.length && detail.test(first.trim())) blocks[blocks.length - 1] += "\n" + chunk;
+    else blocks.push(chunk);
+  }
+  for (const block of blocks) {
     const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
     if (!lines.length) continue;
     let head = lines[0], item = 0, nick = "";
