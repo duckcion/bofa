@@ -397,7 +397,8 @@ ws.column_dimensions["A"].width = 130
 c = ws.cell(1, 1, "Move Changes (Gen 1-6 moves + Platinum Kaizo extras)")
 c.font = Font(name=FONT, bold=True, size=14, color=YELLOW)
 c.fill = F_BG
-FIELDS = [("Power", " bp"), ("Acc", " acc"), ("PP", " PP"), ("Type", " type"), ("Category", ""), ("Effect", " effect")]
+FIELDS = [("Power", " bp"), ("Acc", " acc"), ("PP", " PP"), ("Type", " type"), ("Category", ""), ("Priority", " priority"),
+          ("Target", "")]
 r = 2
 for _, m in moves[moves["Changed?"].notna()].iterrows():
     diffs = []
@@ -405,9 +406,13 @@ for _, m in moves[moves["Changed?"].notna()].iterrows():
         o, n = num(m[f"Orig {f}"]), num(m[f"New {f}"])
         if not blank(o) and o != n:
             diffs.append(f"{o}{unit} -> {n}{unit}")
-    if not diffs:
+    new_sec = ", ".join(str(x) for x in (m["Secondary Effects"], m["Secondary Chance"]) if not blank(x))
+    mech = (m["Orig Effect"] != m["New Effect"] or str(m["Orig Secondary"] if not blank(m["Orig Secondary"]) else "") != new_sec
+            or not blank(m["Recoil %"]))
+    if not diffs and not mech:
         continue
-    c = ws.cell(r, 1, f"{m['Move']}: " + ", ".join(diffs))
+    head = f"{m['Move']} ({m['Description']})" if mech and not blank(m["Description"]) else f"{m['Move']}"
+    c = ws.cell(r, 1, head + (": " + ", ".join(diffs) if diffs else ""))
     c.font = Font(name=FONT)
     if r % 2:
         c.fill = F_ALT

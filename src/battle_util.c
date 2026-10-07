@@ -2104,7 +2104,7 @@ u8 DoFieldEndTurnEffects(void)
             gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_GRAVITY:
-            if (gFieldStatuses & STATUS_FIELD_GRAVITY && --gFieldTimers.gravityTimer == 0)
+            if (gFieldStatuses & STATUS_FIELD_GRAVITY && gFieldTimers.gravityTimer > 0 && --gFieldTimers.gravityTimer == 0)
             {
                 gFieldStatuses &= ~STATUS_FIELD_GRAVITY;
                 BattleScriptExecute(BattleScript_GravityEnds);

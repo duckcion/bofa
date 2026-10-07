@@ -246,6 +246,10 @@ MOVE_FIELDS = {
     "type": r"\.type\s*=\s*(TYPE_[A-Z_]+)",
     "category": r"\.category\s*=\s*(DAMAGE_CATEGORY_[A-Z_]+)",
     "effect": r"\.effect\s*=\s*(EFFECT_[A-Z0-9_]+)",
+    "target": r"\.target\s*=\s*(MOVE_TARGET_[A-Z_]+)",
+    "priority": r"\.priority\s*=\s*(-?\d+)",
+    "recoil": r"\.recoil\s*=\s*(\d+)",
+    "crit": r"\.criticalHitStage\s*=\s*(\d+)",
 }
 
 
@@ -274,6 +278,8 @@ def parse_moves(text, revision=None):
         chances = re.findall(r"\.chance\s*=\s*(\d+)", block)
         entry["secondaryChance"] = ", ".join(chances) if chances else None
         effs = re.findall(r"\.moveEffect\s*=\s*(MOVE_EFFECT_[A-Z0-9_]+)", block)
+        dm = re.search(r"\.description\s*=\s*COMPOUND_STRING\((.*?)\),", block, re.S)
+        entry["description"] = " ".join(re.findall(r'"([^"]*)"', dm.group(1))).replace("\\n", " ").replace("  ", " ") if dm else None
         entry["secondaryEffect"] = ", ".join(effs) if effs else None
         out[m.group(1)] = entry
     return out

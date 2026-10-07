@@ -1357,6 +1357,15 @@ bool8 IsPlayerFacingSurfableFishableWater(void)
         return FALSE;
 }
 
+// BOFA: maps where you can fish from the shore but not Surf.
+bool8 IsPlayerFacingSurfableWater(void)
+{
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PETALBURG_COAST)
+     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(PETALBURG_COAST))
+        return FALSE;
+    return IsPlayerFacingSurfableFishableWater();
+}
+
 void ClearPlayerAvatarInfo(void)
 {
     memset(&gPlayerAvatar, 0, sizeof(struct PlayerAvatar));

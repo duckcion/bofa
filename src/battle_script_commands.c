@@ -8318,7 +8318,7 @@ static void Cmd_setgravity(void)
     else
     {
         gFieldStatuses |= STATUS_FIELD_GRAVITY;
-        gFieldTimers.gravityTimer = 5;
+        gFieldTimers.gravityTimer = 0; // BOFA (PK): Gravity lasts the whole battle
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
@@ -14604,6 +14604,8 @@ static void Cmd_setroom(void)
     {
     case EFFECT_TRICK_ROOM:
         HandleRoomMove(STATUS_FIELD_TRICK_ROOM, &gFieldTimers.trickRoomTimer, 0);
+        if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM)
+            gFieldTimers.trickRoomTimer = 0; // BOFA (PK): Trick Room lasts the whole battle
         break;
     case EFFECT_WONDER_ROOM:
         HandleRoomMove(STATUS_FIELD_WONDER_ROOM, &gFieldTimers.wonderRoomTimer, 2);

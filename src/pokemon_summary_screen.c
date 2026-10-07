@@ -736,9 +736,6 @@ static void (*const sTextPrinterTasks[])(u8 taskId) =
 
 static const u8 sMemoNatureTextColor[] = _("{COLOR LIGHT_RED}{SHADOW GREEN}");
 static const u8 sMemoMiscTextColor[] = _("{COLOR WHITE}{SHADOW DARK_GRAY}"); // This is also affected by palettes, apparently
-static const u8 sStatsLeftColumnLayout[] = _("{DYNAMIC 0}/{DYNAMIC 1}\n{DYNAMIC 2}\n{DYNAMIC 3}");
-static const u8 sStatsRightColumnLayout[] = _("{DYNAMIC 0}\n{DYNAMIC 1}\n{DYNAMIC 2}");
-static bool8 sShowIVsOnSkillsPage = FALSE;
 static const u8 sMovesPPLayout[] = _("{PP}{DYNAMIC 0}/{DYNAMIC 1}");
 
 #define TAG_MOVE_SELECTOR 30000
@@ -1631,7 +1628,6 @@ static void FreeSummaryScreen(void)
 {
     FreeAllWindowBuffers();
     Free(sMonSummaryScreen);
-    sShowIVsOnSkillsPage = FALSE;
 }
 
 static void BeginCloseSummaryScreen(u8 taskId)
@@ -1719,15 +1715,6 @@ static void Task_HandleInput(u8 taskId)
             StopPokemonAnimations();
             PlaySE(SE_SELECT);
             BeginCloseSummaryScreen(taskId);
-        }
-        else if (JOY_NEW(START_BUTTON) && sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
-        {
-            sShowIVsOnSkillsPage = !sShowIVsOnSkillsPage;
-            PlaySE(SE_SELECT);
-            BufferLeftColumnStats();
-            PrintLeftColumnStats();
-            BufferRightColumnStats();
-            PrintRightColumnStats();
         }
         else if (DEBUG_POKEMON_SPRITE_VISUALIZER && JOY_NEW(SELECT_BUTTON) && !gMain.inBattle)
         {
@@ -3594,82 +3581,79 @@ static void PrintRibbonCount(void)
     PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_RIBBON_COUNT), text, x, 1, 0, 0);
 }
 
-static void BufferStat(u8 *dst, u8 statIndex, u32 stat, u32 strId, u32 n)
+// BOFA: each stat is printed in the narrow font with its IV always shown next to it in a small font
+// (like Emerald Kaizo). The windows are unchanged: 999/999 + IV fits the left column,
+// 999 + IV fits the right one.
+#define STATS_LEFT_VALUE_RIGHT_EDGE  36
+#define STATS_RIGHT_VALUE_RIGHT_EDGE 15
+
+static u8 *CopyStatColor(u8 *dst, u8 statIndex)
 {
     static const u8 sTextNatureDown[] = _("{COLOR}{08}");
     static const u8 sTextNatureUp[] = _("{COLOR}{05}");
     static const u8 sTextNatureNeutral[] = _("{COLOR}{01}");
-    u8 *txtPtr;
+    const struct NatureInfo *nature = &gNaturesInfo[sMonSummaryScreen->summary.mintNature];
 
-    if (statIndex == 0 || !SUMMARY_SCREEN_NATURE_COLORS || gNaturesInfo[sMonSummaryScreen->summary.mintNature].statUp == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statDown)
-        txtPtr = StringCopy(dst, sTextNatureNeutral);
-    else if (statIndex == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statUp)
-        txtPtr = StringCopy(dst, sTextNatureUp);
-    else if (statIndex == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statDown)
-        txtPtr = StringCopy(dst, sTextNatureDown);
-    else
-        txtPtr = StringCopy(dst, sTextNatureNeutral);
+    if (statIndex == 0 || !SUMMARY_SCREEN_NATURE_COLORS || nature->statUp == nature->statDown)
+        return StringCopy(dst, sTextNatureNeutral);
+    else if (statIndex == nature->statUp)
+        return StringCopy(dst, sTextNatureUp);
+    else if (statIndex == nature->statDown)
+        return StringCopy(dst, sTextNatureDown);
+    return StringCopy(dst, sTextNatureNeutral);
+}
 
-    ConvertIntToDecimalStringN(txtPtr, stat, STR_CONV_MODE_RIGHT_ALIGN, n);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(strId, dst);
+static void PrintStatAndIV(u8 windowId, u8 y, const u8 *valueStr, u32 iv, u32 rightEdge)
+{
+    u8 ivStr[4];
+    s32 x = rightEdge - GetStringWidth(FONT_NARROW, valueStr, 0);
+
+    PrintTextOnWindowWithFont(windowId, valueStr, x < 0 ? 0 : x, y, 0, 0, FONT_NARROW);
+    ConvertIntToDecimalStringN(ivStr, iv, STR_CONV_MODE_LEFT_ALIGN, 2);
+    PrintTextOnWindowWithFont(windowId, ivStr, rightEdge + 2, y + 2, 0, 0, FONT_SMALL_NARROWER);
+}
+
+static void PrintOneStat(u8 windowId, u8 y, u8 statIndex, u32 value, u32 iv, u32 rightEdge)
+{
+    u8 str[16];
+    ConvertIntToDecimalStringN(CopyStatColor(str, statIndex), value, STR_CONV_MODE_LEFT_ALIGN, 3);
+    PrintStatAndIV(windowId, y, str, iv, rightEdge);
 }
 
 static void BufferLeftColumnStats(void)
 {
-    u8 *currentHPString = Alloc(20);
-    u8 *maxHPString = Alloc(20);
-    u8 *attackString = Alloc(20);
-    u8 *defenseString = Alloc(20);
-
-    DynamicPlaceholderTextUtil_Reset();
-    if (sShowIVsOnSkillsPage)
-    {
-        BufferStat(currentHPString, 0, sMonSummaryScreen->summary.hpIV, 0, 2);
-        BufferStat(attackString, STAT_ATK, sMonSummaryScreen->summary.atkIV, 1, 2);
-        BufferStat(defenseString, STAT_DEF, sMonSummaryScreen->summary.defIV, 2, 2);
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsRightColumnLayout);
-    }
-    else
-    {
-        BufferStat(currentHPString, 0, sMonSummaryScreen->summary.currentHP, 0, 3);
-        BufferStat(maxHPString, 0, sMonSummaryScreen->summary.maxHP, 1, 3);
-        BufferStat(attackString, STAT_ATK, sMonSummaryScreen->summary.atk, 2, 7);
-        BufferStat(defenseString, STAT_DEF, sMonSummaryScreen->summary.def, 3, 7);
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsLeftColumnLayout);
-    }
-
-    Free(currentHPString);
-    Free(maxHPString);
-    Free(attackString);
-    Free(defenseString);
 }
 
 static void PrintLeftColumnStats(void)
 {
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_STATS_LEFT), gStringVar4, 4, 1, 0, 0);
+    struct PokeSummary *sum = &sMonSummaryScreen->summary;
+    u8 windowId = AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_STATS_LEFT);
+
+    u8 hp[20];
+    u8 *ptr;
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
+    ptr = ConvertIntToDecimalStringN(CopyStatColor(hp, 0), sum->currentHP, STR_CONV_MODE_LEFT_ALIGN, 3);
+    *ptr++ = CHAR_SLASH;
+    ConvertIntToDecimalStringN(ptr, sum->maxHP, STR_CONV_MODE_LEFT_ALIGN, 3);
+    PrintStatAndIV(windowId, 1, hp, sum->hpIV, STATS_LEFT_VALUE_RIGHT_EDGE);
+    PrintOneStat(windowId, 17, STAT_ATK, sum->atk, sum->atkIV, STATS_LEFT_VALUE_RIGHT_EDGE);
+    PrintOneStat(windowId, 33, STAT_DEF, sum->def, sum->defIV, STATS_LEFT_VALUE_RIGHT_EDGE);
 }
 
 static void BufferRightColumnStats(void)
 {
-    DynamicPlaceholderTextUtil_Reset();
-    if (sShowIVsOnSkillsPage)
-    {
-        BufferStat(gStringVar1, STAT_SPATK, sMonSummaryScreen->summary.spatkIV, 0, 2);
-        BufferStat(gStringVar2, STAT_SPDEF, sMonSummaryScreen->summary.spdefIV, 1, 2);
-        BufferStat(gStringVar3, STAT_SPEED, sMonSummaryScreen->summary.speedIV, 2, 2);
-    }
-    else
-    {
-        BufferStat(gStringVar1, STAT_SPATK, sMonSummaryScreen->summary.spatk, 0, 3);
-        BufferStat(gStringVar2, STAT_SPDEF, sMonSummaryScreen->summary.spdef, 1, 3);
-        BufferStat(gStringVar3, STAT_SPEED, sMonSummaryScreen->summary.speed, 2, 3);
-    }
-    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsRightColumnLayout);
 }
 
 static void PrintRightColumnStats(void)
 {
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_STATS_RIGHT), gStringVar4, 2, 1, 0, 0);
+    struct PokeSummary *sum = &sMonSummaryScreen->summary;
+    u8 windowId = AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_STATS_RIGHT);
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
+    PrintOneStat(windowId, 1, STAT_SPATK, sum->spatk, sum->spatkIV, STATS_RIGHT_VALUE_RIGHT_EDGE);
+    PrintOneStat(windowId, 17, STAT_SPDEF, sum->spdef, sum->spdefIV, STATS_RIGHT_VALUE_RIGHT_EDGE);
+    PrintOneStat(windowId, 33, STAT_SPEED, sum->speed, sum->speedIV, STATS_RIGHT_VALUE_RIGHT_EDGE);
 }
 
 static void PrintExpPointsNextLevel(void)

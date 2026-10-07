@@ -395,12 +395,15 @@ def sheet_move_changes(wb, mcur, mbase):
     headers = ["Move", "Const", "Orig Power", "New Power", "Orig Acc", "New Acc",
                "Orig PP", "New PP", "Orig Type", "New Type", "Orig Category",
                "New Category", "Orig Effect", "New Effect", "Secondary Chance",
-               "Secondary Effects", "Changed?", "Status"]
+               "Secondary Effects", "Orig Secondary", "Orig Target", "New Target", "Orig Priority",
+               "New Priority", "Recoil %", "Description", "Changed?", "Status"]
     rows, fills = [], {}
     for const in sorted(mcur):
         c, b = mcur[const], mbase.get(const)
-        fields = ("power", "accuracy", "pp", "type", "category", "effect")
+        fields = ("power", "accuracy", "pp", "type", "category", "effect", "target", "priority", "recoil", "crit",
+                  "secondaryChance", "secondaryEffect")
         changed = bool(b) and any(c.get(f) != b.get(f) for f in fields)
+        sec = lambda e: ", ".join(filter(None, [e.get("secondaryEffect"), e.get("secondaryChance")])) if e else ""
         rows.append([
             c.get("name") or "", const,
             b.get("power") if b else None, c.get("power"),
@@ -412,14 +415,17 @@ def sheet_move_changes(wb, mcur, mbase):
             pretty_const(c.get("category"), "DAMAGE_CATEGORY_"),
             pretty_const(b.get("effect"), "EFFECT_") if b else "UNVERIFIED",
             pretty_const(c.get("effect"), "EFFECT_"),
-            c.get("secondaryChance") or "", c.get("secondaryEffect") or "",
+            c.get("secondaryChance") or "", c.get("secondaryEffect") or "", sec(b),
+            pretty_const(b.get("target"), "MOVE_TARGET_") if b else "", pretty_const(c.get("target"), "MOVE_TARGET_"),
+            (b.get("priority") or "0") if b else "", c.get("priority") or "0", c.get("recoil") or "",
+            c.get("description") or "",
             "YES" if changed else "", STATUS_IMPLEMENTED,
         ])
         if changed:
             fills[len(rows) - 1] = CHANGED_FILL
     ws = wb.create_sheet("Move Changes")
     write_sheet(ws, "Move Changes", headers, rows,
-                widths=[20, 26, 10, 10, 9, 9, 8, 8, 14, 14, 16, 16, 24, 24, 16, 30, 10, 16],
+                widths=[20, 26, 10, 10, 9, 9, 8, 8, 14, 14, 16, 16, 24, 24, 16, 30, 30, 16, 16, 10, 10, 9, 50, 10, 16],
                 tab_color=TAB_COLORS["Move Changes"], row_fills=fills,
                 note="All moves listed. Power/accuracy/PP resolve config ternaries "
                      "(e.g. 'P_UPDATED_MOVE_DATA >= GEN_6 ? x : y') against this project's config.")

@@ -60,7 +60,13 @@
       "flag": "FLAG_ITEM_GRANITE_SHORE_CHOPLE_BERRY"
     }
   ],
-  "warp_events": [],
-  "coord_events": [],
-  "bg_events": []
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

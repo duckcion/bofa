@@ -23,7 +23,7 @@ local ADDR = {
     gPlayerPartyCount  = 0x02035691,
     gPokemonStoragePtr = 0x0300722c,
     gBattleWeather     = 0x02000754,
-    gSpeciesInfoBase   = 0x08ce83ec,
+    gSpeciesInfoBase   = 0x08ce83e0,
 }
 local SPECIES_INFO_STRIDE = 260
 local SPECIES_NAME_OFFSET = 44
