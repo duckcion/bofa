@@ -5149,6 +5149,8 @@ static void TurnValuesCleanUp(bool8 var0)
 
             if (gDisableStructs[i].isFirstTurn)
                 gDisableStructs[i].isFirstTurn--;
+            if (gDisableStructs[i].bofaTurnsOnField < 255)
+                gDisableStructs[i].bofaTurnsOnField++;
 
             if (gDisableStructs[i].rechargeTimer)
             {

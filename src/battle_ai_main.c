@@ -26,6 +26,7 @@
 #include "constants/moves.h"
 #include "constants/items.h"
 #include "constants/trainers.h"
+#include "battle_ai_gen4.h"
 
 #define AI_ACTION_DONE          (1 << 0)
 #define AI_ACTION_FLEE          (1 << 1)
@@ -43,11 +44,11 @@ EWRAM_DATA u8 sBattler_AI = 0;
 EWRAM_DATA AiScoreFunc sDynamicAiFunc = NULL;
 
 // const rom data
-static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
-static s32 AI_TryToFaint(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
-static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
+UNUSED static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
+UNUSED static s32 AI_TryToFaint(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
+UNUSED static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 static s32 AI_ForceSetupFirstTurn(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
-static s32 AI_Risky(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
+UNUSED static s32 AI_Risky(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 static s32 AI_PreferStrongestMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 static s32 AI_PreferBatonPass(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 static s32 AI_HPAware(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
@@ -61,11 +62,23 @@ static s32 AI_DynamicFunc(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 
 static s32 (*const sBattleAiFuncTable[])(u32, u32, u32, s32) =
 {
+#if TESTING
     [0] = AI_CheckBadMove,           // AI_FLAG_CHECK_BAD_MOVE
     [1] = AI_TryToFaint,             // AI_FLAG_TRY_TO_FAINT
     [2] = AI_CheckViability,         // AI_FLAG_CHECK_VIABILITY
+#else
+    // BOFA: in the game these flags run the Generation 4 (Platinum Kaizo) trainer AI.
+    // The test suite keeps the stock routines so the engine's own AI tests stay meaningful.
+    [0] = AI_Gen4Basic,              // AI_FLAG_CHECK_BAD_MOVE   = Gen 4 "Basic"
+    [1] = AI_Gen4EvaluateAttack,     // AI_FLAG_TRY_TO_FAINT     = Gen 4 "Evaluate Attack"
+    [2] = AI_Gen4Expert,             // AI_FLAG_CHECK_VIABILITY  = Gen 4 "Expert"
+#endif
     [3] = AI_ForceSetupFirstTurn,    // AI_FLAG_FORCE_SETUP_FIRST_TURN
+#if TESTING
     [4] = AI_Risky,                  // AI_FLAG_RISKY
+#else
+    [4] = AI_Gen4Risky,              // AI_FLAG_RISKY            = Gen 4 "Risky"
+#endif
     [5] = AI_PreferStrongestMove,    // AI_FLAG_PREFER_STRONGEST_MOVE
     [6] = AI_PreferBatonPass,        // AI_FLAG_PREFER_BATON_PASS
     [7] = AI_DoubleBattle,           // AI_FLAG_DOUBLE_BATTLE

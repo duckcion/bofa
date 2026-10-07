@@ -19,11 +19,11 @@ Edits change the PARTY copy of a Pokemon: use them outside battle.
 
 -- BEGIN GENERATED (tools/kaizo_lua/gen_tables.py) -- do not edit by hand
 local ADDR = {
-    gPlayerParty       = 0x02035694,
-    gPlayerPartyCount  = 0x02035691,
+    gPlayerParty       = 0x020356a4,
+    gPlayerPartyCount  = 0x020356a1,
     gPokemonStoragePtr = 0x0300722c,
-    gBattleWeather     = 0x02000754,
-    gSpeciesInfoBase   = 0x08ce6ac8,
+    gBattleWeather     = 0x02000764,
+    gSpeciesInfoBase   = 0x08cee738,
 }
 local SPECIES_INFO_STRIDE = 260
 local SPECIES_NAME_OFFSET = 44

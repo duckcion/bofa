@@ -37,6 +37,9 @@ static u32 AI_GetEffectiveness(uq4_12_t multiplier);
 // Functions
 u32 GetDmgRollType(u32 battlerAtk)
 {
+#if !TESTING
+    return DMG_ROLL_DEFAULT; // BOFA: Gen 4 AI always evaluates the normal damage roll
+#endif
     if (AI_THINKING_STRUCT->aiFlags[battlerAtk] & AI_FLAG_RISKY)
         return DMG_ROLL_HIGHEST;
     if (AI_THINKING_STRUCT->aiFlags[battlerAtk] & AI_FLAG_CONSERVATIVE)

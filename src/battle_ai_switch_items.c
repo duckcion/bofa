@@ -31,7 +31,7 @@ static bool32 AI_OpponentCanFaintAiWithMod(u32 battler, u32 healAmount);
 static u32 GetSwitchinHazardsDamage(u32 battler, struct BattlePokemon *battleMon);
 static bool32 CanAbilityTrapOpponent(u16 ability, u32 opponent);
 
-static void InitializeSwitchinCandidate(struct Pokemon *mon)
+void InitializeSwitchinCandidate(struct Pokemon *mon)
 {
     PokemonToBattleMon(mon, &AI_DATA->switchinCandidate.battleMon);
     AI_DATA->switchinCandidate.hypotheticalStatus = FALSE;
@@ -2042,13 +2042,21 @@ u32 GetMostSuitableMonToSwitchInto(u32 battler, bool32 switchAfterMonKOd)
                 aliveCount++;
             }
         }
-        bestMonId = GetBestMonBatonPass(party, firstId, lastId, invalidMons, aliveCount, battler, opposingBattler);
-        if (bestMonId != PARTY_SIZE)
-            return bestMonId;
+#if !TESTING
+        // BOFA: after a KO, send in the Pokemon whose best attacking move deals the most damage
+        // to the player's current Pokemon (STAB, type matchups, stats, abilities and items all
+        // count; ties go to the earlier party slot), like Gen 5+ trainers.
+        if (!switchAfterMonKOd)
+#endif
+        {
+            bestMonId = GetBestMonBatonPass(party, firstId, lastId, invalidMons, aliveCount, battler, opposingBattler);
+            if (bestMonId != PARTY_SIZE)
+                return bestMonId;
 
-        bestMonId = GetBestMonTypeMatchup(party, firstId, lastId, invalidMons, battler, opposingBattler);
-        if (bestMonId != PARTY_SIZE)
-            return bestMonId;
+            bestMonId = GetBestMonTypeMatchup(party, firstId, lastId, invalidMons, battler, opposingBattler);
+            if (bestMonId != PARTY_SIZE)
+                return bestMonId;
+        }
 
         bestMonId = GetBestMonDmg(party, firstId, lastId, invalidMons, battler, opposingBattler);
         if (bestMonId != PARTY_SIZE)

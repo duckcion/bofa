@@ -120,6 +120,7 @@ REMOVED_ITEMS = []
 
 # Still open, or places the build differs from the original plan.
 FLAGS = [
+    ("Trainer AI", "All trainers use the Generation 4 (Platinum Kaizo) AI: Basic + Evaluate Attack + Expert, scored exactly as in Reference/Platnimu AI/gen4_trainer_ai.md (src/battle_ai_gen4.c). Risky is added for evil-team trainers carrying Explosion or setup moves (currently the Rusturf grunt and Wraithwood grunt 4). After a KO, the AI sends in the Pokemon whose best move does the most damage to your current Pokemon (ties go to the earlier party slot)."),
     ("Not playtested", "Everything builds, but the Split 1 scripts and teams have not been played through yet."),
     ("Trainer-only abilities", "16 approved abilities are not on the species (e.g. Slaking Slow Start, Smeargle/Spinda "
      "Own Tempo, Vulpix Drought, Wingull Drizzle). An engine change now applies a trainer's listed ability anyway; "

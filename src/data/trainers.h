@@ -40,7 +40,7 @@
 #line 90
         .doubleBattle = FALSE,
 #line 91
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -73,7 +73,7 @@
 #line 104
         .doubleBattle = FALSE,
 #line 105
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -106,7 +106,7 @@
 #line 118
         .doubleBattle = FALSE,
 #line 119
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -151,7 +151,7 @@
 #line 137
         .doubleBattle = FALSE,
 #line 138
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -184,7 +184,7 @@
 #line 151
         .doubleBattle = FALSE,
 #line 152
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -217,7 +217,7 @@
 #line 165
         .doubleBattle = FALSE,
 #line 166
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -250,7 +250,7 @@
 #line 179
         .doubleBattle = FALSE,
 #line 180
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -283,7 +283,7 @@
 #line 193
         .doubleBattle = FALSE,
 #line 194
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -318,7 +318,7 @@ F_TRAINER_FEMALE |
 #line 207
         .doubleBattle = FALSE,
 #line 208
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -411,7 +411,7 @@ F_TRAINER_FEMALE |
 #line 246
         .doubleBattle = FALSE,
 #line 247
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -547,7 +547,7 @@ F_TRAINER_FEMALE |
 #line 305
         .doubleBattle = FALSE,
 #line 306
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -592,7 +592,7 @@ F_TRAINER_FEMALE |
 #line 324
         .doubleBattle = FALSE,
 #line 325
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -637,7 +637,7 @@ F_TRAINER_FEMALE |
 #line 343
         .doubleBattle = FALSE,
 #line 344
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -684,7 +684,7 @@ F_TRAINER_FEMALE |
 #line 362
         .doubleBattle = FALSE,
 #line 363
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -717,7 +717,7 @@ F_TRAINER_FEMALE |
 #line 376
         .doubleBattle = FALSE,
 #line 377
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -750,7 +750,7 @@ F_TRAINER_FEMALE |
 #line 390
         .doubleBattle = FALSE,
 #line 391
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER | AI_FLAG_RISKY,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -886,7 +886,7 @@ F_TRAINER_FEMALE |
 #line 449
         .doubleBattle = FALSE,
 #line 450
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -931,7 +931,7 @@ F_TRAINER_FEMALE |
 #line 468
         .doubleBattle = FALSE,
 #line 469
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -976,7 +976,7 @@ F_TRAINER_FEMALE |
 #line 487
         .doubleBattle = FALSE,
 #line 488
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -1033,7 +1033,7 @@ F_TRAINER_FEMALE |
 #line 511
         .doubleBattle = FALSE,
 #line 512
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1066,7 +1066,7 @@ F_TRAINER_FEMALE |
 #line 525
         .doubleBattle = FALSE,
 #line 526
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1111,7 +1111,7 @@ F_TRAINER_FEMALE |
 #line 544
         .doubleBattle = FALSE,
 #line 545
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1144,7 +1144,7 @@ F_TRAINER_FEMALE |
 #line 558
         .doubleBattle = FALSE,
 #line 559
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1177,7 +1177,7 @@ F_TRAINER_FEMALE |
 #line 572
         .doubleBattle = FALSE,
 #line 573
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1210,7 +1210,7 @@ F_TRAINER_FEMALE |
 #line 586
         .doubleBattle = FALSE,
 #line 587
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1257,7 +1257,7 @@ F_TRAINER_FEMALE |
 #line 605
         .doubleBattle = FALSE,
 #line 606
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1292,7 +1292,7 @@ F_TRAINER_FEMALE |
 #line 619
         .doubleBattle = FALSE,
 #line 620
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1327,7 +1327,7 @@ F_TRAINER_FEMALE |
 #line 633
         .doubleBattle = FALSE,
 #line 634
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1360,7 +1360,7 @@ F_TRAINER_FEMALE |
 #line 647
         .doubleBattle = FALSE,
 #line 648
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1405,7 +1405,7 @@ F_TRAINER_FEMALE |
 #line 666
         .doubleBattle = FALSE,
 #line 667
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1450,7 +1450,7 @@ F_TRAINER_FEMALE |
 #line 685
         .doubleBattle = FALSE,
 #line 686
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1485,7 +1485,7 @@ F_TRAINER_FEMALE |
 #line 699
         .doubleBattle = FALSE,
 #line 700
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1532,7 +1532,7 @@ F_TRAINER_FEMALE |
 #line 718
         .doubleBattle = FALSE,
 #line 719
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1577,7 +1577,7 @@ F_TRAINER_FEMALE |
 #line 737
         .doubleBattle = FALSE,
 #line 738
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -1636,7 +1636,7 @@ F_TRAINER_FEMALE |
 #line 761
         .doubleBattle = FALSE,
 #line 762
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1671,7 +1671,7 @@ F_TRAINER_FEMALE |
 #line 775
         .doubleBattle = FALSE,
 #line 776
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1718,7 +1718,7 @@ F_TRAINER_FEMALE |
 #line 794
         .doubleBattle = FALSE,
 #line 795
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -1775,7 +1775,7 @@ F_TRAINER_FEMALE |
 #line 818
         .doubleBattle = FALSE,
 #line 819
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1831,7 +1831,7 @@ F_TRAINER_FEMALE |
 #line 840
         .doubleBattle = FALSE,
 #line 841
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1878,7 +1878,7 @@ F_TRAINER_FEMALE |
 #line 859
         .doubleBattle = FALSE,
 #line 860
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1925,7 +1925,7 @@ F_TRAINER_FEMALE |
 #line 878
         .doubleBattle = FALSE,
 #line 879
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -1984,7 +1984,7 @@ F_TRAINER_FEMALE |
 #line 902
         .doubleBattle = FALSE,
 #line 903
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -2043,7 +2043,7 @@ F_TRAINER_FEMALE |
 #line 926
         .doubleBattle = FALSE,
 #line 927
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -2100,7 +2100,7 @@ F_TRAINER_FEMALE |
 #line 950
         .doubleBattle = FALSE,
 #line 951
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2140,7 +2140,7 @@ F_TRAINER_FEMALE |
 #line 968
         .doubleBattle = FALSE,
 #line 969
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -2218,7 +2218,7 @@ F_TRAINER_FEMALE |
 #line 1004
         .doubleBattle = FALSE,
 #line 1005
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2277,7 +2277,7 @@ F_TRAINER_FEMALE |
 #line 1031
         .doubleBattle = FALSE,
 #line 1032
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2317,7 +2317,7 @@ F_TRAINER_FEMALE |
 #line 1049
         .doubleBattle = FALSE,
 #line 1050
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2357,7 +2357,7 @@ F_TRAINER_FEMALE |
 #line 1067
         .doubleBattle = FALSE,
 #line 1068
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2397,7 +2397,7 @@ F_TRAINER_FEMALE |
 #line 1085
         .doubleBattle = FALSE,
 #line 1086
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2437,7 +2437,7 @@ F_TRAINER_FEMALE |
 #line 1103
         .doubleBattle = TRUE,
 #line 1104
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2482,7 +2482,7 @@ F_TRAINER_FEMALE |
 #line 1122
         .doubleBattle = TRUE,
 #line 1123
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2527,7 +2527,7 @@ F_TRAINER_FEMALE |
 #line 1141
         .doubleBattle = TRUE,
 #line 1142
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2572,7 +2572,7 @@ F_TRAINER_FEMALE |
 #line 1160
         .doubleBattle = TRUE,
 #line 1161
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2617,7 +2617,7 @@ F_TRAINER_FEMALE |
 #line 1179
         .doubleBattle = TRUE,
 #line 1180
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2662,7 +2662,7 @@ F_TRAINER_FEMALE |
 #line 1198
         .doubleBattle = TRUE,
 #line 1199
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2723,7 +2723,7 @@ F_TRAINER_FEMALE |
 #line 1225
         .doubleBattle = FALSE,
 #line 1226
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2770,7 +2770,7 @@ F_TRAINER_FEMALE |
 #line 1244
         .doubleBattle = FALSE,
 #line 1245
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2805,7 +2805,7 @@ F_TRAINER_FEMALE |
 #line 1258
         .doubleBattle = FALSE,
 #line 1259
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2840,7 +2840,7 @@ F_TRAINER_FEMALE |
 #line 1272
         .doubleBattle = FALSE,
 #line 1273
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2887,7 +2887,7 @@ F_TRAINER_FEMALE |
 #line 1291
         .doubleBattle = FALSE,
 #line 1292
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2934,7 +2934,7 @@ F_TRAINER_FEMALE |
 #line 1310
         .doubleBattle = FALSE,
 #line 1311
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2981,7 +2981,7 @@ F_TRAINER_FEMALE |
 #line 1329
         .doubleBattle = FALSE,
 #line 1330
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3026,7 +3026,7 @@ F_TRAINER_FEMALE |
 #line 1348
         .doubleBattle = FALSE,
 #line 1349
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -3066,7 +3066,7 @@ F_TRAINER_FEMALE |
 #line 1366
         .doubleBattle = FALSE,
 #line 1367
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3111,7 +3111,7 @@ F_TRAINER_FEMALE |
 #line 1385
         .doubleBattle = FALSE,
 #line 1386
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -3144,7 +3144,7 @@ F_TRAINER_FEMALE |
 #line 1399
         .doubleBattle = FALSE,
 #line 1400
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -3184,7 +3184,7 @@ F_TRAINER_FEMALE |
 #line 1417
         .doubleBattle = FALSE,
 #line 1418
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -3224,7 +3224,7 @@ F_TRAINER_FEMALE |
 #line 1435
         .doubleBattle = FALSE,
 #line 1436
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -3264,7 +3264,7 @@ F_TRAINER_FEMALE |
 #line 1453
         .doubleBattle = FALSE,
 #line 1454
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -3304,7 +3304,7 @@ F_TRAINER_FEMALE |
 #line 1471
         .doubleBattle = FALSE,
 #line 1472
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -3417,7 +3417,7 @@ F_TRAINER_FEMALE |
 #line 1520
         .doubleBattle = FALSE,
 #line 1521
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -3456,7 +3456,7 @@ F_TRAINER_FEMALE |
 #line 1537
         .doubleBattle = FALSE,
 #line 1538
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -3497,7 +3497,7 @@ F_TRAINER_FEMALE |
 #line 1554
         .doubleBattle = FALSE,
 #line 1555
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -3535,7 +3535,7 @@ F_TRAINER_FEMALE |
 #line 1570
         .doubleBattle = FALSE,
 #line 1571
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -3651,7 +3651,7 @@ F_TRAINER_FEMALE |
 #line 1624
         .doubleBattle = FALSE,
 #line 1625
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -3708,7 +3708,7 @@ F_TRAINER_FEMALE |
 #line 1648
         .doubleBattle = FALSE,
 #line 1649
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3753,7 +3753,7 @@ F_TRAINER_FEMALE |
 #line 1667
         .doubleBattle = FALSE,
 #line 1668
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -3810,7 +3810,7 @@ F_TRAINER_FEMALE |
 #line 1691
         .doubleBattle = FALSE,
 #line 1692
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3855,7 +3855,7 @@ F_TRAINER_FEMALE |
 #line 1710
         .doubleBattle = FALSE,
 #line 1711
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3900,7 +3900,7 @@ F_TRAINER_FEMALE |
 #line 1729
         .doubleBattle = FALSE,
 #line 1730
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -3957,7 +3957,7 @@ F_TRAINER_FEMALE |
 #line 1753
         .doubleBattle = FALSE,
 #line 1754
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -4026,7 +4026,7 @@ F_TRAINER_FEMALE |
 #line 1782
         .doubleBattle = FALSE,
 #line 1783
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4083,7 +4083,7 @@ F_TRAINER_FEMALE |
 #line 1806
         .doubleBattle = FALSE,
 #line 1807
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4140,7 +4140,7 @@ F_TRAINER_FEMALE |
 #line 1830
         .doubleBattle = FALSE,
 #line 1831
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4197,7 +4197,7 @@ F_TRAINER_FEMALE |
 #line 1854
         .doubleBattle = FALSE,
 #line 1855
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4254,7 +4254,7 @@ F_TRAINER_FEMALE |
 #line 1878
         .doubleBattle = FALSE,
 #line 1879
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4311,7 +4311,7 @@ F_TRAINER_FEMALE |
 #line 1902
         .doubleBattle = FALSE,
 #line 1903
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -4358,7 +4358,7 @@ F_TRAINER_FEMALE |
 #line 1921
         .doubleBattle = FALSE,
 #line 1922
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -4398,7 +4398,7 @@ F_TRAINER_FEMALE |
 #line 1937
         .doubleBattle = FALSE,
 #line 1938
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -4536,7 +4536,7 @@ F_TRAINER_FEMALE |
 #line 1996
         .doubleBattle = FALSE,
 #line 1997
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -4648,7 +4648,7 @@ F_TRAINER_FEMALE |
 #line 2044
         .doubleBattle = FALSE,
 #line 2045
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4728,7 +4728,7 @@ F_TRAINER_FEMALE |
 #line 2080
         .doubleBattle = FALSE,
 #line 2081
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -4775,7 +4775,7 @@ F_TRAINER_FEMALE |
 #line 2099
         .doubleBattle = FALSE,
 #line 2100
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4834,7 +4834,7 @@ F_TRAINER_FEMALE |
 #line 2123
         .doubleBattle = FALSE,
 #line 2124
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -4869,7 +4869,7 @@ F_TRAINER_FEMALE |
 #line 2137
         .doubleBattle = FALSE,
 #line 2138
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -4904,7 +4904,7 @@ F_TRAINER_FEMALE |
 #line 2151
         .doubleBattle = FALSE,
 #line 2152
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -4939,7 +4939,7 @@ F_TRAINER_FEMALE |
 #line 2165
         .doubleBattle = FALSE,
 #line 2166
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4998,7 +4998,7 @@ F_TRAINER_FEMALE |
 #line 2189
         .doubleBattle = FALSE,
 #line 2190
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5045,7 +5045,7 @@ F_TRAINER_FEMALE |
 #line 2208
         .doubleBattle = FALSE,
 #line 2209
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -5104,7 +5104,7 @@ F_TRAINER_FEMALE |
 #line 2232
         .doubleBattle = FALSE,
 #line 2233
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -5163,7 +5163,7 @@ F_TRAINER_FEMALE |
 #line 2256
         .doubleBattle = FALSE,
 #line 2257
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -5222,7 +5222,7 @@ F_TRAINER_FEMALE |
 #line 2280
         .doubleBattle = FALSE,
 #line 2281
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -5281,7 +5281,7 @@ F_TRAINER_FEMALE |
 #line 2304
         .doubleBattle = FALSE,
 #line 2305
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -5340,7 +5340,7 @@ F_TRAINER_FEMALE |
 #line 2328
         .doubleBattle = FALSE,
 #line 2329
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5387,7 +5387,7 @@ F_TRAINER_FEMALE |
 #line 2347
         .doubleBattle = FALSE,
 #line 2348
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5434,7 +5434,7 @@ F_TRAINER_FEMALE |
 #line 2366
         .doubleBattle = FALSE,
 #line 2367
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5481,7 +5481,7 @@ F_TRAINER_FEMALE |
 #line 2385
         .doubleBattle = FALSE,
 #line 2386
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -5516,7 +5516,7 @@ F_TRAINER_FEMALE |
 #line 2399
         .doubleBattle = FALSE,
 #line 2400
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -5551,7 +5551,7 @@ F_TRAINER_FEMALE |
 #line 2413
         .doubleBattle = FALSE,
 #line 2414
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5598,7 +5598,7 @@ F_TRAINER_FEMALE |
 #line 2432
         .doubleBattle = FALSE,
 #line 2433
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5645,7 +5645,7 @@ F_TRAINER_FEMALE |
 #line 2451
         .doubleBattle = FALSE,
 #line 2452
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5692,7 +5692,7 @@ F_TRAINER_FEMALE |
 #line 2470
         .doubleBattle = FALSE,
 #line 2471
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -5751,7 +5751,7 @@ F_TRAINER_FEMALE |
 #line 2494
         .doubleBattle = FALSE,
 #line 2495
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -5788,7 +5788,7 @@ F_TRAINER_FEMALE |
 #line 2508
         .doubleBattle = FALSE,
 #line 2509
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5851,7 +5851,7 @@ F_TRAINER_FEMALE |
 #line 2535
         .doubleBattle = FALSE,
 #line 2536
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -5910,7 +5910,7 @@ F_TRAINER_FEMALE |
 #line 2559
         .doubleBattle = FALSE,
 #line 2560
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -5952,7 +5952,7 @@ F_TRAINER_FEMALE |
 #line 2575
         .doubleBattle = FALSE,
 #line 2576
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -5989,7 +5989,7 @@ F_TRAINER_FEMALE |
 #line 2589
         .doubleBattle = FALSE,
 #line 2590
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6026,7 +6026,7 @@ F_TRAINER_FEMALE |
 #line 2603
         .doubleBattle = FALSE,
 #line 2604
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6063,7 +6063,7 @@ F_TRAINER_FEMALE |
 #line 2617
         .doubleBattle = FALSE,
 #line 2618
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6100,7 +6100,7 @@ F_TRAINER_FEMALE |
 #line 2631
         .doubleBattle = FALSE,
 #line 2632
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6137,7 +6137,7 @@ F_TRAINER_FEMALE |
 #line 2645
         .doubleBattle = FALSE,
 #line 2646
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6181,7 +6181,7 @@ F_TRAINER_FEMALE |
 #line 2663
         .doubleBattle = FALSE,
 #line 2664
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6216,7 +6216,7 @@ F_TRAINER_FEMALE |
 #line 2677
         .doubleBattle = FALSE,
 #line 2678
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6251,7 +6251,7 @@ F_TRAINER_FEMALE |
 #line 2691
         .doubleBattle = FALSE,
 #line 2692
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6286,7 +6286,7 @@ F_TRAINER_FEMALE |
 #line 2705
         .doubleBattle = FALSE,
 #line 2706
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6347,7 +6347,7 @@ F_TRAINER_FEMALE |
 #line 2732
         .doubleBattle = FALSE,
 #line 2733
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6382,7 +6382,7 @@ F_TRAINER_FEMALE |
 #line 2746
         .doubleBattle = FALSE,
 #line 2747
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6417,7 +6417,7 @@ F_TRAINER_FEMALE |
 #line 2760
         .doubleBattle = FALSE,
 #line 2761
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -6496,7 +6496,7 @@ F_TRAINER_FEMALE |
 #line 2795
         .doubleBattle = FALSE,
 #line 2796
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6543,7 +6543,7 @@ F_TRAINER_FEMALE |
 #line 2814
         .doubleBattle = FALSE,
 #line 2815
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6604,7 +6604,7 @@ F_TRAINER_FEMALE |
 #line 2841
         .doubleBattle = FALSE,
 #line 2842
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6665,7 +6665,7 @@ F_TRAINER_FEMALE |
 #line 2868
         .doubleBattle = FALSE,
 #line 2869
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6726,7 +6726,7 @@ F_TRAINER_FEMALE |
 #line 2895
         .doubleBattle = FALSE,
 #line 2896
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6785,7 +6785,7 @@ F_TRAINER_FEMALE |
 #line 2922
         .doubleBattle = FALSE,
 #line 2923
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -6897,7 +6897,7 @@ F_TRAINER_FEMALE |
 #line 2968
         .doubleBattle = FALSE,
 #line 2969
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6942,7 +6942,7 @@ F_TRAINER_FEMALE |
 #line 2987
         .doubleBattle = FALSE,
 #line 2988
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6977,7 +6977,7 @@ F_TRAINER_FEMALE |
 #line 3001
         .doubleBattle = FALSE,
 #line 3002
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7012,7 +7012,7 @@ F_TRAINER_FEMALE |
 #line 3015
         .doubleBattle = FALSE,
 #line 3016
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7047,7 +7047,7 @@ F_TRAINER_FEMALE |
 #line 3029
         .doubleBattle = FALSE,
 #line 3030
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7082,7 +7082,7 @@ F_TRAINER_FEMALE |
 #line 3043
         .doubleBattle = FALSE,
 #line 3044
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7124,7 +7124,7 @@ F_TRAINER_FEMALE |
 #line 3061
         .doubleBattle = FALSE,
 #line 3062
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7159,7 +7159,7 @@ F_TRAINER_FEMALE |
 #line 3075
         .doubleBattle = FALSE,
 #line 3076
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7204,7 +7204,7 @@ F_TRAINER_FEMALE |
 #line 3094
         .doubleBattle = FALSE,
 #line 3095
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7239,7 +7239,7 @@ F_TRAINER_FEMALE |
 #line 3108
         .doubleBattle = FALSE,
 #line 3109
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7272,7 +7272,7 @@ F_TRAINER_FEMALE |
 #line 3122
         .doubleBattle = FALSE,
 #line 3123
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7305,7 +7305,7 @@ F_TRAINER_FEMALE |
 #line 3136
         .doubleBattle = FALSE,
 #line 3137
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7350,7 +7350,7 @@ F_TRAINER_FEMALE |
 #line 3155
         .doubleBattle = FALSE,
 #line 3156
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7395,7 +7395,7 @@ F_TRAINER_FEMALE |
 #line 3174
         .doubleBattle = FALSE,
 #line 3175
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7440,7 +7440,7 @@ F_TRAINER_FEMALE |
 #line 3193
         .doubleBattle = FALSE,
 #line 3194
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7473,7 +7473,7 @@ F_TRAINER_FEMALE |
 #line 3207
         .doubleBattle = FALSE,
 #line 3208
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7506,7 +7506,7 @@ F_TRAINER_FEMALE |
 #line 3221
         .doubleBattle = FALSE,
 #line 3222
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7551,7 +7551,7 @@ F_TRAINER_FEMALE |
 #line 3240
         .doubleBattle = FALSE,
 #line 3241
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -7608,7 +7608,7 @@ F_TRAINER_FEMALE |
 #line 3264
         .doubleBattle = FALSE,
 #line 3265
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7641,7 +7641,7 @@ F_TRAINER_FEMALE |
 #line 3278
         .doubleBattle = FALSE,
 #line 3279
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7674,7 +7674,7 @@ F_TRAINER_FEMALE |
 #line 3292
         .doubleBattle = FALSE,
 #line 3293
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7707,7 +7707,7 @@ F_TRAINER_FEMALE |
 #line 3306
         .doubleBattle = FALSE,
 #line 3307
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7752,7 +7752,7 @@ F_TRAINER_FEMALE |
 #line 3325
         .doubleBattle = FALSE,
 #line 3326
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7797,7 +7797,7 @@ F_TRAINER_FEMALE |
 #line 3344
         .doubleBattle = FALSE,
 #line 3345
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7830,7 +7830,7 @@ F_TRAINER_FEMALE |
 #line 3358
         .doubleBattle = FALSE,
 #line 3359
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7863,7 +7863,7 @@ F_TRAINER_FEMALE |
 #line 3372
         .doubleBattle = FALSE,
 #line 3373
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7896,7 +7896,7 @@ F_TRAINER_FEMALE |
 #line 3386
         .doubleBattle = FALSE,
 #line 3387
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7929,7 +7929,7 @@ F_TRAINER_FEMALE |
 #line 3400
         .doubleBattle = FALSE,
 #line 3401
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -7986,7 +7986,7 @@ F_TRAINER_FEMALE |
 #line 3424
         .doubleBattle = FALSE,
 #line 3425
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8019,7 +8019,7 @@ F_TRAINER_FEMALE |
 #line 3438
         .doubleBattle = FALSE,
 #line 3439
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8052,7 +8052,7 @@ F_TRAINER_FEMALE |
 #line 3452
         .doubleBattle = FALSE,
 #line 3453
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8097,7 +8097,7 @@ F_TRAINER_FEMALE |
 #line 3471
         .doubleBattle = FALSE,
 #line 3472
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8142,7 +8142,7 @@ F_TRAINER_FEMALE |
 #line 3490
         .doubleBattle = FALSE,
 #line 3491
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8175,7 +8175,7 @@ F_TRAINER_FEMALE |
 #line 3504
         .doubleBattle = FALSE,
 #line 3505
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8208,7 +8208,7 @@ F_TRAINER_FEMALE |
 #line 3518
         .doubleBattle = FALSE,
 #line 3519
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8241,7 +8241,7 @@ F_TRAINER_FEMALE |
 #line 3532
         .doubleBattle = FALSE,
 #line 3533
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8274,7 +8274,7 @@ F_TRAINER_FEMALE |
 #line 3546
         .doubleBattle = FALSE,
 #line 3547
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -8331,7 +8331,7 @@ F_TRAINER_FEMALE |
 #line 3570
         .doubleBattle = FALSE,
 #line 3571
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8376,7 +8376,7 @@ F_TRAINER_FEMALE |
 #line 3589
         .doubleBattle = FALSE,
 #line 3590
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8409,7 +8409,7 @@ F_TRAINER_FEMALE |
 #line 3603
         .doubleBattle = FALSE,
 #line 3604
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8442,7 +8442,7 @@ F_TRAINER_FEMALE |
 #line 3617
         .doubleBattle = FALSE,
 #line 3618
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8487,7 +8487,7 @@ F_TRAINER_FEMALE |
 #line 3636
         .doubleBattle = FALSE,
 #line 3637
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8532,7 +8532,7 @@ F_TRAINER_FEMALE |
 #line 3655
         .doubleBattle = FALSE,
 #line 3656
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8565,7 +8565,7 @@ F_TRAINER_FEMALE |
 #line 3669
         .doubleBattle = FALSE,
 #line 3670
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8610,7 +8610,7 @@ F_TRAINER_FEMALE |
 #line 3688
         .doubleBattle = FALSE,
 #line 3689
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8643,7 +8643,7 @@ F_TRAINER_FEMALE |
 #line 3702
         .doubleBattle = FALSE,
 #line 3703
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8688,7 +8688,7 @@ F_TRAINER_FEMALE |
 #line 3721
         .doubleBattle = FALSE,
 #line 3722
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8721,7 +8721,7 @@ F_TRAINER_FEMALE |
 #line 3735
         .doubleBattle = FALSE,
 #line 3736
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8754,7 +8754,7 @@ F_TRAINER_FEMALE |
 #line 3749
         .doubleBattle = FALSE,
 #line 3750
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8799,7 +8799,7 @@ F_TRAINER_FEMALE |
 #line 3768
         .doubleBattle = FALSE,
 #line 3769
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -8856,7 +8856,7 @@ F_TRAINER_FEMALE |
 #line 3792
         .doubleBattle = FALSE,
 #line 3793
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -8927,7 +8927,7 @@ F_TRAINER_FEMALE |
 #line 3821
         .doubleBattle = FALSE,
 #line 3822
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8972,7 +8972,7 @@ F_TRAINER_FEMALE |
 #line 3840
         .doubleBattle = FALSE,
 #line 3841
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -9005,7 +9005,7 @@ F_TRAINER_FEMALE |
 #line 3854
         .doubleBattle = FALSE,
 #line 3855
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -9038,7 +9038,7 @@ F_TRAINER_FEMALE |
 #line 3868
         .doubleBattle = FALSE,
 #line 3869
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9098,7 +9098,7 @@ F_TRAINER_FEMALE |
 #line 3894
         .doubleBattle = FALSE,
 #line 3895
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9143,7 +9143,7 @@ F_TRAINER_FEMALE |
 #line 3913
         .doubleBattle = FALSE,
 #line 3914
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -9176,7 +9176,7 @@ F_TRAINER_FEMALE |
 #line 3927
         .doubleBattle = FALSE,
 #line 3928
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9221,7 +9221,7 @@ F_TRAINER_FEMALE |
 #line 3946
         .doubleBattle = FALSE,
 #line 3947
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9266,7 +9266,7 @@ F_TRAINER_FEMALE |
 #line 3965
         .doubleBattle = FALSE,
 #line 3966
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9311,7 +9311,7 @@ F_TRAINER_FEMALE |
 #line 3984
         .doubleBattle = FALSE,
 #line 3985
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -9368,7 +9368,7 @@ F_TRAINER_FEMALE |
 #line 4008
         .doubleBattle = FALSE,
 #line 4009
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -9425,7 +9425,7 @@ F_TRAINER_FEMALE |
 #line 4032
         .doubleBattle = FALSE,
 #line 4033
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -9482,7 +9482,7 @@ F_TRAINER_FEMALE |
 #line 4056
         .doubleBattle = FALSE,
 #line 4057
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -9539,7 +9539,7 @@ F_TRAINER_FEMALE |
 #line 4080
         .doubleBattle = FALSE,
 #line 4081
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -9572,7 +9572,7 @@ F_TRAINER_FEMALE |
 #line 4094
         .doubleBattle = FALSE,
 #line 4095
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9617,7 +9617,7 @@ F_TRAINER_FEMALE |
 #line 4113
         .doubleBattle = FALSE,
 #line 4114
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -9650,7 +9650,7 @@ F_TRAINER_FEMALE |
 #line 4127
         .doubleBattle = FALSE,
 #line 4128
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -9683,7 +9683,7 @@ F_TRAINER_FEMALE |
 #line 4141
         .doubleBattle = FALSE,
 #line 4142
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -9716,7 +9716,7 @@ F_TRAINER_FEMALE |
 #line 4155
         .doubleBattle = FALSE,
 #line 4156
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9761,7 +9761,7 @@ F_TRAINER_FEMALE |
 #line 4174
         .doubleBattle = FALSE,
 #line 4175
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9806,7 +9806,7 @@ F_TRAINER_FEMALE |
 #line 4193
         .doubleBattle = FALSE,
 #line 4194
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9851,7 +9851,7 @@ F_TRAINER_FEMALE |
 #line 4212
         .doubleBattle = FALSE,
 #line 4213
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9896,7 +9896,7 @@ F_TRAINER_FEMALE |
 #line 4231
         .doubleBattle = FALSE,
 #line 4232
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9941,7 +9941,7 @@ F_TRAINER_FEMALE |
 #line 4250
         .doubleBattle = FALSE,
 #line 4251
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -9981,7 +9981,7 @@ F_TRAINER_FEMALE |
 #line 4268
         .doubleBattle = FALSE,
 #line 4269
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -10059,7 +10059,7 @@ F_TRAINER_FEMALE |
 #line 4304
         .doubleBattle = FALSE,
 #line 4305
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -10092,7 +10092,7 @@ F_TRAINER_FEMALE |
 #line 4318
         .doubleBattle = FALSE,
 #line 4319
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10137,7 +10137,7 @@ F_TRAINER_FEMALE |
 #line 4337
         .doubleBattle = FALSE,
 #line 4338
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -10170,7 +10170,7 @@ F_TRAINER_FEMALE |
 #line 4351
         .doubleBattle = FALSE,
 #line 4352
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10217,7 +10217,7 @@ F_TRAINER_FEMALE |
 #line 4370
         .doubleBattle = FALSE,
 #line 4371
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -10250,7 +10250,7 @@ F_TRAINER_FEMALE |
 #line 4384
         .doubleBattle = FALSE,
 #line 4385
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -10283,7 +10283,7 @@ F_TRAINER_FEMALE |
 #line 4398
         .doubleBattle = FALSE,
 #line 4399
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10328,7 +10328,7 @@ F_TRAINER_FEMALE |
 #line 4417
         .doubleBattle = FALSE,
 #line 4418
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10373,7 +10373,7 @@ F_TRAINER_FEMALE |
 #line 4436
         .doubleBattle = FALSE,
 #line 4437
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -10430,7 +10430,7 @@ F_TRAINER_FEMALE |
 #line 4460
         .doubleBattle = FALSE,
 #line 4461
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -10487,7 +10487,7 @@ F_TRAINER_FEMALE |
 #line 4484
         .doubleBattle = FALSE,
 #line 4485
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -10520,7 +10520,7 @@ F_TRAINER_FEMALE |
 #line 4498
         .doubleBattle = FALSE,
 #line 4499
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -10577,7 +10577,7 @@ F_TRAINER_FEMALE |
 #line 4522
         .doubleBattle = FALSE,
 #line 4523
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -10634,7 +10634,7 @@ F_TRAINER_FEMALE |
 #line 4546
         .doubleBattle = FALSE,
 #line 4547
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -10691,7 +10691,7 @@ F_TRAINER_FEMALE |
 #line 4570
         .doubleBattle = FALSE,
 #line 4571
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10736,7 +10736,7 @@ F_TRAINER_FEMALE |
 #line 4589
         .doubleBattle = FALSE,
 #line 4590
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -10793,7 +10793,7 @@ F_TRAINER_FEMALE |
 #line 4613
         .doubleBattle = FALSE,
 #line 4614
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -10850,7 +10850,7 @@ F_TRAINER_FEMALE |
 #line 4637
         .doubleBattle = FALSE,
 #line 4638
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -10919,7 +10919,7 @@ F_TRAINER_FEMALE |
 #line 4666
         .doubleBattle = FALSE,
 #line 4667
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -11002,7 +11002,7 @@ F_TRAINER_FEMALE |
 #line 4700
         .doubleBattle = FALSE,
 #line 4701
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11039,7 +11039,7 @@ F_TRAINER_FEMALE |
 #line 4715
         .doubleBattle = FALSE,
 #line 4716
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11072,7 +11072,7 @@ F_TRAINER_FEMALE |
 #line 4729
         .doubleBattle = FALSE,
 #line 4730
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11105,7 +11105,7 @@ F_TRAINER_FEMALE |
 #line 4743
         .doubleBattle = FALSE,
 #line 4744
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11138,7 +11138,7 @@ F_TRAINER_FEMALE |
 #line 4757
         .doubleBattle = FALSE,
 #line 4758
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -11195,7 +11195,7 @@ F_TRAINER_FEMALE |
 #line 4781
         .doubleBattle = FALSE,
 #line 4782
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11240,7 +11240,7 @@ F_TRAINER_FEMALE |
 #line 4800
         .doubleBattle = FALSE,
 #line 4801
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11273,7 +11273,7 @@ F_TRAINER_FEMALE |
 #line 4814
         .doubleBattle = FALSE,
 #line 4815
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11318,7 +11318,7 @@ F_TRAINER_FEMALE |
 #line 4833
         .doubleBattle = FALSE,
 #line 4834
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11363,7 +11363,7 @@ F_TRAINER_FEMALE |
 #line 4852
         .doubleBattle = FALSE,
 #line 4853
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11408,7 +11408,7 @@ F_TRAINER_FEMALE |
 #line 4871
         .doubleBattle = FALSE,
 #line 4872
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11455,7 +11455,7 @@ F_TRAINER_FEMALE |
 #line 4890
         .doubleBattle = FALSE,
 #line 4891
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11494,7 +11494,7 @@ F_TRAINER_FEMALE |
 #line 4905
         .doubleBattle = FALSE,
 #line 4906
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11529,7 +11529,7 @@ F_TRAINER_FEMALE |
 #line 4919
         .doubleBattle = FALSE,
 #line 4920
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11564,7 +11564,7 @@ F_TRAINER_FEMALE |
 #line 4933
         .doubleBattle = FALSE,
 #line 4934
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11599,7 +11599,7 @@ F_TRAINER_FEMALE |
 #line 4947
         .doubleBattle = FALSE,
 #line 4948
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -11658,7 +11658,7 @@ F_TRAINER_FEMALE |
 #line 4971
         .doubleBattle = FALSE,
 #line 4972
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11705,7 +11705,7 @@ F_TRAINER_FEMALE |
 #line 4990
         .doubleBattle = FALSE,
 #line 4991
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11752,7 +11752,7 @@ F_TRAINER_FEMALE |
 #line 5009
         .doubleBattle = FALSE,
 #line 5010
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11799,7 +11799,7 @@ F_TRAINER_FEMALE |
 #line 5028
         .doubleBattle = FALSE,
 #line 5029
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11846,7 +11846,7 @@ F_TRAINER_FEMALE |
 #line 5047
         .doubleBattle = FALSE,
 #line 5048
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11893,7 +11893,7 @@ F_TRAINER_FEMALE |
 #line 5066
         .doubleBattle = FALSE,
 #line 5067
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11938,7 +11938,7 @@ F_TRAINER_FEMALE |
 #line 5085
         .doubleBattle = FALSE,
 #line 5086
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11971,7 +11971,7 @@ F_TRAINER_FEMALE |
 #line 5099
         .doubleBattle = FALSE,
 #line 5100
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -12016,7 +12016,7 @@ F_TRAINER_FEMALE |
 #line 5118
         .doubleBattle = FALSE,
 #line 5119
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -12049,7 +12049,7 @@ F_TRAINER_FEMALE |
 #line 5132
         .doubleBattle = FALSE,
 #line 5133
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -12082,7 +12082,7 @@ F_TRAINER_FEMALE |
 #line 5146
         .doubleBattle = FALSE,
 #line 5147
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -12141,7 +12141,7 @@ F_TRAINER_FEMALE |
 #line 5173
         .doubleBattle = FALSE,
 #line 5174
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -12199,7 +12199,7 @@ F_TRAINER_FEMALE |
 #line 5199
         .doubleBattle = FALSE,
 #line 5200
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -12277,7 +12277,7 @@ F_TRAINER_FEMALE |
 #line 5235
         .doubleBattle = FALSE,
 #line 5236
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
 #line 5237
         .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_PURPLE,
@@ -12400,7 +12400,7 @@ F_TRAINER_FEMALE |
 #line 5290
         .doubleBattle = FALSE,
 #line 5291
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
 #line 5292
         .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_GREEN,
@@ -12523,7 +12523,7 @@ F_TRAINER_FEMALE |
 #line 5345
         .doubleBattle = FALSE,
 #line 5346
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
 #line 5347
         .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_PINK,
@@ -12644,7 +12644,7 @@ F_TRAINER_FEMALE |
 #line 5400
         .doubleBattle = FALSE,
 #line 5401
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
 #line 5402
         .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_BLUE,
@@ -12767,7 +12767,7 @@ F_TRAINER_FEMALE |
 #line 5455
         .doubleBattle = FALSE,
 #line 5456
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -12924,7 +12924,7 @@ F_TRAINER_FEMALE |
 #line 5524
         .doubleBattle = FALSE,
 #line 5525
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -13014,7 +13014,7 @@ F_TRAINER_FEMALE |
 #line 5563
         .doubleBattle = FALSE,
 #line 5564
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -13115,7 +13115,7 @@ F_TRAINER_FEMALE |
 #line 5608
         .doubleBattle = FALSE,
 #line 5609
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -13214,7 +13214,7 @@ F_TRAINER_FEMALE |
 #line 5653
         .doubleBattle = FALSE,
 #line 5654
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -13373,7 +13373,7 @@ F_TRAINER_FEMALE |
 #line 5721
         .doubleBattle = FALSE,
 #line 5722
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -13491,7 +13491,7 @@ F_TRAINER_FEMALE |
 #line 5775
         .doubleBattle = TRUE,
 #line 5776
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -13592,7 +13592,7 @@ F_TRAINER_FEMALE |
 #line 5820
         .doubleBattle = FALSE,
 #line 5821
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -13710,7 +13710,7 @@ F_TRAINER_FEMALE |
 #line 5874
         .doubleBattle = FALSE,
 #line 5875
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -13743,7 +13743,7 @@ F_TRAINER_FEMALE |
 #line 5888
         .doubleBattle = FALSE,
 #line 5889
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -13776,7 +13776,7 @@ F_TRAINER_FEMALE |
 #line 5902
         .doubleBattle = FALSE,
 #line 5903
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -13833,7 +13833,7 @@ F_TRAINER_FEMALE |
 #line 5926
         .doubleBattle = FALSE,
 #line 5927
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -13878,7 +13878,7 @@ F_TRAINER_FEMALE |
 #line 5945
         .doubleBattle = FALSE,
 #line 5946
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -13923,7 +13923,7 @@ F_TRAINER_FEMALE |
 #line 5964
         .doubleBattle = FALSE,
 #line 5965
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -13968,7 +13968,7 @@ F_TRAINER_FEMALE |
 #line 5983
         .doubleBattle = FALSE,
 #line 5984
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -14027,7 +14027,7 @@ F_TRAINER_FEMALE |
 #line 6007
         .doubleBattle = FALSE,
 #line 6008
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -14062,7 +14062,7 @@ F_TRAINER_FEMALE |
 #line 6021
         .doubleBattle = FALSE,
 #line 6022
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14109,7 +14109,7 @@ F_TRAINER_FEMALE |
 #line 6040
         .doubleBattle = FALSE,
 #line 6041
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14156,7 +14156,7 @@ F_TRAINER_FEMALE |
 #line 6059
         .doubleBattle = FALSE,
 #line 6060
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14203,7 +14203,7 @@ F_TRAINER_FEMALE |
 #line 6078
         .doubleBattle = FALSE,
 #line 6079
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14250,7 +14250,7 @@ F_TRAINER_FEMALE |
 #line 6097
         .doubleBattle = FALSE,
 #line 6098
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14295,7 +14295,7 @@ F_TRAINER_FEMALE |
 #line 6116
         .doubleBattle = TRUE,
 #line 6117
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14354,7 +14354,7 @@ F_TRAINER_FEMALE |
 #line 6143
         .doubleBattle = TRUE,
 #line 6144
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14412,7 +14412,7 @@ F_TRAINER_FEMALE |
 #line 6169
         .doubleBattle = TRUE,
 #line 6170
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14470,7 +14470,7 @@ F_TRAINER_FEMALE |
 #line 6195
         .doubleBattle = TRUE,
 #line 6196
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14528,7 +14528,7 @@ F_TRAINER_FEMALE |
 #line 6221
         .doubleBattle = TRUE,
 #line 6222
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14586,7 +14586,7 @@ F_TRAINER_FEMALE |
 #line 6247
         .doubleBattle = TRUE,
 #line 6248
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14644,7 +14644,7 @@ F_TRAINER_FEMALE |
 #line 6273
         .doubleBattle = FALSE,
 #line 6274
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14693,7 +14693,7 @@ F_TRAINER_FEMALE |
 #line 6292
         .doubleBattle = FALSE,
 #line 6293
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -14728,7 +14728,7 @@ F_TRAINER_FEMALE |
 #line 6306
         .doubleBattle = FALSE,
 #line 6307
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -14875,7 +14875,7 @@ F_TRAINER_FEMALE |
 #line 6369
         .doubleBattle = FALSE,
 #line 6370
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -14910,7 +14910,7 @@ F_TRAINER_FEMALE |
 #line 6383
         .doubleBattle = FALSE,
 #line 6384
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -14945,7 +14945,7 @@ F_TRAINER_FEMALE |
 #line 6397
         .doubleBattle = FALSE,
 #line 6398
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -14980,7 +14980,7 @@ F_TRAINER_FEMALE |
 #line 6411
         .doubleBattle = FALSE,
 #line 6412
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -15017,7 +15017,7 @@ F_TRAINER_FEMALE |
 #line 6425
         .doubleBattle = FALSE,
 #line 6426
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -15054,7 +15054,7 @@ F_TRAINER_FEMALE |
 #line 6439
         .doubleBattle = FALSE,
 #line 6440
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -15091,7 +15091,7 @@ F_TRAINER_FEMALE |
 #line 6453
         .doubleBattle = FALSE,
 #line 6454
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -15156,7 +15156,7 @@ F_TRAINER_FEMALE |
 #line 6477
         .doubleBattle = FALSE,
 #line 6478
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15207,7 +15207,7 @@ F_TRAINER_FEMALE |
 #line 6496
         .doubleBattle = FALSE,
 #line 6497
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15258,7 +15258,7 @@ F_TRAINER_FEMALE |
 #line 6515
         .doubleBattle = FALSE,
 #line 6516
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15309,7 +15309,7 @@ F_TRAINER_FEMALE |
 #line 6534
         .doubleBattle = FALSE,
 #line 6535
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15360,7 +15360,7 @@ F_TRAINER_FEMALE |
 #line 6553
         .doubleBattle = FALSE,
 #line 6554
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15409,7 +15409,7 @@ F_TRAINER_FEMALE |
 #line 6572
         .doubleBattle = FALSE,
 #line 6573
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -15442,7 +15442,7 @@ F_TRAINER_FEMALE |
 #line 6586
         .doubleBattle = FALSE,
 #line 6587
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -15482,7 +15482,7 @@ F_TRAINER_FEMALE |
 #line 6604
         .doubleBattle = FALSE,
 #line 6605
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -15522,7 +15522,7 @@ F_TRAINER_FEMALE |
 #line 6622
         .doubleBattle = FALSE,
 #line 6623
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -15562,7 +15562,7 @@ F_TRAINER_FEMALE |
 #line 6640
         .doubleBattle = FALSE,
 #line 6641
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -15604,7 +15604,7 @@ F_TRAINER_FEMALE |
 #line 6658
         .doubleBattle = FALSE,
 #line 6659
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -15646,7 +15646,7 @@ F_TRAINER_FEMALE |
 #line 6676
         .doubleBattle = FALSE,
 #line 6677
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15693,7 +15693,7 @@ F_TRAINER_FEMALE |
 #line 6695
         .doubleBattle = FALSE,
 #line 6696
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15740,7 +15740,7 @@ F_TRAINER_FEMALE |
 #line 6714
         .doubleBattle = FALSE,
 #line 6715
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15787,7 +15787,7 @@ F_TRAINER_FEMALE |
 #line 6733
         .doubleBattle = FALSE,
 #line 6734
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15834,7 +15834,7 @@ F_TRAINER_FEMALE |
 #line 6752
         .doubleBattle = FALSE,
 #line 6753
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15879,7 +15879,7 @@ F_TRAINER_FEMALE |
 #line 6771
         .doubleBattle = FALSE,
 #line 6772
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -15969,7 +15969,7 @@ F_TRAINER_FEMALE |
 #line 6810
         .doubleBattle = FALSE,
 #line 6811
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -16082,7 +16082,7 @@ F_TRAINER_FEMALE |
 #line 6859
         .doubleBattle = FALSE,
 #line 6860
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -16197,7 +16197,7 @@ F_TRAINER_FEMALE |
 #line 6909
         .doubleBattle = FALSE,
 #line 6910
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -16331,7 +16331,7 @@ F_TRAINER_FEMALE |
 #line 6966
         .doubleBattle = FALSE,
 #line 6967
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -16364,7 +16364,7 @@ F_TRAINER_FEMALE |
 #line 6980
         .doubleBattle = FALSE,
 #line 6981
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -16423,7 +16423,7 @@ F_TRAINER_FEMALE |
 #line 7007
         .doubleBattle = FALSE,
 #line 7008
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -16484,7 +16484,7 @@ F_TRAINER_FEMALE |
 #line 7034
         .doubleBattle = FALSE,
 #line 7035
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -16543,7 +16543,7 @@ F_TRAINER_FEMALE |
 #line 7061
         .doubleBattle = FALSE,
 #line 7062
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -16576,7 +16576,7 @@ F_TRAINER_FEMALE |
 #line 7075
         .doubleBattle = FALSE,
 #line 7076
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -16609,7 +16609,7 @@ F_TRAINER_FEMALE |
 #line 7089
         .doubleBattle = FALSE,
 #line 7090
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -16642,7 +16642,7 @@ F_TRAINER_FEMALE |
 #line 7103
         .doubleBattle = FALSE,
 #line 7104
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -16687,7 +16687,7 @@ F_TRAINER_FEMALE |
 #line 7122
         .doubleBattle = FALSE,
 #line 7123
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -16744,7 +16744,7 @@ F_TRAINER_FEMALE |
 #line 7146
         .doubleBattle = FALSE,
 #line 7147
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -16801,7 +16801,7 @@ F_TRAINER_FEMALE |
 #line 7170
         .doubleBattle = FALSE,
 #line 7171
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -16846,7 +16846,7 @@ F_TRAINER_FEMALE |
 #line 7189
         .doubleBattle = FALSE,
 #line 7190
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -16936,7 +16936,7 @@ F_TRAINER_FEMALE |
 #line 7228
         .doubleBattle = FALSE,
 #line 7229
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -16981,7 +16981,7 @@ F_TRAINER_FEMALE |
 #line 7247
         .doubleBattle = FALSE,
 #line 7248
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
 #line 7249
         .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_YELLOW,
@@ -17121,7 +17121,7 @@ F_TRAINER_FEMALE |
 #line 7311
         .doubleBattle = FALSE,
 #line 7312
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -17178,7 +17178,7 @@ F_TRAINER_FEMALE |
 #line 7335
         .doubleBattle = FALSE,
 #line 7336
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -17235,7 +17235,7 @@ F_TRAINER_FEMALE |
 #line 7359
         .doubleBattle = FALSE,
 #line 7360
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -17292,7 +17292,7 @@ F_TRAINER_FEMALE |
 #line 7383
         .doubleBattle = FALSE,
 #line 7384
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -17349,7 +17349,7 @@ F_TRAINER_FEMALE |
 #line 7407
         .doubleBattle = FALSE,
 #line 7408
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -17382,7 +17382,7 @@ F_TRAINER_FEMALE |
 #line 7421
         .doubleBattle = FALSE,
 #line 7422
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -17451,7 +17451,7 @@ F_TRAINER_FEMALE |
 #line 7450
         .doubleBattle = FALSE,
 #line 7451
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -17484,7 +17484,7 @@ F_TRAINER_FEMALE |
 #line 7464
         .doubleBattle = FALSE,
 #line 7465
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -17529,7 +17529,7 @@ F_TRAINER_FEMALE |
 #line 7483
         .doubleBattle = FALSE,
 #line 7484
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -17562,7 +17562,7 @@ F_TRAINER_FEMALE |
 #line 7497
         .doubleBattle = FALSE,
 #line 7498
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -17607,7 +17607,7 @@ F_TRAINER_FEMALE |
 #line 7516
         .doubleBattle = FALSE,
 #line 7517
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -17664,7 +17664,7 @@ F_TRAINER_FEMALE |
 #line 7540
         .doubleBattle = FALSE,
 #line 7541
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -17733,7 +17733,7 @@ F_TRAINER_FEMALE |
 #line 7569
         .doubleBattle = FALSE,
 #line 7570
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -17802,7 +17802,7 @@ F_TRAINER_FEMALE |
 #line 7598
         .doubleBattle = FALSE,
 #line 7599
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -17871,7 +17871,7 @@ F_TRAINER_FEMALE |
 #line 7627
         .doubleBattle = FALSE,
 #line 7628
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -17964,7 +17964,7 @@ F_TRAINER_FEMALE |
 #line 7666
         .doubleBattle = FALSE,
 #line 7667
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -18021,7 +18021,7 @@ F_TRAINER_FEMALE |
 #line 7690
         .doubleBattle = FALSE,
 #line 7691
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -18066,7 +18066,7 @@ F_TRAINER_FEMALE |
 #line 7709
         .doubleBattle = FALSE,
 #line 7710
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18099,7 +18099,7 @@ F_TRAINER_FEMALE |
 #line 7723
         .doubleBattle = FALSE,
 #line 7724
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18132,7 +18132,7 @@ F_TRAINER_FEMALE |
 #line 7737
         .doubleBattle = FALSE,
 #line 7738
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18165,7 +18165,7 @@ F_TRAINER_FEMALE |
 #line 7751
         .doubleBattle = FALSE,
 #line 7752
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18198,7 +18198,7 @@ F_TRAINER_FEMALE |
 #line 7765
         .doubleBattle = FALSE,
 #line 7766
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18233,7 +18233,7 @@ F_TRAINER_FEMALE |
 #line 7779
         .doubleBattle = FALSE,
 #line 7780
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18268,7 +18268,7 @@ F_TRAINER_FEMALE |
 #line 7793
         .doubleBattle = FALSE,
 #line 7794
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -18327,7 +18327,7 @@ F_TRAINER_FEMALE |
 #line 7817
         .doubleBattle = FALSE,
 #line 7818
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18362,7 +18362,7 @@ F_TRAINER_FEMALE |
 #line 7831
         .doubleBattle = FALSE,
 #line 7832
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18397,7 +18397,7 @@ F_TRAINER_FEMALE |
 #line 7845
         .doubleBattle = FALSE,
 #line 7846
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18432,7 +18432,7 @@ F_TRAINER_FEMALE |
 #line 7859
         .doubleBattle = FALSE,
 #line 7860
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18465,7 +18465,7 @@ F_TRAINER_FEMALE |
 #line 7873
         .doubleBattle = FALSE,
 #line 7874
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18498,7 +18498,7 @@ F_TRAINER_FEMALE |
 #line 7887
         .doubleBattle = FALSE,
 #line 7888
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18531,7 +18531,7 @@ F_TRAINER_FEMALE |
 #line 7901
         .doubleBattle = FALSE,
 #line 7902
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18564,7 +18564,7 @@ F_TRAINER_FEMALE |
 #line 7915
         .doubleBattle = FALSE,
 #line 7916
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18597,7 +18597,7 @@ F_TRAINER_FEMALE |
 #line 7929
         .doubleBattle = FALSE,
 #line 7930
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18632,7 +18632,7 @@ F_TRAINER_FEMALE |
 #line 7943
         .doubleBattle = FALSE,
 #line 7944
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18667,7 +18667,7 @@ F_TRAINER_FEMALE |
 #line 7957
         .doubleBattle = FALSE,
 #line 7958
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18702,7 +18702,7 @@ F_TRAINER_FEMALE |
 #line 7971
         .doubleBattle = FALSE,
 #line 7972
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18737,7 +18737,7 @@ F_TRAINER_FEMALE |
 #line 7985
         .doubleBattle = FALSE,
 #line 7986
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18772,7 +18772,7 @@ F_TRAINER_FEMALE |
 #line 7999
         .doubleBattle = FALSE,
 #line 8000
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18805,7 +18805,7 @@ F_TRAINER_FEMALE |
 #line 8013
         .doubleBattle = FALSE,
 #line 8014
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -18850,7 +18850,7 @@ F_TRAINER_FEMALE |
 #line 8032
         .doubleBattle = FALSE,
 #line 8033
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -18895,7 +18895,7 @@ F_TRAINER_FEMALE |
 #line 8051
         .doubleBattle = FALSE,
 #line 8052
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -18928,7 +18928,7 @@ F_TRAINER_FEMALE |
 #line 8065
         .doubleBattle = FALSE,
 #line 8066
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -18973,7 +18973,7 @@ F_TRAINER_FEMALE |
 #line 8084
         .doubleBattle = FALSE,
 #line 8085
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19018,7 +19018,7 @@ F_TRAINER_FEMALE |
 #line 8103
         .doubleBattle = FALSE,
 #line 8104
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19051,7 +19051,7 @@ F_TRAINER_FEMALE |
 #line 8117
         .doubleBattle = FALSE,
 #line 8118
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19084,7 +19084,7 @@ F_TRAINER_FEMALE |
 #line 8131
         .doubleBattle = FALSE,
 #line 8132
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19117,7 +19117,7 @@ F_TRAINER_FEMALE |
 #line 8145
         .doubleBattle = FALSE,
 #line 8146
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19152,7 +19152,7 @@ F_TRAINER_FEMALE |
 #line 8159
         .doubleBattle = FALSE,
 #line 8160
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19187,7 +19187,7 @@ F_TRAINER_FEMALE |
 #line 8173
         .doubleBattle = FALSE,
 #line 8174
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19234,7 +19234,7 @@ F_TRAINER_FEMALE |
 #line 8192
         .doubleBattle = FALSE,
 #line 8193
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19269,7 +19269,7 @@ F_TRAINER_FEMALE |
 #line 8206
         .doubleBattle = FALSE,
 #line 8207
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19304,7 +19304,7 @@ F_TRAINER_FEMALE |
 #line 8220
         .doubleBattle = FALSE,
 #line 8221
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19351,7 +19351,7 @@ F_TRAINER_FEMALE |
 #line 8239
         .doubleBattle = FALSE,
 #line 8240
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19386,7 +19386,7 @@ F_TRAINER_FEMALE |
 #line 8253
         .doubleBattle = FALSE,
 #line 8254
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19421,7 +19421,7 @@ F_TRAINER_FEMALE |
 #line 8267
         .doubleBattle = FALSE,
 #line 8268
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19456,7 +19456,7 @@ F_TRAINER_FEMALE |
 #line 8281
         .doubleBattle = FALSE,
 #line 8282
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19489,7 +19489,7 @@ F_TRAINER_FEMALE |
 #line 8295
         .doubleBattle = FALSE,
 #line 8296
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19534,7 +19534,7 @@ F_TRAINER_FEMALE |
 #line 8314
         .doubleBattle = FALSE,
 #line 8315
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19579,7 +19579,7 @@ F_TRAINER_FEMALE |
 #line 8333
         .doubleBattle = FALSE,
 #line 8334
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19624,7 +19624,7 @@ F_TRAINER_FEMALE |
 #line 8352
         .doubleBattle = FALSE,
 #line 8353
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -19681,7 +19681,7 @@ F_TRAINER_FEMALE |
 #line 8376
         .doubleBattle = FALSE,
 #line 8377
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -19740,7 +19740,7 @@ F_TRAINER_FEMALE |
 #line 8400
         .doubleBattle = FALSE,
 #line 8401
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19780,7 +19780,7 @@ F_TRAINER_FEMALE |
 #line 8418
         .doubleBattle = FALSE,
 #line 8419
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19813,7 +19813,7 @@ F_TRAINER_FEMALE |
 #line 8432
         .doubleBattle = FALSE,
 #line 8433
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19858,7 +19858,7 @@ F_TRAINER_FEMALE |
 #line 8451
         .doubleBattle = FALSE,
 #line 8452
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19891,7 +19891,7 @@ F_TRAINER_FEMALE |
 #line 8465
         .doubleBattle = FALSE,
 #line 8466
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -19948,7 +19948,7 @@ F_TRAINER_FEMALE |
 #line 8489
         .doubleBattle = FALSE,
 #line 8490
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19981,7 +19981,7 @@ F_TRAINER_FEMALE |
 #line 8503
         .doubleBattle = FALSE,
 #line 8504
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20026,7 +20026,7 @@ F_TRAINER_FEMALE |
 #line 8522
         .doubleBattle = FALSE,
 #line 8523
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20071,7 +20071,7 @@ F_TRAINER_FEMALE |
 #line 8541
         .doubleBattle = FALSE,
 #line 8542
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20116,7 +20116,7 @@ F_TRAINER_FEMALE |
 #line 8560
         .doubleBattle = FALSE,
 #line 8561
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -20149,7 +20149,7 @@ F_TRAINER_FEMALE |
 #line 8574
         .doubleBattle = FALSE,
 #line 8575
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -20206,7 +20206,7 @@ F_TRAINER_FEMALE |
 #line 8598
         .doubleBattle = FALSE,
 #line 8599
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20251,7 +20251,7 @@ F_TRAINER_FEMALE |
 #line 8617
         .doubleBattle = FALSE,
 #line 8618
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20296,7 +20296,7 @@ F_TRAINER_FEMALE |
 #line 8636
         .doubleBattle = FALSE,
 #line 8637
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20341,7 +20341,7 @@ F_TRAINER_FEMALE |
 #line 8655
         .doubleBattle = FALSE,
 #line 8656
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20386,7 +20386,7 @@ F_TRAINER_FEMALE |
 #line 8674
         .doubleBattle = FALSE,
 #line 8675
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20431,7 +20431,7 @@ F_TRAINER_FEMALE |
 #line 8693
         .doubleBattle = FALSE,
 #line 8694
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20476,7 +20476,7 @@ F_TRAINER_FEMALE |
 #line 8712
         .doubleBattle = FALSE,
 #line 8713
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -20509,7 +20509,7 @@ F_TRAINER_FEMALE |
 #line 8726
         .doubleBattle = FALSE,
 #line 8727
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -20542,7 +20542,7 @@ F_TRAINER_FEMALE |
 #line 8740
         .doubleBattle = FALSE,
 #line 8741
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20589,7 +20589,7 @@ F_TRAINER_FEMALE |
 #line 8759
         .doubleBattle = FALSE,
 #line 8760
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20646,7 +20646,7 @@ F_TRAINER_FEMALE |
 #line 8782
         .doubleBattle = FALSE,
 #line 8783
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -20679,7 +20679,7 @@ F_TRAINER_FEMALE |
 #line 8796
         .doubleBattle = FALSE,
 #line 8797
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -20757,7 +20757,7 @@ F_TRAINER_FEMALE |
 #line 8832
         .doubleBattle = FALSE,
 #line 8833
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -20802,7 +20802,7 @@ F_TRAINER_FEMALE |
 #line 8851
         .doubleBattle = FALSE,
 #line 8852
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -20896,7 +20896,7 @@ F_TRAINER_FEMALE |
 #line 8893
         .doubleBattle = FALSE,
 #line 8894
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -20990,7 +20990,7 @@ F_TRAINER_FEMALE |
 #line 8935
         .doubleBattle = FALSE,
 #line 8936
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -21082,7 +21082,7 @@ F_TRAINER_FEMALE |
 #line 8975
         .doubleBattle = FALSE,
 #line 8976
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -21180,7 +21180,7 @@ F_TRAINER_FEMALE |
 #line 9017
         .doubleBattle = FALSE,
 #line 9018
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -21295,7 +21295,7 @@ F_TRAINER_FEMALE |
 #line 9066
         .doubleBattle = FALSE,
 #line 9067
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -21410,7 +21410,7 @@ F_TRAINER_FEMALE |
 #line 9115
         .doubleBattle = FALSE,
 #line 9116
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -21457,7 +21457,7 @@ F_TRAINER_FEMALE |
 #line 9134
         .doubleBattle = FALSE,
 #line 9135
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21492,7 +21492,7 @@ F_TRAINER_FEMALE |
 #line 9148
         .doubleBattle = FALSE,
 #line 9149
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21527,7 +21527,7 @@ F_TRAINER_FEMALE |
 #line 9162
         .doubleBattle = FALSE,
 #line 9163
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -21574,7 +21574,7 @@ F_TRAINER_FEMALE |
 #line 9181
         .doubleBattle = FALSE,
 #line 9182
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -21621,7 +21621,7 @@ F_TRAINER_FEMALE |
 #line 9200
         .doubleBattle = FALSE,
 #line 9201
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -21668,7 +21668,7 @@ F_TRAINER_FEMALE |
 #line 9219
         .doubleBattle = FALSE,
 #line 9220
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -21715,7 +21715,7 @@ F_TRAINER_FEMALE |
 #line 9238
         .doubleBattle = FALSE,
 #line 9239
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21757,7 +21757,7 @@ F_TRAINER_FEMALE |
 #line 9256
         .doubleBattle = FALSE,
 #line 9257
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -21804,7 +21804,7 @@ F_TRAINER_FEMALE |
 #line 9275
         .doubleBattle = FALSE,
 #line 9276
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21846,7 +21846,7 @@ F_TRAINER_FEMALE |
 #line 9293
         .doubleBattle = FALSE,
 #line 9294
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21888,7 +21888,7 @@ F_TRAINER_FEMALE |
 #line 9311
         .doubleBattle = FALSE,
 #line 9312
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21930,7 +21930,7 @@ F_TRAINER_FEMALE |
 #line 9329
         .doubleBattle = FALSE,
 #line 9330
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -21991,7 +21991,7 @@ F_TRAINER_FEMALE |
 #line 9356
         .doubleBattle = FALSE,
 #line 9357
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22052,7 +22052,7 @@ F_TRAINER_FEMALE |
 #line 9383
         .doubleBattle = FALSE,
 #line 9384
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22099,7 +22099,7 @@ F_TRAINER_FEMALE |
 #line 9402
         .doubleBattle = FALSE,
 #line 9403
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22134,7 +22134,7 @@ F_TRAINER_FEMALE |
 #line 9416
         .doubleBattle = FALSE,
 #line 9417
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22169,7 +22169,7 @@ F_TRAINER_FEMALE |
 #line 9430
         .doubleBattle = FALSE,
 #line 9431
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22216,7 +22216,7 @@ F_TRAINER_FEMALE |
 #line 9449
         .doubleBattle = FALSE,
 #line 9450
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22251,7 +22251,7 @@ F_TRAINER_FEMALE |
 #line 9463
         .doubleBattle = FALSE,
 #line 9464
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22298,7 +22298,7 @@ F_TRAINER_FEMALE |
 #line 9482
         .doubleBattle = FALSE,
 #line 9483
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22333,7 +22333,7 @@ F_TRAINER_FEMALE |
 #line 9496
         .doubleBattle = FALSE,
 #line 9497
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -22392,7 +22392,7 @@ F_TRAINER_FEMALE |
 #line 9520
         .doubleBattle = FALSE,
 #line 9521
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22427,7 +22427,7 @@ F_TRAINER_FEMALE |
 #line 9534
         .doubleBattle = FALSE,
 #line 9535
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22462,7 +22462,7 @@ F_TRAINER_FEMALE |
 #line 9548
         .doubleBattle = FALSE,
 #line 9549
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22497,7 +22497,7 @@ F_TRAINER_FEMALE |
 #line 9562
         .doubleBattle = FALSE,
 #line 9563
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22532,7 +22532,7 @@ F_TRAINER_FEMALE |
 #line 9576
         .doubleBattle = FALSE,
 #line 9577
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22579,7 +22579,7 @@ F_TRAINER_FEMALE |
 #line 9595
         .doubleBattle = FALSE,
 #line 9596
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22614,7 +22614,7 @@ F_TRAINER_FEMALE |
 #line 9609
         .doubleBattle = FALSE,
 #line 9610
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22661,7 +22661,7 @@ F_TRAINER_FEMALE |
 #line 9628
         .doubleBattle = FALSE,
 #line 9629
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22696,7 +22696,7 @@ F_TRAINER_FEMALE |
 #line 9642
         .doubleBattle = FALSE,
 #line 9643
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22731,7 +22731,7 @@ F_TRAINER_FEMALE |
 #line 9656
         .doubleBattle = FALSE,
 #line 9657
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22766,7 +22766,7 @@ F_TRAINER_FEMALE |
 #line 9670
         .doubleBattle = FALSE,
 #line 9671
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22813,7 +22813,7 @@ F_TRAINER_FEMALE |
 #line 9689
         .doubleBattle = FALSE,
 #line 9690
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22848,7 +22848,7 @@ F_TRAINER_FEMALE |
 #line 9703
         .doubleBattle = FALSE,
 #line 9704
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22895,7 +22895,7 @@ F_TRAINER_FEMALE |
 #line 9722
         .doubleBattle = FALSE,
 #line 9723
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22942,7 +22942,7 @@ F_TRAINER_FEMALE |
 #line 9741
         .doubleBattle = FALSE,
 #line 9742
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22989,7 +22989,7 @@ F_TRAINER_FEMALE |
 #line 9760
         .doubleBattle = FALSE,
 #line 9761
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -23024,7 +23024,7 @@ F_TRAINER_FEMALE |
 #line 9774
         .doubleBattle = FALSE,
 #line 9775
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -23059,7 +23059,7 @@ F_TRAINER_FEMALE |
 #line 9788
         .doubleBattle = FALSE,
 #line 9789
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -23094,7 +23094,7 @@ F_TRAINER_FEMALE |
 #line 9802
         .doubleBattle = FALSE,
 #line 9803
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23141,7 +23141,7 @@ F_TRAINER_FEMALE |
 #line 9821
         .doubleBattle = FALSE,
 #line 9822
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -23200,7 +23200,7 @@ F_TRAINER_FEMALE |
 #line 9845
         .doubleBattle = FALSE,
 #line 9846
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23261,7 +23261,7 @@ F_TRAINER_FEMALE |
 #line 9872
         .doubleBattle = FALSE,
 #line 9873
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23322,7 +23322,7 @@ F_TRAINER_FEMALE |
 #line 9899
         .doubleBattle = FALSE,
 #line 9900
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23369,7 +23369,7 @@ F_TRAINER_FEMALE |
 #line 9918
         .doubleBattle = FALSE,
 #line 9919
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23416,7 +23416,7 @@ F_TRAINER_FEMALE |
 #line 9937
         .doubleBattle = FALSE,
 #line 9938
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23463,7 +23463,7 @@ F_TRAINER_FEMALE |
 #line 9956
         .doubleBattle = FALSE,
 #line 9957
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -23520,7 +23520,7 @@ F_TRAINER_FEMALE |
 #line 9980
         .doubleBattle = FALSE,
 #line 9981
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -23562,7 +23562,7 @@ F_TRAINER_FEMALE |
 #line 9998
         .doubleBattle = FALSE,
 #line 9999
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23609,7 +23609,7 @@ F_TRAINER_FEMALE |
 #line 10017
         .doubleBattle = FALSE,
 #line 10018
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -23668,7 +23668,7 @@ F_TRAINER_FEMALE |
 #line 10041
         .doubleBattle = FALSE,
 #line 10042
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -23727,7 +23727,7 @@ F_TRAINER_FEMALE |
 #line 10065
         .doubleBattle = FALSE,
 #line 10066
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -23786,7 +23786,7 @@ F_TRAINER_FEMALE |
 #line 10089
         .doubleBattle = FALSE,
 #line 10090
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -23843,7 +23843,7 @@ F_TRAINER_FEMALE |
 #line 10113
         .doubleBattle = TRUE,
 #line 10114
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23888,7 +23888,7 @@ F_TRAINER_FEMALE |
 #line 10132
         .doubleBattle = TRUE,
 #line 10133
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23933,7 +23933,7 @@ F_TRAINER_FEMALE |
 #line 10151
         .doubleBattle = TRUE,
 #line 10152
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24021,7 +24021,7 @@ F_TRAINER_FEMALE |
 #line 10188
         .doubleBattle = TRUE,
 #line 10189
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24066,7 +24066,7 @@ F_TRAINER_FEMALE |
 #line 10207
         .doubleBattle = TRUE,
 #line 10208
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24111,7 +24111,7 @@ F_TRAINER_FEMALE |
 #line 10226
         .doubleBattle = TRUE,
 #line 10227
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24166,7 +24166,7 @@ F_TRAINER_FEMALE |
 #line 10249
         .doubleBattle = TRUE,
 #line 10250
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24211,7 +24211,7 @@ F_TRAINER_FEMALE |
 #line 10268
         .doubleBattle = TRUE,
 #line 10269
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24270,7 +24270,7 @@ F_TRAINER_FEMALE |
 #line 10295
         .doubleBattle = TRUE,
 #line 10296
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24329,7 +24329,7 @@ F_TRAINER_FEMALE |
 #line 10322
         .doubleBattle = FALSE,
 #line 10323
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24374,7 +24374,7 @@ F_TRAINER_FEMALE |
 #line 10341
         .doubleBattle = FALSE,
 #line 10342
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -24407,7 +24407,7 @@ F_TRAINER_FEMALE |
 #line 10355
         .doubleBattle = FALSE,
 #line 10356
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24452,7 +24452,7 @@ F_TRAINER_FEMALE |
 #line 10374
         .doubleBattle = FALSE,
 #line 10375
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24509,7 +24509,7 @@ F_TRAINER_FEMALE |
 #line 10398
         .doubleBattle = FALSE,
 #line 10399
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24554,7 +24554,7 @@ F_TRAINER_FEMALE |
 #line 10417
         .doubleBattle = FALSE,
 #line 10418
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24611,7 +24611,7 @@ F_TRAINER_FEMALE |
 #line 10441
         .doubleBattle = FALSE,
 #line 10442
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24656,7 +24656,7 @@ F_TRAINER_FEMALE |
 #line 10460
         .doubleBattle = FALSE,
 #line 10461
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24713,7 +24713,7 @@ F_TRAINER_FEMALE |
 #line 10484
         .doubleBattle = FALSE,
 #line 10485
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24770,7 +24770,7 @@ F_TRAINER_FEMALE |
 #line 10508
         .doubleBattle = FALSE,
 #line 10509
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24827,7 +24827,7 @@ F_TRAINER_FEMALE |
 #line 10532
         .doubleBattle = FALSE,
 #line 10533
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24884,7 +24884,7 @@ F_TRAINER_FEMALE |
 #line 10556
         .doubleBattle = FALSE,
 #line 10557
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -24919,7 +24919,7 @@ F_TRAINER_FEMALE |
 #line 10570
         .doubleBattle = FALSE,
 #line 10571
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24988,7 +24988,7 @@ F_TRAINER_FEMALE |
 #line 10599
         .doubleBattle = FALSE,
 #line 10600
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -25021,7 +25021,7 @@ F_TRAINER_FEMALE |
 #line 10613
         .doubleBattle = FALSE,
 #line 10614
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -25063,7 +25063,7 @@ F_TRAINER_FEMALE |
 #line 10631
         .doubleBattle = FALSE,
 #line 10632
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -25103,7 +25103,7 @@ F_TRAINER_FEMALE |
 #line 10649
         .doubleBattle = FALSE,
 #line 10650
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25148,7 +25148,7 @@ F_TRAINER_FEMALE |
 #line 10668
         .doubleBattle = FALSE,
 #line 10669
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25195,7 +25195,7 @@ F_TRAINER_FEMALE |
 #line 10687
         .doubleBattle = FALSE,
 #line 10688
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -25237,7 +25237,7 @@ F_TRAINER_FEMALE |
 #line 10705
         .doubleBattle = FALSE,
 #line 10706
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25282,7 +25282,7 @@ F_TRAINER_FEMALE |
 #line 10724
         .doubleBattle = FALSE,
 #line 10725
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -25315,7 +25315,7 @@ F_TRAINER_FEMALE |
 #line 10738
         .doubleBattle = FALSE,
 #line 10739
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25360,7 +25360,7 @@ F_TRAINER_FEMALE |
 #line 10757
         .doubleBattle = FALSE,
 #line 10758
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25405,7 +25405,7 @@ F_TRAINER_FEMALE |
 #line 10776
         .doubleBattle = FALSE,
 #line 10777
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25450,7 +25450,7 @@ F_TRAINER_FEMALE |
 #line 10795
         .doubleBattle = FALSE,
 #line 10796
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -25507,7 +25507,7 @@ F_TRAINER_FEMALE |
 #line 10819
         .doubleBattle = FALSE,
 #line 10820
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25552,7 +25552,7 @@ F_TRAINER_FEMALE |
 #line 10838
         .doubleBattle = FALSE,
 #line 10839
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25597,7 +25597,7 @@ F_TRAINER_FEMALE |
 #line 10857
         .doubleBattle = FALSE,
 #line 10858
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25642,7 +25642,7 @@ F_TRAINER_FEMALE |
 #line 10876
         .doubleBattle = FALSE,
 #line 10877
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25687,7 +25687,7 @@ F_TRAINER_FEMALE |
 #line 10895
         .doubleBattle = FALSE,
 #line 10896
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -25803,7 +25803,7 @@ F_TRAINER_FEMALE |
 #line 10949
         .doubleBattle = FALSE,
 #line 10950
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -25836,7 +25836,7 @@ F_TRAINER_FEMALE |
 #line 10963
         .doubleBattle = FALSE,
 #line 10964
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -25893,7 +25893,7 @@ F_TRAINER_FEMALE |
 #line 10987
         .doubleBattle = FALSE,
 #line 10988
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -25950,7 +25950,7 @@ F_TRAINER_FEMALE |
 #line 11011
         .doubleBattle = FALSE,
 #line 11012
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -25983,7 +25983,7 @@ F_TRAINER_FEMALE |
 #line 11025
         .doubleBattle = FALSE,
 #line 11026
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26040,7 +26040,7 @@ F_TRAINER_FEMALE |
 #line 11049
         .doubleBattle = FALSE,
 #line 11050
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26097,7 +26097,7 @@ F_TRAINER_FEMALE |
 #line 11073
         .doubleBattle = FALSE,
 #line 11074
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -26130,7 +26130,7 @@ F_TRAINER_FEMALE |
 #line 11087
         .doubleBattle = FALSE,
 #line 11088
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26187,7 +26187,7 @@ F_TRAINER_FEMALE |
 #line 11111
         .doubleBattle = FALSE,
 #line 11112
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26246,7 +26246,7 @@ F_TRAINER_FEMALE |
 #line 11135
         .doubleBattle = FALSE,
 #line 11136
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -26281,7 +26281,7 @@ F_TRAINER_FEMALE |
 #line 11149
         .doubleBattle = FALSE,
 #line 11150
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26340,7 +26340,7 @@ F_TRAINER_FEMALE |
 #line 11173
         .doubleBattle = FALSE,
 #line 11174
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26399,7 +26399,7 @@ F_TRAINER_FEMALE |
 #line 11197
         .doubleBattle = FALSE,
 #line 11198
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -26434,7 +26434,7 @@ F_TRAINER_FEMALE |
 #line 11211
         .doubleBattle = FALSE,
 #line 11212
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26493,7 +26493,7 @@ F_TRAINER_FEMALE |
 #line 11235
         .doubleBattle = FALSE,
 #line 11236
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26552,7 +26552,7 @@ F_TRAINER_FEMALE |
 #line 11259
         .doubleBattle = FALSE,
 #line 11260
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -26587,7 +26587,7 @@ F_TRAINER_FEMALE |
 #line 11273
         .doubleBattle = FALSE,
 #line 11274
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26646,7 +26646,7 @@ F_TRAINER_FEMALE |
 #line 11297
         .doubleBattle = FALSE,
 #line 11298
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26703,7 +26703,7 @@ F_TRAINER_FEMALE |
 #line 11321
         .doubleBattle = FALSE,
 #line 11322
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -26796,7 +26796,7 @@ F_TRAINER_FEMALE |
 #line 11360
         .doubleBattle = FALSE,
 #line 11361
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -26829,7 +26829,7 @@ F_TRAINER_FEMALE |
 #line 11374
         .doubleBattle = FALSE,
 #line 11375
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -26888,7 +26888,7 @@ F_TRAINER_FEMALE |
 #line 11401
         .doubleBattle = FALSE,
 #line 11402
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -26981,7 +26981,7 @@ F_TRAINER_FEMALE |
 #line 11440
         .doubleBattle = FALSE,
 #line 11441
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -27074,7 +27074,7 @@ F_TRAINER_FEMALE |
 #line 11479
         .doubleBattle = FALSE,
 #line 11480
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -27167,7 +27167,7 @@ F_TRAINER_FEMALE |
 #line 11518
         .doubleBattle = FALSE,
 #line 11519
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -27262,7 +27262,7 @@ F_TRAINER_FEMALE |
 #line 11557
         .doubleBattle = FALSE,
 #line 11558
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -27357,7 +27357,7 @@ F_TRAINER_FEMALE |
 #line 11596
         .doubleBattle = FALSE,
 #line 11597
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27402,7 +27402,7 @@ F_TRAINER_FEMALE |
 #line 11615
         .doubleBattle = FALSE,
 #line 11616
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -27437,7 +27437,7 @@ F_TRAINER_FEMALE |
 #line 11629
         .doubleBattle = FALSE,
 #line 11630
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -27532,7 +27532,7 @@ F_TRAINER_FEMALE |
 #line 11668
         .doubleBattle = FALSE,
 #line 11669
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -27627,7 +27627,7 @@ F_TRAINER_FEMALE |
 #line 11707
         .doubleBattle = FALSE,
 #line 11708
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -27722,7 +27722,7 @@ F_TRAINER_FEMALE |
 #line 11746
         .doubleBattle = FALSE,
 #line 11747
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -27815,7 +27815,7 @@ F_TRAINER_FEMALE |
 #line 11785
         .doubleBattle = FALSE,
 #line 11786
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -27848,7 +27848,7 @@ F_TRAINER_FEMALE |
 #line 11799
         .doubleBattle = FALSE,
 #line 11800
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -27905,7 +27905,7 @@ F_TRAINER_FEMALE |
 #line 11823
         .doubleBattle = FALSE,
 #line 11824
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -27938,7 +27938,7 @@ F_TRAINER_FEMALE |
 #line 11837
         .doubleBattle = FALSE,
 #line 11838
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -27971,7 +27971,7 @@ F_TRAINER_FEMALE |
 #line 11851
         .doubleBattle = FALSE,
 #line 11852
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -28004,7 +28004,7 @@ F_TRAINER_FEMALE |
 #line 11865
         .doubleBattle = FALSE,
 #line 11866
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -28037,7 +28037,7 @@ F_TRAINER_FEMALE |
 #line 11879
         .doubleBattle = FALSE,
 #line 11880
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28084,7 +28084,7 @@ F_TRAINER_FEMALE |
 #line 11898
         .doubleBattle = FALSE,
 #line 11899
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28131,7 +28131,7 @@ F_TRAINER_FEMALE |
 #line 11917
         .doubleBattle = FALSE,
 #line 11918
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -28190,7 +28190,7 @@ F_TRAINER_FEMALE |
 #line 11941
         .doubleBattle = FALSE,
 #line 11942
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28237,7 +28237,7 @@ F_TRAINER_FEMALE |
 #line 11960
         .doubleBattle = FALSE,
 #line 11961
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28284,7 +28284,7 @@ F_TRAINER_FEMALE |
 #line 11979
         .doubleBattle = FALSE,
 #line 11980
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28331,7 +28331,7 @@ F_TRAINER_FEMALE |
 #line 11998
         .doubleBattle = FALSE,
 #line 11999
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28378,7 +28378,7 @@ F_TRAINER_FEMALE |
 #line 12017
         .doubleBattle = FALSE,
 #line 12018
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28423,7 +28423,7 @@ F_TRAINER_FEMALE |
 #line 12036
         .doubleBattle = FALSE,
 #line 12037
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -28456,7 +28456,7 @@ F_TRAINER_FEMALE |
 #line 12050
         .doubleBattle = FALSE,
 #line 12051
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28503,7 +28503,7 @@ F_TRAINER_FEMALE |
 #line 12069
         .doubleBattle = FALSE,
 #line 12070
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28550,7 +28550,7 @@ F_TRAINER_FEMALE |
 #line 12088
         .doubleBattle = FALSE,
 #line 12089
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28595,7 +28595,7 @@ F_TRAINER_FEMALE |
 #line 12107
         .doubleBattle = FALSE,
 #line 12108
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28640,7 +28640,7 @@ F_TRAINER_FEMALE |
 #line 12126
         .doubleBattle = FALSE,
 #line 12127
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -28773,7 +28773,7 @@ F_TRAINER_FEMALE |
 #line 12182
         .doubleBattle = FALSE,
 #line 12183
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -28934,7 +28934,7 @@ F_TRAINER_FEMALE |
 #line 12251
         .doubleBattle = FALSE,
 #line 12252
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -28967,7 +28967,7 @@ F_TRAINER_FEMALE |
 #line 12265
         .doubleBattle = FALSE,
 #line 12266
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -29082,7 +29082,7 @@ F_TRAINER_FEMALE |
 #line 12314
         .doubleBattle = FALSE,
 #line 12315
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29115,7 +29115,7 @@ F_TRAINER_FEMALE |
 #line 12328
         .doubleBattle = FALSE,
 #line 12329
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29150,7 +29150,7 @@ F_TRAINER_FEMALE |
 #line 12342
         .doubleBattle = FALSE,
 #line 12343
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -29206,7 +29206,7 @@ F_TRAINER_FEMALE |
 #line 12366
         .doubleBattle = FALSE,
 #line 12367
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29239,7 +29239,7 @@ F_TRAINER_FEMALE |
 #line 12380
         .doubleBattle = FALSE,
 #line 12381
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29272,7 +29272,7 @@ F_TRAINER_FEMALE |
 #line 12394
         .doubleBattle = FALSE,
 #line 12395
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29307,7 +29307,7 @@ F_TRAINER_FEMALE |
 #line 12408
         .doubleBattle = FALSE,
 #line 12409
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29340,7 +29340,7 @@ F_TRAINER_FEMALE |
 #line 12422
         .doubleBattle = FALSE,
 #line 12423
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29375,7 +29375,7 @@ F_TRAINER_FEMALE |
 #line 12436
         .doubleBattle = FALSE,
 #line 12437
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29408,7 +29408,7 @@ F_TRAINER_FEMALE |
 #line 12450
         .doubleBattle = FALSE,
 #line 12451
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29441,7 +29441,7 @@ F_TRAINER_FEMALE |
 #line 12464
         .doubleBattle = FALSE,
 #line 12465
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29476,7 +29476,7 @@ F_TRAINER_FEMALE |
 #line 12478
         .doubleBattle = FALSE,
 #line 12479
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -29521,7 +29521,7 @@ F_TRAINER_FEMALE |
 #line 12497
         .doubleBattle = FALSE,
 #line 12498
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29554,7 +29554,7 @@ F_TRAINER_FEMALE |
 #line 12511
         .doubleBattle = FALSE,
 #line 12512
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29587,7 +29587,7 @@ F_TRAINER_FEMALE |
 #line 12525
         .doubleBattle = FALSE,
 #line 12526
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29620,7 +29620,7 @@ F_TRAINER_FEMALE |
 #line 12539
         .doubleBattle = FALSE,
 #line 12540
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29655,7 +29655,7 @@ F_TRAINER_FEMALE |
 #line 12553
         .doubleBattle = FALSE,
 #line 12554
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29688,7 +29688,7 @@ F_TRAINER_FEMALE |
 #line 12567
         .doubleBattle = FALSE,
 #line 12568
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -29733,7 +29733,7 @@ F_TRAINER_FEMALE |
 #line 12586
         .doubleBattle = FALSE,
 #line 12587
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -29778,7 +29778,7 @@ F_TRAINER_FEMALE |
 #line 12605
         .doubleBattle = FALSE,
 #line 12606
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -29825,7 +29825,7 @@ F_TRAINER_FEMALE |
 #line 12624
         .doubleBattle = FALSE,
 #line 12625
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29860,7 +29860,7 @@ F_TRAINER_FEMALE |
 #line 12638
         .doubleBattle = FALSE,
 #line 12639
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -29905,7 +29905,7 @@ F_TRAINER_FEMALE |
 #line 12657
         .doubleBattle = FALSE,
 #line 12658
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -29974,7 +29974,7 @@ F_TRAINER_FEMALE |
 #line 12686
         .doubleBattle = FALSE,
 #line 12687
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30019,7 +30019,7 @@ F_TRAINER_FEMALE |
 #line 12705
         .doubleBattle = FALSE,
 #line 12706
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30066,7 +30066,7 @@ F_TRAINER_FEMALE |
 #line 12724
         .doubleBattle = FALSE,
 #line 12725
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30111,7 +30111,7 @@ F_TRAINER_FEMALE |
 #line 12743
         .doubleBattle = FALSE,
 #line 12744
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30168,7 +30168,7 @@ F_TRAINER_FEMALE |
 #line 12767
         .doubleBattle = FALSE,
 #line 12768
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30227,7 +30227,7 @@ F_TRAINER_FEMALE |
 #line 12791
         .doubleBattle = FALSE,
 #line 12792
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -30342,7 +30342,7 @@ F_TRAINER_FEMALE |
 #line 12840
         .doubleBattle = FALSE,
 #line 12841
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -30480,7 +30480,7 @@ F_TRAINER_FEMALE |
 #line 12899
         .doubleBattle = FALSE,
 #line 12900
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -30515,7 +30515,7 @@ F_TRAINER_FEMALE |
 #line 12913
         .doubleBattle = FALSE,
 #line 12914
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30574,7 +30574,7 @@ F_TRAINER_FEMALE |
 #line 12937
         .doubleBattle = FALSE,
 #line 12938
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30621,7 +30621,7 @@ F_TRAINER_FEMALE |
 #line 12956
         .doubleBattle = FALSE,
 #line 12957
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30668,7 +30668,7 @@ F_TRAINER_FEMALE |
 #line 12975
         .doubleBattle = FALSE,
 #line 12976
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30715,7 +30715,7 @@ F_TRAINER_FEMALE |
 #line 12994
         .doubleBattle = FALSE,
 #line 12995
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30774,7 +30774,7 @@ F_TRAINER_FEMALE |
 #line 13018
         .doubleBattle = FALSE,
 #line 13019
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -30809,7 +30809,7 @@ F_TRAINER_FEMALE |
 #line 13032
         .doubleBattle = FALSE,
 #line 13033
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30868,7 +30868,7 @@ F_TRAINER_FEMALE |
 #line 13056
         .doubleBattle = FALSE,
 #line 13057
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -30903,7 +30903,7 @@ F_TRAINER_FEMALE |
 #line 13070
         .doubleBattle = FALSE,
 #line 13071
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30948,7 +30948,7 @@ F_TRAINER_FEMALE |
 #line 13089
         .doubleBattle = FALSE,
 #line 13090
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -31082,7 +31082,7 @@ F_TRAINER_FEMALE |
 #line 13146
         .doubleBattle = FALSE,
 #line 13147
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -31151,7 +31151,7 @@ F_TRAINER_FEMALE |
 #line 13175
         .doubleBattle = FALSE,
 #line 13176
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31196,7 +31196,7 @@ F_TRAINER_FEMALE |
 #line 13194
         .doubleBattle = FALSE,
 #line 13195
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31241,7 +31241,7 @@ F_TRAINER_FEMALE |
 #line 13213
         .doubleBattle = FALSE,
 #line 13214
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31286,7 +31286,7 @@ F_TRAINER_FEMALE |
 #line 13232
         .doubleBattle = FALSE,
 #line 13233
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -31319,7 +31319,7 @@ F_TRAINER_FEMALE |
 #line 13246
         .doubleBattle = FALSE,
 #line 13247
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -31432,7 +31432,7 @@ F_TRAINER_FEMALE |
 #line 13295
         .doubleBattle = FALSE,
 #line 13296
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -31465,7 +31465,7 @@ F_TRAINER_FEMALE |
 #line 13309
         .doubleBattle = FALSE,
 #line 13310
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31510,7 +31510,7 @@ F_TRAINER_FEMALE |
 #line 13328
         .doubleBattle = FALSE,
 #line 13329
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -31567,7 +31567,7 @@ F_TRAINER_FEMALE |
 #line 13352
         .doubleBattle = FALSE,
 #line 13353
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -31636,7 +31636,7 @@ F_TRAINER_FEMALE |
 #line 13381
         .doubleBattle = FALSE,
 #line 13382
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31681,7 +31681,7 @@ F_TRAINER_FEMALE |
 #line 13400
         .doubleBattle = FALSE,
 #line 13401
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -31738,7 +31738,7 @@ F_TRAINER_FEMALE |
 #line 13424
         .doubleBattle = FALSE,
 #line 13425
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31783,7 +31783,7 @@ F_TRAINER_FEMALE |
 #line 13443
         .doubleBattle = FALSE,
 #line 13444
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31828,7 +31828,7 @@ F_TRAINER_FEMALE |
 #line 13462
         .doubleBattle = FALSE,
 #line 13463
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -31885,7 +31885,7 @@ F_TRAINER_FEMALE |
 #line 13486
         .doubleBattle = FALSE,
 #line 13487
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -31975,7 +31975,7 @@ F_TRAINER_FEMALE |
 #line 13525
         .doubleBattle = FALSE,
 #line 13526
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32020,7 +32020,7 @@ F_TRAINER_FEMALE |
 #line 13544
         .doubleBattle = FALSE,
 #line 13545
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -32058,7 +32058,7 @@ F_TRAINER_FEMALE |
 #line 13560
         .doubleBattle = FALSE,
 #line 13561
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32113,7 +32113,7 @@ F_TRAINER_FEMALE |
 #line 13583
         .doubleBattle = FALSE,
 #line 13584
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -32170,7 +32170,7 @@ F_TRAINER_FEMALE |
 #line 13607
         .doubleBattle = FALSE,
 #line 13608
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -32239,7 +32239,7 @@ F_TRAINER_FEMALE |
 #line 13636
         .doubleBattle = FALSE,
 #line 13637
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -32308,7 +32308,7 @@ F_TRAINER_FEMALE |
 #line 13665
         .doubleBattle = FALSE,
 #line 13666
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -32377,7 +32377,7 @@ F_TRAINER_FEMALE |
 #line 13694
         .doubleBattle = FALSE,
 #line 13695
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -32446,7 +32446,7 @@ F_TRAINER_FEMALE |
 #line 13723
         .doubleBattle = TRUE,
 #line 13724
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32491,7 +32491,7 @@ F_TRAINER_FEMALE |
 #line 13742
         .doubleBattle = TRUE,
 #line 13743
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32536,7 +32536,7 @@ F_TRAINER_FEMALE |
 #line 13761
         .doubleBattle = TRUE,
 #line 13762
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32581,7 +32581,7 @@ F_TRAINER_FEMALE |
 #line 13780
         .doubleBattle = TRUE,
 #line 13781
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32626,7 +32626,7 @@ F_TRAINER_FEMALE |
 #line 13799
         .doubleBattle = TRUE,
 #line 13800
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32671,7 +32671,7 @@ F_TRAINER_FEMALE |
 #line 13818
         .doubleBattle = TRUE,
 #line 13819
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32716,7 +32716,7 @@ F_TRAINER_FEMALE |
 #line 13837
         .doubleBattle = TRUE,
 #line 13838
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32763,7 +32763,7 @@ F_TRAINER_FEMALE |
 #line 13856
         .doubleBattle = FALSE,
 #line 13857
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -32796,7 +32796,7 @@ F_TRAINER_FEMALE |
 #line 13870
         .doubleBattle = FALSE,
 #line 13871
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -32838,7 +32838,7 @@ F_TRAINER_FEMALE |
 #line 13888
         .doubleBattle = FALSE,
 #line 13889
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32899,7 +32899,7 @@ F_TRAINER_FEMALE |
 #line 13915
         .doubleBattle = FALSE,
 #line 13916
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -32939,7 +32939,7 @@ F_TRAINER_FEMALE |
 #line 13933
         .doubleBattle = FALSE,
 #line 13934
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32998,7 +32998,7 @@ F_TRAINER_FEMALE |
 #line 13960
         .doubleBattle = FALSE,
 #line 13961
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33057,7 +33057,7 @@ F_TRAINER_FEMALE |
 #line 13987
         .doubleBattle = FALSE,
 #line 13988
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33116,7 +33116,7 @@ F_TRAINER_FEMALE |
 #line 14014
         .doubleBattle = FALSE,
 #line 14015
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33163,7 +33163,7 @@ F_TRAINER_FEMALE |
 #line 14033
         .doubleBattle = FALSE,
 #line 14034
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -33220,7 +33220,7 @@ F_TRAINER_FEMALE |
 #line 14057
         .doubleBattle = FALSE,
 #line 14058
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -33253,7 +33253,7 @@ F_TRAINER_FEMALE |
 #line 14071
         .doubleBattle = FALSE,
 #line 14072
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -33369,7 +33369,7 @@ F_TRAINER_FEMALE |
 #line 14125
         .doubleBattle = FALSE,
 #line 14126
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -33485,7 +33485,7 @@ F_TRAINER_FEMALE |
 #line 14179
         .doubleBattle = FALSE,
 #line 14180
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -33601,7 +33601,7 @@ F_TRAINER_FEMALE |
 #line 14233
         .doubleBattle = FALSE,
 #line 14234
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -33717,7 +33717,7 @@ F_TRAINER_FEMALE |
 #line 14287
         .doubleBattle = FALSE,
 #line 14288
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -33786,7 +33786,7 @@ F_TRAINER_FEMALE |
 #line 14316
         .doubleBattle = FALSE,
 #line 14317
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -33855,7 +33855,7 @@ F_TRAINER_FEMALE |
 #line 14345
         .doubleBattle = FALSE,
 #line 14346
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -33926,7 +33926,7 @@ F_TRAINER_FEMALE |
 #line 14374
         .doubleBattle = FALSE,
 #line 14375
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -33997,7 +33997,7 @@ F_TRAINER_FEMALE |
 #line 14403
         .doubleBattle = FALSE,
 #line 14404
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -34068,7 +34068,7 @@ F_TRAINER_FEMALE |
 #line 14432
         .doubleBattle = FALSE,
 #line 14433
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -34137,7 +34137,7 @@ F_TRAINER_FEMALE |
 #line 14461
         .doubleBattle = FALSE,
 #line 14462
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -34194,7 +34194,7 @@ F_TRAINER_FEMALE |
 #line 14485
         .doubleBattle = FALSE,
 #line 14486
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34239,7 +34239,7 @@ F_TRAINER_FEMALE |
 #line 14504
         .doubleBattle = FALSE,
 #line 14505
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -34298,7 +34298,7 @@ F_TRAINER_FEMALE |
 #line 14528
         .doubleBattle = FALSE,
 #line 14529
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34343,7 +34343,7 @@ F_TRAINER_FEMALE |
 #line 14547
         .doubleBattle = FALSE,
 #line 14548
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34388,7 +34388,7 @@ F_TRAINER_FEMALE |
 #line 14566
         .doubleBattle = FALSE,
 #line 14567
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -34421,7 +34421,7 @@ F_TRAINER_FEMALE |
 #line 14580
         .doubleBattle = FALSE,
 #line 14581
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -34478,7 +34478,7 @@ F_TRAINER_FEMALE |
 #line 14604
         .doubleBattle = FALSE,
 #line 14605
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34523,7 +34523,7 @@ F_TRAINER_FEMALE |
 #line 14623
         .doubleBattle = FALSE,
 #line 14624
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34570,7 +34570,7 @@ F_TRAINER_FEMALE |
 #line 14642
         .doubleBattle = FALSE,
 #line 14643
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -34603,7 +34603,7 @@ F_TRAINER_FEMALE |
 #line 14656
         .doubleBattle = TRUE,
 #line 14657
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34648,7 +34648,7 @@ F_TRAINER_FEMALE |
 #line 14675
         .doubleBattle = TRUE,
 #line 14676
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34707,7 +34707,7 @@ F_TRAINER_FEMALE |
 #line 14702
         .doubleBattle = TRUE,
 #line 14703
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34766,7 +34766,7 @@ F_TRAINER_FEMALE |
 #line 14729
         .doubleBattle = TRUE,
 #line 14730
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34825,7 +34825,7 @@ F_TRAINER_FEMALE |
 #line 14756
         .doubleBattle = TRUE,
 #line 14757
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34884,7 +34884,7 @@ F_TRAINER_FEMALE |
 #line 14783
         .doubleBattle = TRUE,
 #line 14784
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34943,7 +34943,7 @@ F_TRAINER_FEMALE |
 #line 14810
         .doubleBattle = TRUE,
 #line 14811
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35002,7 +35002,7 @@ F_TRAINER_FEMALE |
 #line 14837
         .doubleBattle = TRUE,
 #line 14838
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35061,7 +35061,7 @@ F_TRAINER_FEMALE |
 #line 14864
         .doubleBattle = TRUE,
 #line 14865
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35120,7 +35120,7 @@ F_TRAINER_FEMALE |
 #line 14891
         .doubleBattle = TRUE,
 #line 14892
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35165,7 +35165,7 @@ F_TRAINER_FEMALE |
 #line 14910
         .doubleBattle = TRUE,
 #line 14911
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35210,7 +35210,7 @@ F_TRAINER_FEMALE |
 #line 14929
         .doubleBattle = TRUE,
 #line 14930
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35255,7 +35255,7 @@ F_TRAINER_FEMALE |
 #line 14948
         .doubleBattle = TRUE,
 #line 14949
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35300,7 +35300,7 @@ F_TRAINER_FEMALE |
 #line 14967
         .doubleBattle = TRUE,
 #line 14968
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35345,7 +35345,7 @@ F_TRAINER_FEMALE |
 #line 14986
         .doubleBattle = TRUE,
 #line 14987
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35390,7 +35390,7 @@ F_TRAINER_FEMALE |
 #line 15005
         .doubleBattle = TRUE,
 #line 15006
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35435,7 +35435,7 @@ F_TRAINER_FEMALE |
 #line 15024
         .doubleBattle = FALSE,
 #line 15025
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -35504,7 +35504,7 @@ F_TRAINER_FEMALE |
 #line 15053
         .doubleBattle = FALSE,
 #line 15054
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35553,7 +35553,7 @@ F_TRAINER_FEMALE |
 #line 15072
         .doubleBattle = FALSE,
 #line 15073
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35600,7 +35600,7 @@ F_TRAINER_FEMALE |
 #line 15091
         .doubleBattle = FALSE,
 #line 15092
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -35715,7 +35715,7 @@ F_TRAINER_FEMALE |
 #line 15140
         .doubleBattle = FALSE,
 #line 15141
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -35748,7 +35748,7 @@ F_TRAINER_FEMALE |
 #line 15154
         .doubleBattle = FALSE,
 #line 15155
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35793,7 +35793,7 @@ F_TRAINER_FEMALE |
 #line 15173
         .doubleBattle = FALSE,
 #line 15174
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35842,7 +35842,7 @@ F_TRAINER_FEMALE |
 #line 15192
         .doubleBattle = FALSE,
 #line 15193
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35889,7 +35889,7 @@ F_TRAINER_FEMALE |
 #line 15211
         .doubleBattle = FALSE,
 #line 15212
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -35922,7 +35922,7 @@ F_TRAINER_FEMALE |
 #line 15225
         .doubleBattle = FALSE,
 #line 15226
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -35955,7 +35955,7 @@ F_TRAINER_FEMALE |
 #line 15239
         .doubleBattle = FALSE,
 #line 15240
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -35988,7 +35988,7 @@ F_TRAINER_FEMALE |
 #line 15253
         .doubleBattle = FALSE,
 #line 15254
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36023,7 +36023,7 @@ F_TRAINER_FEMALE |
 #line 15267
         .doubleBattle = FALSE,
 #line 15268
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36058,7 +36058,7 @@ F_TRAINER_FEMALE |
 #line 15281
         .doubleBattle = FALSE,
 #line 15282
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36091,7 +36091,7 @@ F_TRAINER_FEMALE |
 #line 15295
         .doubleBattle = FALSE,
 #line 15296
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36126,7 +36126,7 @@ F_TRAINER_FEMALE |
 #line 15309
         .doubleBattle = FALSE,
 #line 15310
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -36171,7 +36171,7 @@ F_TRAINER_FEMALE |
 #line 15328
         .doubleBattle = FALSE,
 #line 15329
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -36216,7 +36216,7 @@ F_TRAINER_FEMALE |
 #line 15347
         .doubleBattle = FALSE,
 #line 15348
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -36261,7 +36261,7 @@ F_TRAINER_FEMALE |
 #line 15366
         .doubleBattle = FALSE,
 #line 15367
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -36308,7 +36308,7 @@ F_TRAINER_FEMALE |
 #line 15385
         .doubleBattle = FALSE,
 #line 15386
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -36353,7 +36353,7 @@ F_TRAINER_FEMALE |
 #line 15404
         .doubleBattle = FALSE,
 #line 15405
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36388,7 +36388,7 @@ F_TRAINER_FEMALE |
 #line 15418
         .doubleBattle = FALSE,
 #line 15419
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36421,7 +36421,7 @@ F_TRAINER_FEMALE |
 #line 15432
         .doubleBattle = FALSE,
 #line 15433
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -36478,7 +36478,7 @@ F_TRAINER_FEMALE |
 #line 15456
         .doubleBattle = FALSE,
 #line 15457
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36511,7 +36511,7 @@ F_TRAINER_FEMALE |
 #line 15470
         .doubleBattle = FALSE,
 #line 15471
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36544,7 +36544,7 @@ F_TRAINER_FEMALE |
 #line 15484
         .doubleBattle = FALSE,
 #line 15485
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36577,7 +36577,7 @@ F_TRAINER_FEMALE |
 #line 15498
         .doubleBattle = FALSE,
 #line 15499
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -36622,7 +36622,7 @@ F_TRAINER_FEMALE |
 #line 15517
         .doubleBattle = FALSE,
 #line 15518
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -36667,7 +36667,7 @@ F_TRAINER_FEMALE |
 #line 15536
         .doubleBattle = FALSE,
 #line 15537
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36700,7 +36700,7 @@ F_TRAINER_FEMALE |
 #line 15550
         .doubleBattle = FALSE,
 #line 15551
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36733,7 +36733,7 @@ F_TRAINER_FEMALE |
 #line 15564
         .doubleBattle = FALSE,
 #line 15565
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36766,7 +36766,7 @@ F_TRAINER_FEMALE |
 #line 15578
         .doubleBattle = FALSE,
 #line 15579
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36799,7 +36799,7 @@ F_TRAINER_FEMALE |
 #line 15592
         .doubleBattle = FALSE,
 #line 15593
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36832,7 +36832,7 @@ F_TRAINER_FEMALE |
 #line 15606
         .doubleBattle = FALSE,
 #line 15607
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36865,7 +36865,7 @@ F_TRAINER_FEMALE |
 #line 15620
         .doubleBattle = FALSE,
 #line 15621
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36898,7 +36898,7 @@ F_TRAINER_FEMALE |
 #line 15634
         .doubleBattle = FALSE,
 #line 15635
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36933,7 +36933,7 @@ F_TRAINER_FEMALE |
 #line 15648
         .doubleBattle = FALSE,
 #line 15649
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -36968,7 +36968,7 @@ F_TRAINER_FEMALE |
 #line 15662
         .doubleBattle = FALSE,
 #line 15663
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -37003,7 +37003,7 @@ F_TRAINER_FEMALE |
 #line 15676
         .doubleBattle = FALSE,
 #line 15677
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -37036,7 +37036,7 @@ F_TRAINER_FEMALE |
 #line 15690
         .doubleBattle = FALSE,
 #line 15691
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -37107,7 +37107,7 @@ F_TRAINER_FEMALE |
 #line 15719
         .doubleBattle = FALSE,
 #line 15720
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37152,7 +37152,7 @@ F_TRAINER_FEMALE |
 #line 15738
         .doubleBattle = FALSE,
 #line 15739
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -37209,7 +37209,7 @@ F_TRAINER_FEMALE |
 #line 15762
         .doubleBattle = FALSE,
 #line 15763
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -37244,7 +37244,7 @@ F_TRAINER_FEMALE |
 #line 15776
         .doubleBattle = FALSE,
 #line 15777
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -37277,7 +37277,7 @@ F_TRAINER_FEMALE |
 #line 15790
         .doubleBattle = FALSE,
 #line 15791
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37322,7 +37322,7 @@ F_TRAINER_FEMALE |
 #line 15809
         .doubleBattle = FALSE,
 #line 15810
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37367,7 +37367,7 @@ F_TRAINER_FEMALE |
 #line 15828
         .doubleBattle = FALSE,
 #line 15829
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -37400,7 +37400,7 @@ F_TRAINER_FEMALE |
 #line 15842
         .doubleBattle = FALSE,
 #line 15843
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -37459,7 +37459,7 @@ F_TRAINER_FEMALE |
 #line 15866
         .doubleBattle = FALSE,
 #line 15867
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -37516,7 +37516,7 @@ F_TRAINER_FEMALE |
 #line 15890
         .doubleBattle = FALSE,
 #line 15891
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37563,7 +37563,7 @@ F_TRAINER_FEMALE |
 #line 15909
         .doubleBattle = FALSE,
 #line 15910
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37608,7 +37608,7 @@ F_TRAINER_FEMALE |
 #line 15928
         .doubleBattle = FALSE,
 #line 15929
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37653,7 +37653,7 @@ F_TRAINER_FEMALE |
 #line 15947
         .doubleBattle = FALSE,
 #line 15948
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37698,7 +37698,7 @@ F_TRAINER_FEMALE |
 #line 15966
         .doubleBattle = FALSE,
 #line 15967
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37745,7 +37745,7 @@ F_TRAINER_FEMALE |
 #line 15985
         .doubleBattle = FALSE,
 #line 15986
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37792,7 +37792,7 @@ F_TRAINER_FEMALE |
 #line 16004
         .doubleBattle = FALSE,
 #line 16005
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37837,7 +37837,7 @@ F_TRAINER_FEMALE |
 #line 16023
         .doubleBattle = FALSE,
 #line 16024
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37884,7 +37884,7 @@ F_TRAINER_FEMALE |
 #line 16042
         .doubleBattle = FALSE,
 #line 16043
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37931,7 +37931,7 @@ F_TRAINER_FEMALE |
 #line 16061
         .doubleBattle = FALSE,
 #line 16062
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -37978,7 +37978,7 @@ F_TRAINER_FEMALE |
 #line 16080
         .doubleBattle = FALSE,
 #line 16081
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -38023,7 +38023,7 @@ F_TRAINER_FEMALE |
 #line 16099
         .doubleBattle = FALSE,
 #line 16100
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -38068,7 +38068,7 @@ F_TRAINER_FEMALE |
 #line 16118
         .doubleBattle = FALSE,
 #line 16119
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -38115,7 +38115,7 @@ F_TRAINER_FEMALE |
 #line 16137
         .doubleBattle = FALSE,
 #line 16138
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -38150,7 +38150,7 @@ F_TRAINER_FEMALE |
 #line 16151
         .doubleBattle = FALSE,
 #line 16152
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -38185,7 +38185,7 @@ F_TRAINER_FEMALE |
 #line 16165
         .doubleBattle = FALSE,
 #line 16166
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -38220,7 +38220,7 @@ F_TRAINER_FEMALE |
 #line 16179
         .doubleBattle = FALSE,
 #line 16180
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -38265,7 +38265,7 @@ F_TRAINER_FEMALE |
 #line 16198
         .doubleBattle = FALSE,
 #line 16199
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -38298,7 +38298,7 @@ F_TRAINER_FEMALE |
 #line 16212
         .doubleBattle = FALSE,
 #line 16213
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -38345,7 +38345,7 @@ F_TRAINER_FEMALE |
 #line 16231
         .doubleBattle = FALSE,
 #line 16232
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -38378,7 +38378,7 @@ F_TRAINER_FEMALE |
 #line 16245
         .doubleBattle = FALSE,
 #line 16246
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -38419,7 +38419,7 @@ F_TRAINER_FEMALE |
 #line 16262
         .doubleBattle = FALSE,
 #line 16263
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -38464,7 +38464,7 @@ F_TRAINER_FEMALE |
 #line 16281
         .doubleBattle = FALSE,
 #line 16282
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -38509,7 +38509,7 @@ F_TRAINER_FEMALE |
 #line 16300
         .doubleBattle = FALSE,
 #line 16301
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -38604,7 +38604,7 @@ F_TRAINER_FEMALE |
 #line 16339
         .doubleBattle = FALSE,
 #line 16340
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -38699,7 +38699,7 @@ F_TRAINER_FEMALE |
 #line 16378
         .doubleBattle = FALSE,
 #line 16379
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -38746,7 +38746,7 @@ F_TRAINER_FEMALE |
 #line 16397
         .doubleBattle = FALSE,
 #line 16398
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -38793,7 +38793,7 @@ F_TRAINER_FEMALE |
 #line 16416
         .doubleBattle = FALSE,
 #line 16417
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -38840,7 +38840,7 @@ F_TRAINER_FEMALE |
 #line 16435
         .doubleBattle = TRUE,
 #line 16436
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -38943,7 +38943,7 @@ F_TRAINER_FEMALE |
 #line 16480
         .doubleBattle = TRUE,
 #line 16481
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -39065,7 +39065,7 @@ F_TRAINER_FEMALE |
 #line 16534
         .doubleBattle = TRUE,
 #line 16535
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -39187,7 +39187,7 @@ F_TRAINER_FEMALE |
 #line 16588
         .doubleBattle = TRUE,
 #line 16589
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -39326,7 +39326,7 @@ F_TRAINER_FEMALE |
 #line 16651
         .doubleBattle = TRUE,
 #line 16652
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -39427,7 +39427,7 @@ F_TRAINER_FEMALE |
 #line 16696
         .doubleBattle = TRUE,
 #line 16697
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -39528,7 +39528,7 @@ F_TRAINER_FEMALE |
 #line 16741
         .doubleBattle = TRUE,
 #line 16742
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -39648,7 +39648,7 @@ F_TRAINER_FEMALE |
 #line 16795
         .doubleBattle = TRUE,
 #line 16796
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -39787,7 +39787,7 @@ F_TRAINER_FEMALE |
 #line 16858
         .doubleBattle = TRUE,
 #line 16859
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -39888,7 +39888,7 @@ F_TRAINER_FEMALE |
 #line 16903
         .doubleBattle = TRUE,
 #line 16904
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -40008,7 +40008,7 @@ F_TRAINER_FEMALE |
 #line 16957
         .doubleBattle = TRUE,
 #line 16958
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -40128,7 +40128,7 @@ F_TRAINER_FEMALE |
 #line 17011
         .doubleBattle = TRUE,
 #line 17012
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -40269,7 +40269,7 @@ F_TRAINER_FEMALE |
 #line 17074
         .doubleBattle = TRUE,
 #line 17075
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -40374,7 +40374,7 @@ F_TRAINER_FEMALE |
 #line 17119
         .doubleBattle = TRUE,
 #line 17120
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -40498,7 +40498,7 @@ F_TRAINER_FEMALE |
 #line 17173
         .doubleBattle = TRUE,
 #line 17174
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -40641,7 +40641,7 @@ F_TRAINER_FEMALE |
 #line 17236
         .doubleBattle = TRUE,
 #line 17237
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -40782,7 +40782,7 @@ F_TRAINER_FEMALE |
 #line 17299
         .doubleBattle = TRUE,
 #line 17300
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -40883,7 +40883,7 @@ F_TRAINER_FEMALE |
 #line 17344
         .doubleBattle = TRUE,
 #line 17345
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -41003,7 +41003,7 @@ F_TRAINER_FEMALE |
 #line 17398
         .doubleBattle = TRUE,
 #line 17399
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -41123,7 +41123,7 @@ F_TRAINER_FEMALE |
 #line 17452
         .doubleBattle = TRUE,
 #line 17453
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -41264,7 +41264,7 @@ F_TRAINER_FEMALE |
 #line 17515
         .doubleBattle = TRUE,
 #line 17516
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -41386,7 +41386,7 @@ F_TRAINER_FEMALE |
 #line 17569
         .doubleBattle = TRUE,
 #line 17570
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -41527,7 +41527,7 @@ F_TRAINER_FEMALE |
 #line 17632
         .doubleBattle = TRUE,
 #line 17633
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -41668,7 +41668,7 @@ F_TRAINER_FEMALE |
 #line 17695
         .doubleBattle = TRUE,
 #line 17696
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -41807,7 +41807,7 @@ F_TRAINER_FEMALE |
 #line 17758
         .doubleBattle = TRUE,
 #line 17759
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -41929,7 +41929,7 @@ F_TRAINER_FEMALE |
 #line 17812
         .doubleBattle = TRUE,
 #line 17813
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -42070,7 +42070,7 @@ F_TRAINER_FEMALE |
 #line 17875
         .doubleBattle = TRUE,
 #line 17876
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -42211,7 +42211,7 @@ F_TRAINER_FEMALE |
 #line 17938
         .doubleBattle = TRUE,
 #line 17939
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -42352,7 +42352,7 @@ F_TRAINER_FEMALE |
 #line 18001
         .doubleBattle = TRUE,
 #line 18002
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -42472,7 +42472,7 @@ F_TRAINER_FEMALE |
 #line 18055
         .doubleBattle = TRUE,
 #line 18056
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -42592,7 +42592,7 @@ F_TRAINER_FEMALE |
 #line 18109
         .doubleBattle = TRUE,
 #line 18110
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -42731,7 +42731,7 @@ F_TRAINER_FEMALE |
 #line 18172
         .doubleBattle = TRUE,
 #line 18173
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -42870,7 +42870,7 @@ F_TRAINER_FEMALE |
 #line 18235
         .doubleBattle = FALSE,
 #line 18236
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -42927,7 +42927,7 @@ F_TRAINER_FEMALE |
 #line 18260
         .doubleBattle = FALSE,
 #line 18261
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -42960,7 +42960,7 @@ F_TRAINER_FEMALE |
 #line 18274
         .doubleBattle = FALSE,
 #line 18275
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -43099,7 +43099,7 @@ F_TRAINER_FEMALE |
 #line 18337
         .doubleBattle = FALSE,
 #line 18338
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -43132,7 +43132,7 @@ F_TRAINER_FEMALE |
 #line 18351
         .doubleBattle = FALSE,
 #line 18352
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -43165,7 +43165,7 @@ F_TRAINER_FEMALE |
 #line 18365
         .doubleBattle = FALSE,
 #line 18366
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -43200,7 +43200,7 @@ F_TRAINER_FEMALE |
 #line 18379
         .doubleBattle = FALSE,
 #line 18380
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -43233,7 +43233,7 @@ F_TRAINER_FEMALE |
 #line 18393
         .doubleBattle = FALSE,
 #line 18394
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -43268,7 +43268,7 @@ F_TRAINER_FEMALE |
 #line 18407
         .doubleBattle = FALSE,
 #line 18408
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -43301,7 +43301,7 @@ F_TRAINER_FEMALE |
 #line 18421
         .doubleBattle = FALSE,
 #line 18422
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -43334,7 +43334,7 @@ F_TRAINER_FEMALE |
 #line 18435
         .doubleBattle = FALSE,
 #line 18436
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -43379,7 +43379,7 @@ F_TRAINER_FEMALE |
 #line 18454
         .doubleBattle = FALSE,
 #line 18455
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -43436,7 +43436,7 @@ F_TRAINER_FEMALE |
 #line 18478
         .doubleBattle = FALSE,
 #line 18479
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -43493,7 +43493,7 @@ F_TRAINER_FEMALE |
 #line 18502
         .doubleBattle = FALSE,
 #line 18503
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -43550,7 +43550,7 @@ F_TRAINER_FEMALE |
 #line 18526
         .doubleBattle = FALSE,
 #line 18527
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -43607,7 +43607,7 @@ F_TRAINER_FEMALE |
 #line 18550
         .doubleBattle = FALSE,
 #line 18551
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -43664,7 +43664,7 @@ F_TRAINER_FEMALE |
 #line 18574
         .doubleBattle = FALSE,
 #line 18575
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -43721,7 +43721,7 @@ F_TRAINER_FEMALE |
 #line 18598
         .doubleBattle = FALSE,
 #line 18599
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -43778,7 +43778,7 @@ F_TRAINER_FEMALE |
 #line 18622
         .doubleBattle = FALSE,
 #line 18623
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -43823,7 +43823,7 @@ F_TRAINER_FEMALE |
 #line 18641
         .doubleBattle = FALSE,
 #line 18642
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -43880,7 +43880,7 @@ F_TRAINER_FEMALE |
 #line 18665
         .doubleBattle = FALSE,
 #line 18666
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -43937,7 +43937,7 @@ F_TRAINER_FEMALE |
 #line 18689
         .doubleBattle = FALSE,
 #line 18690
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -43994,7 +43994,7 @@ F_TRAINER_FEMALE |
 #line 18713
         .doubleBattle = FALSE,
 #line 18714
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -44039,7 +44039,7 @@ F_TRAINER_FEMALE |
 #line 18732
         .doubleBattle = FALSE,
 #line 18733
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44096,7 +44096,7 @@ F_TRAINER_FEMALE |
 #line 18756
         .doubleBattle = FALSE,
 #line 18757
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44153,7 +44153,7 @@ F_TRAINER_FEMALE |
 #line 18780
         .doubleBattle = FALSE,
 #line 18781
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44212,7 +44212,7 @@ F_TRAINER_FEMALE |
 #line 18804
         .doubleBattle = FALSE,
 #line 18805
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -44259,7 +44259,7 @@ F_TRAINER_FEMALE |
 #line 18823
         .doubleBattle = FALSE,
 #line 18824
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44318,7 +44318,7 @@ F_TRAINER_FEMALE |
 #line 18847
         .doubleBattle = FALSE,
 #line 18848
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44377,7 +44377,7 @@ F_TRAINER_FEMALE |
 #line 18871
         .doubleBattle = FALSE,
 #line 18872
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44434,7 +44434,7 @@ F_TRAINER_FEMALE |
 #line 18895
         .doubleBattle = FALSE,
 #line 18896
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44491,7 +44491,7 @@ F_TRAINER_FEMALE |
 #line 18919
         .doubleBattle = FALSE,
 #line 18920
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44548,7 +44548,7 @@ F_TRAINER_FEMALE |
 #line 18943
         .doubleBattle = FALSE,
 #line 18944
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44605,7 +44605,7 @@ F_TRAINER_FEMALE |
 #line 18967
         .doubleBattle = FALSE,
 #line 18968
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44662,7 +44662,7 @@ F_TRAINER_FEMALE |
 #line 18991
         .doubleBattle = FALSE,
 #line 18992
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -44707,7 +44707,7 @@ F_TRAINER_FEMALE |
 #line 19010
         .doubleBattle = FALSE,
 #line 19011
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44764,7 +44764,7 @@ F_TRAINER_FEMALE |
 #line 19034
         .doubleBattle = FALSE,
 #line 19035
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44821,7 +44821,7 @@ F_TRAINER_FEMALE |
 #line 19058
         .doubleBattle = FALSE,
 #line 19059
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -44880,7 +44880,7 @@ F_TRAINER_FEMALE |
 #line 19082
         .doubleBattle = FALSE,
 #line 19083
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -44975,7 +44975,7 @@ F_TRAINER_FEMALE |
 #line 19121
         .doubleBattle = FALSE,
 #line 19122
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -45070,7 +45070,7 @@ F_TRAINER_FEMALE |
 #line 19160
         .doubleBattle = FALSE,
 #line 19161
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -45165,7 +45165,7 @@ F_TRAINER_FEMALE |
 #line 19199
         .doubleBattle = FALSE,
 #line 19200
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -45260,7 +45260,7 @@ F_TRAINER_FEMALE |
 #line 19238
         .doubleBattle = FALSE,
 #line 19239
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -45307,7 +45307,7 @@ F_TRAINER_FEMALE |
 #line 19257
         .doubleBattle = FALSE,
 #line 19258
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -45366,7 +45366,7 @@ F_TRAINER_FEMALE |
 #line 19281
         .doubleBattle = FALSE,
 #line 19282
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -45425,7 +45425,7 @@ F_TRAINER_FEMALE |
 #line 19305
         .doubleBattle = FALSE,
 #line 19306
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -45484,7 +45484,7 @@ F_TRAINER_FEMALE |
 #line 19329
         .doubleBattle = FALSE,
 #line 19330
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -45517,7 +45517,7 @@ F_TRAINER_FEMALE |
 #line 19343
         .doubleBattle = FALSE,
 #line 19344
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -45562,7 +45562,7 @@ F_TRAINER_FEMALE |
 #line 19362
         .doubleBattle = FALSE,
 #line 19363
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -45723,7 +45723,7 @@ F_TRAINER_FEMALE |
 #line 19428
         .doubleBattle = FALSE,
 #line 19429
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -45860,7 +45860,7 @@ F_TRAINER_FEMALE |
 #line 19486
         .doubleBattle = FALSE,
 #line 19487
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -45996,7 +45996,7 @@ F_TRAINER_FEMALE |
 #line 19545
         .doubleBattle = FALSE,
 #line 19546
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -46132,7 +46132,7 @@ F_TRAINER_FEMALE |
 #line 19604
         .doubleBattle = FALSE,
 #line 19605
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -46179,7 +46179,7 @@ F_TRAINER_FEMALE |
 #line 19623
         .doubleBattle = FALSE,
 #line 19624
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -46246,7 +46246,7 @@ F_TRAINER_FEMALE |
 #line 19652
         .doubleBattle = FALSE,
 #line 19653
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -46382,7 +46382,7 @@ F_TRAINER_FEMALE |
 #line 19711
         .doubleBattle = FALSE,
 #line 19712
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -46474,7 +46474,7 @@ F_TRAINER_FEMALE |
 #line 19750
         .doubleBattle = FALSE,
 #line 19751
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -46564,7 +46564,7 @@ F_TRAINER_FEMALE |
 #line 19789
         .doubleBattle = FALSE,
 #line 19790
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -46631,7 +46631,7 @@ F_TRAINER_FEMALE |
 #line 19818
         .doubleBattle = FALSE,
 #line 19819
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -46723,7 +46723,7 @@ F_TRAINER_FEMALE |
 #line 19857
         .doubleBattle = FALSE,
 #line 19858
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -46813,7 +46813,7 @@ F_TRAINER_FEMALE |
 #line 19896
         .doubleBattle = FALSE,
 #line 19897
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -46903,7 +46903,7 @@ F_TRAINER_FEMALE |
 #line 19935
         .doubleBattle = FALSE,
 #line 19936
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -46995,7 +46995,7 @@ F_TRAINER_FEMALE |
 #line 19974
         .doubleBattle = FALSE,
 #line 19975
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -47085,7 +47085,7 @@ F_TRAINER_FEMALE |
 #line 20013
         .doubleBattle = FALSE,
 #line 20014
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -47175,7 +47175,7 @@ F_TRAINER_FEMALE |
 #line 20052
         .doubleBattle = TRUE,
 #line 20053
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -47311,7 +47311,7 @@ F_TRAINER_FEMALE |
 #line 20111
         .doubleBattle = FALSE,
 #line 20112
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -47447,7 +47447,7 @@ F_TRAINER_FEMALE |
 #line 20170
         .doubleBattle = FALSE,
 #line 20171
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -47583,7 +47583,7 @@ F_TRAINER_FEMALE |
 #line 20229
         .doubleBattle = FALSE,
 #line 20230
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -47719,7 +47719,7 @@ F_TRAINER_FEMALE |
 #line 20288
         .doubleBattle = FALSE,
 #line 20289
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -47878,7 +47878,7 @@ F_TRAINER_FEMALE |
 #line 20357
         .doubleBattle = FALSE,
 #line 20358
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -48037,7 +48037,7 @@ F_TRAINER_FEMALE |
 #line 20426
         .doubleBattle = FALSE,
 #line 20427
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -48198,7 +48198,7 @@ F_TRAINER_FEMALE |
 #line 20495
         .doubleBattle = FALSE,
 #line 20496
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -48359,7 +48359,7 @@ F_TRAINER_FEMALE |
 #line 20564
         .doubleBattle = FALSE,
 #line 20565
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -48520,7 +48520,7 @@ F_TRAINER_FEMALE |
 #line 20633
         .doubleBattle = FALSE,
 #line 20634
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -48679,7 +48679,7 @@ F_TRAINER_FEMALE |
 #line 20702
         .doubleBattle = FALSE,
 #line 20703
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -48815,7 +48815,7 @@ F_TRAINER_FEMALE |
 #line 20761
         .doubleBattle = FALSE,
 #line 20762
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -48872,7 +48872,7 @@ F_TRAINER_FEMALE |
 #line 20785
         .doubleBattle = FALSE,
 #line 20786
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -49031,7 +49031,7 @@ F_TRAINER_FEMALE |
 #line 20852
         .doubleBattle = FALSE,
 #line 20853
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -49144,7 +49144,7 @@ F_TRAINER_FEMALE |
 #line 20901
         .doubleBattle = FALSE,
 #line 20902
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -49282,7 +49282,7 @@ F_TRAINER_FEMALE |
 #line 20960
         .doubleBattle = FALSE,
 #line 20961
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -49418,7 +49418,7 @@ F_TRAINER_FEMALE |
 #line 21019
         .doubleBattle = FALSE,
 #line 21020
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -49487,7 +49487,7 @@ F_TRAINER_FEMALE |
 #line 21048
         .doubleBattle = FALSE,
 #line 21049
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -49579,7 +49579,7 @@ F_TRAINER_FEMALE |
 #line 21087
         .doubleBattle = FALSE,
 #line 21088
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -49646,7 +49646,7 @@ F_TRAINER_FEMALE |
 #line 21116
         .doubleBattle = FALSE,
 #line 21117
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -49715,7 +49715,7 @@ F_TRAINER_FEMALE |
 #line 21145
         .doubleBattle = FALSE,
 #line 21146
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -49782,7 +49782,7 @@ F_TRAINER_FEMALE |
 #line 21174
         .doubleBattle = FALSE,
 #line 21175
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -49874,7 +49874,7 @@ F_TRAINER_FEMALE |
 #line 21213
         .doubleBattle = FALSE,
 #line 21214
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -49941,7 +49941,7 @@ F_TRAINER_FEMALE |
 #line 21242
         .doubleBattle = FALSE,
 #line 21243
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -50100,7 +50100,7 @@ F_TRAINER_FEMALE |
 #line 21311
         .doubleBattle = FALSE,
 #line 21312
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -50238,7 +50238,7 @@ F_TRAINER_FEMALE |
 #line 21370
         .doubleBattle = FALSE,
 #line 21371
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -50374,7 +50374,7 @@ F_TRAINER_FEMALE |
 #line 21429
         .doubleBattle = FALSE,
 #line 21430
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -50510,7 +50510,7 @@ F_TRAINER_FEMALE |
 #line 21486
         .doubleBattle = FALSE,
 #line 21487
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER | AI_FLAG_RISKY,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -50646,7 +50646,7 @@ F_TRAINER_FEMALE |
 #line 21545
         .doubleBattle = FALSE,
 #line 21546
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -50807,7 +50807,7 @@ F_TRAINER_FEMALE |
 #line 21614
         .doubleBattle = FALSE,
 #line 21615
-        .aiFlags = AI_FLAG_SMART_TRAINER,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {

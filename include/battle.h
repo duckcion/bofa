@@ -122,6 +122,7 @@ struct DisableStruct
     u8 battlerPreventingEscape;
     u8 battlerWithSureHit;
     u8 isFirstTurn;
+    u8 bofaTurnsOnField; // BOFA: turns this battler has been in (Gen 4 AI)
     u8 mimickedMoves:4;
     u8 chargeTimer:4;
     u8 rechargeTimer;
