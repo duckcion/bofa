@@ -417,11 +417,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FIELD),
-    #if P_UPDATED_ABILITIES >= GEN_9
         .abilities = { ABILITY_TORRENT, ABILITY_TORRENT, ABILITY_COMPETITIVE },
-    #else
-        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_DEFIANT },
-    #endif
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Piplup"),
         .cryId = CRY_PIPLUP,
@@ -484,11 +480,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FIELD),
-    #if P_UPDATED_ABILITIES >= GEN_9
         .abilities = { ABILITY_SWIFT_SWIM, ABILITY_TORRENT, ABILITY_COMPETITIVE },
-    #else
-        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_DEFIANT },
-    #endif
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Prinplup"),
         .cryId = CRY_PRINPLUP,
@@ -556,11 +548,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FIELD),
-    #if P_UPDATED_ABILITIES >= GEN_9
         .abilities = { ABILITY_SWIFT_SWIM, ABILITY_TORRENT, ABILITY_COMPETITIVE },
-    #else
-        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_DEFIANT },
-    #endif
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Empoleon"),
         .cryId = CRY_EMPOLEON,
@@ -5178,7 +5166,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             gOverworldPalette_RotomHeat,
             gShinyOverworldPalette_RotomHeat
         )
-        .levelUpLearnset = sRotomLevelUpLearnset,
+        .levelUpLearnset = sRotomHeatLevelUpLearnset,
         .teachableLearnset = sRotomTeachableLearnset,
         .formSpeciesIdTable = sRotomFormSpeciesIdTable,
         .formChangeTable = sRotomFormChangeTable,
@@ -5244,7 +5232,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             gOverworldPalette_RotomWash,
             gShinyOverworldPalette_RotomWash
         )
-        .levelUpLearnset = sRotomLevelUpLearnset,
+        .levelUpLearnset = sRotomWashLevelUpLearnset,
         .teachableLearnset = sRotomTeachableLearnset,
         .formSpeciesIdTable = sRotomFormSpeciesIdTable,
         .formChangeTable = sRotomFormChangeTable,
@@ -5309,7 +5297,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             gOverworldPalette_RotomFrost,
             gShinyOverworldPalette_RotomFrost
         )
-        .levelUpLearnset = sRotomLevelUpLearnset,
+        .levelUpLearnset = sRotomFrostLevelUpLearnset,
         .teachableLearnset = sRotomTeachableLearnset,
         .formSpeciesIdTable = sRotomFormSpeciesIdTable,
         .formChangeTable = sRotomFormChangeTable,
@@ -5375,7 +5363,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             gOverworldPalette_RotomFan,
             gShinyOverworldPalette_RotomFan
         )
-        .levelUpLearnset = sRotomLevelUpLearnset,
+        .levelUpLearnset = sRotomFanLevelUpLearnset,
         .teachableLearnset = sRotomTeachableLearnset,
         .formSpeciesIdTable = sRotomFormSpeciesIdTable,
         .formChangeTable = sRotomFormChangeTable,
@@ -5440,7 +5428,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             gOverworldPalette_RotomMow,
             gShinyOverworldPalette_RotomMow
         )
-        .levelUpLearnset = sRotomLevelUpLearnset,
+        .levelUpLearnset = sRotomMowLevelUpLearnset,
         .teachableLearnset = sRotomTeachableLearnset,
         .formSpeciesIdTable = sRotomFormSpeciesIdTable,
         .formChangeTable = sRotomFormChangeTable,

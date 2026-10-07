@@ -9052,7 +9052,7 @@ Level: 31
 Ability: Moxie
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
-- Work Up
+- Pursuit
 - Drain Punch
 - Crunch
 - Ice Punch
@@ -12139,7 +12139,7 @@ Ability: Sand Veil
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
 - Needle Arm
-- Feint Attack
+- Pursuit
 - Sucker Punch
 - Leech Seed
 
@@ -12272,7 +12272,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Jolly
 - Mach Punch
 - Ice Punch
-- Thunder Punch
+- Pursuit
 - Fire Punch
 
 Clefable @ Chesto Berry
@@ -20208,7 +20208,7 @@ Nature: Mild
 - Ember
 - Bite
 - Smog
-- Howl
+- Pursuit
 
 Sandile @ Soft Sand
 Level: 9
@@ -20277,7 +20277,7 @@ Nature: Adamant
 - Aqua Jet
 - Bite
 - Ice Fang
-- Protect
+- Rage
 
 === TRAINER_BRENDAN_PETALBURG_TREECKO ===
 Name: BRENDAN
@@ -20949,7 +20949,7 @@ Nature: Adamant
 - Wing Attack
 - Night Slash
 - Sucker Punch
-- Confuse Ray
+- Pursuit
 
 === TRAINER_ROUTE104_AROMA_LADY ===
 Name: FLORA
@@ -21249,7 +21249,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 Nature: Adamant
 - Crunch
 - Rock Smash
-- Swagger
+- Pursuit
 - Roar
 
 Vullaby @ Eviolite
@@ -21447,7 +21447,7 @@ Nature: Jolly
 - Earthquake
 - Rock Slide
 - Sucker Punch
-- Aerial Ace
+- Pursuit
 
 Wobbuffet @ Leftovers
 Level: 27

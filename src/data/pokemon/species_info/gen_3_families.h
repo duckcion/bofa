@@ -2027,11 +2027,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_GRASS),
-    #if P_UPDATED_ABILITIES >= GEN_9
         .abilities = { ABILITY_CHLOROPHYLL, ABILITY_CHLOROPHYLL, ABILITY_PICKPOCKET },
-    #else
-        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_EARLY_BIRD, ABILITY_PICKPOCKET },
-    #endif
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Shiftry"),
         .cryId = CRY_SHIFTRY,
@@ -2239,11 +2235,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FLYING),
-    #if P_UPDATED_ABILITIES >= GEN_7
         .abilities = { ABILITY_GLUTTONY, ABILITY_NONE, ABILITY_RAIN_DISH },
-    #else
-        .abilities = { ABILITY_KEEN_EYE, ABILITY_NONE, ABILITY_RAIN_DISH },
-    #endif
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Wingull"),
         .cryId = CRY_WINGULL,
@@ -2314,11 +2306,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FLYING),
-    #if P_UPDATED_ABILITIES >= GEN_7
         .abilities = { ABILITY_UNBURDEN, ABILITY_NONE, ABILITY_RAIN_DISH },
-    #else
-        .abilities = { ABILITY_KEEN_EYE, ABILITY_NONE, ABILITY_RAIN_DISH },
-    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Pelipper"),
         .cryId = CRY_PELIPPER,
@@ -2650,11 +2638,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = 35,
         .growthRate = GROWTH_SLOW,
         .eggGroups = RALTS_FAMILY_EGG_GROUPS,
-    #if P_UPDATED_ABILITIES >= GEN_9
         .abilities = { ABILITY_HYPER_CUTTER, ABILITY_STEADFAST, ABILITY_JUSTIFIED },
-    #else
-        .abilities = { ABILITY_STEADFAST, ABILITY_NONE, ABILITY_JUSTIFIED },
-    #endif
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Gallade"),
         .cryId = CRY_GALLADE,
@@ -6158,11 +6142,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-    #if P_UPDATED_ABILITIES >= GEN_7
         .abilities = { ABILITY_WHITE_SMOKE, ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR },
-    #else
-        .abilities = { ABILITY_WHITE_SMOKE, ABILITY_NONE, ABILITY_SHELL_ARMOR },
-    #endif
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Torkoal"),
         .cryId = CRY_TORKOAL,

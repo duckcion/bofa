@@ -2158,11 +2158,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
-    #if P_UPDATED_ABILITIES >= GEN_7
         .abilities = { ABILITY_STURDY, ABILITY_STURDY, ABILITY_SOLID_ROCK },
-    #else
-        .abilities = { ABILITY_STURDY, ABILITY_NONE, ABILITY_SAND_FORCE },
-    #endif
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Gigalith"),
         .cryId = CRY_GIGALITH,
@@ -6884,11 +6880,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
-    #if P_UPDATED_ABILITIES >= GEN_7
         .abilities = { ABILITY_ICE_BODY, ABILITY_ICE_BODY, ABILITY_SLUSH_RUSH },
-    #else
-        .abilities = { ABILITY_ICE_BODY, ABILITY_NONE, ABILITY_WEAK_ARMOR },
-    #endif
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Vanilluxe"),
         .cryId = CRY_VANILLUXE,

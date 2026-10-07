@@ -21270,7 +21270,7 @@ F_TRAINER_FEMALE |
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 9055
-                MOVE_WORK_UP,
+                MOVE_PURSUIT,
                 MOVE_DRAIN_PUNCH,
                 MOVE_CRUNCH,
                 MOVE_ICE_PUNCH,
@@ -28682,7 +28682,7 @@ F_TRAINER_FEMALE |
             .moves = {
 #line 12141
                 MOVE_NEEDLE_ARM,
-                MOVE_FEINT_ATTACK,
+                MOVE_PURSUIT,
                 MOVE_SUCKER_PUNCH,
                 MOVE_LEECH_SEED,
             },
@@ -28990,7 +28990,7 @@ F_TRAINER_FEMALE |
 #line 12273
                 MOVE_MACH_PUNCH,
                 MOVE_ICE_PUNCH,
-                MOVE_THUNDER_PUNCH,
+                MOVE_PURSUIT,
                 MOVE_FIRE_PUNCH,
             },
             },
@@ -47540,7 +47540,7 @@ F_TRAINER_FEMALE |
                 MOVE_EMBER,
                 MOVE_BITE,
                 MOVE_SMOG,
-                MOVE_HOWL,
+                MOVE_PURSUIT,
             },
             },
             {
@@ -47699,7 +47699,7 @@ F_TRAINER_FEMALE |
                 MOVE_AQUA_JET,
                 MOVE_BITE,
                 MOVE_ICE_FANG,
-                MOVE_PROTECT,
+                MOVE_RAGE,
             },
             },
         },
@@ -49260,7 +49260,7 @@ F_TRAINER_FEMALE |
                 MOVE_WING_ATTACK,
                 MOVE_NIGHT_SLASH,
                 MOVE_SUCKER_PUNCH,
-                MOVE_CONFUSE_RAY,
+                MOVE_PURSUIT,
             },
             },
         },
@@ -49964,7 +49964,7 @@ F_TRAINER_FEMALE |
 #line 21250
                 MOVE_CRUNCH,
                 MOVE_ROCK_SMASH,
-                MOVE_SWAGGER,
+                MOVE_PURSUIT,
                 MOVE_ROAR,
             },
             },
@@ -50421,7 +50421,7 @@ F_TRAINER_FEMALE |
                 MOVE_EARTHQUAKE,
                 MOVE_ROCK_SLIDE,
                 MOVE_SUCKER_PUNCH,
-                MOVE_AERIAL_ACE,
+                MOVE_PURSUIT,
             },
             },
             {

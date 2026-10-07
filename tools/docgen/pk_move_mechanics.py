@@ -108,6 +108,8 @@ S = {
                       desc=["Restores up to", "half of the user's", "max HP."]),
  "CRUSH_GRIP":   dict(set={"effect": "EFFECT_HIT"}, add=[(WRAP, 0)], desc=["Crushes the foe", "and traps it for", "several turns."]),
  "VOLT_TACKLE":  dict(add=[(PARA, 30)]),
+ # PK-added moves that already exist in the engine (PK replaced old moves with them)
+ "WILD_CHARGE":  dict(set={"recoil": "33"}, add=[(PARA, 20)], desc=["Charges in. May paralyze.", "User takes recoil."]),
  "CHATTER":      dict(set={"target": "MOVE_TARGET_FOES_AND_ALLY"}, add=[(CONF, 50)]),
  "GRAVITY":      dict(desc=["Gravity lasts the", "whole battle.", "Nothing can fly."]),
  "TRICK_ROOM":   dict(desc=["Slower Pokemon", "move first for", "the whole battle."]),
@@ -115,10 +117,12 @@ S = {
 # plain effect-chance / target changes from the sheet (effect itself unchanged)
 CHANCE = {"TWINEEDLE": 30, "BLIZZARD": 20, "CONFUSION": 30, "SMOG": 50, "BUBBLE": 20, "DIZZY_PUNCH": 50,
           "HYPER_FANG": 30, "TRI_ATTACK": 30, "BLAZE_KICK": 20, "POISON_FANG": 40,
-          "DRAGON_RUSH": 30, "ROCK_CLIMB": 30, "CROSS_POISON": 20, "CHARGE_BEAM": 100, "SEED_FLARE": 50}
+          "DRAGON_RUSH": 30, "ROCK_CLIMB": 30, "CROSS_POISON": 20, "CHARGE_BEAM": 100, "SEED_FLARE": 50,
+          "HURRICANE": 10}
 TARGET = {"SING": "MOVE_TARGET_FOES_AND_ALLY", "SUPERSONIC": "MOVE_TARGET_BOTH", "SCREECH": "MOVE_TARGET_BOTH",
           "SMOKESCREEN": "MOVE_TARGET_FOES_AND_ALLY", "SMOG": "MOVE_TARGET_BOTH", "SPIDER_WEB": "MOVE_TARGET_BOTH",
-          "ATTRACT": "MOVE_TARGET_BOTH", "METAL_SOUND": "MOVE_TARGET_BOTH", "ROAR_OF_TIME": "MOVE_TARGET_BOTH"}
+          "ATTRACT": "MOVE_TARGET_BOTH", "METAL_SOUND": "MOVE_TARGET_BOTH", "ROAR_OF_TIME": "MOVE_TARGET_BOTH",
+          "AQUA_CUTTER": "MOVE_TARGET_BOTH"}
 SETS = {"WILL_O_WISP": {"accuracy": "85"}}
 
 FIELD_ORDER_ANCHOR = "category"   # new single-line fields go right after .category

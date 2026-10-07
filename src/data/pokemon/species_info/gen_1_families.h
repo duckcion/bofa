@@ -5878,7 +5878,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     #define DUGTRIO_EXP_YIELD 153
 #endif
 
-#define DUGTRIO_ATTACK (P_UPDATED_STATS >= GEN_7 ? 114 : 80)
+#define DUGTRIO_ATTACK 114 // BOFA
 
     [SPECIES_DIGLETT] =
     {
@@ -10744,11 +10744,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
                                 {EVO_ITEM, ITEM_LINKING_CORD, SPECIES_GENGAR}),
     },
 
-#if P_UPDATED_ABILITIES >= GEN_7
 #define GENGAR_ABILITIES {ABILITY_SHADOW_TAG, ABILITY_NONE, ABILITY_NONE}
-#else
-#define GENGAR_ABILITIES {ABILITY_SHADOW_TAG, ABILITY_NONE, ABILITY_NONE}
-#endif
 
     [SPECIES_GENGAR] =
     {
@@ -12622,11 +12618,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
-    #if P_UPDATED_ABILITIES >= GEN_8
         .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_STENCH },
-    #else
-        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },
-    #endif
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Koffing"),
         .cryId = CRY_KOFFING,
@@ -12692,11 +12684,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
-    #if P_UPDATED_ABILITIES >= GEN_8
         .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_STENCH },
-    #else
-        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },
-    #endif
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = TRUE,
         .speciesName = _("Weezing"),

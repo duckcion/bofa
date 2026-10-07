@@ -13086,13 +13086,13 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = COMPOUND_STRING("Wild Charge"),
         .description = COMPOUND_STRING(
-            "An electrical tackle that\n"
-            "also hurts the user."),
+            "Charges in. May paralyze.\n"
+            "User takes recoil."),
         .effect = EFFECT_HIT,
         .power = 120,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
-        .recoil = 25,
+        .recoil = 33,
         .pp = 20,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -13103,6 +13103,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_WildCharge,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_PARALYSIS,
+            .chance = 20,
+        }),
     },
 
     [MOVE_DRILL_RUN] =
@@ -13431,7 +13435,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .damagesAirborne = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_CONFUSION,
-            .chance = 30,
+            .chance = 10,
         }),
         .contestEffect = CONTEST_EFFECT_STARTLE_PREV_MONS,
         .contestCategory = CONTEST_CATEGORY_COOL,
@@ -20091,7 +20095,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .accuracy = 100,
         .criticalHitStage = 1,
         .pp = 15,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .slicingMove = TRUE,
@@ -20662,6 +20666,26 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             .sheerForceBoost = SHEER_FORCE_BOOST,
         }),
         .battleAnimScript = gBattleAnimMove_MalignantChain,
+    },
+    [MOVE_WATER_BALL] =
+    {
+        .name = COMPOUND_STRING("Water Ball"),
+        .description = COMPOUND_STRING(
+            "Hurls a ball of water with\n"
+            "no added effect."),
+        .effect = EFFECT_HIT,
+        .power = 100,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 15,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .contestEffect = CONTEST_EFFECT_BETTER_IF_LAST,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_WaterPulse,
     },
 
     // Z-Moves
