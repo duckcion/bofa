@@ -30,10 +30,10 @@ SPLIT1_TRAINERS = [
     # 9-11 Trainer Grove (gated until Norman gives the quest)
     {"order": 9, "from_id": "TRAINER_TRAINERGROVET1", "loc": "TrainerGrove", "status": "REQUIRED",
      "note": "Hiker Rocco. Nidoran-M intentionally has three moves (no Focus Energy)."},
-    {"order": 10, "from_id": "TRAINER_TRAINERGROVET3", "loc": "TrainerGrove", "status": "REQUIRED",
-     "note": "Camper Grant."},
-    {"order": 11, "from_id": "TRAINER_TRAINERGROVET2", "loc": "TrainerGrove", "status": "REQUIRED",
+    {"order": 10, "from_id": "TRAINER_TRAINERGROVET2", "loc": "TrainerGrove", "status": "REQUIRED",
      "note": "Picnicker Maisie, Gen 5 specialist."},
+    {"order": 11, "from_id": "TRAINER_TRAINERGROVET3", "loc": "TrainerGrove", "status": "REQUIRED",
+     "note": "Camper Grant."},
     # 12 Rival at the gym entrance (6 variants)
     *[{"order": 12, "from_id": f"TRAINER_{r}_PETALBURG_{s}", "loc": "PetalburgCity_GymEntrance",
        "status": "REQUIRED", "note": f"{_RIVAL_NOTE} This one: player chose {s.title()}."}
@@ -213,7 +213,7 @@ REMOVED_FROM_MAP = ["TRAINER_LYLE", "TRAINER_IVAN", "TRAINER_JOEY", "TRAINER_JOS
 # Play order for the Split 2 trainer sheet (trainer ID -> position); others follow by location.
 SPLIT2_ORDER = {
     "TRAINER_JAMES_1": 1, "TRAINER_GRUNT_PETALBURG_WOODS": 2, "TRAINER_GRUNT_PETALBURG_WOODS_2": 3,
-    "TRAINER_GRUNT_PETALBURG_WOODS_3": 4, "TRAINER_WINSTON_1": 5, "TRAINER_ROUTE104_AROMA_LADY": 6,
+    "TRAINER_GRUNT_PETALBURG_WOODS_3": 4, "TRAINER_ROUTE104_AROMA_LADY": 5, "TRAINER_WINSTON_1": 6,
     "TRAINER_GINA_AND_MIA_1": 7, "TRAINER_HALEY_1": 8,
     "TRAINER_CLARK": 9, "TRAINER_ROUTE116_ETHAN": 10, "TRAINER_ROUTE116_DIANA": 11, "TRAINER_ROUTE116_CHLOE": 12,
     "TRAINER_ROUTE116_PRESTON": 13, "TRAINER_ROUTE116_TASHA": 14, "TRAINER_ROUTE116_COLE": 15,
@@ -275,8 +275,8 @@ FIGHT_ORDER = {
         ("TRAINER_GRUNT_ROUTE_104_AQUA", "Route104", "REQUIRED", "Single", "Route 104 South"),
         ("TRAINER_GRUNT_ROUTE_104_MAGMA", "Route104", "REQUIRED", "Single", "Route 104 South"),
         ("TRAINER_TRAINERGROVET1", "TrainerGrove", "REQUIRED", "Single", None),
-        ("TRAINER_TRAINERGROVET3", "TrainerGrove", "REQUIRED", "Single", None),
         ("TRAINER_TRAINERGROVET2", "TrainerGrove", "REQUIRED", "Single", None),
+        ("TRAINER_TRAINERGROVET3", "TrainerGrove", "REQUIRED", "Single", None),
         ("TRAINER_VIRIDIAN_FOREST_1", "ViridianForest", "Opt-in", "Single", "Optional"),
         ("TRAINER_VIRIDIAN_FOREST_3", "ViridianForest", "Opt-in", "Single", "Optional"),
         ("TRAINER_BRENDAN_PETALBURG_TREECKO", "PetalburgCity", "REQUIRED", "Single", _RIVAL_NOTE + " (Treecko)"),
@@ -292,8 +292,8 @@ FIGHT_ORDER = {
         ("TRAINER_GRUNT_PETALBURG_WOODS", "PetalburgWoods", "REQUIRED", "Single", "Aqua Grunt 1 (idealist)"),
         ("TRAINER_GRUNT_PETALBURG_WOODS_2", "PetalburgWoods", "REQUIRED", "Single", "Aqua Grunt 2 (pragmatist)"),
         ("TRAINER_GRUNT_PETALBURG_WOODS_3", "PetalburgWoods", "REQUIRED", "Single", "Aqua Grunt 3 (hardliner)"),
-        ("TRAINER_WINSTON_1", "Route104", "REQUIRED", "Single", "Route 104 North"),
         ("TRAINER_ROUTE104_AROMA_LADY", "Route104", "REQUIRED", "Single", "Route 104 North"),
+        ("TRAINER_WINSTON_1", "Route104", "REQUIRED", "Single", "Route 104 North"),
         ("TRAINER_GINA_AND_MIA_1", "Route104", "REQUIRED", "Double", "Route 104 North"),
         ("TRAINER_HALEY_1", "Route104", "REQUIRED", "Single", "Route 104 North"),
         ("TRAINER_CLARK", "Route116", "REQUIRED", "Tag (2 trainers)", "Double battle with Camper Ethan"),
