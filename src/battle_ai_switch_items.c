@@ -1126,7 +1126,7 @@ void AI_TrySwitchOrUseItem(u32 battler)
 
 // If there are two(or more) mons to choose from, always choose one that has baton pass
 // as most often it can't do much on its own.
-static u32 GetBestMonBatonPass(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, int aliveCount, u32 battler, u32 opposingBattler)
+UNUSED static u32 GetBestMonBatonPass(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, int aliveCount, u32 battler, u32 opposingBattler)
 {
     int i, j, bits = 0;
 
@@ -1157,7 +1157,7 @@ static u32 GetBestMonBatonPass(struct Pokemon *party, int firstId, int lastId, u
     return PARTY_SIZE;
 }
 
-static u32 GetBestMonTypeMatchup(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 battler, u32 opposingBattler)
+UNUSED static u32 GetBestMonTypeMatchup(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 battler, u32 opposingBattler)
 {
     int i, bits = 0;
 
@@ -1216,6 +1216,62 @@ static u32 GetBestMonTypeMatchup(struct Pokemon *party, int firstId, int lastId,
         }
     }
 
+    return PARTY_SIZE;
+}
+
+// BOFA: vanilla Emerald's choice. Among the party, take the Pokemon that the opposing battler's
+// *types* hit hardest (the vanilla AI compares with "bestDmg < typeDmg", so it picks the worst
+// defensive matchup, the well-known Gen 3 quirk). If that Pokemon has a super-effective move
+// against the opposing battler, send it in; otherwise rule it out and repeat. Ties go to the
+// earlier party slot. Returns PARTY_SIZE if no candidate has a super-effective move.
+static u32 GetBestMonTypeMatchupVanillaEmerald(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 battler, u32 opposingBattler)
+{
+    int i, bits = invalidMons;
+
+    while (bits != 0x3F)
+    {
+        uq4_12_t bestDmg = UQ_4_12(0.0);
+        int bestMonId = PARTY_SIZE;
+
+        for (i = firstId; i < lastId; i++)
+        {
+            if (!((1u << i) & bits))
+            {
+                u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
+                uq4_12_t typeDmg = UQ_4_12(1.0);
+                u8 atkType1 = gBattleMons[opposingBattler].types[0];
+                u8 atkType2 = gBattleMons[opposingBattler].types[1];
+                u8 defType1 = gSpeciesInfo[species].types[0];
+                u8 defType2 = gSpeciesInfo[species].types[1];
+
+                typeDmg = uq4_12_multiply(typeDmg, GetTypeModifier(atkType1, defType1));
+                if (defType2 != defType1)
+                    typeDmg = uq4_12_multiply(typeDmg, GetTypeModifier(atkType1, defType2));
+                if (atkType2 != atkType1)
+                {
+                    typeDmg = uq4_12_multiply(typeDmg, GetTypeModifier(atkType2, defType1));
+                    if (defType2 != defType1)
+                        typeDmg = uq4_12_multiply(typeDmg, GetTypeModifier(atkType2, defType2));
+                }
+                if (bestDmg < typeDmg)
+                {
+                    bestDmg = typeDmg;
+                    bestMonId = i;
+                }
+            }
+        }
+
+        if (bestMonId == PARTY_SIZE)
+            break;
+
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            u32 move = GetMonData(&party[bestMonId], MON_DATA_MOVE1 + i);
+            if (move != MOVE_NONE && AI_GetMoveEffectiveness(move, battler, opposingBattler) >= AI_EFFECTIVENESS_x2)
+                return bestMonId;
+        }
+        bits |= (1u << bestMonId);
+    }
     return PARTY_SIZE;
 }
 
@@ -2043,20 +2099,19 @@ u32 GetMostSuitableMonToSwitchInto(u32 battler, bool32 switchAfterMonKOd)
             }
         }
 #if !TESTING
-        // BOFA: after a KO, send in the Pokemon whose best attacking move deals the most damage
-        // to the player's current Pokemon (STAB, type matchups, stats, abilities and items all
-        // count; ties go to the earlier party slot), like Gen 5+ trainers.
-        if (!switchAfterMonKOd)
-#endif
-        {
-            bestMonId = GetBestMonBatonPass(party, firstId, lastId, invalidMons, aliveCount, battler, opposingBattler);
-            if (bestMonId != PARTY_SIZE)
-                return bestMonId;
+        // BOFA: original Emerald switch-in logic (used after a KO and for mid-battle switches).
+        bestMonId = GetBestMonTypeMatchupVanillaEmerald(party, firstId, lastId, invalidMons, battler, opposingBattler);
+        if (bestMonId != PARTY_SIZE)
+            return bestMonId;
+#else
+        bestMonId = GetBestMonBatonPass(party, firstId, lastId, invalidMons, aliveCount, battler, opposingBattler);
+        if (bestMonId != PARTY_SIZE)
+            return bestMonId;
 
-            bestMonId = GetBestMonTypeMatchup(party, firstId, lastId, invalidMons, battler, opposingBattler);
-            if (bestMonId != PARTY_SIZE)
-                return bestMonId;
-        }
+        bestMonId = GetBestMonTypeMatchup(party, firstId, lastId, invalidMons, battler, opposingBattler);
+        if (bestMonId != PARTY_SIZE)
+            return bestMonId;
+#endif
 
         bestMonId = GetBestMonDmg(party, firstId, lastId, invalidMons, battler, opposingBattler);
         if (bestMonId != PARTY_SIZE)

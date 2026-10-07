@@ -172,7 +172,7 @@ textarea { width: 100%; min-height: 10em; resize: vertical; background: var(--pa
     <fieldset class="guide">
       <legend>Switch-in Guide</legend>
       <div id="guide"></div>
-      <div class="note">If the foe on the field faints, the AI sends in the Pokémon whose strongest attack does the most damage to your Pokémon (normal roll, no crits; ties go to the earlier party slot). The number is that damage.</div>
+      <div class="note">Original Emerald logic: the AI sends in the Pokémon your types hit hardest, as long as it has a super-effective move on you (ties go to the earlier slot). If none does, it sends the one with the strongest attack. Listed in the order it would send them, assuming your Pokémon stays in.</div>
     </fieldset>
   </div>
 </div>
@@ -1055,28 +1055,49 @@ function renderParty() {
   });
 }
 
+// vanilla Emerald switch-in choice (src/battle_ai_switch_items.c, GetBestMonTypeMatchupVanillaEmerald):
+// take the party Pokemon your types hit hardest; send it if it has a super-effective move on you
+// (status moves count, only the type matters), else rule it out and repeat. Ties: earlier slot.
+// If nobody qualifies, fall back to the Pokemon whose best attack does the most damage.
+function vanillaPick(cands, you) {
+  const yourTypes = typesOf(you);
+  const typeHit = c => { let m = 1; for (const a of yourTypes) for (const d of typesOf(c.set)) m *= typeMod(a, d); return m; };
+  const pool = cands.slice();
+  while (pool.length) {
+    let best = null;
+    for (const c of pool) { const t = typeHit(c); if (!best || t > best.t) best = { c, t }; }
+    const se = best.c.set.moves.map(id => MOVES.get(id)).find(mv => mv && effectiveness(mv, moveTypeOf(mv, best.c.set, state.field).type, best.c.set, you, state.field) >= UQ(2));
+    if (se) return { c: best.c, why: `your types hit it x${best.t}; has super-effective ${se.name}` };
+    pool.splice(pool.indexOf(best.c), 1);
+  }
+  let bestD = null;
+  for (const c of cands) {
+    let d = 0, mvBest = null;
+    c.set.moves.forEach(id => { const mv = MOVES.get(id); const x = aiDamage(mv, c.set, you, state.field, 1); if (x > d) { d = x; mvBest = mv; } });
+    if (!bestD || d > bestD.d) bestD = { c, d, mvBest };
+  }
+  return bestD ? { c: bestD.c, why: `no super-effective option; most damage (${bestD.mvBest ? bestD.mvBest.name : "-"} ${fmtPct(bestD.d, you.stats[0])}%)` } : null;
+}
+
 function renderGuide() {
   const t = D.trainers[state.trainerIdx], root = $("guide");
   root.innerHTML = "";
   const you = state.p[0];
   if (!you) return;
-  const scores = [];
-  t.mons.forEach((m, i) => {
-    if (i === state.foeIdx || state.fainted.has(i)) return;
-    const cand = trainerSet(t, i);  // full HP, its own item and ability
-    let best = 0, bestMove = null;
-    cand.moves.forEach(id => { const mv = MOVES.get(id); const d = aiDamage(mv, cand, you, state.field, 1); if (d > best) { best = d; bestMove = mv; } });
-    scores.push({ i, cand, best, bestMove });
-  });
-  if (!scores.length) { root.append(el("p", { class: "muted" }, "No other Pokémon left in the back.")); return; }
-  scores.sort((a, b) => b.best - a.best || a.i - b.i);
-  scores.forEach((s, k) => {
+  let cands = t.mons.map((m, i) => ({ i, set: trainerSet(t, i) })).filter(c => c.i !== state.foeIdx && !state.fainted.has(c.i));
+  if (!cands.length) { root.append(el("p", { class: "muted" }, "No other Pokémon left in the back.")); return; }
+  let k = 0;
+  while (cands.length) {
+    const pick = vanillaPick(cands, you);
+    if (!pick) break;
     root.append(el("div", { class: "g" + (k === 0 ? " first" : "") },
-      icon(s.cand.species),
-      el("span", {}, el("b", {}, SPECIES.get(s.cand.species).name), ` Lv ${s.cand.level}`, k === 0 ? el("span", { class: "tag" }, "  comes in next") : "",
-        el("br"), el("span", { class: "muted" }, s.bestMove ? `${s.bestMove.name} · ${fmtPct(s.best, you.stats[0])}% of your HP` : "no damaging move")),
-      el("span", { class: "score" }, "+" + s.best)));
-  });
+      icon(pick.c.set.species),
+      el("span", {}, el("b", {}, SPECIES.get(pick.c.set.species).name), ` Lv ${pick.c.set.level}`, k === 0 ? el("span", { class: "tag" }, "  comes in next") : "",
+        el("br"), el("span", { class: "muted" }, pick.why)),
+      el("span", { class: "score" }, "#" + (k + 1))));
+    cands = cands.filter(c => c !== pick.c);
+    k++;
+  }
 }
 
 function renderAll() {
