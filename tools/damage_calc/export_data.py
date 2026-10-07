@@ -248,6 +248,21 @@ for split, fights in PLAN.FIGHT_ORDER.items():
         t.update({"split": split, "map": mapname, "format": fmt, "note": note})
         trainers.append(t)
 
+# tag / two-trainer fights: consecutive "Tag ..." entries on the same map are one battle
+for k in range(len(trainers) - 1):
+    t, u = trainers[k], trainers[k + 1]
+    if "pair" not in t and t["format"].startswith("Tag") and u["format"].startswith("Tag") and t["map"] == u["map"]:
+        t["pair"], u["pair"] = k + 1, k
+# your partner's team in "Tag with partner" fights (the rival, Brendan or May depending on your character)
+partners = []
+for pid in ("PARTNER_RIVAL_BRENDAN", "PARTNER_RIVAL_MAY"):
+    pt = parse_trainer(psrc, pid)
+    if pt:
+        partners.append(pt)
+for t in trainers:
+    if t["format"] == "Tag with partner":
+        t["partners"] = list(range(len(partners)))
+
 for mid in sorted(wanted):
     if mid * MSTRIDE < msize:
         e = move_entry(mid)
@@ -290,7 +305,7 @@ data = {
     "types": TYPES[1:20], "chart": chart,
     "species": list(species.values()), "moves": list(moves.values()),
     "items": {str(k): v for k, v in items.items()}, "abilities": {str(k): v for k, v in abilities.items() if v},
-    "trainers": trainers,
+    "trainers": trainers, "partners": partners,
 }
 json.dump(data, open(os.path.join(OUT, "data.json"), "w", encoding="utf-8"), separators=(",", ":"))
 print(f"species {len(species)}, moves {len(moves)}, items {len(items)}, abilities {len(abilities)}, trainers {len(trainers)}, "

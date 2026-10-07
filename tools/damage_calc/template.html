@@ -108,6 +108,9 @@ textarea { width: 100%; min-height: 10em; resize: vertical; background: var(--pa
 .guide .score { font-family: var(--font-num); }
 .tag { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); }
 .trainerpick { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+.pgroup + .pgroup { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 6px; }
+.pgroup .who { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+.pgroup.cur .who { color: var(--accent); font-weight: 700; }
 .trainerpick select { flex: 1 1 14em; }
 .tmeta { font-size: 11px; color: var(--muted); margin: 2px 0 6px; }
 @media (prefers-reduced-motion: no-preference) { .hpbar i { transition: width .2s; } }
@@ -127,6 +130,12 @@ textarea { width: 100%; min-height: 10em; resize: vertical; background: var(--pa
 <div class="desk">
   <div class="col">
     <fieldset class="pk" id="p1"><legend>Your Pokémon</legend></fieldset>
+    <fieldset id="partnerBox" hidden>
+      <legend>Partner</legend>
+      <div class="trainerpick"><select id="partnerSel" aria-label="Partner"></select></div>
+      <div class="box" id="partnerParty" aria-label="Partner party"></div>
+      <div class="note">Your tag partner's team. Click one to load it on your side and see its ranges; click a box Pokémon to switch back.</div>
+    </fieldset>
     <fieldset>
       <legend>Team / Box</legend>
       <div class="box" id="box" aria-label="Box"></div>
@@ -167,7 +176,7 @@ textarea { width: 100%; min-height: 10em; resize: vertical; background: var(--pa
       </div>
       <div class="tmeta" id="tmeta"></div>
       <div class="box" id="party" aria-label="Enemy party"></div>
-      <div class="note">Click to load. Right-click (or long-press) to mark a Pokémon as fainted.</div>
+      <div class="note">Click to load. Right-click (or long-press) to mark a Pokémon as fainted. In tag battles both trainers' teams are shown; clicking either team's Pokémon switches to that trainer.</div>
     </fieldset>
     <fieldset class="guide">
       <legend>Switch-in Guide</legend>
@@ -695,7 +704,8 @@ const state = {
   trash: saved.trash || [],
   trainerIdx: Math.min(saved.trainer || 0, D.trainers.length - 1),
   field: Object.assign({ doubles: false, weather: "None", terrain: "None", sides: [{}, {}] }, saved.field || {}),
-  fainted: new Set(),
+  fainted: new Set(),   // "trainerIdx:slot"
+  partnerIdx: 0,
   foeIdx: 0,
   sel: [0, 0],          // selected move per side
   showSide: 0,
@@ -1028,8 +1038,10 @@ function renderTrainerSelect() {
   });
 }
 function loadTrainer(i) {
+  const prev = state.trainerIdx;
   state.trainerIdx = (i + D.trainers.length) % D.trainers.length;
-  state.fainted = new Set(); state.foeIdx = 0;
+  if (D.trainers[state.trainerIdx].pair !== prev) state.fainted = new Set();
+  state.foeIdx = 0;
   state.p[1] = trainerSet(D.trainers[state.trainerIdx], 0);
   save(); renderTrainerSelect(); renderAll();
 }
@@ -1038,19 +1050,63 @@ $("prevT").addEventListener("click", () => loadTrainer(state.trainerIdx - 1));
 $("nextT").addEventListener("click", () => loadTrainer(state.trainerIdx + 1));
 
 function renderParty() {
-  const t = D.trainers[state.trainerIdx], root = $("party");
-  $("tmeta").textContent = `${t.split} · ${t.format}${t.note ? " · " + t.note : ""}`;
+  const cur = state.trainerIdx, t = D.trainers[cur], root = $("party");
+  const pairTxt = t.pair !== undefined ? ` · with ${D.trainers[t.pair].class} ${D.trainers[t.pair].name}` : "";
+  $("tmeta").textContent = `${t.split} · ${t.format}${pairTxt}${t.note ? " · " + t.note : ""}`;
   root.innerHTML = "";
-  t.mons.forEach((m, i) => {
-    const b = el("button", { class: "slot" + (i === state.foeIdx ? " sel" : "") + (state.fainted.has(i) ? " fainted" : ""),
-      title: `${SPECIES.get(m.species).name} Lv ${m.level}`, "aria-label": `${SPECIES.get(m.species).name} level ${m.level}${state.fainted.has(i) ? ", fainted" : ""}` },
+  root.className = "";
+  const groups = t.pair !== undefined ? [cur, t.pair].sort((x, y) => x - y) : [cur];
+  groups.forEach(ti => {
+    const tr = D.trainers[ti];
+    const g = el("div", { class: "pgroup" + (ti === cur ? " cur" : "") });
+    if (groups.length > 1) g.append(el("div", { class: "who" }, `${tr.class} ${tr.name}`));
+    const row = el("div", { class: "box" });
+    tr.mons.forEach((m, i) => {
+      const key = ti + ":" + i, dead = state.fainted.has(key);
+      const b = el("button", { class: "slot" + (ti === cur && i === state.foeIdx ? " sel" : "") + (dead ? " fainted" : ""),
+        title: `${SPECIES.get(m.species).name} Lv ${m.level}`, "aria-label": `${tr.name}'s ${SPECIES.get(m.species).name} level ${m.level}${dead ? ", fainted" : ""}` },
+        icon(m.species), el("span", { class: "lv" }, m.level));
+      b.addEventListener("click", () => {
+        if (ti !== cur) { state.trainerIdx = ti; renderTrainerSelect(); save(); }
+        state.foeIdx = i; state.p[1] = trainerSet(tr, i); renderAll();
+      });
+      const toggle = e => { e.preventDefault(); dead ? state.fainted.delete(key) : state.fainted.add(key); renderAll(); };
+      b.addEventListener("contextmenu", toggle);
+      let pressTimer;
+      b.addEventListener("touchstart", e => { pressTimer = setTimeout(() => toggle(e), 550); }, { passive: false });
+      b.addEventListener("touchend", () => clearTimeout(pressTimer));
+      row.append(b);
+    });
+    g.append(row);
+    root.append(g);
+  });
+}
+
+function renderPartner() {
+  const t = D.trainers[state.trainerIdx], box = $("partnerBox");
+  const list = (t.partners || []).map(k => D.partners[k]);
+  box.hidden = !list.length;
+  if (!list.length) return;
+  const sel = $("partnerSel");
+  if (sel.options.length !== list.length) {
+    sel.innerHTML = "";
+    list.forEach((p, k) => sel.append(el("option", { value: k }, `${p.class} ${p.name}`)));
+    sel.onchange = () => { state.partnerIdx = +sel.value; renderAll(); };
+  }
+  state.partnerIdx = Math.min(state.partnerIdx, list.length - 1);
+  sel.value = state.partnerIdx;
+  const p = list[state.partnerIdx], root = $("partnerParty");
+  root.innerHTML = "";
+  p.mons.forEach((m, i) => {
+    const uid = `partner-${state.partnerIdx}-${i}`;
+    const b = el("button", { class: "slot" + (state.p[0] && state.p[0].uid === uid ? " sel" : ""),
+      title: `${SPECIES.get(m.species).name} Lv ${m.level}`, "aria-label": `Partner ${SPECIES.get(m.species).name} level ${m.level}` },
       icon(m.species), el("span", { class: "lv" }, m.level));
-    b.addEventListener("click", () => { state.foeIdx = i; state.p[1] = trainerSet(t, i); renderAll(); });
-    const toggle = e => { e.preventDefault(); state.fainted.has(i) ? state.fainted.delete(i) : state.fainted.add(i); renderAll(); };
-    b.addEventListener("contextmenu", toggle);
-    let pressTimer;
-    b.addEventListener("touchstart", e => { pressTimer = setTimeout(() => toggle(e), 550); }, { passive: false });
-    b.addEventListener("touchend", () => clearTimeout(pressTimer));
+    b.addEventListener("click", () => {
+      state.p[0] = makeSet({ species: m.species, level: m.level, nature: m.nature, ability: m.ability ? ABIL.get(m.ability) : "",
+        item: m.item, ivs: m.ivs, evs: m.evs, moves: m.moves, uid, side: 0 });
+      renderAll();
+    });
     root.append(b);
   });
 }
@@ -1084,7 +1140,7 @@ function renderGuide() {
   root.innerHTML = "";
   const you = state.p[0];
   if (!you) return;
-  let cands = t.mons.map((m, i) => ({ i, set: trainerSet(t, i) })).filter(c => c.i !== state.foeIdx && !state.fainted.has(c.i));
+  let cands = t.mons.map((m, i) => ({ i, set: trainerSet(t, i) })).filter(c => c.i !== state.foeIdx && !state.fainted.has(state.trainerIdx + ":" + c.i));
   if (!cands.length) { root.append(el("p", { class: "muted" }, "No other Pokémon left in the back.")); return; }
   let k = 0;
   while (cands.length) {
@@ -1101,7 +1157,7 @@ function renderGuide() {
 }
 
 function renderAll() {
-  renderPanel(0); renderPanel(1); renderField(); renderResults(); renderBox(); renderParty(); renderGuide();
+  renderPanel(0); renderPanel(1); renderField(); renderResults(); renderBox(); renderParty(); renderPartner(); renderGuide();
 }
 
 renderTrainerSelect();
