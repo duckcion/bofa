@@ -766,6 +766,10 @@ for _, w in wild.iterrows():
 # encounter per row; methods run down the left and line up across the locations in a band.
 METHOD_ORDER = ["Land", "Water", "Good Rod", "Super Rod", "Rock Smash"]  # no Old Rod in BOFA
 METHOD_LABEL = {"Land": "Grass / Cave", "Water": "Surf"}
+METHOD_FILL = {m: PatternFill("solid", fgColor=c) for m, c in {
+    "Land": "D9EAD3", "Water": "CFE2F3", "Good Rod": "DDE7F0", "Super Rod": "B7CDE8", "Rock Smash": "EAD9C2"}.items()}
+METHOD_HEAD = {m: PatternFill("solid", fgColor=c) for m, c in {
+    "Land": "93C47D", "Water": "9FC5E8", "Good Rod": "A9BED3", "Super Rod": "6FA8DC", "Rock Smash": "C9B07A"}.items()}
 PER_BAND = 10000  # all locations side by side in one row; only methods stack
 maps = []
 for key in order:
@@ -804,21 +808,21 @@ for band_start in range(0, len(maps), PER_BAND):
             continue
         height = max(len(t["mons"]) for t in tables if t)
         ws.merge_cells(start_row=r, start_column=1, end_row=r + height, end_column=1)
-        body_cell(ws, r, 1, METHOD_LABEL.get(method, method), bold=True, align=WRAP)
+        body_cell(ws, r, 1, METHOD_LABEL.get(method, method), bold=True, align=WRAP, fill=METHOD_HEAD[method])
         for k, t in enumerate(tables):
             c0 = 2 + k * 4
             ws.merge_cells(start_row=r, start_column=c0, end_row=r, end_column=c0 + 2)
-            body_cell(ws, r, c0, f"Encounter rate {t['rate']}" if t else "", italic=True, fill=F_ALT)
+            body_cell(ws, r, c0, f"Encounter rate {t['rate']}" if t else "", italic=True, fill=METHOD_HEAD[method])
             mons = sorted(t["mons"].items(), key=lambda kv: -kv[1][0]) if t else []
             for i in range(height):
                 if i < len(mons):
                     sp, (pc, lo, hi) = mons[i]
-                    body_cell(ws, r + 1 + i, c0, f"{pc}%")
-                    body_cell(ws, r + 1 + i, c0 + 1, sp, align=LEFT)
-                    body_cell(ws, r + 1 + i, c0 + 2, f"{lo}" if lo == hi else f"{lo}-{hi}")
+                    body_cell(ws, r + 1 + i, c0, f"{pc}%", fill=METHOD_FILL[method])
+                    body_cell(ws, r + 1 + i, c0 + 1, sp, align=LEFT, fill=METHOD_FILL[method])
+                    body_cell(ws, r + 1 + i, c0 + 2, f"{lo}" if lo == hi else f"{lo}-{hi}", fill=METHOD_FILL[method])
                 else:
                     for j in range(3):
-                        body_cell(ws, r + 1 + i, c0 + j, "")
+                        body_cell(ws, r + 1 + i, c0 + j, "", fill=METHOD_FILL[method])
         r += height + 1
     r += 2
 ws.freeze_panes = "B1"
