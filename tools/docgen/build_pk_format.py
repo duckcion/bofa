@@ -1179,6 +1179,16 @@ ws.freeze_panes = "A2"
 plain_sheet("Balance Issues", "Balance Issues")
 plain_sheet("Change Log", "Change Log", drop=("Implementation Status",))
 
+# quick-access tabs go right before the first split tab
+_first_split = next((i for i, n in enumerate(wb.sheetnames) if n == "Split 1"), None)
+if _first_split is not None:
+    for _n in ["Item Locations", "Encounters", "Gift Pokemon"]:
+        if _n in wb.sheetnames:
+            _ws = wb[_n]
+            wb._sheets.remove(_ws)
+            _first_split = wb.sheetnames.index("Split 1")
+            wb._sheets.insert(_first_split, _ws)
+
 # ================================================================ Contents sheet (first)
 ws = wb.create_sheet("Contents", 0)
 ws.sheet_view.showGridLines = True
