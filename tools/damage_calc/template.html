@@ -191,7 +191,7 @@ const D = /*__DATA__*/null;
 document.documentElement.style.setProperty("--icons", "url(__ICONS__)");
 
 // ============================================================ data indexes
-const norm = s => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+const norm = s => String(s || "").toLowerCase().replace(/♂/g, "m").replace(/♀/g, "f").replace(/[^a-z0-9]/g, "");
 const SPECIES = new Map(D.species.map(s => [s.id, s]));
 const SPECIES_BY_NAME = new Map();
 D.species.forEach(s => { if (!SPECIES_BY_NAME.has(norm(s.name))) SPECIES_BY_NAME.set(norm(s.name), s); });

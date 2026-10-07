@@ -748,9 +748,15 @@ ws.column_dimensions["D"].width = 6
 r = 1
 groups = {}
 order = []
+seen_slots = set()
 for _, w in wild.iterrows():
     method = w["Method"]
     slot = int(w["Slot"])
+    # unused tables (no map) and Altering Cave's extra Mystery Event tables never appear in game:
+    # only the first table for a map is live
+    if w["Map"] == "MAP_NO_MAP_ASSIGNED" or (w["Map"], method, slot) in seen_slots:
+        continue
+    seen_slots.add((w["Map"], method, slot))
     sub = ROD(slot) if method == "Fishing" else method
     key = (w["Map"], sub) if w["Map"] != "MAP_NO_MAP_ASSIGNED" else (w["Map"], sub, w["Encounter Rate"])
     if key not in groups:

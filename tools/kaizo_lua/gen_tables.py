@@ -117,6 +117,8 @@ def main():
         if rom[sbase + 2 * s + off - ROM_BASE: sbase + 2 * s + off - ROM_BASE + len(ivy)] == ivy:
             sstride, name_off = s, off; break
     if not sstride: sys.exit("could not determine SpeciesInfo stride")
+    species = [(i, text(sbase + i * sstride + name_off, 12)) for i in range(ssize // sstride)]
+    block.insert(9, "local SPECIES_NAMES = {" + lua_names(species) + "}")
     block[8] = f"local SPECIES_INFO_STRIDE = {sstride}\nlocal SPECIES_NAME_OFFSET = {name_off}"
 
     src = open(LUA, encoding="utf-8").read()
