@@ -741,15 +741,11 @@ RATES = {
 }
 ROD = lambda slot: "Old Rod" if slot < 2 else ("Good Rod" if slot < 5 else "Super Rod")
 ws = wb.create_sheet("Encounters")
-header_row(ws, 1, ["Location", "Split", "Method", "Rate", "Encounters (species  Lv  % chance)"])
-ws.merge_cells(start_row=1, start_column=5, end_row=1, end_column=12)
 ws.column_dimensions["A"].width = 30
 ws.column_dimensions["B"].width = 10
 ws.column_dimensions["C"].width = 12
 ws.column_dimensions["D"].width = 6
-for col in range(5, 13):
-    ws.column_dimensions[get_column_letter(col)].width = 17
-r = 2
+r = 1
 groups = {}
 order = []
 for _, w in wild.iterrows():
@@ -766,32 +762,66 @@ for _, w in wild.iterrows():
     g[0] += pct
     g[1] = min(g[1], int(w["Min Level"]))
     g[2] = max(g[2], int(w["Max Level"]))
-MFILL = {"Land": "93C47D", "Water": "9FC5E8", "Old Rod": "CFE2F3", "Good Rod": "9FC5E8",
-         "Super Rod": "6FA8DC", "Rock Smash": "C9B07A"}
-last_map = None
+# Vertical layout (like the PK docs): each location is a 3-column block (% | Pokemon | Lv), one
+# encounter per row; methods run down the left and line up across the locations in a band.
+METHOD_ORDER = ["Land", "Water", "Good Rod", "Super Rod", "Rock Smash"]  # no Old Rod in BOFA
+METHOD_LABEL = {"Land": "Grass / Cave", "Water": "Surf"}
+PER_BAND = 6
+maps = []
 for key in order:
-    mp, sub = key[0], key[1]
-    g = groups[key]
-    loc = pretty_loc(mp.replace("MAP_", "").title().replace("_", ""))
-    if mp == "MAP_NO_MAP_ASSIGNED":
-        loc = "No map assigned (unused table)"
-    first = mp != last_map
-    body_cell(ws, r, 1, loc if first else "", bold=True, align=LEFT)
-    body_cell(ws, r, 2, g["split"] if first else "")
-    body_cell(ws, r, 3, sub, fill=PatternFill("solid", fgColor=MFILL.get(sub, "EFEFEF")), bold=True)
-    body_cell(ws, r, 4, g["rate"])
-    mons = sorted(g["mons"].items(), key=lambda kv: -kv[1][0])
-    col = 5
-    for sp, (pct, lo, hi) in mons:
-        if col > 12:
-            col = 5
-            r += 1
-        lvl = f"{lo}" if lo == hi else f"{lo}-{hi}"
-        body_cell(ws, r, col, f"{sp}  Lv {lvl}  ({pct}%)", fill=F_ALT)
-        col += 1
-    last_map = mp
-    r += 1
-ws.freeze_panes = "B2"
+    if key[0] not in [m for m, _ in maps]:
+        maps.append((key[0], groups[key]["split"]))
+split_rank = lambda sp: int(re.search(r"\d+", str(sp)).group()) if re.search(r"\d+", str(sp)) else 99
+maps.sort(key=lambda m: (split_rank(m[1]), [k[0] for k in order].index(m[0])))
+by_map = {}
+for key in order:
+    by_map.setdefault(key[0], {})[key[1]] = groups[key]
+
+ws.delete_rows(1, ws.max_row)
+ws.column_dimensions["A"].width = 14
+for band_start in range(0, len(maps), PER_BAND):
+    band = maps[band_start:band_start + PER_BAND]
+    for k, (mp, split) in enumerate(band):
+        c0 = 2 + k * 4
+        ws.column_dimensions[get_column_letter(c0)].width = 7
+        ws.column_dimensions[get_column_letter(c0 + 1)].width = 16
+        ws.column_dimensions[get_column_letter(c0 + 2)].width = 8
+        ws.column_dimensions[get_column_letter(c0 + 3)].width = 2
+        loc = pretty_loc(mp.replace("MAP_", "").title().replace("_", "")) if mp != "MAP_NO_MAP_ASSIGNED" else "No map assigned"
+        ws.merge_cells(start_row=r, start_column=c0, end_row=r, end_column=c0 + 2)
+        body_cell(ws, r, c0, loc, fill=F_MON, bold=True)
+        ws.merge_cells(start_row=r + 1, start_column=c0, end_row=r + 1, end_column=c0 + 2)
+        body_cell(ws, r + 1, c0, split)
+        for j, h in enumerate(["%", "Pokemon", "Lv"]):
+            body_cell(ws, r + 2, c0 + j, h, bold=True, fill=F_ALT)
+    body_cell(ws, r, 1, "Location", bold=True, fill=F_MON)
+    body_cell(ws, r + 1, 1, "Split")
+    body_cell(ws, r + 2, 1, "", fill=F_ALT)
+    r += 3
+    for method in METHOD_ORDER:
+        tables = [by_map.get(mp, {}).get(method) for mp, _ in band]
+        if not any(tables):
+            continue
+        height = max(len(t["mons"]) for t in tables if t)
+        ws.merge_cells(start_row=r, start_column=1, end_row=r + height, end_column=1)
+        body_cell(ws, r, 1, METHOD_LABEL.get(method, method), bold=True, align=WRAP)
+        for k, t in enumerate(tables):
+            c0 = 2 + k * 4
+            ws.merge_cells(start_row=r, start_column=c0, end_row=r, end_column=c0 + 2)
+            body_cell(ws, r, c0, f"Encounter rate {t['rate']}" if t else "", italic=True, fill=F_ALT)
+            mons = sorted(t["mons"].items(), key=lambda kv: -kv[1][0]) if t else []
+            for i in range(height):
+                if i < len(mons):
+                    sp, (pc, lo, hi) = mons[i]
+                    body_cell(ws, r + 1 + i, c0, f"{pc}%")
+                    body_cell(ws, r + 1 + i, c0 + 1, sp, align=LEFT)
+                    body_cell(ws, r + 1 + i, c0 + 2, f"{lo}" if lo == hi else f"{lo}-{hi}")
+                else:
+                    for j in range(3):
+                        body_cell(ws, r + 1 + i, c0 + j, "")
+        r += height + 1
+    r += 2
+ws.freeze_panes = "B1"
 
 # ================================================================ plain restyled tables
 def clean_method(m):
