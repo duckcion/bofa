@@ -3491,7 +3491,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .baseSpAttack  = 102,                                                                           \
         .baseSpDefense = 48,                                                                            \
         .types = MON_TYPES(TYPE_PSYCHIC),                                                               \
-        .catchRate = 225,                                                                               \
+        .catchRate = 255,                                                                               \
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 118 : 61,                                         \
         .evYield_Attack = 1,                                                                            \
         .evYield_SpAttack = 1,                                                                          \

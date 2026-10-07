@@ -18,15 +18,16 @@
   --hot: #b5452f;         /* KO / warning */
   --soft: #e3e8df;
   --chip: #dfe6dc;
+  --best: #f3dc8a;        /* faster side's strongest move */
   --font-ui: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
   --font-num: "JetBrains Mono", ui-monospace, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #161a18; --panel: #1f2421; --ink: #e5e9e3; --muted: #9aa69f; --line: #37403b;
-  --accent: #6fbf95; --accent-ink: #0d1a13; --hot: #e2846d; --soft: #262c28; --chip: #2c3430; color-scheme: dark; } }
+  --accent: #6fbf95; --accent-ink: #0d1a13; --hot: #e2846d; --soft: #262c28; --chip: #2c3430; --best: #5c4d1c; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg: #161a18; --panel: #1f2421; --ink: #e5e9e3; --muted: #9aa69f; --line: #37403b;
-  --accent: #6fbf95; --accent-ink: #0d1a13; --hot: #e2846d; --soft: #262c28; --chip: #2c3430; color-scheme: dark; }
+  --accent: #6fbf95; --accent-ink: #0d1a13; --hot: #e2846d; --soft: #262c28; --chip: #2c3430; --best: #5c4d1c; color-scheme: dark; }
 
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font: 13px/1.35 var(--font-ui); padding-inline: 16px; padding-block: 12px 32px; }
@@ -52,6 +53,7 @@ legend { font-weight: 700; padding: 0 6px; }
 .res .row button { text-align: center; }
 .res .row button.sel { background: var(--accent); color: var(--accent-ink); }
 .res .pct { font-family: var(--font-num); font-size: 12px; }
+.res .row.best .pct { background: var(--best); border-radius: 3px; padding: 1px 5px; font-weight: 700; justify-self: start; }
 .ko { color: var(--hot); font-weight: 700; }
 .desc { border-top: 1px solid var(--line); padding-top: 6px; margin-bottom: 12px; }
 .desc b { font-size: 14px; }
@@ -877,7 +879,16 @@ function sideResults(side) {
 
 function renderResults() {
   const hpOf = s => s ? curHP(s) : 1;
+  // highlight the faster side's highest-damage move (both sides on a speed tie)
+  const first = state.p[0] && state.p[1] ? movesFirst(state.p[0], state.p[1], state.field) : null;
+  const bestOf = side => {
+    if (first === null || (first > 0 && side === 1) || (first < 0 && side === 0)) return -1;
+    let best = -1, top = 0;
+    sideResults(side).forEach(({ r, i }) => { if (r && !r.na && r.rolls[15] > top) { top = r.rolls[15]; best = i; } });
+    return best;
+  };
   [0, 1].forEach(side => {
+    const best = bestOf(side);
     const root = $(side === 0 ? "resL" : "resR");
     root.innerHTML = "";
     const atk = state.p[side], def = state.p[1 - side];
@@ -896,7 +907,7 @@ function renderResults() {
         if (m.recoil) txt += ` (${fmtPct(Math.max(1, Math.floor(r.rolls[0] * m.recoil / 100)), atk.stats[0])} - ${fmtPct(Math.max(1, Math.floor(r.rolls[15] * m.recoil / 100)), atk.stats[0])}% recoil)`;
         if (m.effect === "ABSORB" || m.effect === "DREAM_EATER") txt += ` (${fmtPct(Math.floor(r.rolls[0] / 2), atk.stats[0])} - ${fmtPct(Math.floor(r.rolls[15] / 2), atk.stats[0])}% recovered)`;
       } else if (m && m.cat === "Status") txt = "Status move";
-      root.append(el("div", { class: "row" }, b, el("span", { class: "pct" }, txt)));
+      root.append(el("div", { class: "row" + (i === best ? " best" : ""), title: i === best ? "Faster side's strongest move" : "" }, b, el("span", { class: "pct" }, txt)));
     });
   });
   // description of the selected move

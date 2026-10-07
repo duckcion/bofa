@@ -12164,7 +12164,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .baseSpAttack  = 120,                                                       \
         .baseSpDefense = 95,                                                        \
         .types = MON_TYPES(TYPE_BUG, TYPE_STEEL),                                   \
-        .catchRate = 3,                                                             \
+        .catchRate = 14,                                                             \
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_8) ? 300 : 270,                    \
         .evYield_Attack = 1,                                                        \
         .evYield_Speed = 1,                                                         \

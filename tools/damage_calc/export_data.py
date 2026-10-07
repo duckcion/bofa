@@ -42,12 +42,16 @@ def text(a, maxlen=40):
 
 def defines(path, prefix):
     vals = {}
-    for m in re.finditer(r"#define (%s\w+)\s+\(?([^\n/]+?)\)?\s*(?://.*)?$" % prefix, rd(path), re.M):
-        expr = m.group(2).strip()
-        try:
-            vals[m.group(1)] = int(eval(re.sub(r"\b(%s\w+)\b" % prefix, lambda x: str(vals.get(x.group(1), "None")), expr)))
-        except Exception:
-            pass
+    found = re.findall(r"#define (%s\w+)\s+\(?([^\n/]+?)\)?\s*(?://.*)?$" % prefix, rd(path), re.M)
+    # repeat so aliases to names defined further down (SPECIES_VIVILLON -> SPECIES_VIVILLON_ICY_SNOW) resolve
+    for _ in range(3):
+        for name, expr in found:
+            if name in vals:
+                continue
+            try:
+                vals[name] = int(eval(re.sub(r"\b(%s\w+)\b" % prefix, lambda x: str(vals.get(x.group(1), "None")), expr.strip())))
+            except Exception:
+                pass
     return vals
 
 
@@ -100,10 +104,16 @@ SSTRIDE, SNAME = 260, 44
 species_src = {}
 for path in sorted(os.listdir(os.path.join(ROOT, "src/data/pokemon/species_info"))):
     src = rd("src/data/pokemon/species_info/" + path)
-    for m in re.finditer(r"^    \[(SPECIES_\w+)\] =\n    \{\n(.*?)^    \},", src, re.S | re.M):
-        body = m.group(2)
+    # forms built from macros (VIVILLON_MISC_INFO(...), SPEWPA_SPECIES_INFO(...)): expand the macro body
+    macros = {mm.group(1): mm.group(2) for mm in re.finditer(r"^#define (\w+)\([^)]*\)((?:.*\\\n)*.*)", src, re.M)}
+    entries = [(m.group(1), m.group(2)) for m in re.finditer(r"^    \[(SPECIES_\w+)\] =\n    \{\n(.*?)^    \},", src, re.S | re.M)]
+    entries += [(m.group(1), m.group(2)) for m in re.finditer(r"^    \[(SPECIES_\w+)\]\s*=\s*(\w+\([^)]*\)),", src, re.M)]
+    for sname, body in entries:
+        for mac in re.findall(r"\b(\w+)\(", body):
+            if mac in macros:
+                body += macros[mac]
         g = lambda pat: (re.search(pat, body).group(1) if re.search(pat, body) else None)
-        species_src[m.group(1)] = {
+        species_src[sname] = {
             "natdex": g(r"\.natDexNum = (NATIONAL_DEX_\w+)"),
             "weight": g(r"\.weight = (\d+)"),
             "icon": g(r"\.iconSprite = (gMonIcon_\w+)"),
