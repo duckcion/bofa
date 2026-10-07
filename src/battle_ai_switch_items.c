@@ -75,6 +75,23 @@ static inline bool32 SetSwitchinAndSwitch(u32 battler, u32 switchinId)
     return TRUE;
 }
 
+// BOFA: TRUE if either of the foe's own types hits this species super effectively.
+// Mid-battle switches are chosen before the player's move, so the AI never switches into its foe's STAB.
+static bool32 IsSpeciesWeakToBattlerTypes(u32 species, u32 foe)
+{
+    u32 k;
+    for (k = 0; k < 2; k++)
+    {
+        u32 atkType = GetBattlerType(foe, k, FALSE);
+        uq4_12_t mod = GetTypeModifier(atkType, gSpeciesInfo[species].types[0]);
+        if (gSpeciesInfo[species].types[1] != gSpeciesInfo[species].types[0])
+            mod = uq4_12_multiply(mod, GetTypeModifier(atkType, gSpeciesInfo[species].types[1]));
+        if (mod > UQ_4_12(1.0))
+            return TRUE;
+    }
+    return FALSE;
+}
+
 // Note that as many return statements as possible are INTENTIONALLY put after all of the loops;
 // the function can take a max of about 0.06s to run, and this prevents the player from identifying
 // whether the mon will switch or not by seeing how long the delay is before they select a move
@@ -739,6 +756,10 @@ static bool32 FindMonWithFlagsAndSuperEffective(u32 battler, u16 flags, u32 perc
         CalcPartyMonTypeEffectivenessMultiplier(gLastLandedMoves[battler], species, monAbility);
         if (gMoveResultFlags & flags)
         {
+            // BOFA: skip candidates the foe's own types hit super effectively
+            if (IsSpeciesWeakToBattlerTypes(species, gLastHitBy[battler]))
+                continue;
+
             battlerIn1 = gLastHitBy[battler];
 
             for (j = 0; j < MAX_MON_MOVES; j++)
@@ -909,7 +930,38 @@ static bool32 ShouldSwitchIfAttackingStatsLowered(u32 battler)
     return FALSE;
 }
 
+static bool32 ShouldSwitchInternal(u32 battler);
+
+// BOFA: whatever made the AI want to switch, cancel it if the Pokemon it would send in is weak to the
+// types of a foe on the field (Perish Song switches still go through: staying in means fainting)
 bool32 ShouldSwitch(u32 battler)
+{
+    u32 target, species, i;
+    struct Pokemon *party;
+
+    if (!ShouldSwitchInternal(battler))
+        return FALSE;
+    if ((gStatuses3[battler] & STATUS3_PERISH_SONG) && gDisableStructs[battler].perishSongTimer == 0)
+        return TRUE;
+    target = gBattleStruct->AI_monToSwitchIntoId[battler];
+    if (target == PARTY_SIZE)
+        target = AI_DATA->mostSuitableMonId[battler];
+    if (target >= PARTY_SIZE)
+        return TRUE;
+    party = GetBattlerParty(battler);
+    species = GetMonData(&party[target], MON_DATA_SPECIES);
+    for (i = 0; i < gBattlersCount; i++)
+    {
+        if (GetBattlerSide(i) != GetBattlerSide(battler) && IsBattlerAlive(i) && IsSpeciesWeakToBattlerTypes(species, i))
+        {
+            gBattleStruct->AI_monToSwitchIntoId[battler] = PARTY_SIZE;
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+
+static bool32 ShouldSwitchInternal(u32 battler)
 {
     u32 battlerIn1, battlerIn2;
     s32 firstId;
@@ -1267,8 +1319,18 @@ static u32 GetBestMonTypeMatchupVanillaEmerald(struct Pokemon *party, int firstI
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
             u32 move = GetMonData(&party[bestMonId], MON_DATA_MOVE1 + i);
-            if (move != MOVE_NONE && AI_GetMoveEffectiveness(move, battler, opposingBattler) >= AI_EFFECTIVENESS_x2)
-                return bestMonId;
+            // original Emerald checks the move's type only, so status moves count (Taunt vs a Psychic type)
+            if (move != MOVE_NONE)
+            {
+                u32 moveType = gMovesInfo[move].type;
+                uq4_12_t mod = GetTypeModifier(moveType, GetBattlerType(opposingBattler, 0, FALSE));
+                if (GetBattlerType(opposingBattler, 1, FALSE) != GetBattlerType(opposingBattler, 0, FALSE))
+                    mod = uq4_12_multiply(mod, GetTypeModifier(moveType, GetBattlerType(opposingBattler, 1, FALSE)));
+                if (moveType == TYPE_GROUND && AI_DATA->abilities[opposingBattler] == ABILITY_LEVITATE)
+                    mod = UQ_4_12(0.0);
+                if (mod >= UQ_4_12(2.0))
+                    return bestMonId;
+            }
         }
         bits |= (1u << bestMonId);
     }

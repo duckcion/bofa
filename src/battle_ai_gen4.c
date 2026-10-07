@@ -542,6 +542,15 @@ static s32 Gen4BasicEffect(u32 battlerAtk, u32 battlerDef, u32 move)
         if (gBattleMons[battlerDef].status2 & STATUS2_TORMENT)
             return -10;
         break;
+    // BOFA additions: never repeat these while they are still active
+    case EFFECT_TAUNT:
+        if (IsTaunted(battlerDef) || defAbility == ABILITY_OBLIVIOUS || defAbility == ABILITY_AROMA_VEIL)
+            return -10;
+        break;
+    case EFFECT_WISH:
+        if (gWishFutureKnock.wishCounter[battlerAtk] != 0)
+            return -10;
+        break;
     case EFFECT_MIRACLE_EYE:
         if (gStatuses3[battlerDef] & STATUS3_MIRACLE_EYED)
             return -10;
