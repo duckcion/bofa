@@ -89,6 +89,35 @@ GIFTS = {
     "johto_gift_note": "Free gift - choose one (not a trade). Littleroot Town Starter Room, after the Pokédex.",
 }
 
+# Gift / trade / one-time Pokemon, checked against the map scripts and src/data/trade.h.
+# (split, location, how you get it, what you give up, species, level, nature, ability, IVs, held item, moves, notes)
+GIFT_POKEMON = [
+    ("Split 1", "Route 101", "Starter from Prof. Birch's bag (pick one)", "Nothing", "Treecko / Torchic / Mudkip", 5,
+     "Random", "Treecko: Overgrow / Torchic: Blaze / Mudkip: Huge Power", "Random", "-", "Level-up moves", "Choose one; your rival takes another"),
+    ("Split 1", "Littleroot Town (Starter Room)", "Gift after you get the Pokedex (pick one)", "Nothing", "Chikorita / Cyndaquil / Totodile", 5,
+     "Random", "Chikorita: Overgrow / Cyndaquil: Blaze / Totodile: Torrent", "Random", "-", "Level-up moves", "Free gift, choose one. Evolves at Lv16"),
+    ("Split 1", "Petalburg City", "Trade with Dustin (rock trader)", "Any Pokemon", "Geodude or Rhyhorn (50/50)", 5,
+     "Relaxed", "Geodude: Rock Head / Rhyhorn: Lightning Rod", "31 all", "-", "Level-up moves", "Random which one you get; once only. Nicknamed, OT DUSTIN"),
+    ("Split 1", "Petalburg Coast", "One-time wild battle (Corphish in the open)", "Nothing (catch it)", "Corphish", 11,
+     "Random", "Adaptability / Hyper Cutter", "Random", "-", "Level-up moves", "Battle disappears once beaten or caught"),
+    ("Split 2", "Rustboro City (house)", "Trade with Kobe", "Ralts", "Seedot", "Same as the Ralts you give",
+     "Relaxed", "Chlorophyll", "5/4/5/4/4/4", "Chesto Berry", "Level-up moves", "Nickname DOTS, OT KOBE"),
+    ("Split 2", "Rustboro City (Devon Corp 2F)", "Revived fossil from the scientist", "Root Fossil or Claw Fossil", "Lileep or Anorith", 20,
+     "Random", "Lileep: Solid Rock / Anorith: Swift Swim or Battle Armor", "Random", "-", "Level-up moves", "Which one depends on the fossil you bring"),
+    ("Split 3", "Granite Shore", "Gift from the NPC on the shore", "Nothing", "Dwebble", 20,
+     "Adamant", "Sturdy", "31 all", "-", "Rock Blast, Bug Bite, Pin Missile, Protect", "Fixed moveset"),
+    ("Split 4", "Verdanturf Town", "Trade with Caspian (Skorupi trader)", "Any Pokemon", "Skorupi", 20,
+     "Jolly", "Battle Armor", "31 all", "-", "Poison Jab, Leech Life, Bite, Slash", "Once only. Nickname SKORUPI, OT CASPIAN"),
+    ("Split 6", "Fortree City (house)", "Trade", "Volbeat", "Plusle", "Same as the Volbeat you give",
+     "Hasty", "Plus", "4/4/4/5/5/4", "Wood Mail", "Level-up moves", "Vanilla trade, not redesigned yet"),
+    ("Split 6", "Route 119 (Weather Institute)", "Gift after clearing the Weather Institute", "Nothing", "Castform", 25,
+     "Random", "Forecast", "Random", "-", "Level-up moves", "Vanilla gift, not redesigned yet"),
+    ("Split 7", "Mossdeep City (Steven's house)", "Gift (Poke Ball on the table)", "Nothing", "Beldum", 5,
+     "Random", "Clear Body", "Random", "-", "Level-up moves", "Vanilla gift, not redesigned yet"),
+    ("Postgame", "Littleroot Town (Birch's lab)", "Choice after the National Dex", "Nothing", "Chikorita / Cyndaquil / Totodile", 5,
+     "Random", "Chikorita: Overgrow / Cyndaquil: Blaze / Totodile: Torrent", "Random", "-", "Level-up moves", "Vanilla postgame gift"),
+]
+
 # NPC gifts and rewards (the doc generator only sees item balls, hidden items and marts).
 NEW_ITEMS = [
     # item, method, map, split, note

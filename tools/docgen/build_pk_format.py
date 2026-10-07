@@ -956,7 +956,23 @@ for rr, (k, v) in enumerate(rows, 2):
 ws.freeze_panes = "A2"
 plain_sheet("Pokemon Availability", "Pokemon Availability", drop=("Status",),
             keep=lambda df: df["Species"].astype(str).str.upper().isin(GEN6_NAMES))
-plain_sheet("Gifts & Trades", "Gifts & Trades", drop=("Status",), df=planned_gifts())
+# Gift Pokemon, laid out like Item Locations: grouped by split and location, one row per Pokemon.
+ws = wb.create_sheet("Gift Pokemon")
+GIFT_HEAD = ["Pokemon", "How you get it", "You give", "Lv", "Nature", "Ability", "IVs", "Held Item", "Moves", "Notes", "Obtained?"]
+header_row(ws, 1, GIFT_HEAD, [26, 38, 22, 10, 10, 34, 12, 12, 36, 40, 11])
+rr = 2
+last_split = last_loc = None
+for split, loc, how, give, mon, lv, nature, abil, ivs, item, moves, note in plan.GIFT_POKEMON:
+    if split != last_split:
+        for c in range(1, len(GIFT_HEAD) + 1): body_cell(ws, rr, c, split if c == 1 else "", fill=PatternFill("solid", fgColor="D9D9D9"), align=LEFT, bold=(c == 1))
+        rr += 1; last_split, last_loc = split, None
+    if loc != last_loc:
+        for c in range(1, len(GIFT_HEAD) + 1): body_cell(ws, rr, c, loc if c == 1 else "", fill=F_ALT, align=LEFT)
+        rr += 1; last_loc = loc
+    for c, val in enumerate([mon, how, give, lv, nature, abil, ivs, item, moves, note, "☐"], 1):
+        body_cell(ws, rr, c, val, align=LEFT if c in (1, 2, 3, 6, 9, 10) else CENTER)
+    rr += 1
+ws.freeze_panes = "A2"
 plain_sheet("TM & HM Locations", "TM & HM Locations", drop=("Status", "Item Const", "Flag"), df=planned_tm_locs())
 
 # ================================================================ Items (Gen 1-6 only)
@@ -1177,6 +1193,7 @@ DESC = {
     "Moves": "Current data for every Gen 1-6 move (changed moves in orange)",
     "Move Changes": "One line per changed Gen 1-6 move: old -> new",
     "Encounters": "Wild encounters per map and method with % chance",
+    "Gift Pokemon": "Gift, trade and one-time Pokemon by split and location: who gives it, what you give up, and its level, nature, ability, IVs, item and moves",
     "Split 1": "Restructured Split 1 in play order (in ROM, not playtested): 16 mandatory battles + 2 optional Viridian Forest trainers",
     "Split 1 Progression": "Step-by-step Split 1 route, gates and story flags",
     "Split 2 Progression": "Split 2 route and gates (woods open after Badge 1, Roxanne found on Route 116); teams not redesigned yet",
