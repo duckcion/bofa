@@ -98,6 +98,8 @@ def fmt_evolutions(evos):
                 parts.append(f"Lv {param} -> {target_s}")
             elif str(param).startswith("ITEM_"):
                 parts.append(f"{method_s} ({pretty_const(param, 'ITEM_')}) -> {target_s}")
+            elif str(param).startswith("SPECIES_"):
+                parts.append(f"{method_s} ({pretty_const(param, 'SPECIES_')}) -> {target_s}")
             elif str(param) == "0":
                 parts.append(f"{method_s} -> {target_s}")
             else:

@@ -43,3 +43,4 @@ src/data/map_group_count.h
 tools/trainerproc/trainerproc
 tools/docgen/__pycache__/
 bofa_export.txt
+development_reports/old_saves/
