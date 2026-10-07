@@ -969,11 +969,20 @@ function parseSets(textIn) {
   const blocks = [];
   for (const chunk of textIn.replace(/\r/g, "").split(/\n\s*\n/)) {
     const first = chunk.trim().split("\n")[0] || "";
-    if (blocks.length && detail.test(first.trim())) blocks[blocks.length - 1] += "\n" + chunk;
+    const looksLikeSet = /^\s*(Ability|Level|IVs|EVs):|Nature\s*$|^\s*-/im.test(chunk);
+    if (blocks.length && (detail.test(first.trim()) || !looksLikeSet)) blocks[blocks.length - 1] += "\n" + chunk;
     else blocks.push(chunk);
   }
   for (const block of blocks) {
-    const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
+    // undo console line-wrapping: a line that doesn't start a field continues the one before it
+    const joined = [];
+    for (const raw of block.split("\n")) {
+      if (!raw.trim()) continue;
+      const prev = joined[joined.length - 1];
+      if (prev !== undefined && (prev.trim() === "-" || !detail.test(raw.trim()))) joined[joined.length - 1] = prev + raw;
+      else joined.push(raw);
+    }
+    const lines = joined.map(l => l.trim()).filter(Boolean);
     if (!lines.length) continue;
     let head = lines[0], item = 0, nick = "";
     const at = head.lastIndexOf(" @ ");
