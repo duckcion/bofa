@@ -1501,16 +1501,6 @@ Nature: Naughty
 - Bite
 - Supersonic
 
-Teddiursa @ Toxic Orb
-Level: 13
-Ability: Quick Feet
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-Nature: Adamant
-- Slash
-- Shadow Claw
-- Rock Tomb
-- Protect
-
 === TRAINER_PARKER ===
 Name: PARKER
 Class: Cooltrainer
