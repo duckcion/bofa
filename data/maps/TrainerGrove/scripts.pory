@@ -9,18 +9,28 @@ script TrainerGrove_EventScript_TrainerOne{
     end
 }
 
+// Maisie hands over the Miracle Seed right after the battle (no second talk needed)
 script TrainerGrove_EventScript_TrainerTwo{
-    trainerbattle_single(TRAINER_TRAINERGROVET2, TrainerGrove_Text_Trainer2Intro, TrainerGrove_Text_Trainer2Outro)
+    trainerbattle_single(TRAINER_TRAINERGROVET2, TrainerGrove_Text_Trainer2Intro, TrainerGrove_Text_Trainer2Outro, TrainerGrove_EventScript_MaisieReward)
     lock
     faceplayer
     if (!flag(FLAG_RECEIVED_MIRACLE_SEED_GROVE)) {
-        msgbox(TrainerGrove_Text_MaisieGift, MSGBOX_DEFAULT)
-        giveitem(ITEM_MIRACLE_SEED)
-        if (var(VAR_RESULT) == FALSE) {
-            goto(Common_EventScript_ShowBagIsFull)
-        }
-        setflag(FLAG_RECEIVED_MIRACLE_SEED_GROVE)
+        goto(TrainerGrove_EventScript_MaisieReward)
     }
+    msgbox(TrainerGrove_Text_Trainer2PostBattle, MSGBOX_DEFAULT)
+    release
+    end
+}
+
+script TrainerGrove_EventScript_MaisieReward{
+    lock
+    faceplayer
+    msgbox(TrainerGrove_Text_MaisieGift, MSGBOX_DEFAULT)
+    giveitem(ITEM_MIRACLE_SEED)
+    if (var(VAR_RESULT) == FALSE) {
+        goto(Common_EventScript_ShowBagIsFull)
+    }
+    setflag(FLAG_RECEIVED_MIRACLE_SEED_GROVE)
     msgbox(TrainerGrove_Text_Trainer2PostBattle, MSGBOX_DEFAULT)
     release
     end
