@@ -19467,15 +19467,6 @@ Nature: Adamant
 - Rock Tomb
 - Rapid Spin
 
-Aron @ Oran Berry
-Level: 11
-Ability: Rock Head
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-Nature: Adamant
-- Rock Slide
-- Metal Claw
-- Bulldoze
-
 === TRAINER_TRAINERGROVET2 ===
 Name: MAISIE
 Class: Picnicker

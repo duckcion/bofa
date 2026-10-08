@@ -29,11 +29,11 @@ SPLIT1_TRAINERS = [
      "note": "First Team Magma battle. New."},
     # 9-11 Trainer Grove (gated until Norman gives the quest)
     {"order": 9, "from_id": "TRAINER_TRAINERGROVET1", "loc": "TrainerGrove", "status": "REQUIRED",
-     "note": "Hiker Rocco. Nidoran-M intentionally has three moves (no Focus Energy)."},
-    {"order": 10, "from_id": "TRAINER_TRAINERGROVET2", "loc": "TrainerGrove", "status": "REQUIRED",
-     "note": "Picnicker Maisie, Gen 5 specialist."},
-    {"order": 11, "from_id": "TRAINER_TRAINERGROVET3", "loc": "TrainerGrove", "status": "REQUIRED",
+     "note": "Hiker Rocco (Aron removed). Nidoran-M intentionally has three moves (no Focus Energy)."},
+    {"order": 10, "from_id": "TRAINER_TRAINERGROVET3", "loc": "TrainerGrove", "status": "REQUIRED",
      "note": "Camper Grant."},
+    {"order": 11, "from_id": "TRAINER_TRAINERGROVET2", "loc": "TrainerGrove", "status": "REQUIRED",
+     "note": "Picnicker Maisie, Gen 5 specialist."},
     # 12 Rival at the gym entrance (6 variants)
     *[{"order": 12, "from_id": f"TRAINER_{r}_PETALBURG_{s}", "loc": "PetalburgCity_GymEntrance",
        "status": "REQUIRED", "note": f"{_RIVAL_NOTE} This one: player chose {s.title()}."}
@@ -273,8 +273,8 @@ FIGHT_ORDER = {
         ("TRAINER_GRUNT_ROUTE_104_AQUA", "Route104", "REQUIRED", "Single", "Route 104 South"),
         ("TRAINER_GRUNT_ROUTE_104_MAGMA", "Route104", "REQUIRED", "Single", "Route 104 South"),
         ("TRAINER_TRAINERGROVET1", "TrainerGrove", "REQUIRED", "Single", None),
-        ("TRAINER_TRAINERGROVET2", "TrainerGrove", "REQUIRED", "Single", None),
         ("TRAINER_TRAINERGROVET3", "TrainerGrove", "REQUIRED", "Single", None),
+        ("TRAINER_TRAINERGROVET2", "TrainerGrove", "REQUIRED", "Single", None),
         ("TRAINER_VIRIDIAN_FOREST_1", "ViridianForest", "Opt-in", "Single", "Optional"),
         ("TRAINER_VIRIDIAN_FOREST_3", "ViridianForest", "Opt-in", "Single", "Optional"),
         ("TRAINER_BRENDAN_PETALBURG_TREECKO", "PetalburgCity", "REQUIRED", "Single", _RIVAL_NOTE + " (Treecko)"),
