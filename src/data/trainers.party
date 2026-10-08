@@ -20721,16 +20721,6 @@ Nature: Adamant
 - Fury Cutter
 - Leer
 
-Surskit @ Mystic Water
-Level: 11
-Ability: Swift Swim
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-Nature: Mild
-- Bubble Beam
-- Bug Bite
-- Quick Attack
-- Sweet Scent
-
 Dwebble @ Hard Stone
 Level: 11
 Ability: Sturdy
@@ -20739,7 +20729,6 @@ Nature: Adamant
 - Rock Tomb
 - Bug Bite
 - Sand Attack
-- Stealth Rock
 
 Vivillon @ Charti Berry
 Level: 11
