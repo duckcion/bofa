@@ -13229,7 +13229,7 @@ F_TRAINER_FEMALE |
 #line 5658
             .ability = ABILITY_OWN_TEMPO,
 #line 5657
-            .lvl = 14,
+            .lvl = 15,
 #line 5660
             .nature = NATURE_JOLLY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -13250,7 +13250,7 @@ F_TRAINER_FEMALE |
 #line 5666
             .ability = ABILITY_OWN_TEMPO,
 #line 5665
-            .lvl = 14,
+            .lvl = 15,
 #line 5668
             .nature = NATURE_NAUGHTY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -13273,7 +13273,7 @@ F_TRAINER_FEMALE |
 #line 5676
             .ability = ABILITY_POISON_POINT,
 #line 5675
-            .lvl = 14,
+            .lvl = 15,
 #line 5678
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -13294,7 +13294,7 @@ F_TRAINER_FEMALE |
 #line 5686
             .ability = ABILITY_INTIMIDATE,
 #line 5685
-            .lvl = 14,
+            .lvl = 15,
 #line 5688
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -13317,7 +13317,7 @@ F_TRAINER_FEMALE |
 #line 5696
             .ability = ABILITY_GUTS,
 #line 5695
-            .lvl = 14,
+            .lvl = 15,
 #line 5698
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -13340,7 +13340,7 @@ F_TRAINER_FEMALE |
 #line 5706
             .ability = ABILITY_TRUANT,
 #line 5705
-            .lvl = 16,
+            .lvl = 17,
 #line 5709
             .friendship = 255,
 #line 5708
