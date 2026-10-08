@@ -995,7 +995,7 @@ Route104_EventScript_Mia::
 	end
 
 Route104_EventScript_Darian::
-	trainerbattle_single TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat
+	trainerbattle_single TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat, Route104_EventScript_DarianReward
 	lock
 	faceplayer
 	goto Route104_EventScript_Darian_Gift
@@ -1287,6 +1287,10 @@ Route104_Text_FloraPostBattle:
 	.string "A sunny day makes every flower\n"
 	.string "bloom a little brighter.$"
 
+@ Runs right after the battle is won (and when talked to later, until the gift is received).
+Route104_EventScript_DarianReward::
+	lock
+	faceplayer
 Route104_EventScript_Darian_Gift::
 	goto_if_set FLAG_RECEIVED_MYSTIC_WATER_DARIAN, Route104_EventScript_Darian_GiftDone
 	msgbox Route104_EventScript_Darian_Text_GiftIntro, MSGBOX_DEFAULT
